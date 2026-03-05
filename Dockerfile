@@ -10,11 +10,13 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
+# PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD prevents the ~300MB chromium binary from being
+# downloaded during install — it is only needed for local testing, not production.
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+  if [ -f yarn.lock ]; then PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm i --frozen-lockfile; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
