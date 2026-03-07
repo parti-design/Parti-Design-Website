@@ -69,6 +69,8 @@ export interface Config {
   collections: {
     pages: Page;
     posts: Post;
+    projects: Project;
+    ventures: Venture;
     media: Media;
     categories: Category;
     users: User;
@@ -91,6 +93,8 @@ export interface Config {
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    ventures: VenturesSelect<false> | VenturesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -784,6 +788,219 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  title: string;
+  /**
+   * Main image shown at the top of the project page and used for cards
+   */
+  coverImage?: (number | null) | Media;
+  /**
+   * Short description for project cards (1–2 sentences)
+   */
+  tagline?: string | null;
+  /**
+   * Project overview — shown at the top of the project page
+   */
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Extended write-up with images and blocks — optional
+   */
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Project images shown in the gallery
+   */
+  gallery?:
+    | {
+        image: number | Media;
+        caption?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Client or organisation name
+   */
+  client?: string | null;
+  /**
+   * e.g. "Umeå, Sweden"
+   */
+  location?: string | null;
+  year?: number | null;
+  projectStatus?: ('completed' | 'in-progress' | 'study-concept') | null;
+  /**
+   * Which disciplines were involved
+   */
+  services?:
+    | (
+        | 'architecture-spatial'
+        | 'graphic-design-branding'
+        | 'ux-ui-digital'
+        | 'co-design-workshops'
+        | 'facilitation-project-management'
+        | 'placemaking-consulting'
+        | 'research-development'
+      )[]
+    | null;
+  /**
+   * External team members and partners on this project
+   */
+  collaborators?:
+    | {
+        name: string;
+        /**
+         * e.g. "Structural Engineer", "Landscape Architect"
+         */
+        role?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Show on homepage and featured sections
+   */
+  featured?: boolean | null;
+  relatedProjects?: (number | Project)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ventures".
+ */
+export interface Venture {
+  id: number;
+  title: string;
+  /**
+   * Main image shown at the top of the venture page and used for cards
+   */
+  coverImage?: (number | null) | Media;
+  /**
+   * Short description for venture cards (1–2 sentences)
+   */
+  tagline?: string | null;
+  /**
+   * Full description of the venture — what it is and where it is heading
+   */
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Images shown in the venture gallery
+   */
+  gallery?:
+    | {
+        image: number | Media;
+        caption?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Link to the venture's own website or project page, if it exists
+   */
+  externalUrl?: string | null;
+  ventureStatus?: ('active' | 'in-development' | 'completed') | null;
+  /**
+   * e.g. "Umeå, Sweden"
+   */
+  location?: string | null;
+  /**
+   * Parti Design's contribution to this venture
+   */
+  services?:
+    | (
+        | 'architecture-spatial'
+        | 'graphic-design-branding'
+        | 'ux-ui-digital'
+        | 'co-design-workshops'
+        | 'facilitation-project-management'
+        | 'placemaking-consulting'
+        | 'research-development'
+      )[]
+    | null;
+  /**
+   * Show on homepage and featured sections
+   */
+  featured?: boolean | null;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -979,6 +1196,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'ventures';
+        value: number | Venture;
       } | null)
     | ({
         relationTo: 'media';
@@ -1214,6 +1439,87 @@ export interface PostsSelect<T extends boolean = true> {
         id?: T;
         name?: T;
       };
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  coverImage?: T;
+  tagline?: T;
+  description?: T;
+  content?: T;
+  gallery?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
+  client?: T;
+  location?: T;
+  year?: T;
+  projectStatus?: T;
+  services?: T;
+  collaborators?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        id?: T;
+      };
+  featured?: T;
+  relatedProjects?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ventures_select".
+ */
+export interface VenturesSelect<T extends boolean = true> {
+  title?: T;
+  coverImage?: T;
+  tagline?: T;
+  description?: T;
+  gallery?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
+  externalUrl?: T;
+  ventureStatus?: T;
+  location?: T;
+  services?: T;
+  featured?: T;
+  order?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
   generateSlug?: T;
   slug?: T;
   updatedAt?: T;
@@ -1762,6 +2068,14 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'posts';
           value: number | Post;
+        } | null)
+      | ({
+          relationTo: 'projects';
+          value: number | Project;
+        } | null)
+      | ({
+          relationTo: 'ventures';
+          value: number | Venture;
         } | null);
     global?: string | null;
     user?: (number | null) | User;

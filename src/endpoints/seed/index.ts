@@ -281,6 +281,7 @@ async function fetchFileByURL(url: string): Promise<File> {
   const res = await fetch(url, {
     credentials: 'include',
     method: 'GET',
+    signal: AbortSignal.timeout(15000),
   })
 
   if (!res.ok) {
