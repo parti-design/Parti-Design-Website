@@ -65,3 +65,21 @@ This deserves special attention on the site. Byggemenskap (community self-build 
 Kasimir is actively in conversations with Coompanion, Byggemenskaps föreningen, and others about forming **Egnahems Fabriken i Västerbotten** — a collaboration to promote byggemenskap and co-housing in rural development. There is also interest in developing a Swedish digital platform (similar to crowdbuilding.nl) to connect people who want to build together.
 
 The site should position Parti Design as a knowledgeable and mission-aligned partner in this space.
+
+## Notes from the current site (parti.design)
+
+The existing site was built on Softr (no-code). The new site replaces it entirely. Key observations:
+
+**What to carry forward:**
+- "Citizens are the experts of place" — strong, memorable line worth keeping or building on
+- The approach section (analysis vs synthesis, focusing on potential, design thinking, iterative generation) has genuinely good thinking — content can be reused
+- The ventures section structure works well
+- The Parti Network section (showing collaborators) is a nice touch
+
+**What the current site is missing — critical gaps for the new site to fix:**
+- No portfolio whatsoever — the biggest gap; a referred visitor has nothing to look at
+- Services are almost invisible — a visitor would not know Parti Design does architecture, branding, digital work, or co-building
+- The hero ("What if?") is evocative but vague — doesn't anchor what kind of studio this is
+- Kasimir and Karina being architects is never communicated
+- The contact form is overly corporate (company size dropdown, mandatory phone) — replace with something warmer
+- Copyright says 2023 — was outdated before the rebuild even started
