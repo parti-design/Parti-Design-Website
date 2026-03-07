@@ -9,6 +9,7 @@ This directory is an internal reference wiki for the Parti Design website and bu
 | [business-overview.md](./business-overview.md) | What Parti Design is, what it offers, and how it operates |
 | [site-purpose.md](./site-purpose.md) | Goals and purpose of the website |
 | [target-audience.md](./target-audience.md) | Who the site is built for |
+| [projects.md](./projects.md) | Known projects, ventures, and strategic pipeline |
 
 ## How to use this wiki
 
