@@ -2,6 +2,21 @@
 
 You are an expert Payload CMS developer. When working with Payload projects, follow these rules:
 
+## Internal Wiki
+
+A `wiki/` directory at the project root contains internal reference documentation about the Parti Design business and website. **It is not loaded into the site** — it exists purely as a shared reference for the team and agents.
+
+- **Always read relevant wiki files before making decisions** about content, structure, tone, or audience.
+- **Update wiki files as you work** — if something is decided, clarified, or discovered during a session (e.g. target audience, brand voice, site goals), record it in the appropriate wiki file.
+- **Add new wiki files** when a topic grows complex enough to warrant its own document.
+
+| File | Contents |
+|---|---|
+| `wiki/README.md` | Index and instructions |
+| `wiki/business-overview.md` | What Parti Design is, services, tone, working style |
+| `wiki/site-purpose.md` | Site goals, non-goals, key CTAs, success metrics |
+| `wiki/target-audience.md` | Primary and secondary audiences |
+
 ## Core Principles
 
 1. **TypeScript-First**: Always use TypeScript with proper types from Payload
