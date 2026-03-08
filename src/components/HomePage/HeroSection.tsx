@@ -51,13 +51,13 @@ export function HeroSection() {
           >
             <Link
               href="#work"
-              className="inline-flex items-center px-6 py-3 bg-lime text-ink font-semibold text-sm hover:bg-lime/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-md bg-lime text-ink font-semibold text-sm hover:bg-lime/90 transition-colors"
             >
               See our work
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 border border-off-white/60 text-off-white font-semibold text-sm hover:bg-off-white hover:text-ink transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-md border border-off-white/60 text-off-white font-semibold text-sm hover:bg-off-white hover:text-ink transition-colors"
             >
               Get in touch
             </Link>

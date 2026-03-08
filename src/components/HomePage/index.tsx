@@ -235,7 +235,7 @@ export function HomePage() {
           <AnimateOnScroll delay={200}>
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-4 border-2 border-ink text-ink font-semibold hover:bg-ink hover:text-lime transition-colors"
+              className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink text-ink font-semibold hover:bg-ink hover:text-lime transition-colors"
             >
               Talk to us about byggemenskap
             </Link>
@@ -267,7 +267,7 @@ export function HomePage() {
           <AnimateOnScroll delay={200}>
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-lime text-ink font-semibold hover:bg-lime/90 transition-colors"
+              className="inline-flex items-center px-8 py-4 rounded-md bg-lime text-ink font-semibold hover:bg-lime/90 transition-colors"
             >
               Start a conversation
             </Link>
