@@ -1,10 +1,14 @@
+import { ProjectCard } from '@/components/ProjectCard'
+import { VentureCard, type VentureCardTheme } from '@/components/VentureCard'
+import { SectionHeading } from '@/components/ui/SectionHeading'
+import { Tag } from '@/components/ui/Tag'
 import Link from 'next/link'
 import React from 'react'
 
 import { AnimateOnScroll } from './AnimateOnScroll'
 import { HeroSection } from './HeroSection'
 
-// ─── Static data ────────────────────────────────────────────────────────────
+// ─── Static data ─────────────────────────────────────────────────────────────
 
 const SERVICES = [
   {
@@ -41,119 +45,47 @@ const PROJECTS = [
     tags: ['Architecture', 'Self-build Housing'],
     description: 'The first WikiHouse in Sweden — do-it-together self-build housing for communities.',
     slug: 'dit-egnahem',
-    large: false,
   },
   {
     title: 'Umeå Together',
     tags: ['Web', 'Branding', 'Facilitation'],
     description: 'A social incubator: workshops, branding, web development, and crowdfunding consulting.',
     slug: 'umea-together',
-    large: false,
   },
   {
     title: 'Rewilding Sweden — Dome',
     tags: ['Architecture', 'Construction'],
     description: 'A geodesic dome pavilion designed and built for Rewilding Sweden.',
     slug: 'rewilding-sweden-dome',
-    large: false,
   },
   {
     title: 'Klondyke Farms',
     tags: ['Branding', 'Web Development'],
     description: 'Branding and website for a local farm — clean, grounded, commercial.',
     slug: 'klondyke-farms',
-    large: false,
   },
 ]
 
-type VentureColor = { bg: string; text: string; linkText: string }
-const VENTURE_COLORS: VentureColor[] = [
-  { bg: 'bg-lime', text: 'text-ink', linkText: 'text-ink/70' },
-  { bg: 'bg-lavender', text: 'text-ink', linkText: 'text-ink/70' },
-  { bg: 'bg-ink', text: 'text-off-white', linkText: 'text-off-white/70' },
-]
-
-const VENTURES = [
+const VENTURES: { title: string; tagline: string; slug: string; theme: VentureCardTheme }[] = [
   {
     title: 'Massvis',
-    tagline:
-      'Community finance platform. Supporting local initiatives to raise funds and self-organise.',
+    tagline: 'Community finance platform. Supporting local initiatives to raise funds and self-organise.',
     slug: 'massvis',
+    theme: 'lime',
   },
   {
     title: 'Umeå Kallbad',
-    tagline:
-      'A community-led cold bathing and sauna facility for Umeå. Co-designed and co-built.',
+    tagline: 'A community-led cold bathing and sauna facility for Umeå. Co-designed and co-built.',
     slug: 'umea-kallbad',
+    theme: 'lavender',
   },
   {
     title: 'DIT Egnahem',
-    tagline:
-      'The first WikiHouse in Sweden. Do-it-together self-build housing for communities.',
+    tagline: 'The first WikiHouse in Sweden. Do-it-together self-build housing for communities.',
     slug: 'dit-egnahem',
+    theme: 'ink',
   },
 ]
-
-// ─── Sub-components ──────────────────────────────────────────────────────────
-
-function ProjectCard({
-  project,
-  large = false,
-}: {
-  project: (typeof PROJECTS)[number]
-  large?: boolean
-}) {
-  return (
-    <Link
-      href={`/work/${project.slug}`}
-      className="group relative flex bg-muted overflow-hidden"
-      style={{ minHeight: large ? 480 : 280 }}
-    >
-      {/* Placeholder image area — replaced with real photo later */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-secondary/20 group-hover:scale-[1.03] transition-transform duration-500" />
-
-      {/* Hover description overlay */}
-      <div className="absolute inset-0 bg-ink/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-        <p className="text-off-white text-sm leading-relaxed">{project.description}</p>
-      </div>
-
-      {/* Info bar */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink/70 to-transparent">
-        <p className="font-semibold text-off-white mb-1">{project.title}</p>
-        <p className="text-xs text-off-white/70 tracking-[0.05em] uppercase">
-          {project.tags.join(' · ')}
-        </p>
-      </div>
-    </Link>
-  )
-}
-
-function VentureCard({
-  venture,
-  colors,
-}: {
-  venture: (typeof VENTURES)[number]
-  colors: VentureColor
-}) {
-  return (
-    <Link
-      href={`/ventures/${venture.slug}`}
-      className={`group flex flex-col justify-between p-8 min-h-[260px] hover:-rotate-1 hover:shadow-xl transition-all duration-300 ${colors.bg}`}
-    >
-      <h3 className={`font-display text-2xl font-bold ${colors.text} leading-tight`}>
-        {venture.title}
-      </h3>
-      <div>
-        <p className={`text-sm ${colors.text} opacity-80 leading-relaxed mb-6`}>
-          {venture.tagline}
-        </p>
-        <span className={`text-sm font-semibold ${colors.text} group-hover:underline`}>
-          Learn more →
-        </span>
-      </div>
-    </Link>
-  )
-}
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
@@ -173,12 +105,10 @@ export function HomePage() {
                 delay={i * 100}
                 className="px-0 md:px-10 first:pl-0 last:pr-0 py-12 md:py-0"
               >
-                <p className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground mb-4">
-                  {service.label}
-                </p>
-                <h3 className="font-display text-2xl font-bold text-foreground mb-3 leading-snug">
+                <Tag className="mb-4">{service.label}</Tag>
+                <SectionHeading as="h3" size="md" className="mb-3">
                   {service.heading}
-                </h3>
+                </SectionHeading>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-3">{service.body}</p>
                 <p className="text-xs text-muted-foreground italic">{service.examples}</p>
               </AnimateOnScroll>
@@ -191,21 +121,19 @@ export function HomePage() {
       <section id="work" className="py-24 bg-background">
         <div className="container">
           <AnimateOnScroll className="mb-12">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-              Selected work
-            </h2>
+            <SectionHeading>Selected work</SectionHeading>
           </AnimateOnScroll>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Large card spans 2 columns × 2 rows */}
             <AnimateOnScroll className="col-span-2 row-span-2">
-              <ProjectCard project={PROJECTS[0]!} large />
+              <ProjectCard {...PROJECTS[0]!} large />
             </AnimateOnScroll>
 
             {/* Remaining 4 cards */}
             {PROJECTS.slice(1).map((project, i) => (
               <AnimateOnScroll key={project.slug} delay={i * 80} className="col-span-1">
-                <ProjectCard project={project} />
+                <ProjectCard {...project} />
               </AnimateOnScroll>
             ))}
           </div>
@@ -226,9 +154,7 @@ export function HomePage() {
         <div className="container grid lg:grid-cols-5 gap-16 items-start">
           <div className="lg:col-span-3 space-y-6">
             <AnimateOnScroll>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                An architecture studio that builds differently.
-              </h2>
+              <SectionHeading>An architecture studio that builds differently.</SectionHeading>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={100}>
@@ -284,7 +210,7 @@ export function HomePage() {
           <div className="grid md:grid-cols-3 gap-4">
             {VENTURES.map((venture, i) => (
               <AnimateOnScroll key={venture.slug} delay={i * 100}>
-                <VentureCard venture={venture} colors={VENTURE_COLORS[i]!} />
+                <VentureCard {...venture} />
               </AnimateOnScroll>
             ))}
           </div>
@@ -295,9 +221,9 @@ export function HomePage() {
       <section className="py-24 bg-lime">
         <div className="container text-center max-w-3xl mx-auto">
           <AnimateOnScroll>
-            <h2 className="font-display text-5xl md:text-6xl font-bold text-ink leading-tight mb-6">
+            <SectionHeading size="xl" className="text-ink mb-6">
               Building homes together.
-            </h2>
+            </SectionHeading>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p className="text-lg text-ink/80 leading-relaxed mb-10">
@@ -321,9 +247,9 @@ export function HomePage() {
       <section className="py-32 bg-ink">
         <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
-            <h2 className="font-display text-5xl md:text-6xl font-bold text-off-white leading-tight mb-6">
+            <SectionHeading size="xl" className="text-off-white mb-6">
               Let&apos;s build something together.
-            </h2>
+            </SectionHeading>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p className="text-lg text-off-white/60 leading-relaxed mb-4">

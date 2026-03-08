@@ -46,6 +46,61 @@ src/
 └── payload.config.ts        # Main config
 ```
 
+## Frontend Design System
+
+The frontend uses a layered design system. **Always follow this system when building new pages or components.** Do not write raw Tailwind utility patterns that duplicate existing components.
+
+### Layer 1 — Tokens (`src/app/(frontend)/globals.css`)
+
+All colours, fonts, radius, and breakpoints are defined as CSS custom properties and mapped to Tailwind utilities via `@theme`. This is the single source of truth.
+
+| Token class | Value |
+|---|---|
+| `bg-lime` / `text-lime` | Brand lime `#bbd644` |
+| `bg-lavender` / `text-lavender` | Brand lavender `#ccc2de` |
+| `bg-ink` / `text-ink` | Brand ink `#231f20` |
+| `bg-off-white` / `text-off-white` | Warm white |
+| `bg-background` | Page background (off-white / near-ink in dark) |
+| `text-foreground` | Page text (ink / off-white in dark) |
+| `font-display` | Expletus Sans — headings only |
+| `font-sans` | Mulish — body, UI, default |
+
+**Never use raw hex values in component code.** Always use token classes.
+
+### Layer 2 — Shared UI components
+
+Use these components on every page. Do not recreate their styles inline.
+
+| Component | Location | Use for |
+|---|---|---|
+| `<SectionHeading size="xl\|lg\|md">` | `src/components/ui/SectionHeading.tsx` | All page and section headings |
+| `<Tag>` | `src/components/ui/Tag.tsx` | All-caps metadata labels, category tags |
+| `<Button variant="...">` | `src/components/ui/button.tsx` | All interactive buttons |
+| `<ProjectCard ...>` | `src/components/ProjectCard/index.tsx` | Portfolio project cards |
+| `<VentureCard theme="lime\|lavender\|ink">` | `src/components/VentureCard/index.tsx` | Venture cards |
+| `<AnimateOnScroll delay={ms}>` | `src/components/HomePage/AnimateOnScroll.tsx` | Scroll-triggered fade-up entrance |
+
+### Layer 3 — Layout conventions
+
+Follow these on every page for visual consistency:
+
+- **Section vertical padding:** `py-24` — do not vary this without a deliberate reason
+- **Page container:** always wrap content in `<div className="container">` — never set widths manually
+- **Section backgrounds** (in order of use): `bg-background`, `bg-muted/40`, `bg-secondary/20`, `bg-lime`, `bg-ink`
+- **Section dividers:** `border-t border-border` between adjacent same-background sections
+- **Animations:** wrap content that should animate in with `<AnimateOnScroll>`. Use `delay` props (ms) to stagger sibling elements.
+
+### Adding new pages — checklist
+
+1. Use `<SectionHeading>` for every heading — never write `font-display text-4xl font-bold` directly in a page file
+2. Use `<Tag>` for any all-caps label or category indicator
+3. Use `<ProjectCard>` / `<VentureCard>` when displaying projects or ventures
+4. Keep section padding consistent: `py-24` with appropriate `bg-{token}` background
+5. Wrap animate-able content in `<AnimateOnScroll>`
+6. Read `wiki/brand-guide.md` before making visual decisions
+
+---
+
 ## Configuration
 
 ### Minimal Config Pattern

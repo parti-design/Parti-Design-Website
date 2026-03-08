@@ -3,6 +3,29 @@
 
 @config '../../../tailwind.config.mjs';
 
+/*
+ * ─── PARTI DESIGN — COMPONENT CONVENTIONS ────────────────────────────────────
+ *
+ * Tokens (this file) are the single source of truth. Always use token-based
+ * Tailwind classes rather than raw colour values or hex codes.
+ *
+ * Shared components — use these instead of writing raw Tailwind in new pages:
+ *
+ *   <SectionHeading size="xl|lg|md">        Expletus Sans headings
+ *   <Tag>                                    all-caps metadata label
+ *   <ProjectCard ...>                        portfolio card with hover overlay
+ *   <VentureCard theme="lime|lavender|ink">  venture card with tilt hover
+ *   <AnimateOnScroll delay={ms}>             scroll-triggered fade-up wrapper
+ *   <Button variant="...">                   shadcn button (ui/button.tsx)
+ *
+ * Layout conventions:
+ *   Section padding : py-24
+ *   Container       : className="container"
+ *   Section bg      : bg-background | bg-muted/40 | bg-secondary/20 | bg-lime | bg-ink
+ *
+ * ──────────────────────────────────────────────────────────────────────────────
+ */
+
 @custom-variant dark (&:is([data-theme='dark'] *));
 @custom-variant sm (@media (width >= theme(--breakpoint-sm)));
 @custom-variant md (@media (width >= theme(--breakpoint-md)));
