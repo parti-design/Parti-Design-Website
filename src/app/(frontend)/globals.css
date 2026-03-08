@@ -144,7 +144,7 @@
   --border: oklch(87% 0.03 292deg);             /* lavender-tinted border */
   --input: oklch(87% 0.03 292deg);
   --ring: oklch(82% 0.178 122deg);              /* lime focus ring */
-  --radius: 0.25rem;                            /* 4px — architectural, precise */
+  --radius: 0.5rem;                             /* 8px — shadcn default */
   --text: oklch(16% 0.006 8deg);                /* alias for prose */
 
   /* Sidebar (Payload CMS admin) */

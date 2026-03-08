@@ -162,7 +162,7 @@ Reference studios that demonstrate the target aesthetic:
 
 ### Radius
 
-Use `0.25rem` (4px) corner radius across the UI. This keeps the feel architectural and precise — not the soft "SaaS" style of more rounded interfaces.
+Use `0.5rem` (8px) corner radius across the UI — the shadcn default. Consistent with the component library baseline.
 
 ### Photography and imagery
 
