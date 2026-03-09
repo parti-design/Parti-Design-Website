@@ -25,7 +25,7 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
         const url = mediaUrl(g.image)
         return url ? { src: url, caption: g.caption ?? undefined } : null
       })
-      .filter((g): g is { src: string; caption?: string } => g !== null) ?? []
+      .filter((g): g is { src: string; caption: string | undefined } => g !== null) ?? []
 
   return (
     <main>
