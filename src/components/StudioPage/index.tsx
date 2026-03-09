@@ -68,7 +68,7 @@ export function StudioPage() {
             <AnimateOnScroll delay={120}>
               <blockquote className="border-l-4 border-lime pl-6 py-2 my-4">
                 <p className="font-sans text-2xl md:text-3xl italic text-foreground leading-snug">
-                  "Citizens are the experts of place."
+                  &ldquo;Citizens are the experts of place.&rdquo;
                 </p>
               </blockquote>
             </AnimateOnScroll>
@@ -77,7 +77,7 @@ export function StudioPage() {
               <p className="text-base text-muted-foreground leading-relaxed">
                 The studio operates as both a practice and a venture studio — incubating its own
                 initiatives alongside client work. A single project might combine architecture,
-                workshop facilitation, branding, and a website. That's not a coincidence; it's the
+                workshop facilitation, branding, and a website. That&apos;s not a coincidence; it&apos;s the
                 point.
               </p>
             </AnimateOnScroll>
@@ -190,7 +190,7 @@ export function StudioPage() {
           <AnimateOnScroll delay={80}>
             <p className="text-off-white/60 leading-relaxed mb-10">
               Whether you have a brief, a rough idea, or a community problem that needs solving —
-              we'd love to hear from you.
+              we&apos;d love to hear from you.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={140}>

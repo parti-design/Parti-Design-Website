@@ -53,7 +53,7 @@ export function ContactPage() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   We offer end-to-end support for community self-build housing groups — from
                   forming the cooperative to designing and co-building the home. Reach out and
-                  let's talk.
+                  let&apos;s talk.
                 </p>
               </div>
             </AnimateOnScroll>

@@ -31,7 +31,7 @@ export function ContactForm() {
   if (status === 'sent') {
     return (
       <div className="py-16 text-center space-y-3">
-        <p className="font-display font-bold text-2xl text-foreground">Thanks — we'll be in touch.</p>
+        <p className="font-display font-bold text-2xl text-foreground">Thanks &mdash; we&apos;ll be in touch.</p>
         <p className="text-muted-foreground text-sm">We usually reply within a couple of days.</p>
       </div>
     )

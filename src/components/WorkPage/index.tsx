@@ -3,6 +3,7 @@ import { ProjectCard } from '@/components/ProjectCard'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Tag } from '@/components/ui/Tag'
 import { PROJECTS } from '@/lib/projects'
+import Link from 'next/link'
 import React from 'react'
 
 const ALL_TAGS = ['All', 'Architecture', 'Co-building', 'Digital', 'Facilitation']
@@ -50,14 +51,14 @@ export function WorkPage() {
             </p>
             <p className="text-muted-foreground mb-8">
               We work with municipalities, developers, community organisations, and individuals.
-              Reach out — we'd love to hear about your project.
+              Reach out &mdash; we&apos;d love to hear about your project.
             </p>
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center px-8 py-4 rounded-md bg-ink text-off-white font-semibold hover:bg-ink/90 transition-colors"
             >
               Start a conversation
-            </a>
+            </Link>
           </AnimateOnScroll>
         </div>
       </section>

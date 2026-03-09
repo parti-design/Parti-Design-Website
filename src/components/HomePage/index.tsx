@@ -172,7 +172,7 @@ export function HomePage() {
             <AnimateOnScroll delay={150}>
               <blockquote className="border-l-4 border-lime pl-6 py-2 my-2">
                 <p className="font-sans text-2xl md:text-3xl italic text-foreground leading-snug">
-                  "Citizens are the experts of place."
+                  &ldquo;Citizens are the experts of place.&rdquo;
                 </p>
               </blockquote>
             </AnimateOnScroll>

@@ -126,7 +126,7 @@ export function VenturesPage() {
               <p className="text-off-white/70 leading-relaxed">
                 Each venture is a real project that we invest our own time, design, and
                 relationships into. Some grow into independent organisations; others fold back into
-                the studio's service offer. All of them sharpen how we think.
+                the studio&apos;s service offer. All of them sharpen how we think.
               </p>
             </AnimateOnScroll>
           </div>
@@ -134,7 +134,7 @@ export function VenturesPage() {
           <AnimateOnScroll delay={100} className="lg:col-span-2 lg:pt-4">
             <blockquote className="border-l-4 border-lime pl-6 py-2">
               <p className="font-sans text-xl italic text-off-white leading-snug">
-                "The best projects we've been part of started with a question, not a budget."
+                &ldquo;The best projects we&apos;ve been part of started with a question, not a budget.&rdquo;
               </p>
             </blockquote>
           </AnimateOnScroll>
