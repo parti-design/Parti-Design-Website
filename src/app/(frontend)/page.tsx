@@ -1,7 +1,21 @@
 import { HomePage } from '@/components/HomePage'
+import { mediaUrl, queryFeaturedProjects, queryFeaturedVentures, serviceLabels } from '@/lib/payload-queries'
 
-export default function Page() {
-  return <HomePage />
+export default async function Page() {
+  const [rawProjects, ventures] = await Promise.all([
+    queryFeaturedProjects(5),
+    queryFeaturedVentures(3),
+  ])
+
+  const projects = rawProjects.map((p) => ({
+    title: p.title,
+    slug: p.slug,
+    tags: serviceLabels(p.services),
+    description: p.tagline ?? '',
+    imageSrc: mediaUrl(p.coverImage),
+  }))
+
+  return <HomePage projects={projects} ventures={ventures} />
 }
 
 export const metadata = {

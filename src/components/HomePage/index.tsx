@@ -1,8 +1,8 @@
-import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCard, type ProjectCardProps } from '@/components/ProjectCard'
 import { VentureCard, type VentureCardTheme } from '@/components/VentureCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
-import { PROJECTS as ALL_PROJECTS } from '@/lib/projects'
+import type { Venture } from '@/payload-types'
 import Link from 'next/link'
 import React from 'react'
 
@@ -11,8 +11,7 @@ import { HeroSection } from './HeroSection'
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 
-// First 5 projects from the shared data file, with `large` flag on the first
-const PROJECTS = ALL_PROJECTS.slice(0, 5).map((p, i) => ({ ...p, large: i === 0 }))
+const VENTURE_THEMES: VentureCardTheme[] = ['lime', 'lavender', 'ink']
 
 const SERVICES = [
   {
@@ -35,30 +34,14 @@ const SERVICES = [
   },
 ]
 
-const VENTURES: { title: string; tagline: string; slug: string; theme: VentureCardTheme }[] = [
-  {
-    title: 'Massvis',
-    tagline: 'Community finance platform. Supporting local initiatives to raise funds and self-organise.',
-    slug: 'massvis',
-    theme: 'lime',
-  },
-  {
-    title: 'Umeå Kallbad',
-    tagline: 'A community-led cold bathing and sauna facility for Umeå. Co-designed and co-built.',
-    slug: 'umea-kallbad',
-    theme: 'lavender',
-  },
-  {
-    title: 'DIT Egnahem',
-    tagline: 'The first WikiHouse in Sweden. Do-it-together self-build housing for communities.',
-    slug: 'dit-egnahem',
-    theme: 'ink',
-  },
-]
-
 // ─── Main component ───────────────────────────────────────────────────────────
 
-export function HomePage() {
+interface Props {
+  projects: ProjectCardProps[]
+  ventures: Venture[]
+}
+
+export function HomePage({ projects, ventures }: Props) {
   return (
     <main>
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
@@ -129,12 +112,14 @@ export function HomePage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:auto-rows-[280px] gap-3">
             {/* Large card spans 2 columns × 2 rows */}
-            <AnimateOnScroll className="col-span-2 row-span-2">
-              <ProjectCard {...PROJECTS[0]!} large />
-            </AnimateOnScroll>
+            {projects[0] && (
+              <AnimateOnScroll className="col-span-2 row-span-2">
+                <ProjectCard {...projects[0]} large />
+              </AnimateOnScroll>
+            )}
 
-            {/* Remaining 4 cards */}
-            {PROJECTS.slice(1).map((project, i) => (
+            {/* Remaining cards */}
+            {projects.slice(1).map((project, i) => (
               <AnimateOnScroll key={project.slug} delay={i * 80} className="col-span-1">
                 <ProjectCard {...project} />
               </AnimateOnScroll>
@@ -213,9 +198,14 @@ export function HomePage() {
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-3 gap-4">
-            {VENTURES.map((venture, i) => (
+            {ventures.map((venture, i) => (
               <AnimateOnScroll key={venture.slug} delay={i * 100}>
-                <VentureCard {...venture} />
+                <VentureCard
+                  title={venture.title}
+                  tagline={venture.tagline ?? ''}
+                  slug={venture.slug}
+                  theme={VENTURE_THEMES[i % VENTURE_THEMES.length]}
+                />
               </AnimateOnScroll>
             ))}
           </div>

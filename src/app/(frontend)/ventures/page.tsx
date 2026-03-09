@@ -1,7 +1,9 @@
 import { VenturesPage } from '@/components/VenturesPage'
+import { queryAllVentures } from '@/lib/payload-queries'
 
-export default function Page() {
-  return <VenturesPage />
+export default async function Page() {
+  const ventures = await queryAllVentures()
+  return <VenturesPage ventures={ventures} />
 }
 
 export const metadata = {

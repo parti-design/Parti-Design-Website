@@ -2,8 +2,13 @@
 
 import React, { useCallback, useEffect, useState } from 'react'
 
+interface GalleryImage {
+  src: string
+  caption?: string
+}
+
 interface Props {
-  images: string[]
+  images: GalleryImage[]
   projectTitle: string
 }
 
@@ -48,7 +53,7 @@ export function Gallery({ images, projectTitle }: Props) {
     <>
       {/* ── Gallery grid ── */}
       <div className="columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
-        {images.map((src, i) => (
+        {images.map(({ src, caption }, i) => (
           <button
             key={src}
             onClick={() => setActive(i)}
@@ -58,7 +63,7 @@ export function Gallery({ images, projectTitle }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={src}
-              alt=""
+              alt={caption ?? ''}
               className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               loading="lazy"
             />
@@ -130,10 +135,15 @@ export function Gallery({ images, projectTitle }: Props) {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={images[active]}
-              alt={`${projectTitle} — image ${active + 1}`}
+              src={images[active].src}
+              alt={images[active].caption ?? `${projectTitle} — image ${active + 1}`}
               className="max-h-[88vh] max-w-[90vw] object-contain rounded-sm shadow-2xl"
             />
+            {images[active].caption && (
+              <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-off-white/60 text-xs text-center max-w-sm">
+                {images[active].caption}
+              </p>
+            )}
           </div>
         </div>
       )}

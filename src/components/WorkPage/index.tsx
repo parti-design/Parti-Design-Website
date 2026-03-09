@@ -1,14 +1,17 @@
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
-import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCard, type ProjectCardProps } from '@/components/ProjectCard'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Tag } from '@/components/ui/Tag'
-import { PROJECTS } from '@/lib/projects'
 import Link from 'next/link'
 import React from 'react'
 
 const ALL_TAGS = ['All', 'Architecture', 'Co-building', 'Digital', 'Facilitation']
 
-export function WorkPage() {
+interface Props {
+  projects: ProjectCardProps[]
+}
+
+export function WorkPage({ projects }: Props) {
   return (
     <main>
       <PageHeader
@@ -32,7 +35,7 @@ export function WorkPage() {
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {PROJECTS.map((project, i) => (
+            {projects.map((project, i) => (
               <AnimateOnScroll key={project.slug} delay={i * 60}>
                 <ProjectCard {...project} />
               </AnimateOnScroll>

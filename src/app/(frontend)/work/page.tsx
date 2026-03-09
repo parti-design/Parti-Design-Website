@@ -1,7 +1,18 @@
 import { WorkPage } from '@/components/WorkPage'
+import { mediaUrl, queryAllProjects, serviceLabels } from '@/lib/payload-queries'
 
-export default function Page() {
-  return <WorkPage />
+export default async function Page() {
+  const projects = await queryAllProjects()
+
+  const cards = projects.map((p) => ({
+    title: p.title,
+    slug: p.slug,
+    tags: serviceLabels(p.services),
+    description: p.tagline ?? '',
+    imageSrc: mediaUrl(p.coverImage),
+  }))
+
+  return <WorkPage projects={cards} />
 }
 
 export const metadata = {
