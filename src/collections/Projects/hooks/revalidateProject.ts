@@ -10,22 +10,26 @@ export const revalidateProject: CollectionAfterChangeHook<Project> = ({
   req: { payload, context },
 }) => {
   if (!context.disableRevalidate) {
-    if (doc._status === 'published') {
-      const path = `/projects/${doc.slug}`
+    try {
+      if (doc._status === 'published') {
+        const path = `/projects/${doc.slug}`
 
-      payload.logger.info(`Revalidating project at path: ${path}`)
+        payload.logger.info(`Revalidating project at path: ${path}`)
 
-      revalidatePath(path)
-      revalidateTag('projects-sitemap')
-    }
+        revalidatePath(path)
+        revalidateTag('projects-sitemap')
+      }
 
-    if (previousDoc._status === 'published' && doc._status !== 'published') {
-      const oldPath = `/projects/${previousDoc.slug}`
+      if (previousDoc._status === 'published' && doc._status !== 'published') {
+        const oldPath = `/projects/${previousDoc.slug}`
 
-      payload.logger.info(`Revalidating old project at path: ${oldPath}`)
+        payload.logger.info(`Revalidating old project at path: ${oldPath}`)
 
-      revalidatePath(oldPath)
-      revalidateTag('projects-sitemap')
+        revalidatePath(oldPath)
+        revalidateTag('projects-sitemap')
+      }
+    } catch (_) {
+      // revalidatePath requires a Next.js request context — safe to skip outside one (e.g. seed scripts)
     }
   }
   return doc
@@ -36,9 +40,13 @@ export const revalidateDeleteProject: CollectionAfterDeleteHook<Project> = ({
   req: { context },
 }) => {
   if (!context.disableRevalidate) {
-    const path = `/projects/${doc?.slug}`
-    revalidatePath(path)
-    revalidateTag('projects-sitemap')
+    try {
+      const path = `/projects/${doc?.slug}`
+      revalidatePath(path)
+      revalidateTag('projects-sitemap')
+    } catch (_) {
+      // no-op outside Next.js request context
+    }
   }
   return doc
 }
