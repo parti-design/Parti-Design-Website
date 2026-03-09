@@ -2,6 +2,7 @@ import { ProjectCard } from '@/components/ProjectCard'
 import { VentureCard, type VentureCardTheme } from '@/components/VentureCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
+import { PROJECTS as ALL_PROJECTS } from '@/lib/projects'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,6 +10,9 @@ import { AnimateOnScroll } from './AnimateOnScroll'
 import { HeroSection } from './HeroSection'
 
 // ─── Static data ─────────────────────────────────────────────────────────────
+
+// First 5 projects from the shared data file, with `large` flag on the first
+const PROJECTS = ALL_PROJECTS.slice(0, 5).map((p, i) => ({ ...p, large: i === 0 }))
 
 const SERVICES = [
   {
@@ -28,41 +32,6 @@ const SERVICES = [
     heading: 'Bringing communities together',
     body: 'Co-design facilitation, workshops, placemaking consulting. Bringing people together to shape the places they live in.',
     examples: 'e.g. Umeå Together, Kajeka student housing',
-  },
-]
-
-const PROJECTS = [
-  {
-    title: 'Umeå Kallbad',
-    tags: ['Co-building', 'Workshop Facilitation'],
-    description:
-      'A community-led cold water bathing facility for Umeå. Co-designed and co-built with local residents.',
-    slug: 'umea-kallbad',
-    large: true,
-  },
-  {
-    title: 'DIT Egnahem',
-    tags: ['Architecture', 'Self-build Housing'],
-    description: 'The first WikiHouse in Sweden — do-it-together self-build housing for communities.',
-    slug: 'dit-egnahem',
-  },
-  {
-    title: 'Umeå Together',
-    tags: ['Web', 'Branding', 'Facilitation'],
-    description: 'A social incubator: workshops, branding, web development, and crowdfunding consulting.',
-    slug: 'umea-together',
-  },
-  {
-    title: 'Rewilding Sweden — Dome',
-    tags: ['Architecture', 'Construction'],
-    description: 'A geodesic dome pavilion designed and built for Rewilding Sweden.',
-    slug: 'rewilding-sweden-dome',
-  },
-  {
-    title: 'Klondyke Farms',
-    tags: ['Branding', 'Web Development'],
-    description: 'Branding and website for a local farm — clean, grounded, commercial.',
-    slug: 'klondyke-farms',
   },
 ]
 
@@ -95,6 +64,34 @@ export function HomePage() {
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
       <HeroSection />
 
+      {/* ── Marquee strip ────────────────────────────────────────────────── */}
+      <div className="overflow-hidden bg-lime py-3" aria-hidden>
+        <div
+          className="flex whitespace-nowrap"
+          style={{ animation: 'marquee 28s linear infinite' }}
+        >
+          {[0, 1].map((copy) => (
+            <span key={copy} className="flex items-center shrink-0">
+              {[
+                'Architecture',
+                'Co-building',
+                'Digital Design',
+                'Placemaking',
+                'Facilitation',
+                'Regenerative Places',
+                'WikiHouse',
+                'Byggemenskap',
+              ].map((term) => (
+                <React.Fragment key={term}>
+                  <span className="px-5 text-ink font-semibold text-sm tracking-wide">{term}</span>
+                  <span className="text-ink/30 text-sm">·</span>
+                </React.Fragment>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ── 2. What We Do ────────────────────────────────────────────────── */}
       <section id="services" className="bg-secondary/20 border-t border-ink/10 py-24">
         <div className="container">
@@ -105,12 +102,18 @@ export function HomePage() {
                 delay={i * 100}
                 className="px-0 md:px-10 first:pl-0 last:pr-0 py-12 md:py-0"
               >
-                <Tag className="mb-4">{service.label}</Tag>
-                <SectionHeading as="h3" size="md" className="mb-3">
-                  {service.heading}
-                </SectionHeading>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">{service.body}</p>
-                <p className="text-xs text-muted-foreground italic">{service.examples}</p>
+                <div className="hover:-translate-y-1 transition-transform duration-300 group">
+                  <Tag className="mb-4 group-hover:text-lime transition-colors">
+                    {service.label}
+                  </Tag>
+                  <SectionHeading as="h3" size="md" className="mb-3">
+                    {service.heading}
+                  </SectionHeading>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                    {service.body}
+                  </p>
+                  <p className="text-xs text-muted-foreground italic">{service.examples}</p>
+                </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -124,7 +127,7 @@ export function HomePage() {
             <SectionHeading>Selected work</SectionHeading>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 lg:auto-rows-[280px] gap-3">
             {/* Large card spans 2 columns × 2 rows */}
             <AnimateOnScroll className="col-span-2 row-span-2">
               <ProjectCard {...PROJECTS[0]!} large />
@@ -184,10 +187,12 @@ export function HomePage() {
           </div>
 
           <AnimateOnScroll delay={150} className="lg:col-span-2">
-            {/* Photo placeholder — swap in Kasimir + Karina photo when ready */}
-            <div className="aspect-[3/4] bg-secondary/30 flex items-center justify-center text-muted-foreground text-sm">
-              Photo coming soon
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
+              alt="Karina and Kasimir — founders of Parti Design"
+              className="w-full aspect-[3/4] object-cover object-top"
+            />
           </AnimateOnScroll>
         </div>
       </section>

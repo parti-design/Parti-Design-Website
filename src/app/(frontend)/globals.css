@@ -256,6 +256,16 @@
   }
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  50%       { transform: scaleY(1); transform-origin: top; opacity: 1; }
+}
+
 html {
   opacity: 0;
 }

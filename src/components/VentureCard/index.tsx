@@ -53,7 +53,7 @@ export function VentureCard({ title, tagline, slug, theme = 'lime', className }:
     <Link
       href={`/ventures/${slug}`}
       className={cn(
-        'group flex flex-col justify-between p-8 min-h-[260px]',
+        'group flex flex-col justify-between p-8 min-h-[260px] rounded-md',
         'hover:-rotate-1 hover:shadow-xl transition-all duration-300',
         colors.bg,
         className,

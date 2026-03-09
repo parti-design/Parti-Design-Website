@@ -37,8 +37,8 @@ export function ProjectCard({
   return (
     <Link
       href={`/work/${slug}`}
-      className={cn('group relative flex bg-muted overflow-hidden', className)}
-      style={{ minHeight: large ? 480 : 280 }}
+      className={cn('group relative flex bg-muted overflow-hidden h-full rounded-md', className)}
+      style={{ minHeight: large ? 560 : 280 }}
     >
       {/* Background — real image or placeholder gradient */}
       {imageSrc ? (
@@ -53,12 +53,14 @@ export function ProjectCard({
       )}
 
       {/* Hover description overlay */}
-      <div className="absolute inset-0 bg-ink/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-        <p className="text-off-white text-sm leading-relaxed">{description}</p>
+      <div className="absolute inset-0 bg-ink/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 gap-2">
+        <p className="font-semibold text-off-white">{title}</p>
+        <Tag className="text-off-white/70">{tags.join(' · ')}</Tag>
+        <p className="text-off-white/85 text-sm leading-relaxed mt-1">{description}</p>
       </div>
 
-      {/* Info bar — always visible at card bottom */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink/70 to-transparent">
+      {/* Info bar — visible at rest, hidden on hover */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink/70 to-transparent group-hover:opacity-0 transition-opacity duration-300">
         <p className="font-semibold text-off-white mb-1">{title}</p>
         <Tag className="text-off-white/70">{tags.join(' · ')}</Tag>
       </div>

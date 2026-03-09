@@ -1,15 +1,36 @@
 'use client'
 
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const HEADLINE_WORDS = ['New', 'ways', 'to', 'organize', 'and', 'build', 'together.']
 
 export function HeroSection() {
+  const imgRef = useRef<HTMLImageElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imgRef.current) {
+        imgRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <section className="min-h-screen flex items-center relative bg-ink overflow-hidden">
-      {/* Placeholder — replace with real photo as background-image or <Image> */}
-      <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/95 to-ink/80" />
+      {/* Hero background photo — oversized vertically so parallax never shows a gap */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        ref={imgRef}
+        src="/images/ventures/umea-kallbad/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
+        alt=""
+        aria-hidden
+        className="absolute left-0 right-0 w-full object-cover object-center"
+        style={{ top: '-10%', height: '120%' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/65 to-ink/40" />
 
       <div className="container relative z-10 py-32 lg:py-40 grid lg:grid-cols-5 gap-12 items-center">
         <div className="lg:col-span-3 space-y-8">
@@ -62,6 +83,22 @@ export function HeroSection() {
               Get in touch
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator — bouncing chevron */}
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 opacity-0"
+        style={{
+          animation: 'fadeWordIn 0.5s ease forwards',
+          animationDelay: `${HEADLINE_WORDS.length * 0.07 + 1.0}s`,
+        }}
+      >
+        <span className="text-off-white/50 text-[10px] tracking-[0.2em] uppercase font-medium">
+          Scroll
+        </span>
+        <div className="animate-bounce mt-1">
+          <div className="w-5 h-5 border-r-2 border-b-2 border-off-white/40 rotate-45" />
         </div>
       </div>
     </section>
