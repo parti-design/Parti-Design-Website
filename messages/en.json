@@ -109,7 +109,9 @@
     "submit": "Send message",
     "submitting": "Sending...",
     "successHeading": "Thanks — we'll be in touch.",
-    "successBody": "We usually reply within a couple of days."
+    "successBody": "We usually reply within a couple of days.",
+    "errorHeading": "Something went wrong.",
+    "errorBody": "Please try again or email us directly at kasimir@parti.design."
   },
   "home": {
     "title": "Parti Design — Architecture, Design & Co-building",
