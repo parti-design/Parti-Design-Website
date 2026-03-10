@@ -1,21 +1,17 @@
-import clsx from 'clsx'
 import React from 'react'
 
 interface Props {
   className?: string
-  loading?: 'lazy' | 'eager'
-  priority?: 'auto' | 'high' | 'low'
 }
 
 export const Logo = ({ className }: Props) => {
   return (
-    <span
-      className={clsx(
-        'font-display font-bold text-xl tracking-tight leading-none',
-        className,
-      )}
-    >
-      Parti Design
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/assets/branding/parti-design-logo.svg"
+      alt="Parti Design"
+      className={className}
+      style={{ height: '44px', width: '44px', objectFit: 'contain' }}
+    />
   )
 }

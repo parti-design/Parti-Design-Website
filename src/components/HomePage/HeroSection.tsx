@@ -24,7 +24,7 @@ export function HeroSection() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
-        src="/images/ventures/umea-kallbad/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
+        src="/assets/hero/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
         alt=""
         aria-hidden
         className="absolute left-0 right-0 w-full object-cover object-center"

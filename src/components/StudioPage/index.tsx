@@ -92,7 +92,7 @@ export function StudioPage() {
           <AnimateOnScroll delay={120} className="lg:col-span-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
+              src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
               alt="Karina and Kasimir — founders of Parti Design"
               className="w-full aspect-[3/4] object-cover object-top rounded-md"
             />
