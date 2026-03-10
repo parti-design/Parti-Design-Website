@@ -11,6 +11,7 @@ This directory is an internal reference wiki for the Parti Design website and bu
 | [target-audience.md](./target-audience.md) | Who the site is built for |
 | [projects.md](./projects.md) | Known projects, ventures, and strategic pipeline |
 | [deployment-coolify.md](./deployment-coolify.md) | Coolify deployment notes, env vars, and persistent storage setup |
+| [keystatic-migration.md](./keystatic-migration.md) | Plan for migrating from Payload CMS + PostgreSQL to Keystatic |
 
 ## How to use this wiki
 
