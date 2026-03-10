@@ -1,6 +1,9 @@
+/**
+ * Root layout for the frontend (public-facing) app.
+ * Keystatic replaces Payload CMS — no AdminBar, no draftMode needed.
+ */
 import type { Metadata } from 'next'
 
-import { AdminBar } from '@/components/AdminBar'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -8,7 +11,6 @@ import { cn } from '@/utilities/ui'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { GeistMono } from 'geist/font/mono'
 import { Expletus_Sans, Mulish } from 'next/font/google'
-import { draftMode } from 'next/headers'
 import { getLocale } from 'next-intl/server'
 import React from 'react'
 
@@ -29,7 +31,6 @@ const expletusSans = Expletus_Sans({
 })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { isEnabled } = await draftMode()
   const locale = await getLocale()
 
   return (
@@ -41,12 +42,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
-
           {children}
         </Providers>
       </body>
@@ -59,6 +54,6 @@ export const metadata: Metadata = {
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@parti_design',
   },
 }

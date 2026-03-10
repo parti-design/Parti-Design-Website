@@ -1,0 +1,7 @@
+navItems:
+  - label: Work
+    href: /work
+  - label: Ventures
+    href: /ventures
+  - label: Contact
+    href: /contact

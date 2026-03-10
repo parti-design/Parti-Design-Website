@@ -1,61 +1,36 @@
+/**
+ * Posts sitemap route.
+ * Updated to read posts from Keystatic (filesystem) instead of Payload (database).
+ */
 import { getServerSideSitemap } from 'next-sitemap'
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import { unstable_cache } from 'next/cache'
-
-const getPostsSitemap = unstable_cache(
-  async () => {
-    const payload = await getPayload({ config })
-    const SITE_URL =
-      process.env.NEXT_PUBLIC_SERVER_URL ||
-      process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-      'https://example.com'
-
-    const results = await payload.find({
-      collection: 'posts',
-      overrideAccess: false,
-      draft: false,
-      depth: 0,
-      limit: 1000,
-      pagination: false,
-      where: {
-        _status: {
-          equals: 'published',
-        },
-      },
-      select: {
-        slug: true,
-        updatedAt: true,
-      },
-    })
-
-    const dateFallback = new Date().toISOString()
-
-    const sitemap = results.docs
-      ? results.docs
-          .filter((post) => Boolean(post?.slug))
-          .flatMap((post) => [
-            {
-              loc: `${SITE_URL}/en/posts/${post?.slug}`,
-              lastmod: post.updatedAt || dateFallback,
-            },
-            {
-              loc: `${SITE_URL}/sv/posts/${post?.slug}`,
-              lastmod: post.updatedAt || dateFallback,
-            },
-          ])
-      : []
-
-    return sitemap
-  },
-  ['posts-sitemap'],
-  {
-    tags: ['posts-sitemap'],
-  },
-)
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../../../../keystatic.config'
 
 export async function GET() {
-  const sitemap = await getPostsSitemap()
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SERVER_URL ||
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+    'https://example.com'
 
-  return getServerSideSitemap(sitemap)
+  const dateFallback = new Date().toISOString()
+
+  try {
+    const reader = createReader(process.cwd(), keystaticConfig)
+    const slugs = await reader.collections.posts.list()
+
+    const sitemap = slugs.flatMap((slug) => [
+      {
+        loc: `${SITE_URL}/en/posts/${slug}`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/sv/posts/${slug}`,
+        lastmod: dateFallback,
+      },
+    ])
+
+    return getServerSideSitemap(sitemap)
+  } catch {
+    return getServerSideSitemap([])
+  }
 }

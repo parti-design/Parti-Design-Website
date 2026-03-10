@@ -1,16 +1,18 @@
+/**
+ * RelatedPosts block — simplified version that no longer depends on Payload Post type.
+ * Uses the minimal CardPostData interface from the Card component.
+ */
 import clsx from 'clsx'
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import type { Post } from '@/payload-types'
-
-import { Card } from '../../components/Card'
-import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
+import { Card, type CardPostData } from '../../components/Card'
 
 export type RelatedPostsProps = {
   className?: string
-  docs?: Post[]
-  introContent?: DefaultTypedEditorState
+  docs?: CardPostData[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  introContent?: any
 }
 
 export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {

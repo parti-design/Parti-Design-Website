@@ -1,81 +1,120 @@
+/**
+ * Post detail page — fetches a single post from Keystatic content files.
+ * Replaces the old Payload-based page which fetched from PostgreSQL and used
+ * Lexical RichText + live preview + PayloadRedirects.
+ */
 import type { Metadata } from 'next'
-
-import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
-import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
-import RichText from '@/components/RichText'
-
-import type { Post } from '@/payload-types'
-
-import { PostHero } from '@/heros/PostHero'
-import { generateMeta } from '@/utilities/generateMeta'
+import { queryPostBySlug, queryAllPosts } from '@/lib/keystatic-queries'
+import { KeystaticContent } from '@/components/KeystaticContent'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
 
 export const dynamicParams = true
 
-export async function generateStaticParams() {
-  try {
-    const payload = await getPayload({ config: configPromise })
-    const posts = await payload.find({
-      collection: 'posts',
-      draft: false,
-      limit: 1000,
-      overrideAccess: false,
-      pagination: false,
-      select: {
-        slug: true,
-      },
-    })
-
-    return ['en', 'sv'].flatMap((locale) =>
-      posts.docs.map(({ slug }) => ({ locale, slug }))
-    )
-  } catch {
-    return []
-  }
-}
-
-type Args = {
+interface Args {
   params: Promise<{
     locale: string
     slug?: string
   }>
 }
 
-export default async function Post({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode()
-  const { locale, slug = '' } = await paramsPromise
-  // Decode to support slugs with special characters
-  const decodedSlug = decodeURIComponent(slug)
-  const url = '/posts/' + decodedSlug
-  const post = await queryPostBySlug({ slug: decodedSlug, locale })
+export async function generateStaticParams() {
+  try {
+    // Pre-generate static params for all posts in both locales at build time
+    const slugs = await (await import('@keystatic/core/reader')).createReader(
+      process.cwd(),
+      (await import('../../../../../../keystatic.config')).default
+    ).collections.posts.list()
 
-  if (!post) return <PayloadRedirects url={url} />
+    return ['en', 'sv'].flatMap((locale) =>
+      slugs.map((slug) => ({ locale, slug }))
+    )
+  } catch {
+    return []
+  }
+}
+
+export default async function PostPage({ params: paramsPromise }: Args) {
+  const { locale, slug = '' } = await paramsPromise
+  const decodedSlug = decodeURIComponent(slug)
+  const post = await queryPostBySlug(decodedSlug, locale)
+
+  if (!post) notFound()
+
+  // Keystatic slug fields return { value: string }; handle both shapes
+  const title = typeof post.title === 'object' && post.title !== null
+    ? ((post.title as unknown as { value?: string }).value ?? decodedSlug)
+    : (post.title as unknown as string) ?? decodedSlug
+
+  // Keystatic MDX fields return a function — call it to get the renderable document
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const contentDocument: any = post.content ? await (post.content as unknown as () => Promise<unknown>)() : null
 
   return (
     <article className="pt-16 pb-16">
       <PageClient />
 
-      {/* Allows redirects for valid pages too */}
-      <PayloadRedirects disableNotFound url={url} />
+      {/* Hero image */}
+      {post.heroImage && (
+        <div className="relative h-[50vh] overflow-hidden mb-12">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={typeof post.heroImage === 'string' ? post.heroImage : ''}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        </div>
+      )}
 
-      {draft && <LivePreviewListener />}
+      <div className="container max-w-3xl mx-auto">
+        {/* Post header */}
+        <header className="mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
 
-      <PostHero post={post} />
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+            {post.publishedAt && (
+              <time dateTime={post.publishedAt}>
+                {new Date(post.publishedAt).toLocaleDateString(locale === 'sv' ? 'sv-SE' : 'en-GB', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+            )}
+            {post.authors && post.authors.length > 0 && (
+              <span>by {post.authors.join(', ')}</span>
+            )}
+          </div>
 
-      <div className="flex flex-col items-center gap-4 pt-8">
-        <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
-          {post.relatedPosts && post.relatedPosts.length > 0 && (
-            <RelatedPosts
-              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
-              docs={post.relatedPosts.filter((post) => typeof post === 'object')}
-            />
+          {post.categories && post.categories.length > 0 && (
+            <div className="flex gap-2 mt-4">
+              {post.categories.map((cat) => (
+                <span key={cat} className="text-xs bg-muted px-2 py-1 rounded">
+                  {cat}
+                </span>
+              ))}
+            </div>
           )}
+        </header>
+
+        {/* Post body */}
+        {contentDocument && (
+          <KeystaticContent
+            document={contentDocument as any}
+            className="prose prose-lg dark:prose-invert max-w-none"
+          />
+        )}
+
+        {/* Back link */}
+        <div className="mt-16 pt-8 border-t border-border">
+          <Link
+            href={`/${locale}/posts`}
+            className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+          >
+            ← All posts
+          </Link>
         </div>
       </div>
     </article>
@@ -84,31 +123,17 @@ export default async function Post({ params: paramsPromise }: Args) {
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { locale, slug = '' } = await paramsPromise
-  // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug)
-  const post = await queryPostBySlug({ slug: decodedSlug, locale })
+  const post = await queryPostBySlug(decodedSlug, locale)
 
-  return generateMeta({ doc: post })
+  if (!post) return {}
+
+  const title = typeof post.title === 'object' && post.title !== null
+    ? ((post.title as unknown as { value?: string }).value ?? decodedSlug)
+    : (post.title as unknown as string) ?? decodedSlug
+
+  return {
+    title: post.metaTitle ?? `${title} — Parti Design`,
+    description: post.metaDescription ?? '',
+  }
 }
-
-const queryPostBySlug = cache(async ({ slug, locale }: { slug: string; locale: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'posts',
-    draft,
-    limit: 1,
-    overrideAccess: draft,
-    pagination: false,
-    locale: locale as 'en' | 'sv',
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  return result.docs?.[0] || null
-})

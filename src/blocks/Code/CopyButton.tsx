@@ -1,6 +1,9 @@
+/**
+ * CopyButton — copy code to clipboard.
+ * Updated to remove the @payloadcms/ui/icons/Copy dependency.
+ */
 'use client'
 import { Button } from '@/components/ui/button'
-import { CopyIcon } from '@payloadcms/ui/icons/Copy'
 import { useState } from 'react'
 
 export function CopyButton({ code }: { code: string }) {
@@ -26,7 +29,6 @@ export function CopyButton({ code }: { code: string }) {
         }}
       >
         <p>{text}</p>
-        <CopyIcon />
       </Button>
     </div>
   )

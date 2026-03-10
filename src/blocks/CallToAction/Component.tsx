@@ -1,9 +1,26 @@
+/**
+ * CallToActionBlock — simplified version that no longer depends on Payload CTABlock type.
+ */
 import React from 'react'
-
-import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
 
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
+
+interface CTALink {
+  link: {
+    type?: 'custom' | 'reference' | null
+    url?: string | null
+    label?: string | null
+    newTab?: boolean | null
+    appearance?: string
+  }
+}
+
+interface CTABlockProps {
+  links?: CTALink[] | null
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  richText?: any
+}
 
 export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) => {
   return (

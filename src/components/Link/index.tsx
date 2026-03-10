@@ -1,19 +1,27 @@
+/**
+ * CMSLink — generic link component.
+ * Originally used Payload Page/Post types for reference links.
+ * Now uses a minimal interface compatible with both Keystatic and legacy usage.
+ */
 import { Button, type ButtonProps } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import Link from 'next/link'
 import React from 'react'
 
-import type { Page, Post } from '@/payload-types'
+/** Minimal document shape — just needs a slug */
+interface DocWithSlug {
+  slug?: string | null
+}
 
 type CMSLinkType = {
-  appearance?: 'inline' | ButtonProps['variant']
+  appearance?: 'inline' | ButtonProps['variant'] | string | null
   children?: React.ReactNode
   className?: string
   label?: string | null
   newTab?: boolean | null
   reference?: {
     relationTo: 'pages' | 'posts'
-    value: Page | Post | string | number
+    value: DocWithSlug | string | number
   } | null
   size?: ButtonProps['size'] | null
   type?: 'custom' | 'reference' | null
@@ -56,7 +64,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   }
 
   return (
-    <Button asChild className={className} size={size} variant={appearance}>
+    <Button asChild className={className} size={size} variant={appearance as ButtonProps['variant']}>
       <Link className={cn(className)} href={href || url || ''} {...newTabProps}>
         {label && label}
         {children && children}

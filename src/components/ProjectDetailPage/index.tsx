@@ -1,35 +1,60 @@
+/**
+ * Project detail page component.
+ * Updated to accept Keystatic project shape instead of Payload `Project` type.
+ * Rich text content is rendered via KeystaticContent instead of RichText (Lexical).
+ * Gallery is removed for now — will be re-added when Keystatic gallery field is set up.
+ */
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
-import RichText from '@/components/RichText'
+import { KeystaticContent } from '@/components/KeystaticContent'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
-import { mediaUrl, serviceLabels } from '@/lib/payload-queries'
-import type { Project } from '@/payload-types'
+import { mediaUrl, serviceLabels } from '@/lib/keystatic-queries'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Gallery } from './Gallery'
 
+// Minimal project shape from Keystatic queries
+interface KeystaticProject {
+  slug: string
+  title: string | { value?: string } | unknown
+  tagline?: string | null
+  coverImage?: string | null
+  year?: number | null
+  location?: string | null
+  client?: string | null
+  services?: readonly string[] | string[] | null
+  description?: (() => Promise<unknown>) | null
+  content?: (() => Promise<unknown>) | null
+  gallery?: unknown
+}
+
 interface Props {
-  project: Project
-  prev: Project | null
-  next: Project | null
+  project: KeystaticProject
+  prev: KeystaticProject | null
+  next: KeystaticProject | null
   locale: 'en' | 'sv'
 }
 
 export async function ProjectDetailPage({ project, prev, next, locale }: Props) {
   const t = await getTranslations({ locale, namespace: 'projectDetail' })
   const tags = serviceLabels(project.services, locale)
-  const coverUrl = mediaUrl(project.coverImage, 'xlarge')
 
-  const galleryImages =
-    project.gallery
-      ?.map((g) => {
-        const src = mediaUrl(g.image, 'large')
-        const fullSrc = mediaUrl(g.image, 'xlarge')
-        return src ? { src, fullSrc, caption: g.caption ?? undefined } : null
-      })
-      .filter((g): g is { src: string; fullSrc: string | undefined; caption: string | undefined } => g !== null) ?? []
+  // Resolve title from slug field (Keystatic returns { value: string })
+  const resolveTitle = (p: KeystaticProject) =>
+    typeof p.title === 'object' && p.title !== null
+      ? ((p.title as { value?: string }).value ?? p.slug)
+      : (p.title as string) ?? p.slug
+
+  const title = resolveTitle(project)
+  const coverUrl = mediaUrl(project.coverImage)
+
+  // Call the Keystatic async content readers — they return document objects for rendering
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const descriptionDoc: any = project.description ? await (project.description as () => Promise<unknown>)() : null
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const contentDoc: any = project.content ? await (project.content as () => Promise<unknown>)() : null
 
   return (
     <main>
@@ -38,7 +63,7 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={coverUrl}
-            alt={project.title}
+            alt={title}
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
@@ -55,7 +80,7 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
             ))}
           </div>
           <SectionHeading as="h1" size="xl" className="text-off-white max-w-3xl">
-            {project.title}
+            {title}
           </SectionHeading>
           {project.tagline && (
             <p className="mt-4 text-lg text-off-white/70 max-w-xl leading-relaxed">
@@ -102,41 +127,30 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
         </div>
       </div>
 
-      {(project.description || project.content) && (
+      {(descriptionDoc || contentDoc) && (
         <section className="py-24 bg-background">
           <div className="container max-w-3xl space-y-8">
-            {project.description && (
+            {descriptionDoc && (
               <AnimateOnScroll>
-                <RichText data={project.description} enableGutter={false} enableProse />
+                <KeystaticContent
+                  document={descriptionDoc as any}
+                  className="prose prose-lg dark:prose-invert max-w-none"
+                />
               </AnimateOnScroll>
             )}
-            {project.content && (
+            {contentDoc && (
               <AnimateOnScroll delay={80}>
-                <RichText data={project.content} enableGutter={false} enableProse />
+                <KeystaticContent
+                  document={contentDoc as any}
+                  className="prose prose-lg dark:prose-invert max-w-none"
+                />
               </AnimateOnScroll>
             )}
           </div>
         </section>
       )}
 
-      {galleryImages.length > 0 && (
-        <section className="pb-24 bg-background">
-          <div className="container">
-            <Gallery
-              images={galleryImages}
-              projectTitle={project.title}
-              labels={{
-                viewImage: t('gallery.viewImage'),
-                close: t('gallery.close'),
-                previousImage: t('gallery.previousImage'),
-                nextImage: t('gallery.nextImage'),
-                imageLabel: t('gallery.imageLabel'),
-                of: t('gallery.of'),
-              }}
-            />
-          </div>
-        </section>
-      )}
+      {/* TODO: Gallery support — add gallery array to Keystatic schema when needed */}
 
       <nav className="border-t border-border bg-background">
         <div className="container grid grid-cols-2">
@@ -149,7 +163,7 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
                 ← {t('previous')}
               </span>
               <span className="font-display font-bold text-lg text-foreground group-hover:text-lime transition-colors leading-snug">
-                {prev.title}
+                {resolveTitle(prev)}
               </span>
               <div className="flex flex-wrap gap-1 mt-2">
                 {serviceLabels(prev.services, locale)
@@ -172,7 +186,7 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
                 {t('next')} →
               </span>
               <span className="font-display font-bold text-lg text-foreground group-hover:text-lime transition-colors leading-snug">
-                {next.title}
+                {resolveTitle(next)}
               </span>
               <div className="flex flex-wrap gap-1 mt-2 justify-end">
                 {serviceLabels(next.services, locale)

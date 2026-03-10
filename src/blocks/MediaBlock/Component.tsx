@@ -1,24 +1,26 @@
+/**
+ * MediaBlock — simplified version that no longer depends on Payload MediaBlock type.
+ */
 import type { StaticImageData } from 'next/image'
 
 import { cn } from '@/utilities/ui'
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import type { MediaBlock as MediaBlockProps } from '@/payload-types'
-
 import { Media } from '../../components/Media'
 
-type Props = MediaBlockProps & {
-  breakout?: boolean
+interface MediaBlockProps {
   captionClassName?: string
   className?: string
   enableGutter?: boolean
   imgClassName?: string
+  /** Media can be a string path (Keystatic) or an object with url/mimeType (legacy Payload) */
+  media?: string | { url?: string; mimeType?: string; caption?: unknown } | null
   staticImage?: StaticImageData
   disableInnerContainer?: boolean
 }
 
-export const MediaBlock: React.FC<Props> = (props) => {
+export const MediaBlock: React.FC<MediaBlockProps> = (props) => {
   const {
     captionClassName,
     className,
@@ -29,8 +31,9 @@ export const MediaBlock: React.FC<Props> = (props) => {
     disableInnerContainer,
   } = props
 
-  let caption
-  if (media && typeof media === 'object') caption = media.caption
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let caption: any
+  if (media && typeof media === 'object') caption = (media as { caption?: unknown }).caption
 
   return (
     <div
@@ -59,7 +62,11 @@ export const MediaBlock: React.FC<Props> = (props) => {
             captionClassName,
           )}
         >
-          <RichText data={caption} enableGutter={false} />
+          {typeof caption === 'string' ? (
+            <p className="text-sm text-muted-foreground">{caption}</p>
+          ) : (
+            <RichText data={caption} enableGutter={false} />
+          )}
         </div>
       )}
     </div>

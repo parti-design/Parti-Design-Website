@@ -1,10 +1,24 @@
+/**
+ * ContentBlock — simplified version that no longer depends on Payload ContentBlock type.
+ */
 import { cn } from '@/utilities/ui'
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import type { ContentBlock as ContentBlockProps } from '@/payload-types'
-
 import { CMSLink } from '../../components/Link'
+
+interface Column {
+  enableLink?: boolean | null
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  link?: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  richText?: any
+  size?: 'full' | 'half' | 'oneThird' | 'twoThirds' | null
+}
+
+interface ContentBlockProps {
+  columns?: Column[] | null
+}
 
 export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
   const { columns } = props
@@ -26,7 +40,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
             return (
               <div
-                className={cn(`col-span-4 lg:col-span-${colsSpanClasses[size!]}`, {
+                className={cn(`col-span-4 lg:col-span-${colsSpanClasses[size ?? 'full']}`, {
                   'md:col-span-2': size !== 'full',
                 })}
                 key={index}

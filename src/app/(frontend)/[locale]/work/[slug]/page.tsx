@@ -1,5 +1,9 @@
+/**
+ * Project detail page — fetches a single project from Keystatic content files.
+ * The slug comes from the directory name in src/content/projects/{slug}/en.mdx
+ */
 import { ProjectDetailPage } from '@/components/ProjectDetailPage'
-import { queryAdjacentProjects, queryProjectBySlug } from '@/lib/payload-queries'
+import { queryAdjacentProjects, queryProjectBySlug } from '@/lib/keystatic-queries'
 import { notFound } from 'next/navigation'
 
 export const dynamicParams = true
@@ -15,7 +19,8 @@ export default async function Page({ params }: Props) {
 
   const { prev, next } = await queryAdjacentProjects(slug, locale)
 
-  return <ProjectDetailPage project={project} prev={prev} next={next} locale={locale as 'en' | 'sv'} />
+  // Pass the project as-is; ProjectDetailPage is updated to accept the Keystatic shape
+  return <ProjectDetailPage project={project as any} prev={prev as any} next={next as any} locale={locale as 'en' | 'sv'} />
 }
 
 export async function generateStaticParams() {
@@ -28,8 +33,13 @@ export async function generateMetadata({ params }: Props) {
   const project = await queryProjectBySlug(slug, locale)
   if (!project) return {}
 
+  // Keystatic slug fields return { value: string }; handle both shapes
+  const title = typeof project.title === 'object' && project.title !== null
+    ? ((project.title as unknown as { value?: string }).value ?? slug)
+    : (project.title as unknown as string) ?? slug
+
   return {
-    title: `${project.title} — Parti Design`,
-    description: project.tagline ?? project.title,
+    title: `${title} — Parti Design`,
+    description: project.tagline ?? title,
   }
 }

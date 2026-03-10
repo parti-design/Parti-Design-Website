@@ -1,4 +1,9 @@
-import { withPayload } from '@payloadcms/next/withPayload'
+/**
+ * Next.js configuration for Parti Design website.
+ *
+ * Keystatic CMS replaces Payload CMS — no database adapter or special
+ * Next.js wrapper needed. Content is read from the filesystem at build time.
+ */
 import createNextIntlPlugin from 'next-intl/plugin'
 
 import redirects from './redirects.js'
@@ -36,4 +41,4 @@ const nextConfig = {
   redirects,
 }
 
-export default withNextIntl(withPayload(nextConfig))
+export default withNextIntl(nextConfig)

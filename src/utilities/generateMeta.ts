@@ -1,48 +1,56 @@
+/**
+ * generateMeta — generates Next.js Metadata from a content document.
+ * Updated to remove Payload Page/Post type dependency.
+ */
 import type { Metadata } from 'next'
-
-import type { Media, Page, Post, Config } from '../payload-types'
 
 import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
 
-const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
+interface DocMeta {
+  title?: string | null
+  description?: string | null
+  image?: { url?: string | null } | string | null
+}
+
+interface Doc {
+  meta?: DocMeta | null
+  slug?: string | null
+  metaTitle?: string | null
+  metaDescription?: string | null
+}
+
+const getImageURL = (image?: { url?: string | null } | string | null) => {
   const serverUrl = getServerSideURL()
+  const fallback = serverUrl + '/website-template-OG.webp'
 
-  let url = serverUrl + '/website-template-OG.webp'
+  if (!image) return fallback
+  if (typeof image === 'string') return image
+  if ('url' in image && image.url) return serverUrl + image.url
 
-  if (image && typeof image === 'object' && 'url' in image) {
-    const ogUrl = image.sizes?.og?.url
-
-    url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url
-  }
-
-  return url
+  return fallback
 }
 
 export const generateMeta = async (args: {
-  doc: Partial<Page> | Partial<Post> | null
+  doc: Doc | null | undefined
 }): Promise<Metadata> => {
   const { doc } = args
 
   const ogImage = getImageURL(doc?.meta?.image)
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | Payload Website Template'
-    : 'Payload Website Template'
+    ? doc?.meta?.title + ' | Parti Design'
+    : doc?.metaTitle
+    ? doc.metaTitle + ' | Parti Design'
+    : 'Parti Design'
 
   return {
-    description: doc?.meta?.description,
+    description: doc?.meta?.description ?? doc?.metaDescription,
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
-      images: ogImage
-        ? [
-            {
-              url: ogImage,
-            },
-          ]
-        : undefined,
+      description: doc?.meta?.description || doc?.metaDescription || '',
+      images: ogImage ? [{ url: ogImage }] : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: doc?.slug ?? '/',
     }),
     title,
   }

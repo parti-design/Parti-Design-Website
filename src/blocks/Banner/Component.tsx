@@ -1,12 +1,16 @@
-import type { BannerBlock as BannerBlockProps } from 'src/payload-types'
-
+/**
+ * BannerBlock — simplified version that no longer depends on Payload BannerBlock type.
+ */
 import { cn } from '@/utilities/ui'
 import React from 'react'
 import RichText from '@/components/RichText'
 
 type Props = {
   className?: string
-} & BannerBlockProps
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  content?: any
+  style?: 'info' | 'warning' | 'error' | 'success' | null
+}
 
 export const BannerBlock: React.FC<Props> = ({ className, content, style }) => {
   return (

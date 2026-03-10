@@ -1,83 +1,47 @@
+/**
+ * Pages sitemap route.
+ * Updated to use static known routes + Keystatic project/venture slugs
+ * instead of Payload database pages collection.
+ */
 import { getServerSideSitemap } from 'next-sitemap'
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import { unstable_cache } from 'next/cache'
-
-const getPagesSitemap = unstable_cache(
-  async () => {
-    const payload = await getPayload({ config })
-    const SITE_URL =
-      process.env.NEXT_PUBLIC_SERVER_URL ||
-      process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-      'https://example.com'
-
-    const results = await payload.find({
-      collection: 'pages',
-      overrideAccess: false,
-      draft: false,
-      depth: 0,
-      limit: 1000,
-      pagination: false,
-      where: {
-        _status: {
-          equals: 'published',
-        },
-      },
-      select: {
-        slug: true,
-        updatedAt: true,
-      },
-    })
-
-    const dateFallback = new Date().toISOString()
-
-    const defaultSitemap = [
-      {
-        loc: `${SITE_URL}/en/search`,
-        lastmod: dateFallback,
-      },
-      {
-        loc: `${SITE_URL}/sv/search`,
-        lastmod: dateFallback,
-      },
-      {
-        loc: `${SITE_URL}/en/posts`,
-        lastmod: dateFallback,
-      },
-      {
-        loc: `${SITE_URL}/sv/posts`,
-        lastmod: dateFallback,
-      },
-    ]
-
-    const sitemap = results.docs
-      ? results.docs
-          .filter((page) => Boolean(page?.slug))
-          .flatMap((page) => {
-            const basePath = page?.slug === 'home' ? '' : `/${page?.slug}`
-            return [
-              {
-                loc: `${SITE_URL}/en${basePath}`,
-                lastmod: page.updatedAt || dateFallback,
-              },
-              {
-                loc: `${SITE_URL}/sv${basePath}`,
-                lastmod: page.updatedAt || dateFallback,
-              },
-            ]
-          })
-      : []
-
-    return [...defaultSitemap, ...sitemap]
-  },
-  ['pages-sitemap'],
-  {
-    tags: ['pages-sitemap'],
-  },
-)
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../../../../keystatic.config'
 
 export async function GET() {
-  const sitemap = await getPagesSitemap()
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SERVER_URL ||
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+    'https://example.com'
 
-  return getServerSideSitemap(sitemap)
+  const dateFallback = new Date().toISOString()
+
+  // Known static routes
+  const staticRoutes = ['', '/work', '/ventures', '/contact', '/posts'].flatMap((path) => [
+    { loc: `${SITE_URL}/en${path}`, lastmod: dateFallback },
+    { loc: `${SITE_URL}/sv${path}`, lastmod: dateFallback },
+  ])
+
+  try {
+    const reader = createReader(process.cwd(), keystaticConfig)
+
+    // Add project and venture detail pages
+    const [projectSlugs, ventureSlugs] = await Promise.all([
+      reader.collections.projects.list(),
+      reader.collections.ventures.list(),
+    ])
+
+    const projectRoutes = projectSlugs.flatMap((slug) => [
+      { loc: `${SITE_URL}/en/work/${slug}`, lastmod: dateFallback },
+      { loc: `${SITE_URL}/sv/work/${slug}`, lastmod: dateFallback },
+    ])
+
+    const ventureRoutes = ventureSlugs.flatMap((slug) => [
+      { loc: `${SITE_URL}/en/ventures/${slug}`, lastmod: dateFallback },
+      { loc: `${SITE_URL}/sv/ventures/${slug}`, lastmod: dateFallback },
+    ])
+
+    return getServerSideSitemap([...staticRoutes, ...projectRoutes, ...ventureRoutes])
+  } catch {
+    return getServerSideSitemap(staticRoutes)
+  }
 }

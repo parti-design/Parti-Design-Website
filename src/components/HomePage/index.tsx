@@ -2,7 +2,6 @@ import { ProjectCard, type ProjectCardProps } from '@/components/ProjectCard'
 import { VentureCard, type VentureCardTheme } from '@/components/VentureCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
-import type { Venture } from '@/payload-types'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
@@ -14,11 +13,20 @@ import { HeroSection } from './HeroSection'
 
 const VENTURE_THEMES: VentureCardTheme[] = ['lime', 'lavender', 'ink']
 
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+/** Minimal venture shape used by the home page — matches what Keystatic returns */
+interface VentureCard {
+  slug: string
+  title: string
+  tagline: string
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 interface Props {
   projects: ProjectCardProps[]
-  ventures: Venture[]
+  ventures: VentureCard[]
 }
 
 export async function HomePage({ projects, ventures }: Props) {

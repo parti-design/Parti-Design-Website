@@ -1,14 +1,25 @@
+/**
+ * Card component for displaying post previews.
+ * Updated to remove Payload Post type dependency — uses a minimal interface instead.
+ */
 'use client'
 import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Post } from '@/payload-types'
-
 import { Media } from '@/components/Media'
 
-export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
+/** Minimal post data shape for cards — subset of what Keystatic posts return */
+export type CardPostData = {
+  slug?: string | null
+  categories?: (string | { title?: string | null })[] | null
+  title?: string | null
+  meta?: {
+    description?: string | null
+    image?: { url?: string | null } | string | null
+  } | null
+}
 
 export const Card: React.FC<{
   alignItems?: 'center'
@@ -39,7 +50,12 @@ export const Card: React.FC<{
     >
       <div className="relative w-full ">
         {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
+        {metaImage && typeof metaImage !== 'string' && (
+          <Media resource={metaImage} size="33vw" />
+        )}
+        {metaImage && typeof metaImage === 'string' && (
+          <Media resource={metaImage} size="33vw" />
+        )}
       </div>
       <div className="p-4">
         {showCategories && hasCategories && (
@@ -47,22 +63,19 @@ export const Card: React.FC<{
             {showCategories && hasCategories && (
               <div>
                 {categories?.map((category, index) => {
-                  if (typeof category === 'object') {
-                    const { title: titleFromCategory } = category
+                  const categoryTitle =
+                    typeof category === 'object' && category !== null
+                      ? (category.title || 'Untitled category')
+                      : category || 'Untitled category'
 
-                    const categoryTitle = titleFromCategory || 'Untitled category'
+                  const isLast = index === (categories?.length ?? 0) - 1
 
-                    const isLast = index === categories.length - 1
-
-                    return (
-                      <Fragment key={index}>
-                        {categoryTitle}
-                        {!isLast && <Fragment>, &nbsp;</Fragment>}
-                      </Fragment>
-                    )
-                  }
-
-                  return null
+                  return (
+                    <Fragment key={index}>
+                      {categoryTitle}
+                      {!isLast && <Fragment>, &nbsp;</Fragment>}
+                    </Fragment>
+                  )
                 })}
               </div>
             )}

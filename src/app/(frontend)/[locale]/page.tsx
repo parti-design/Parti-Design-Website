@@ -1,5 +1,8 @@
+/**
+ * Home page — fetches featured projects and ventures from Keystatic content files.
+ */
 import { HomePage } from '@/components/HomePage'
-import { mediaUrl, queryFeaturedProjects, queryFeaturedVentures, serviceLabels } from '@/lib/payload-queries'
+import { mediaUrl, queryFeaturedProjects, queryFeaturedVentures, serviceLabels } from '@/lib/keystatic-queries'
 import { getTranslations } from 'next-intl/server'
 
 interface Props {
@@ -15,14 +18,28 @@ export default async function Page({ params }: Props) {
   ])
 
   const projects = rawProjects.map((p) => ({
-    title: p.title,
-    slug: p.slug,
-    tags: serviceLabels(p.services, locale as 'en' | 'sv'),
-    description: p.tagline ?? '',
-    imageSrc: mediaUrl(p.coverImage),
+    // Keystatic slug fields return { value: string }; handle both shapes
+    title: typeof p!.title === 'object' && p!.title !== null
+      ? ((p!.title as unknown as { value?: string }).value ?? p!.slug)
+      : (p!.title as unknown as string) ?? p!.slug,
+    slug: p!.slug,
+    tags: serviceLabels(p!.services, locale as 'en' | 'sv'),
+    description: p!.tagline ?? '',
+    imageSrc: mediaUrl(p!.coverImage),
   }))
 
-  return <HomePage projects={projects} ventures={ventures} />
+  // Ventures need title resolved (Keystatic slug field returns an object with .value)
+  const ventureCards = ventures.map((v) => ({
+    ...v!,
+    title: (v!.title as unknown as { value?: string } | string)
+      ? typeof v!.title === 'object' && v!.title !== null
+        ? ((v!.title as unknown as { value?: string }).value ?? '')
+        : (v!.title as unknown as string)
+      : '',
+    tagline: v!.tagline ?? '',
+  }))
+
+  return <HomePage projects={projects} ventures={ventureCards} />
 }
 
 export async function generateMetadata({ params }: Props) {

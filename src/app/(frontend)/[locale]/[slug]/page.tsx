@@ -1,120 +1,22 @@
-import type { Metadata } from 'next'
+/**
+ * Dynamic page route — previously served Payload CMS "Pages" collection content.
+ *
+ * With Keystatic, we do not have a generic Pages collection.
+ * All known routes are explicit (/, /work, /ventures, /contact, etc.).
+ * This catch-all returns 404 for unknown slugs.
+ *
+ * TODO: If a general-purpose Pages collection is needed in the future,
+ * add it to keystatic.config.ts and read it here via createReader().
+ */
+import { notFound } from 'next/navigation'
 
-import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
-import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
-import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
-import { homeStatic } from '@/endpoints/seed/home-static'
-
-import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { RenderHero } from '@/heros/RenderHero'
-import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
-
-export const dynamic = 'force-dynamic'
-export const dynamicParams = true
+export const dynamicParams = false
 
 export async function generateStaticParams() {
-  try {
-    const payload = await getPayload({ config: configPromise })
-    const pages = await payload.find({
-      collection: 'pages',
-      draft: false,
-      limit: 1000,
-      overrideAccess: false,
-      pagination: false,
-      select: {
-        slug: true,
-      },
-    })
-
-    const slugs = pages.docs
-      ?.filter((doc) => doc.slug !== 'home')
-      .map(({ slug }) => ({ slug })) ?? []
-
-    return ['en', 'sv'].flatMap((locale) => slugs.map(({ slug }) => ({ locale, slug })))
-  } catch {
-    return []
-  }
+  // No pages to pre-generate — return empty
+  return []
 }
 
-type Args = {
-  params: Promise<{
-    locale: string
-    slug?: string
-  }>
+export default function Page() {
+  notFound()
 }
-
-export default async function Page({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode()
-  const { locale, slug = 'home' } = await paramsPromise
-  // Decode to support slugs with special characters
-  const decodedSlug = decodeURIComponent(slug)
-  const url = '/' + decodedSlug
-  let page: RequiredDataFromCollectionSlug<'pages'> | null
-
-  page = await queryPageBySlug({
-    slug: decodedSlug,
-    locale,
-  })
-
-  // Remove this code once your website is seeded
-  if (!page && slug === 'home') {
-    page = homeStatic
-  }
-
-  if (!page) {
-    return <PayloadRedirects url={url} />
-  }
-
-  const { hero, layout } = page
-
-  return (
-    <article className="pt-16 pb-24">
-      <PageClient />
-      {/* Allows redirects for valid pages too */}
-      <PayloadRedirects disableNotFound url={url} />
-
-      {draft && <LivePreviewListener />}
-
-      <RenderHero {...hero} />
-      <RenderBlocks blocks={layout} />
-    </article>
-  )
-}
-
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { locale, slug = 'home' } = await paramsPromise
-  // Decode to support slugs with special characters
-  const decodedSlug = decodeURIComponent(slug)
-  const page = await queryPageBySlug({
-    slug: decodedSlug,
-    locale,
-  })
-
-  return generateMeta({ doc: page })
-}
-
-const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    pagination: false,
-    overrideAccess: draft,
-    locale: locale as 'en' | 'sv',
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  return result.docs?.[0] || null
-})
