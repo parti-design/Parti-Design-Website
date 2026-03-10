@@ -13,7 +13,7 @@
  *   At query time the two are merged; Swedish overrides English for text fields
  *
  * Admin UI: /keystatic
- * Auth: GitHub OAuth in production, local mode in development
+ * Auth: GitHub OAuth when KEYSTATIC_GITHUB_CLIENT_ID is set, otherwise open local mode
  */
 
 import { config, collection, fields, singleton } from '@keystatic/core'
@@ -34,22 +34,33 @@ const serviceOptions = [
 // ── Storage config ────────────────────────────────────────────────────────────
 
 /**
- * In development: content is read/written directly from the local filesystem.
- * In production:  content is committed to GitHub via the Keystatic admin UI.
+ * Storage mode is determined by whether GitHub credentials are configured,
+ * NOT by NODE_ENV. This means:
  *
- * To switch to GitHub mode, change `kind` to 'github' and fill in repo details:
- *   storage: { kind: 'github', repo: { owner: 'your-org', name: 'your-repo' } }
+ *   Local dev (no env vars set) → 'local' mode
+ *     Content is read/written directly from the filesystem.
+ *     Admin UI at /keystatic works without any auth.
+ *
+ *   Production (Coolify has KEYSTATIC_GITHUB_CLIENT_ID set) → 'github' mode
+ *     Content changes are committed to GitHub via the admin UI.
+ *     Users must authenticate with their GitHub account to access /keystatic.
+ *
+ * Required env vars for GitHub mode (set in Coolify):
+ *   KEYSTATIC_GITHUB_CLIENT_ID      — from your GitHub OAuth App
+ *   KEYSTATIC_GITHUB_CLIENT_SECRET  — from your GitHub OAuth App
+ *   KEYSTATIC_SECRET                — random string, e.g. `openssl rand -hex 32`
+ *   KEYSTATIC_GITHUB_REPO_OWNER     — GitHub org or username
+ *   KEYSTATIC_GITHUB_REPO_NAME      — repository name
  */
-const storage =
-  process.env.NODE_ENV === 'production'
-    ? ({
-        kind: 'github' as const,
-        repo: {
-          owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER ?? '',
-          name: process.env.KEYSTATIC_GITHUB_REPO_NAME ?? '',
-        },
-      })
-    : ({ kind: 'local' as const })
+const storage = process.env.KEYSTATIC_GITHUB_CLIENT_ID
+  ? ({
+      kind: 'github' as const,
+      repo: {
+        owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER ?? '',
+        name: process.env.KEYSTATIC_GITHUB_REPO_NAME ?? '',
+      },
+    })
+  : ({ kind: 'local' as const })
 
 // ── Main config ───────────────────────────────────────────────────────────────
 
