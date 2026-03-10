@@ -1,23 +1,26 @@
 'use client'
 
 import { Logo } from '@/components/Logo/Logo'
+import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { cn } from '@/utilities/ui'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import React, { useEffect, useState } from 'react'
 
-const NAV_LINKS = [
-  { label: 'Work', href: '/work' },
-  { label: 'Ventures', href: '/ventures' },
-  { label: 'Studio', href: '/studio' },
-  { label: 'Contact', href: '/contact' },
-]
-
 export const HeaderClient: React.FC = () => {
+  const t = useTranslations('nav')
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
+  // next-intl's usePathname returns path without locale prefix, so home is always '/'
   const isHome = pathname === '/'
+
+  const NAV_LINKS = [
+    { label: t('work'), href: '/work' },
+    { label: t('ventures'), href: '/ventures' },
+    { label: t('studio'), href: '/studio' },
+    { label: t('contact'), href: '/contact' },
+  ]
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -67,13 +70,14 @@ export const HeaderClient: React.FC = () => {
                 {label}
               </Link>
             ))}
+            <LocaleSwitcher className={textColor} />
           </nav>
 
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
+            aria-label={t('openMenu')}
           >
             <span className={cn('block w-6 h-0.5 transition-colors', scrolled ? 'bg-foreground' : 'bg-off-white')} />
             <span className={cn('block w-6 h-0.5 transition-colors', scrolled ? 'bg-foreground' : 'bg-off-white')} />
@@ -96,7 +100,7 @@ export const HeaderClient: React.FC = () => {
           <button
             className="flex flex-col gap-0 p-2"
             onClick={() => setMobileOpen(false)}
-            aria-label="Close menu"
+            aria-label={t('closeMenu')}
           >
             <span className="block w-6 h-0.5 bg-off-white rotate-45 translate-y-[1px]" />
             <span className="block w-6 h-0.5 bg-off-white -rotate-45" />
@@ -113,6 +117,9 @@ export const HeaderClient: React.FC = () => {
               {label}
             </Link>
           ))}
+          <div className="mt-4">
+            <LocaleSwitcher className="text-off-white" />
+          </div>
         </nav>
       </div>
     </>

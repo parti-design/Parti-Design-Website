@@ -1,0 +1,244 @@
+{
+  "nav": {
+    "work": "Work",
+    "ventures": "Ventures",
+    "studio": "Studio",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "headline": "New ways to organize and build together.",
+    "subStatement": "Parti Design is a multidisciplinary architecture and design studio. We develop regenerative places through digital, physical and social systems.",
+    "cta_work": "See our work",
+    "cta_contact": "Get in touch",
+    "scroll": "Scroll"
+  },
+  "marquee": {
+    "terms": ["Architecture", "Co-building", "Digital Design", "Placemaking", "Facilitation", "Regenerative Places", "WikiHouse", "Byggemenskap"]
+  },
+  "services": {
+    "sectionLabel": "What we do",
+    "items": {
+      "digital": {
+        "label": "Digital",
+        "heading": "Tools for communities to grow",
+        "body": "Websites, platforms, digital services, UX/UI design. Building the tools communities and organisations need to organise and grow.",
+        "examples": "e.g. Massvis platform, Klondyke Farms website"
+      },
+      "physical": {
+        "label": "Physical",
+        "heading": "Spaces that people want to be in",
+        "body": "Architecture, spatial design, co-building workshops. Designing and constructing spaces that people want to be in.",
+        "examples": "e.g. DIT Egnahem, Rewilding Sweden pavilion"
+      },
+      "social": {
+        "label": "Social",
+        "heading": "Bringing communities together",
+        "body": "Co-design facilitation, workshops, placemaking consulting. Bringing people together to shape the places they live in.",
+        "examples": "e.g. Umeå Together, Kajeka student housing"
+      }
+    }
+  },
+  "work": {
+    "sectionHeading": "Selected work",
+    "seeAll": "See all projects",
+    "pageTitle": "Work — Parti Design",
+    "pageDescription": "Projects across architecture, digital design, co-building, and community facilitation."
+  },
+  "studio": {
+    "heading": "An architecture studio that builds differently.",
+    "body1": "Founded in 2022 by Kasimir and Karina while still studying — as a vessel for their creative, research, and community interests. The name means three things: participatory design, the French concept diagram that drives an architectural idea, and a refusal to take architecture too seriously.",
+    "quote": "Citizens are the experts of place.",
+    "body2": "They work holistically — a single project might combine architecture, workshop facilitation, branding, and a website. The studio operates as both a practice and a venture studio, incubating its own initiatives alongside client work.",
+    "photoAlt": "Karina and Kasimir — founders of Parti Design"
+  },
+  "ventures": {
+    "teaser": "We don't just respond to briefs — we initiate.",
+    "body": "Alongside client work, Parti Design incubates its own projects: initiatives we believe in and build ourselves.",
+    "pageTitle": "Ventures — Parti Design",
+    "pageDescription": "Alongside client work, Parti Design incubates its own projects: Massvis, Umeå Kallbad, and DIT Egnahem."
+  },
+  "byggemenskap": {
+    "heading": "Building homes together.",
+    "body": "Byggemenskap — community self-build housing — is one of the most powerful tools for affordable, community-rooted housing. Parti Design offers end-to-end support: from forming the organisation to designing and co-building the home.",
+    "cta": "Talk to us about byggemenskap"
+  },
+  "closingCta": {
+    "heading": "Let's build something together.",
+    "body": "Whether you have a brief, an idea, or just a question — reach out.",
+    "email": "kasimir@parti.design",
+    "cta": "Start a conversation"
+  },
+  "contact": {
+    "tag": "Contact",
+    "heading": "Let's build something together.",
+    "body": "Whether you have a brief, a rough idea, or just a question — we'd love to hear from you.",
+    "emailLabel": "Email",
+    "basedLabel": "Based in",
+    "basedValue": "Umeå, Sweden",
+    "workingLabel": "Working",
+    "workingValue": "Internationally",
+    "byggemenskapTag": "Byggemenskap",
+    "byggemenskapHeading": "Thinking about building a home together?",
+    "byggemenskapBody": "We offer end-to-end support for community self-build housing groups — from forming the cooperative to designing and co-building the home. Reach out and let's talk.",
+    "replyNote": "We usually reply within a couple of days. For urgent matters, email directly.",
+    "pageTitle": "Contact — Parti Design",
+    "pageDescription": "Get in touch with Parti Design — architecture, digital design, and co-building."
+  },
+  "contactForm": {
+    "nameLabel": "Name",
+    "nameRequired": "*",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailRequired": "*",
+    "emailPlaceholder": "you@example.com",
+    "orgLabel": "Organisation",
+    "orgOptional": "(optional)",
+    "orgPlaceholder": "Your organisation or municipality",
+    "typeLabel": "Type of project",
+    "typeDefault": "Select a type...",
+    "typeArchitecture": "Architecture",
+    "typeDigital": "Digital / Web",
+    "typeFacilitation": "Co-design / Facilitation",
+    "typeByggemenskap": "Byggemenskap",
+    "typeGeneral": "General inquiry",
+    "messageLabel": "Message",
+    "messageRequired": "*",
+    "messagePlaceholder": "Tell us about your project, idea, or question...",
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "successHeading": "Thanks — we'll be in touch.",
+    "successBody": "We usually reply within a couple of days."
+  },
+  "home": {
+    "title": "Parti Design — Architecture, Design & Co-building",
+    "description": "A multidisciplinary architecture and design studio developing regenerative places through digital, physical and social systems. Based in Umeå, Sweden."
+  },
+  "studio_page": {
+    "pageTitle": "Studio — Parti Design",
+    "pageDescription": "Parti Design is a multidisciplinary architecture and design studio founded in 2022 by Kasimir and Karina in Umeå, Sweden."
+  },
+  "ventureCard": {
+    "learnMore": "Learn more"
+  },
+  "workPage": {
+    "header": {
+      "tag": "Portfolio",
+      "heading": "Work that builds places and communities.",
+      "body": "Projects across architecture, digital design, co-building, and community facilitation — often all at once."
+    },
+    "filters": {
+      "all": "All",
+      "architecture": "Architecture",
+      "coBuilding": "Co-building",
+      "digital": "Digital",
+      "facilitation": "Facilitation"
+    },
+    "cta": {
+      "tag": "Get involved",
+      "heading": "Have a project in mind?",
+      "body": "We work with municipalities, developers, community organisations, and individuals. Reach out — we'd love to hear about your project.",
+      "button": "Start a conversation"
+    }
+  },
+  "studioPageContent": {
+    "header": {
+      "tag": "Studio",
+      "heading": "An architecture studio that builds differently.",
+      "body": "Founded in 2022 in Umeå, Sweden. We work at the intersection of architecture, digital design, and community facilitation."
+    },
+    "about": {
+      "heading": "The studio.",
+      "body1a": "Parti Design was founded in 2022 by Kasimir and Karina while still studying — as a vessel for their creative, research, and community interests. The name means three things: participatory design, the French",
+      "body1b": "(the concept diagram that drives an architectural idea), and a refusal to take architecture too seriously.",
+      "quote": "Citizens are the experts of place.",
+      "body2": "The studio operates as both a practice and a venture studio — incubating its own initiatives alongside client work. A single project might combine architecture, workshop facilitation, branding, and a website. That's not a coincidence; it's the point.",
+      "body3": "Based in Umeå, Sweden — but we work wherever the project takes us.",
+      "photoAlt": "Karina and Kasimir — founders of Parti Design"
+    },
+    "team": {
+      "heading": "The team.",
+      "role": "Co-founder",
+      "kasimir": "Architecture, digital development, and co-building. Kasimir leads technical design, construction projects, and digital platforms. He has a particular interest in open-source building systems and community land models.",
+      "karina": "Architecture, graphic design, and facilitation. Karina leads visual communication, co-design processes, and spatial design. She brings a sharp eye for aesthetics and a deep commitment to participatory methods."
+    },
+    "valuesHeading": "How we work.",
+    "values": {
+      "participatory": {
+        "label": "Participatory",
+        "body": "We believe communities are the experts of their own places. Every project begins by listening."
+      },
+      "holistic": {
+        "label": "Holistic",
+        "body": "A single project might combine architecture, facilitation, branding, and a website. We work across the whole problem."
+      },
+      "regenerative": {
+        "label": "Regenerative",
+        "body": "We design for long-term flourishing, not short-term delivery. Buildings and platforms should outlast the brief."
+      },
+      "open": {
+        "label": "Open",
+        "body": "We share methods, use open-source tools, and work in public where we can. Good ideas spread further when they're shared."
+      }
+    },
+    "servicesHeading": "What we offer.",
+    "services": {
+      "architecture": {
+        "label": "Architecture",
+        "body": "New buildings, spatial interventions, co-building workshops, WikiHouse construction, byggemenskap support."
+      },
+      "digital": {
+        "label": "Digital",
+        "body": "Websites, platforms, digital services, UX/UI design, community tools, and product development."
+      },
+      "social": {
+        "label": "Social",
+        "body": "Co-design facilitation, community engagement, placemaking strategy, workshop series, and grant consulting."
+      }
+    },
+    "cta": {
+      "heading": "Let's work together.",
+      "body": "Whether you have a brief, a rough idea, or a community problem that needs solving — we'd love to hear from you.",
+      "button": "Get in touch"
+    }
+  },
+  "venturesPage": {
+    "header": {
+      "tag": "Ventures",
+      "heading": "We don't just respond to briefs — we initiate.",
+      "body": "Alongside client work, Parti Design incubates its own projects: initiatives we believe in and build ourselves."
+    },
+    "status": {
+      "active": "Active",
+      "inDevelopment": "In Development",
+      "completed": "Completed"
+    },
+    "learnMore": "Learn more",
+    "why": {
+      "heading": "Why a venture studio?",
+      "body1": "Client work keeps us sharp, but the things we believe in most — community finance, open-source housing, urban cold bathing — rarely arrive as a brief. So we make them ourselves.",
+      "body2": "Each venture is a real project that we invest our own time, design, and relationships into. Some grow into independent organisations; others fold back into the studio's service offer. All of them sharpen how we think.",
+      "quote": "The best projects we've been part of started with a question, not a budget."
+    }
+  },
+  "projectDetail": {
+    "meta": {
+      "year": "Year",
+      "location": "Location",
+      "client": "Client",
+      "services": "Services"
+    },
+    "previous": "Previous",
+    "next": "Next",
+    "allProjects": "All projects",
+    "gallery": {
+      "viewImage": "View image",
+      "close": "Close",
+      "previousImage": "Previous image",
+      "nextImage": "Next image",
+      "imageLabel": "image",
+      "of": "of"
+    }
+  }
+}

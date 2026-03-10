@@ -5,6 +5,7 @@ import { Tag } from '@/components/ui/Tag'
 import { mediaUrl, serviceLabels } from '@/lib/payload-queries'
 import type { Project } from '@/payload-types'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Gallery } from './Gallery'
@@ -13,23 +14,25 @@ interface Props {
   project: Project
   prev: Project | null
   next: Project | null
+  locale: 'en' | 'sv'
 }
 
-export function ProjectDetailPage({ project, prev, next }: Props) {
-  const tags = serviceLabels(project.services)
-  const coverUrl = mediaUrl(project.coverImage)
+export async function ProjectDetailPage({ project, prev, next, locale }: Props) {
+  const t = await getTranslations({ locale, namespace: 'projectDetail' })
+  const tags = serviceLabels(project.services, locale)
+  const coverUrl = mediaUrl(project.coverImage, 'xlarge')
 
   const galleryImages =
     project.gallery
       ?.map((g) => {
-        const url = mediaUrl(g.image)
-        return url ? { src: url, caption: g.caption ?? undefined } : null
+        const src = mediaUrl(g.image, 'large')
+        const fullSrc = mediaUrl(g.image, 'xlarge')
+        return src ? { src, fullSrc, caption: g.caption ?? undefined } : null
       })
-      .filter((g): g is { src: string; caption: string | undefined } => g !== null) ?? []
+      .filter((g): g is { src: string; fullSrc: string | undefined; caption: string | undefined } => g !== null) ?? []
 
   return (
     <main>
-      {/* ── Hero ── */}
       <section className="relative min-h-[70vh] flex items-end bg-ink overflow-hidden">
         {coverUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -62,13 +65,12 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
         </div>
       </section>
 
-      {/* ── Project meta strip ── */}
       <div className="bg-ink border-t border-off-white/10">
         <div className="container py-6 flex flex-wrap gap-x-10 gap-y-3">
           {project.year && (
             <div>
               <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
-                Year
+                {t('meta.year')}
               </span>
               <span className="text-sm text-off-white/80">{project.year}</span>
             </div>
@@ -76,7 +78,7 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
           {project.location && (
             <div>
               <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
-                Location
+                {t('meta.location')}
               </span>
               <span className="text-sm text-off-white/80">{project.location}</span>
             </div>
@@ -84,7 +86,7 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
           {project.client && (
             <div>
               <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
-                Client
+                {t('meta.client')}
               </span>
               <span className="text-sm text-off-white/80">{project.client}</span>
             </div>
@@ -92,7 +94,7 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
           {tags.length > 0 && (
             <div>
               <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
-                Services
+                {t('meta.services')}
               </span>
               <span className="text-sm text-off-white/80">{tags.join(' · ')}</span>
             </div>
@@ -100,7 +102,6 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
         </div>
       </div>
 
-      {/* ── Body ── */}
       {(project.description || project.content) && (
         <section className="py-24 bg-background">
           <div className="container max-w-3xl space-y-8">
@@ -118,16 +119,25 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
         </section>
       )}
 
-      {/* ── Gallery ── */}
       {galleryImages.length > 0 && (
         <section className="pb-24 bg-background">
           <div className="container">
-            <Gallery images={galleryImages} projectTitle={project.title} />
+            <Gallery
+              images={galleryImages}
+              projectTitle={project.title}
+              labels={{
+                viewImage: t('gallery.viewImage'),
+                close: t('gallery.close'),
+                previousImage: t('gallery.previousImage'),
+                nextImage: t('gallery.nextImage'),
+                imageLabel: t('gallery.imageLabel'),
+                of: t('gallery.of'),
+              }}
+            />
           </div>
         </section>
       )}
 
-      {/* ── Prev / Next navigation ── */}
       <nav className="border-t border-border bg-background">
         <div className="container grid grid-cols-2">
           {prev ? (
@@ -136,16 +146,16 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
               className="py-10 pr-8 group border-r border-border hover:bg-muted/30 transition-colors"
             >
               <span className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground block mb-2">
-                ← Previous
+                ← {t('previous')}
               </span>
               <span className="font-display font-bold text-lg text-foreground group-hover:text-lime transition-colors leading-snug">
                 {prev.title}
               </span>
               <div className="flex flex-wrap gap-1 mt-2">
-                {serviceLabels(prev.services)
+                {serviceLabels(prev.services, locale)
                   .slice(0, 2)
-                  .map((t) => (
-                    <Tag key={t}>{t}</Tag>
+                  .map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
                   ))}
               </div>
             </Link>
@@ -159,16 +169,16 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
               className="py-10 pl-8 group text-right hover:bg-muted/30 transition-colors"
             >
               <span className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground block mb-2">
-                Next →
+                {t('next')} →
               </span>
               <span className="font-display font-bold text-lg text-foreground group-hover:text-lime transition-colors leading-snug">
                 {next.title}
               </span>
               <div className="flex flex-wrap gap-1 mt-2 justify-end">
-                {serviceLabels(next.services)
+                {serviceLabels(next.services, locale)
                   .slice(0, 2)
-                  .map((t) => (
-                    <Tag key={t}>{t}</Tag>
+                  .map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
                   ))}
               </div>
             </Link>
@@ -178,13 +188,12 @@ export function ProjectDetailPage({ project, prev, next }: Props) {
         </div>
       </nav>
 
-      {/* ── Back to all work ── */}
       <div className="bg-background py-8 border-t border-border text-center">
         <Link
           href="/work"
           className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
         >
-          ← All projects
+          ← {t('allProjects')}
         </Link>
       </div>
     </main>

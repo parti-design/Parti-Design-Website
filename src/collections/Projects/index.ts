@@ -78,6 +78,7 @@ export const Projects: CollectionConfig<'projects'> = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       type: 'tabs',
@@ -96,6 +97,7 @@ export const Projects: CollectionConfig<'projects'> = {
             {
               name: 'tagline',
               type: 'text',
+              localized: true,
               admin: {
                 description: 'Short description for project cards (1–2 sentences)',
               },
@@ -103,6 +105,7 @@ export const Projects: CollectionConfig<'projects'> = {
             {
               name: 'description',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => [
                   ...rootFeatures,
@@ -118,6 +121,7 @@ export const Projects: CollectionConfig<'projects'> = {
               name: 'content',
               label: 'Full Content',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => [
                   ...rootFeatures,
@@ -148,6 +152,7 @@ export const Projects: CollectionConfig<'projects'> = {
                 {
                   name: 'caption',
                   type: 'text',
+                  localized: true,
                 },
               ],
             },

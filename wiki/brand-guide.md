@@ -2,6 +2,17 @@
 
 This document defines the visual and communication standards for Parti Design. It is the reference for all design decisions on the website, presentations, and other materials.
 
+## Active experiment (March 9, 2026)
+
+The site currently has a temporary colorway test in code:
+
+- Accent/action color shifted from lime to orange-red
+- Secondary color shifted from lavender to lilac
+
+Implementation note:
+
+- Token aliases remain the same in code (`--color-lime`, `--color-lavender`) so existing component classes continue to work.
+
 ---
 
 ## Brand Essence

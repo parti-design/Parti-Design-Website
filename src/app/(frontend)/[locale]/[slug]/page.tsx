@@ -30,9 +30,11 @@ export async function generateStaticParams() {
       },
     })
 
-    return pages.docs
+    const slugs = pages.docs
       ?.filter((doc) => doc.slug !== 'home')
-      .map(({ slug }) => ({ slug }))
+      .map(({ slug }) => ({ slug })) ?? []
+
+    return ['en', 'sv'].flatMap((locale) => slugs.map(({ slug }) => ({ locale, slug })))
   } catch {
     return []
   }
@@ -40,13 +42,14 @@ export async function generateStaticParams() {
 
 type Args = {
   params: Promise<{
+    locale: string
     slug?: string
   }>
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
   const { isEnabled: draft } = await draftMode()
-  const { slug = 'home' } = await paramsPromise
+  const { locale, slug = 'home' } = await paramsPromise
   // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug)
   const url = '/' + decodedSlug
@@ -54,6 +57,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   page = await queryPageBySlug({
     slug: decodedSlug,
+    locale,
   })
 
   // Remove this code once your website is seeded
@@ -82,17 +86,18 @@ export default async function Page({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await paramsPromise
+  const { locale, slug = 'home' } = await paramsPromise
   // Decode to support slugs with special characters
   const decodedSlug = decodeURIComponent(slug)
   const page = await queryPageBySlug({
     slug: decodedSlug,
+    locale,
   })
 
   return generateMeta({ doc: page })
 }
 
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
+const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: string }) => {
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
@@ -103,6 +108,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     limit: 1,
     pagination: false,
     overrideAccess: draft,
+    locale: locale as 'en' | 'sv',
     where: {
       slug: {
         equals: slug,

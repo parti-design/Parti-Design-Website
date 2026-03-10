@@ -71,8 +71,9 @@
   --font-display: var(--font-expletus-sans);
 
   /* Direct brand color utilities: bg-lime, text-lavender, etc. */
-  --color-lime: oklch(82% 0.178 122deg);
-  --color-lavender: oklch(80% 0.065 292deg);
+  /* Temporary palette test: orange-red + lilac */
+  --color-lime: oklch(68% 0.22 42deg);      /* maps existing *-lime classes to orange-red */
+  --color-lavender: oklch(78% 0.12 305deg); /* maps existing *-lavender classes to lilac */
   --color-ink: oklch(16% 0.006 8deg);
   --color-off-white: oklch(98% 0.003 90deg);
   /* Cobalt: vivid blue from presentations — exact hex pending confirmation with Karina */
@@ -119,43 +120,43 @@
 }
 
 :root {
-  /* === Parti Design brand palette === */
-  /* Lime:     #bbd644 */
-  /* Lavender: #ccc2de */
+  /* === Parti Design brand palette (current test variant) === */
+  /* Orange-red: accent/action */
+  /* Lilac:      secondary/community */
   /* Ink:      #231f20 */
 
   /* === Semantic tokens (light mode) === */
   --background: oklch(98% 0.003 90deg);        /* warm off-white */
   --foreground: oklch(16% 0.006 8deg);          /* ink */
-  --card: oklch(96% 0.012 292deg);              /* pale lavender tint */
+  --card: oklch(95% 0.03 305deg);               /* pale lilac tint */
   --card-foreground: oklch(16% 0.006 8deg);
   --popover: oklch(98% 0.003 90deg);
   --popover-foreground: oklch(16% 0.006 8deg);
   --primary: oklch(16% 0.006 8deg);             /* ink — buttons, primary actions */
   --primary-foreground: oklch(98% 0.003 90deg);
-  --secondary: oklch(80% 0.065 292deg);         /* lavender */
+  --secondary: oklch(78% 0.12 305deg);          /* lilac */
   --secondary-foreground: oklch(16% 0.006 8deg);
-  --muted: oklch(93% 0.025 292deg);             /* pale lavender */
+  --muted: oklch(93% 0.04 305deg);              /* pale lilac */
   --muted-foreground: oklch(40% 0.007 8deg);    /* ink light */
-  --accent: oklch(82% 0.178 122deg);            /* lime */
+  --accent: oklch(68% 0.22 42deg);              /* orange-red */
   --accent-foreground: oklch(16% 0.006 8deg);
   --destructive: oklch(57.7% 0.245 27.325deg);
   --destructive-foreground: oklch(97% 0 0deg);
-  --border: oklch(87% 0.03 292deg);             /* lavender-tinted border */
-  --input: oklch(87% 0.03 292deg);
-  --ring: oklch(82% 0.178 122deg);              /* lime focus ring */
+  --border: oklch(87% 0.04 305deg);             /* lilac-tinted border */
+  --input: oklch(87% 0.04 305deg);
+  --ring: oklch(68% 0.22 42deg);                /* orange-red focus ring */
   --radius: 0.5rem;                             /* 8px — shadcn default */
   --text: oklch(16% 0.006 8deg);                /* alias for prose */
 
   /* Sidebar (Payload CMS admin) */
-  --sidebar: oklch(96% 0.012 292deg);
+  --sidebar: oklch(95% 0.03 305deg);
   --sidebar-foreground: oklch(16% 0.006 8deg);
   --sidebar-primary: oklch(16% 0.006 8deg);
   --sidebar-primary-foreground: oklch(98% 0.003 90deg);
-  --sidebar-accent: oklch(80% 0.065 292deg);
+  --sidebar-accent: oklch(78% 0.12 305deg);
   --sidebar-accent-foreground: oklch(16% 0.006 8deg);
-  --sidebar-border: oklch(87% 0.03 292deg);
-  --sidebar-ring: oklch(82% 0.178 122deg);
+  --sidebar-border: oklch(87% 0.04 305deg);
+  --sidebar-ring: oklch(68% 0.22 42deg);
 
   /* Status */
   --success: oklch(72% 0.15 145deg);
@@ -170,29 +171,29 @@
   --card-foreground: oklch(97% 0.003 90deg);
   --popover: oklch(12% 0.006 8deg);
   --popover-foreground: oklch(97% 0.003 90deg);
-  --primary: oklch(82% 0.178 122deg);           /* lime as primary in dark mode */
+  --primary: oklch(68% 0.22 42deg);             /* orange-red as primary in dark mode */
   --primary-foreground: oklch(12% 0.006 8deg);
-  --secondary: oklch(22% 0.018 292deg);
+  --secondary: oklch(30% 0.05 305deg);
   --secondary-foreground: oklch(97% 0.003 90deg);
-  --muted: oklch(20% 0.01 292deg);
-  --muted-foreground: oklch(65% 0.02 292deg);
-  --accent: oklch(82% 0.178 122deg);            /* lime */
+  --muted: oklch(22% 0.02 305deg);
+  --muted-foreground: oklch(75% 0.04 305deg);
+  --accent: oklch(68% 0.22 42deg);              /* orange-red */
   --accent-foreground: oklch(12% 0.006 8deg);
   --destructive: oklch(45% 0.18 25deg);
   --destructive-foreground: oklch(80% 0.15 25deg);
-  --border: oklch(22% 0.012 292deg);
-  --input: oklch(22% 0.012 292deg);
-  --ring: oklch(82% 0.178 122deg);
+  --border: oklch(24% 0.02 305deg);
+  --input: oklch(24% 0.02 305deg);
+  --ring: oklch(68% 0.22 42deg);
   --text: oklch(97% 0.003 90deg);
 
   --sidebar: oklch(16% 0.007 8deg);
   --sidebar-foreground: oklch(97% 0.003 90deg);
-  --sidebar-primary: oklch(82% 0.178 122deg);
+  --sidebar-primary: oklch(68% 0.22 42deg);
   --sidebar-primary-foreground: oklch(12% 0.006 8deg);
-  --sidebar-accent: oklch(22% 0.018 292deg);
+  --sidebar-accent: oklch(30% 0.05 305deg);
   --sidebar-accent-foreground: oklch(97% 0.003 90deg);
-  --sidebar-border: oklch(22% 0.012 292deg);
-  --sidebar-ring: oklch(82% 0.178 122deg);
+  --sidebar-border: oklch(24% 0.02 305deg);
+  --sidebar-ring: oklch(68% 0.22 42deg);
 
   --success: oklch(35% 0.1 145deg);
   --warning: oklch(40% 0.1 85deg);

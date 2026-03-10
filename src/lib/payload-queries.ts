@@ -6,30 +6,49 @@ import type { Media, Project, Venture } from '@/payload-types'
 
 // ─── Service label map ────────────────────────────────────────────────────────
 
-export const SERVICE_LABELS: Record<string, string> = {
-  'architecture-spatial': 'Architecture',
-  'graphic-design-branding': 'Branding',
-  'ux-ui-digital': 'Digital',
-  'co-design-workshops': 'Co-building',
-  'facilitation-project-management': 'Facilitation',
-  'placemaking-consulting': 'Placemaking',
-  'research-development': 'R&D',
+const SERVICE_LABELS: Record<'en' | 'sv', Record<string, string>> = {
+  en: {
+    'architecture-spatial': 'Architecture',
+    'graphic-design-branding': 'Branding',
+    'ux-ui-digital': 'Digital',
+    'co-design-workshops': 'Co-building',
+    'facilitation-project-management': 'Facilitation',
+    'placemaking-consulting': 'Placemaking',
+    'research-development': 'R&D',
+  },
+  sv: {
+    'architecture-spatial': 'Arkitektur',
+    'graphic-design-branding': 'Varumärke',
+    'ux-ui-digital': 'Digitalt',
+    'co-design-workshops': 'Sambygge',
+    'facilitation-project-management': 'Facilitering',
+    'placemaking-consulting': 'Platsskapande',
+    'research-development': 'FoU',
+  },
 }
 
-export function serviceLabels(services?: Project['services']): string[] {
+export function serviceLabels(services?: Project['services'], locale: 'en' | 'sv' = 'en'): string[] {
   if (!services) return []
-  return services.map((s) => SERVICE_LABELS[s] ?? s)
+  return services.map((s) => SERVICE_LABELS[locale][s] ?? s)
 }
 
-/** Extract a URL string from a Payload upload field (which may be a number ID or a Media object) */
-export function mediaUrl(field: number | Media | null | undefined): string | undefined {
+/** Extract a URL string from a Payload upload field (which may be a number ID or a Media object).
+ *  Pass a `size` name (e.g. 'large', 'xlarge') to use a resized variant instead of the original. */
+export function mediaUrl(
+  field: number | Media | null | undefined,
+  size?: string,
+): string | undefined {
   if (!field || typeof field !== 'object') return undefined
+  if (size) {
+    const sized = (field.sizes as Record<string, { url?: string | null } | undefined> | undefined)?.[size]
+    if (sized?.url) return sized.url
+  }
   return field.url ?? undefined
 }
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
-export const queryAllProjects = cache(async (): Promise<Project[]> => {
+export const queryAllProjects = cache(async (locale = 'en'): Promise<Project[]> => {
   try {
     const payload = await getPayload({ config: configPromise })
     const result = await payload.find({
@@ -39,6 +58,7 @@ export const queryAllProjects = cache(async (): Promise<Project[]> => {
       overrideAccess: false,
       pagination: false,
       depth: 1,
+      locale: locale as 'en' | 'sv',
     })
     return result.docs
   } catch {
@@ -46,7 +66,7 @@ export const queryAllProjects = cache(async (): Promise<Project[]> => {
   }
 })
 
-export const queryProjectBySlug = cache(async (slug: string): Promise<Project | null> => {
+export const queryProjectBySlug = cache(async (slug: string, locale = 'en'): Promise<Project | null> => {
   try {
     const payload = await getPayload({ config: configPromise })
     const result = await payload.find({
@@ -56,6 +76,7 @@ export const queryProjectBySlug = cache(async (slug: string): Promise<Project | 
       overrideAccess: false,
       pagination: false,
       depth: 2,
+      locale: locale as 'en' | 'sv',
       where: { slug: { equals: slug } },
     })
     return result.docs?.[0] ?? null
@@ -64,8 +85,8 @@ export const queryProjectBySlug = cache(async (slug: string): Promise<Project | 
   }
 })
 
-export async function queryAdjacentProjects(slug: string) {
-  const all = await queryAllProjects()
+export async function queryAdjacentProjects(slug: string, locale = 'en') {
+  const all = await queryAllProjects(locale)
   const idx = all.findIndex((p) => p.slug === slug)
   return {
     prev: idx > 0 ? (all[idx - 1] ?? null) : null,
@@ -73,7 +94,7 @@ export async function queryAdjacentProjects(slug: string) {
   }
 }
 
-export const queryFeaturedProjects = cache(async (limit = 5): Promise<Project[]> => {
+export const queryFeaturedProjects = cache(async (limit = 5, locale = 'en'): Promise<Project[]> => {
   try {
     const payload = await getPayload({ config: configPromise })
     const featured = await payload.find({
@@ -83,11 +104,12 @@ export const queryFeaturedProjects = cache(async (limit = 5): Promise<Project[]>
       overrideAccess: false,
       pagination: false,
       depth: 1,
+      locale: locale as 'en' | 'sv',
       where: { featured: { equals: true } },
     })
     if (featured.docs.length > 0) return featured.docs
     // Fall back to most recent projects
-    const all = await queryAllProjects()
+    const all = await queryAllProjects(locale)
     return all.slice(0, limit)
   } catch {
     return []
@@ -96,7 +118,7 @@ export const queryFeaturedProjects = cache(async (limit = 5): Promise<Project[]>
 
 // ─── Ventures ─────────────────────────────────────────────────────────────────
 
-export const queryAllVentures = cache(async (): Promise<Venture[]> => {
+export const queryAllVentures = cache(async (locale = 'en'): Promise<Venture[]> => {
   try {
     const payload = await getPayload({ config: configPromise })
     const result = await payload.find({
@@ -106,6 +128,7 @@ export const queryAllVentures = cache(async (): Promise<Venture[]> => {
       overrideAccess: false,
       pagination: false,
       depth: 1,
+      locale: locale as 'en' | 'sv',
       sort: 'order',
     })
     return result.docs
@@ -114,7 +137,7 @@ export const queryAllVentures = cache(async (): Promise<Venture[]> => {
   }
 })
 
-export const queryFeaturedVentures = cache(async (limit = 3): Promise<Venture[]> => {
+export const queryFeaturedVentures = cache(async (limit = 3, locale = 'en'): Promise<Venture[]> => {
   try {
     const payload = await getPayload({ config: configPromise })
     const featured = await payload.find({
@@ -124,11 +147,12 @@ export const queryFeaturedVentures = cache(async (limit = 3): Promise<Venture[]>
       overrideAccess: false,
       pagination: false,
       depth: 1,
+      locale: locale as 'en' | 'sv',
       sort: 'order',
       where: { featured: { equals: true } },
     })
     if (featured.docs.length > 0) return featured.docs
-    const all = await queryAllVentures()
+    const all = await queryAllVentures(locale)
     return all.slice(0, limit)
   } catch {
     return []

@@ -5,17 +5,17 @@ import { notFound } from 'next/navigation'
 export const dynamicParams = true
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export default async function Page({ params }: Props) {
-  const { slug } = await params
-  const project = await queryProjectBySlug(slug)
+  const { locale, slug } = await params
+  const project = await queryProjectBySlug(slug, locale)
   if (!project) notFound()
 
-  const { prev, next } = await queryAdjacentProjects(slug)
+  const { prev, next } = await queryAdjacentProjects(slug, locale)
 
-  return <ProjectDetailPage project={project} prev={prev} next={next} />
+  return <ProjectDetailPage project={project} prev={prev} next={next} locale={locale as 'en' | 'sv'} />
 }
 
 export async function generateStaticParams() {
@@ -24,8 +24,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params
-  const project = await queryProjectBySlug(slug)
+  const { locale, slug } = await params
+  const project = await queryProjectBySlug(slug, locale)
   if (!project) return {}
 
   return {

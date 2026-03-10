@@ -4,6 +4,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
 import type { Venture } from '@/payload-types'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { AnimateOnScroll } from './AnimateOnScroll'
@@ -13,27 +14,6 @@ import { HeroSection } from './HeroSection'
 
 const VENTURE_THEMES: VentureCardTheme[] = ['lime', 'lavender', 'ink']
 
-const SERVICES = [
-  {
-    label: 'Digital',
-    heading: 'Tools for communities to grow',
-    body: 'Websites, platforms, digital services, UX/UI design. Building the tools communities and organisations need to organise and grow.',
-    examples: 'e.g. Massvis platform, Klondyke Farms website',
-  },
-  {
-    label: 'Physical',
-    heading: 'Spaces that people want to be in',
-    body: 'Architecture, spatial design, co-building workshops. Designing and constructing spaces that people want to be in.',
-    examples: 'e.g. DIT Egnahem, Rewilding Sweden pavilion',
-  },
-  {
-    label: 'Social',
-    heading: 'Bringing communities together',
-    body: 'Co-design facilitation, workshops, placemaking consulting. Bringing people together to shape the places they live in.',
-    examples: 'e.g. Umeå Together, Kajeka student housing',
-  },
-]
-
 // ─── Main component ───────────────────────────────────────────────────────────
 
 interface Props {
@@ -41,7 +21,32 @@ interface Props {
   ventures: Venture[]
 }
 
-export function HomePage({ projects, ventures }: Props) {
+export async function HomePage({ projects, ventures }: Props) {
+  const t = await getTranslations()
+
+  const SERVICES = [
+    {
+      label: t('services.items.digital.label'),
+      heading: t('services.items.digital.heading'),
+      body: t('services.items.digital.body'),
+      examples: t('services.items.digital.examples'),
+    },
+    {
+      label: t('services.items.physical.label'),
+      heading: t('services.items.physical.heading'),
+      body: t('services.items.physical.body'),
+      examples: t('services.items.physical.examples'),
+    },
+    {
+      label: t('services.items.social.label'),
+      heading: t('services.items.social.heading'),
+      body: t('services.items.social.body'),
+      examples: t('services.items.social.examples'),
+    },
+  ]
+
+  const marqueeTerms = t.raw('marquee.terms') as string[]
+
   return (
     <main>
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
@@ -55,16 +60,7 @@ export function HomePage({ projects, ventures }: Props) {
         >
           {[0, 1].map((copy) => (
             <span key={copy} className="flex items-center shrink-0">
-              {[
-                'Architecture',
-                'Co-building',
-                'Digital Design',
-                'Placemaking',
-                'Facilitation',
-                'Regenerative Places',
-                'WikiHouse',
-                'Byggemenskap',
-              ].map((term) => (
+              {marqueeTerms.map((term) => (
                 <React.Fragment key={term}>
                   <span className="px-5 text-ink font-semibold text-sm tracking-wide">{term}</span>
                   <span className="text-ink/30 text-sm">·</span>
@@ -107,7 +103,7 @@ export function HomePage({ projects, ventures }: Props) {
       <section id="work" className="py-24 bg-background">
         <div className="container">
           <AnimateOnScroll className="mb-12">
-            <SectionHeading>Selected work</SectionHeading>
+            <SectionHeading>{t('work.sectionHeading')}</SectionHeading>
           </AnimateOnScroll>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:auto-rows-[280px] gap-3">
@@ -131,7 +127,7 @@ export function HomePage({ projects, ventures }: Props) {
               href="/work"
               className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-lime transition-colors"
             >
-              See all projects <span aria-hidden>→</span>
+              {t('work.seeAll')} <span aria-hidden>→</span>
             </Link>
           </AnimateOnScroll>
         </div>
@@ -142,31 +138,26 @@ export function HomePage({ projects, ventures }: Props) {
         <div className="container grid lg:grid-cols-5 gap-16 items-start">
           <div className="lg:col-span-3 space-y-6">
             <AnimateOnScroll>
-              <SectionHeading>An architecture studio that builds differently.</SectionHeading>
+              <SectionHeading>{t('studio.heading')}</SectionHeading>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={100}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Founded in 2022 by Kasimir and Karina while still studying — as a vessel for their
-                creative, research, and community interests. The name means three things:
-                participatory design, the French concept diagram that drives an architectural idea,
-                and a refusal to take architecture too seriously.
+                {t('studio.body1')}
               </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={150}>
               <blockquote className="border-l-4 border-lime pl-6 py-2 my-2">
                 <p className="font-sans text-2xl md:text-3xl italic text-foreground leading-snug">
-                  &ldquo;Citizens are the experts of place.&rdquo;
+                  &ldquo;{t('studio.quote')}&rdquo;
                 </p>
               </blockquote>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={200}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                They work holistically — a single project might combine architecture, workshop
-                facilitation, branding, and a website. The studio operates as both a practice and a
-                venture studio, incubating its own initiatives alongside client work.
+                {t('studio.body2')}
               </p>
             </AnimateOnScroll>
           </div>
@@ -175,7 +166,7 @@ export function HomePage({ projects, ventures }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
-              alt="Karina and Kasimir — founders of Parti Design"
+              alt={t('studio.photoAlt')}
               className="w-full aspect-[3/4] object-cover object-top"
             />
           </AnimateOnScroll>
@@ -187,13 +178,12 @@ export function HomePage({ projects, ventures }: Props) {
         <div className="container">
           <AnimateOnScroll className="mb-2">
             <p className="text-base text-foreground font-medium">
-              We don&apos;t just respond to briefs — we initiate.
+              {t('ventures.teaser')}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={80} className="mb-12">
             <p className="text-sm text-muted-foreground max-w-lg">
-              Alongside client work, Parti Design incubates its own projects: initiatives we believe
-              in and build ourselves.
+              {t('ventures.body')}
             </p>
           </AnimateOnScroll>
 
@@ -204,6 +194,7 @@ export function HomePage({ projects, ventures }: Props) {
                   title={venture.title}
                   tagline={venture.tagline ?? ''}
                   slug={venture.slug}
+                  ctaLabel={t('ventureCard.learnMore')}
                   theme={VENTURE_THEMES[i % VENTURE_THEMES.length]}
                 />
               </AnimateOnScroll>
@@ -217,14 +208,12 @@ export function HomePage({ projects, ventures }: Props) {
         <div className="container text-center max-w-3xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-ink mb-6">
-              Building homes together.
+              {t('byggemenskap.heading')}
             </SectionHeading>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p className="text-lg text-ink/80 leading-relaxed mb-10">
-              Byggemenskap — community self-build housing — is one of the most powerful tools for
-              affordable, community-rooted housing. Parti Design offers end-to-end support: from
-              forming the organisation to designing and co-building the home.
+              {t('byggemenskap.body')}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
@@ -232,7 +221,7 @@ export function HomePage({ projects, ventures }: Props) {
               href="/contact"
               className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink text-ink font-semibold hover:bg-ink hover:text-lime transition-colors"
             >
-              Talk to us about byggemenskap
+              {t('byggemenskap.cta')}
             </Link>
           </AnimateOnScroll>
         </div>
@@ -243,20 +232,20 @@ export function HomePage({ projects, ventures }: Props) {
         <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-off-white mb-6">
-              Let&apos;s build something together.
+              {t('closingCta.heading')}
             </SectionHeading>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p className="text-lg text-off-white/60 leading-relaxed mb-4">
-              Whether you have a brief, an idea, or just a question — reach out.
+              {t('closingCta.body')}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={150}>
             <a
-              href="mailto:kasimir@parti.design"
+              href={`mailto:${t('closingCta.email')}`}
               className="block text-sm text-off-white/50 hover:text-lime transition-colors mb-10"
             >
-              kasimir@parti.design
+              {t('closingCta.email')}
             </a>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
@@ -264,7 +253,7 @@ export function HomePage({ projects, ventures }: Props) {
               href="/contact"
               className="inline-flex items-center px-8 py-4 rounded-md bg-lime text-ink font-semibold hover:bg-lime/90 transition-colors"
             >
-              Start a conversation
+              {t('closingCta.cta')}
             </Link>
           </AnimateOnScroll>
         </div>

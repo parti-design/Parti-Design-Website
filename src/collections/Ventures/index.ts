@@ -77,6 +77,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       type: 'tabs',
@@ -95,6 +96,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
             {
               name: 'tagline',
               type: 'text',
+              localized: true,
               admin: {
                 description: 'Short description for venture cards (1–2 sentences)',
               },
@@ -103,6 +105,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
               name: 'description',
               label: 'Description',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => [
                   ...rootFeatures,
@@ -133,6 +136,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
                 {
                   name: 'caption',
                   type: 'text',
+                  localized: true,
                 },
               ],
             },

@@ -1,10 +1,12 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import React, { useState } from 'react'
 
 type Status = 'idle' | 'submitting' | 'sent'
 
 export function ContactForm() {
+  const t = useTranslations('contactForm')
   const [status, setStatus] = useState<Status>('idle')
   const [form, setForm] = useState({
     name: '',
@@ -31,8 +33,8 @@ export function ContactForm() {
   if (status === 'sent') {
     return (
       <div className="py-16 text-center space-y-3">
-        <p className="font-display font-bold text-2xl text-foreground">Thanks &mdash; we&apos;ll be in touch.</p>
-        <p className="text-muted-foreground text-sm">We usually reply within a couple of days.</p>
+        <p className="font-display font-bold text-2xl text-foreground">{t('successHeading')}</p>
+        <p className="text-muted-foreground text-sm">{t('successBody')}</p>
       </div>
     )
   }
@@ -42,7 +44,7 @@ export function ContactForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-1.5">
           <label htmlFor="name" className="text-sm font-semibold text-foreground">
-            Name <span className="text-lime">*</span>
+            {t('nameLabel')} <span className="text-lime">{t('nameRequired')}</span>
           </label>
           <input
             id="name"
@@ -51,14 +53,14 @@ export function ContactForm() {
             required
             value={form.name}
             onChange={handleChange}
-            placeholder="Your name"
+            placeholder={t('namePlaceholder')}
             className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-lime transition"
           />
         </div>
 
         <div className="space-y-1.5">
           <label htmlFor="email" className="text-sm font-semibold text-foreground">
-            Email <span className="text-lime">*</span>
+            {t('emailLabel')} <span className="text-lime">{t('emailRequired')}</span>
           </label>
           <input
             id="email"
@@ -67,7 +69,7 @@ export function ContactForm() {
             required
             value={form.email}
             onChange={handleChange}
-            placeholder="you@example.com"
+            placeholder={t('emailPlaceholder')}
             className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-lime transition"
           />
         </div>
@@ -76,7 +78,7 @@ export function ContactForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-1.5">
           <label htmlFor="organisation" className="text-sm font-semibold text-foreground">
-            Organisation <span className="text-muted-foreground font-normal">(optional)</span>
+            {t('orgLabel')} <span className="text-muted-foreground font-normal">{t('orgOptional')}</span>
           </label>
           <input
             id="organisation"
@@ -84,14 +86,14 @@ export function ContactForm() {
             type="text"
             value={form.organisation}
             onChange={handleChange}
-            placeholder="Your organisation or municipality"
+            placeholder={t('orgPlaceholder')}
             className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-lime transition"
           />
         </div>
 
         <div className="space-y-1.5">
           <label htmlFor="type" className="text-sm font-semibold text-foreground">
-            Type of project
+            {t('typeLabel')}
           </label>
           <select
             id="type"
@@ -100,19 +102,19 @@ export function ContactForm() {
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-lime transition"
           >
-            <option value="">Select a type...</option>
-            <option value="architecture">Architecture</option>
-            <option value="digital">Digital / Web</option>
-            <option value="facilitation">Co-design / Facilitation</option>
-            <option value="byggemenskap">Byggemenskap</option>
-            <option value="general">General inquiry</option>
+            <option value="">{t('typeDefault')}</option>
+            <option value="architecture">{t('typeArchitecture')}</option>
+            <option value="digital">{t('typeDigital')}</option>
+            <option value="facilitation">{t('typeFacilitation')}</option>
+            <option value="byggemenskap">{t('typeByggemenskap')}</option>
+            <option value="general">{t('typeGeneral')}</option>
           </select>
         </div>
       </div>
 
       <div className="space-y-1.5">
         <label htmlFor="message" className="text-sm font-semibold text-foreground">
-          Message <span className="text-lime">*</span>
+          {t('messageLabel')} <span className="text-lime">{t('messageRequired')}</span>
         </label>
         <textarea
           id="message"
@@ -121,7 +123,7 @@ export function ContactForm() {
           rows={6}
           value={form.message}
           onChange={handleChange}
-          placeholder="Tell us about your project, idea, or question..."
+          placeholder={t('messagePlaceholder')}
           className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-lime transition resize-none"
         />
       </div>
@@ -131,7 +133,7 @@ export function ContactForm() {
         disabled={status === 'submitting'}
         className="inline-flex items-center px-8 py-4 rounded-md bg-ink text-off-white font-semibold text-sm hover:bg-ink/90 transition-colors disabled:opacity-60"
       >
-        {status === 'submitting' ? 'Sending...' : 'Send message'}
+        {status === 'submitting' ? t('submitting') : t('submit')}
       </button>
     </form>
   )

@@ -1,12 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef } from 'react'
 
-const HEADLINE_WORDS = ['New', 'ways', 'to', 'organize', 'and', 'build', 'together.']
-
 export function HeroSection() {
+  const t = useTranslations('hero')
   const imgRef = useRef<HTMLImageElement>(null)
+
+  const HEADLINE_WORDS = t('headline').split(' ')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,8 +60,7 @@ export function HeroSection() {
               animationDelay: `${HEADLINE_WORDS.length * 0.07 + 0.1}s`,
             }}
           >
-            Parti Design is a multidisciplinary architecture and design studio. We develop
-            regenerative places through digital, physical and social systems.
+            {t('subStatement')}
           </p>
 
           {/* CTAs */}
@@ -74,13 +75,13 @@ export function HeroSection() {
               href="#work"
               className="inline-flex items-center px-6 py-3 rounded-md bg-lime text-ink font-semibold text-sm hover:bg-lime/90 transition-colors"
             >
-              See our work
+              {t('cta_work')}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center px-6 py-3 rounded-md border border-off-white/60 text-off-white font-semibold text-sm hover:bg-off-white hover:text-ink transition-colors"
             >
-              Get in touch
+              {t('cta_contact')}
             </Link>
           </div>
         </div>
@@ -95,7 +96,7 @@ export function HeroSection() {
         }}
       >
         <span className="text-off-white/50 text-[10px] tracking-[0.2em] uppercase font-medium">
-          Scroll
+          {t('scroll')}
         </span>
         <div className="animate-bounce mt-1">
           <div className="w-5 h-5 border-r-2 border-b-2 border-off-white/40 rotate-45" />

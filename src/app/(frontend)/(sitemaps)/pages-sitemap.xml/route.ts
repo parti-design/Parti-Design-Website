@@ -33,11 +33,19 @@ const getPagesSitemap = unstable_cache(
 
     const defaultSitemap = [
       {
-        loc: `${SITE_URL}/search`,
+        loc: `${SITE_URL}/en/search`,
         lastmod: dateFallback,
       },
       {
-        loc: `${SITE_URL}/posts`,
+        loc: `${SITE_URL}/sv/search`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/en/posts`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/sv/posts`,
         lastmod: dateFallback,
       },
     ]
@@ -45,11 +53,18 @@ const getPagesSitemap = unstable_cache(
     const sitemap = results.docs
       ? results.docs
           .filter((page) => Boolean(page?.slug))
-          .map((page) => {
-            return {
-              loc: page?.slug === 'home' ? `${SITE_URL}/` : `${SITE_URL}/${page?.slug}`,
-              lastmod: page.updatedAt || dateFallback,
-            }
+          .flatMap((page) => {
+            const basePath = page?.slug === 'home' ? '' : `/${page?.slug}`
+            return [
+              {
+                loc: `${SITE_URL}/en${basePath}`,
+                lastmod: page.updatedAt || dateFallback,
+              },
+              {
+                loc: `${SITE_URL}/sv${basePath}`,
+                lastmod: page.updatedAt || dateFallback,
+              },
+            ]
           })
       : []
 

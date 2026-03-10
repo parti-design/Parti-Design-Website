@@ -1,0 +1,244 @@
+{
+  "nav": {
+    "work": "Projekt",
+    "ventures": "Initiativ",
+    "studio": "Studio",
+    "contact": "Kontakt",
+    "openMenu": "Öppna meny",
+    "closeMenu": "Stäng meny"
+  },
+  "hero": {
+    "headline": "Nya sätt att organisera och bygga tillsammans.",
+    "subStatement": "Parti Design är ett multidisciplinärt arkitektur- och designstudio. Vi utvecklar regenerativa platser genom digitala, fysiska och sociala system.",
+    "cta_work": "Se våra projekt",
+    "cta_contact": "Kontakta oss",
+    "scroll": "Scrolla"
+  },
+  "marquee": {
+    "terms": ["Arkitektur", "Sambygge", "Digital Design", "Platsskapande", "Facilitering", "Regenerativa Platser", "WikiHouse", "Byggemenskap"]
+  },
+  "services": {
+    "sectionLabel": "Vad vi gör",
+    "items": {
+      "digital": {
+        "label": "Digitalt",
+        "heading": "Verktyg för att gemenskaper ska växa",
+        "body": "Webbplatser, plattformar, digitala tjänster, UX/UI-design. Vi bygger de verktyg som gemenskaper och organisationer behöver för att organisera sig och växa.",
+        "examples": "t.ex. Massvis-plattformen, Klondyke Farms webbplats"
+      },
+      "physical": {
+        "label": "Fysiskt",
+        "heading": "Rum som människor vill vistas i",
+        "body": "Arkitektur, rumsdesign, sambyggnadsworkshops. Vi designar och konstruerar rum som människor vill vistas i.",
+        "examples": "t.ex. DIT Egnahem, Rewilding Sweden-paviljongen"
+      },
+      "social": {
+        "label": "Socialt",
+        "heading": "Att samla gemenskaper",
+        "body": "Samdesignfacilitering, workshops, platsmakarrådgivning. Vi samlar människor för att forma de platser de lever i.",
+        "examples": "t.ex. Umeå Tillsammans, Kajeka studentbostäder"
+      }
+    }
+  },
+  "work": {
+    "sectionHeading": "Utvalda projekt",
+    "seeAll": "Se alla projekt",
+    "pageTitle": "Projekt — Parti Design",
+    "pageDescription": "Projekt inom arkitektur, digital design, sambygge och gemenskapsfacilitering."
+  },
+  "studio": {
+    "heading": "Ett arkitekturstudio som bygger annorlunda.",
+    "body1": "Grundat 2022 av Kasimir och Karina medan de fortfarande studerade — som ett kärl för deras kreativa, akademiska och samhällsintressen. Namnet betyder tre saker: deltagande design, det franska konceptdiagrammet som driver en arkitekturidé, och en vägran att ta arkitektur för seriöst.",
+    "quote": "Medborgarna är platsens experter.",
+    "body2": "De arbetar holistiskt — ett enda projekt kan kombinera arkitektur, workshopfacilitering, varumärkesbyggande och en webbplats. Studion fungerar både som praktik och som ett venturestudio som inkuberar egna initiativ vid sidan av kundarbete.",
+    "photoAlt": "Karina och Kasimir — grundarna av Parti Design"
+  },
+  "ventures": {
+    "teaser": "Vi svarar inte bara på uppdrag — vi initierar.",
+    "body": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: initiativ vi tror på och bygger själva.",
+    "pageTitle": "Initiativ — Parti Design",
+    "pageDescription": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: Massvis, Umeå Kallbad och DIT Egnahem."
+  },
+  "byggemenskap": {
+    "heading": "Att bygga hem tillsammans.",
+    "body": "Byggemenskap — gemensamt självbyggnadsboende — är ett av de kraftfullaste verktygen för prisvärda, gemenskapsförankrade bostäder. Parti Design erbjuder helhetsstöd: från att bilda organisationen till att designa och sambygga hemmet.",
+    "cta": "Prata med oss om byggemenskap"
+  },
+  "closingCta": {
+    "heading": "Låt oss bygga något tillsammans.",
+    "body": "Oavsett om du har ett uppdrag, en idé eller bara en fråga — hör av dig.",
+    "email": "kasimir@parti.design",
+    "cta": "Starta ett samtal"
+  },
+  "contact": {
+    "tag": "Kontakt",
+    "heading": "Låt oss bygga något tillsammans.",
+    "body": "Oavsett om du har ett uppdrag, en grov idé eller bara en fråga — vi vill gärna höra från dig.",
+    "emailLabel": "E-post",
+    "basedLabel": "Baserade i",
+    "basedValue": "Umeå, Sverige",
+    "workingLabel": "Arbetar",
+    "workingValue": "Internationellt",
+    "byggemenskapTag": "Byggemenskap",
+    "byggemenskapHeading": "Tänker du på att bygga ett hem tillsammans?",
+    "byggemenskapBody": "Vi erbjuder helhetsstöd för gemensamma självbyggnadsgrupper — från att bilda kooperativet till att designa och sambygga hemmet. Hör av dig så pratar vi.",
+    "replyNote": "Vi svarar vanligtvis inom ett par dagar. Vid brådskande ärenden, maila direkt.",
+    "pageTitle": "Kontakt — Parti Design",
+    "pageDescription": "Kontakta Parti Design — arkitektur, digital design och sambygge."
+  },
+  "contactForm": {
+    "nameLabel": "Namn",
+    "nameRequired": "*",
+    "namePlaceholder": "Ditt namn",
+    "emailLabel": "E-post",
+    "emailRequired": "*",
+    "emailPlaceholder": "du@exempel.se",
+    "orgLabel": "Organisation",
+    "orgOptional": "(valfritt)",
+    "orgPlaceholder": "Din organisation eller kommun",
+    "typeLabel": "Typ av projekt",
+    "typeDefault": "Välj en typ...",
+    "typeArchitecture": "Arkitektur",
+    "typeDigital": "Digitalt / Webb",
+    "typeFacilitation": "Samdesign / Facilitering",
+    "typeByggemenskap": "Byggemenskap",
+    "typeGeneral": "Allmän förfrågan",
+    "messageLabel": "Meddelande",
+    "messageRequired": "*",
+    "messagePlaceholder": "Berätta om ditt projekt, idé eller fråga...",
+    "submit": "Skicka meddelande",
+    "submitting": "Skickar...",
+    "successHeading": "Tack — vi hör av oss.",
+    "successBody": "Vi svarar vanligtvis inom ett par dagar."
+  },
+  "home": {
+    "title": "Parti Design — Arkitektur, Design & Sambygge",
+    "description": "Ett multidisciplinärt arkitektur- och designstudio som utvecklar regenerativa platser genom digitala, fysiska och sociala system. Baserade i Umeå, Sverige."
+  },
+  "studio_page": {
+    "pageTitle": "Studio — Parti Design",
+    "pageDescription": "Parti Design är ett multidisciplinärt arkitektur- och designstudio grundat 2022 av Kasimir och Karina i Umeå, Sverige."
+  },
+  "ventureCard": {
+    "learnMore": "Läs mer"
+  },
+  "workPage": {
+    "header": {
+      "tag": "Portfolio",
+      "heading": "Projekt som bygger platser och gemenskaper.",
+      "body": "Projekt inom arkitektur, digital design, sambygge och gemenskapsfacilitering — ofta allt på samma gång."
+    },
+    "filters": {
+      "all": "Alla",
+      "architecture": "Arkitektur",
+      "coBuilding": "Sambygge",
+      "digital": "Digitalt",
+      "facilitation": "Facilitering"
+    },
+    "cta": {
+      "tag": "Engagera dig",
+      "heading": "Har du ett projekt i åtanke?",
+      "body": "Vi arbetar med kommuner, utvecklare, samhällsorganisationer och privatpersoner. Hör av dig — vi vill gärna höra om ditt projekt.",
+      "button": "Starta ett samtal"
+    }
+  },
+  "studioPageContent": {
+    "header": {
+      "tag": "Studio",
+      "heading": "Ett arkitekturstudio som bygger annorlunda.",
+      "body": "Grundat 2022 i Umeå, Sverige. Vi arbetar i skärningspunkten mellan arkitektur, digital design och samhällsfacilitering."
+    },
+    "about": {
+      "heading": "Studion.",
+      "body1a": "Parti Design grundades 2022 av Kasimir och Karina medan de fortfarande studerade — som ett kärl för deras kreativa, forskningsmässiga och samhälleliga intressen. Namnet betyder tre saker: deltagande design, det franska",
+      "body1b": "(konceptdiagrammet som driver en arkitekturidé), och en vägran att ta arkitektur på för stort allvar.",
+      "quote": "Medborgarna är platsens experter.",
+      "body2": "Studion verkar både som praktik och som venturestudio — och utvecklar egna initiativ vid sidan av kunduppdrag. Ett enda projekt kan kombinera arkitektur, workshopfacilitering, varumärkesbyggande och en webbplats. Det är inte en slump; det är poängen.",
+      "body3": "Baserade i Umeå, Sverige — men vi arbetar där projekten tar oss.",
+      "photoAlt": "Karina och Kasimir — grundarna av Parti Design"
+    },
+    "team": {
+      "heading": "Teamet.",
+      "role": "Medgrundare",
+      "kasimir": "Arkitektur, digital utveckling och sambygge. Kasimir leder teknisk design, byggprojekt och digitala plattformar. Han har ett särskilt intresse för open source-byggsystem och gemenskapsbaserade markmodeller.",
+      "karina": "Arkitektur, grafisk design och facilitering. Karina leder visuell kommunikation, samdesignprocesser och rumslig design. Hon har ett skarpt öga för estetik och ett djupt engagemang för deltagande metoder."
+    },
+    "valuesHeading": "Hur vi arbetar.",
+    "values": {
+      "participatory": {
+        "label": "Deltagande",
+        "body": "Vi tror att gemenskaper är experterna på sina egna platser. Varje projekt börjar med att lyssna."
+      },
+      "holistic": {
+        "label": "Holistiskt",
+        "body": "Ett enda projekt kan kombinera arkitektur, facilitering, varumärkesbyggande och en webbplats. Vi arbetar över hela problemet."
+      },
+      "regenerative": {
+        "label": "Regenerativt",
+        "body": "Vi designar för långsiktig blomstring, inte kortsiktig leverans. Byggnader och plattformar ska överleva briefen."
+      },
+      "open": {
+        "label": "Öppet",
+        "body": "Vi delar metoder, använder open source-verktyg och arbetar offentligt när vi kan. Bra idéer sprids längre när de delas."
+      }
+    },
+    "servicesHeading": "Vad vi erbjuder.",
+    "services": {
+      "architecture": {
+        "label": "Arkitektur",
+        "body": "Nya byggnader, rumsliga interventioner, sambyggnadsworkshops, WikiHouse-byggande och stöd för byggemenskap."
+      },
+      "digital": {
+        "label": "Digitalt",
+        "body": "Webbplatser, plattformar, digitala tjänster, UX/UI-design, gemenskapsverktyg och produktutveckling."
+      },
+      "social": {
+        "label": "Socialt",
+        "body": "Samdesignfacilitering, samhällsengagemang, platsskapandestrategi, workshopserier och bidragsrådgivning."
+      }
+    },
+    "cta": {
+      "heading": "Låt oss arbeta tillsammans.",
+      "body": "Oavsett om du har ett uppdrag, en skissartad idé eller ett samhällsproblem som behöver lösas — vi vill gärna höra från dig.",
+      "button": "Kontakta oss"
+    }
+  },
+  "venturesPage": {
+    "header": {
+      "tag": "Initiativ",
+      "heading": "Vi svarar inte bara på uppdrag — vi initierar.",
+      "body": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: initiativ vi tror på och bygger själva."
+    },
+    "status": {
+      "active": "Aktiv",
+      "inDevelopment": "Under utveckling",
+      "completed": "Avslutad"
+    },
+    "learnMore": "Läs mer",
+    "why": {
+      "heading": "Varför en venturestudio?",
+      "body1": "Kunduppdrag håller oss skärpta, men det vi tror mest på — samhällsfinansiering, open source-bostäder och urbana kallbad — kommer sällan som ett färdigt uppdrag. Så vi skapar dem själva.",
+      "body2": "Varje initiativ är ett verkligt projekt där vi investerar vår egen tid, design och våra relationer. Vissa växer till självständiga organisationer; andra vävs tillbaka in i studions erbjudande. Alla skärper vårt tänkande.",
+      "quote": "De bästa projekten vi deltagit i började med en fråga, inte en budget."
+    }
+  },
+  "projectDetail": {
+    "meta": {
+      "year": "År",
+      "location": "Plats",
+      "client": "Kund",
+      "services": "Tjänster"
+    },
+    "previous": "Föregående",
+    "next": "Nästa",
+    "allProjects": "Alla projekt",
+    "gallery": {
+      "viewImage": "Visa bild",
+      "close": "Stäng",
+      "previousImage": "Föregående bild",
+      "nextImage": "Nästa bild",
+      "imageLabel": "bild",
+      "of": "av"
+    }
+  }
+}

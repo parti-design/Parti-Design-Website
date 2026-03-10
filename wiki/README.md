@@ -10,6 +10,7 @@ This directory is an internal reference wiki for the Parti Design website and bu
 | [site-purpose.md](./site-purpose.md) | Goals and purpose of the website |
 | [target-audience.md](./target-audience.md) | Who the site is built for |
 | [projects.md](./projects.md) | Known projects, ventures, and strategic pipeline |
+| [deployment-coolify.md](./deployment-coolify.md) | Coolify deployment notes, env vars, and persistent storage setup |
 
 ## How to use this wiki
 

@@ -4,15 +4,24 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 interface GalleryImage {
   src: string
+  fullSrc?: string
   caption?: string
 }
 
 interface Props {
   images: GalleryImage[]
   projectTitle: string
+  labels: {
+    viewImage: string
+    close: string
+    previousImage: string
+    nextImage: string
+    imageLabel: string
+    of: string
+  }
 }
 
-export function Gallery({ images, projectTitle }: Props) {
+export function Gallery({ images, projectTitle, labels }: Props) {
   const [active, setActive] = useState<number | null>(null)
 
   const close = useCallback(() => setActive(null), [])
@@ -27,7 +36,6 @@ export function Gallery({ images, projectTitle }: Props) {
     [images.length],
   )
 
-  // Keyboard navigation
   useEffect(() => {
     if (active === null) return
     const handler = (e: KeyboardEvent) => {
@@ -39,7 +47,6 @@ export function Gallery({ images, projectTitle }: Props) {
     return () => window.removeEventListener('keydown', handler)
   }, [active, close, prev, next])
 
-  // Lock body scroll when open
   useEffect(() => {
     document.body.style.overflow = active !== null ? 'hidden' : ''
     return () => {
@@ -51,14 +58,13 @@ export function Gallery({ images, projectTitle }: Props) {
 
   return (
     <>
-      {/* ── Gallery grid ── */}
       <div className="columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
         {images.map(({ src, caption }, i) => (
           <button
             key={src}
             onClick={() => setActive(i)}
             className="break-inside-avoid w-full group cursor-zoom-in relative overflow-hidden rounded-md"
-            aria-label={`View image ${i + 1} of ${images.length}`}
+            aria-label={`${labels.viewImage} ${i + 1} ${labels.of} ${images.length}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -72,7 +78,6 @@ export function Gallery({ images, projectTitle }: Props) {
         ))}
       </div>
 
-      {/* ── Lightbox overlay ── */}
       {active !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
@@ -80,23 +85,20 @@ export function Gallery({ images, projectTitle }: Props) {
           onClick={close}
           role="dialog"
           aria-modal
-          aria-label={`${projectTitle} — image ${active + 1} of ${images.length}`}
+          aria-label={`${projectTitle} — ${labels.imageLabel} ${active + 1} ${labels.of} ${images.length}`}
         >
-          {/* Close */}
           <button
             onClick={close}
             className="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-off-white/60 hover:text-off-white transition-colors text-2xl leading-none"
-            aria-label="Close"
+            aria-label={labels.close}
           >
             ✕
           </button>
 
-          {/* Counter */}
           <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-off-white/40 text-xs tracking-widest uppercase font-medium">
             {active + 1} / {images.length}
           </div>
 
-          {/* Prev arrow */}
           {images.length > 1 && (
             <button
               onClick={(e) => {
@@ -104,7 +106,7 @@ export function Gallery({ images, projectTitle }: Props) {
                 prev()
               }}
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-off-white/50 hover:text-off-white transition-colors rounded-full hover:bg-off-white/10"
-              aria-label="Previous image"
+              aria-label={labels.previousImage}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
@@ -112,7 +114,6 @@ export function Gallery({ images, projectTitle }: Props) {
             </button>
           )}
 
-          {/* Next arrow */}
           {images.length > 1 && (
             <button
               onClick={(e) => {
@@ -120,7 +121,7 @@ export function Gallery({ images, projectTitle }: Props) {
                 next()
               }}
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-off-white/50 hover:text-off-white transition-colors rounded-full hover:bg-off-white/10"
-              aria-label="Next image"
+              aria-label={labels.nextImage}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 18 15 12 9 6" />
@@ -128,15 +129,14 @@ export function Gallery({ images, projectTitle }: Props) {
             </button>
           )}
 
-          {/* Image — stop click from bubbling to overlay */}
           <div
             className="relative max-w-[90vw] max-h-[88vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={images[active].src}
-              alt={images[active].caption ?? `${projectTitle} — image ${active + 1}`}
+              src={images[active].fullSrc ?? images[active].src}
+              alt={images[active].caption ?? `${projectTitle} — ${labels.imageLabel} ${active + 1}`}
               className="max-h-[88vh] max-w-[90vw] object-contain rounded-sm shadow-2xl"
             />
             {images[active].caption && (

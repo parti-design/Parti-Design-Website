@@ -18,6 +18,7 @@ export interface VentureCardProps {
    */
   theme?: VentureCardTheme
   className?: string
+  ctaLabel?: string
 }
 
 const themeClasses: Record<VentureCardTheme, { bg: string; text: string; muted: string }> = {
@@ -46,7 +47,7 @@ const themeClasses: Record<VentureCardTheme, { bg: string; text: string; muted: 
  * Usage:
  *   <VentureCard title="Massvis" tagline="..." slug="massvis" theme="lime" />
  */
-export function VentureCard({ title, tagline, slug, theme = 'lime', className }: VentureCardProps) {
+export function VentureCard({ title, tagline, slug, theme = 'lime', className, ctaLabel = 'Learn more' }: VentureCardProps) {
   const colors = themeClasses[theme]
 
   return (
@@ -65,7 +66,7 @@ export function VentureCard({ title, tagline, slug, theme = 'lime', className }:
       <div>
         <p className={cn('text-sm leading-relaxed mb-6', colors.muted)}>{tagline}</p>
         <span className={cn('text-sm font-semibold group-hover:underline', colors.text)}>
-          Learn more →
+          {ctaLabel} →
         </span>
       </div>
     </Link>
