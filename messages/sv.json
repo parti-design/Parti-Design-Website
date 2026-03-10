@@ -109,7 +109,9 @@
     "submit": "Skicka meddelande",
     "submitting": "Skickar...",
     "successHeading": "Tack — vi hör av oss.",
-    "successBody": "Vi svarar vanligtvis inom ett par dagar."
+    "successBody": "Vi svarar vanligtvis inom ett par dagar.",
+    "errorHeading": "Något gick fel.",
+    "errorBody": "Försök igen eller maila oss direkt på kasimir@parti.design."
   },
   "home": {
     "title": "Parti Design — Arkitektur, Design & Sambygge",

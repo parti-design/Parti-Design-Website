@@ -1,11 +1,12 @@
 'use client'
 
+import { getClientSideURL } from '@/utilities/getURL'
 import { useTranslations } from 'next-intl'
 import React, { useState } from 'react'
 
-type Status = 'idle' | 'submitting' | 'sent'
+type Status = 'idle' | 'submitting' | 'sent' | 'error'
 
-export function ContactForm() {
+export function ContactForm({ formId }: { formId: number | null }) {
   const t = useTranslations('contactForm')
   const [status, setStatus] = useState<Status>('idle')
   const [form, setForm] = useState({
@@ -24,10 +25,27 @@ export function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (!formId) return
     setStatus('submitting')
-    // TODO: wire up to a form service (Resend, Formspree, etc.)
-    await new Promise((r) => setTimeout(r, 800))
-    setStatus('sent')
+
+    const submissionData = Object.entries(form).map(([field, value]) => ({ field, value }))
+
+    try {
+      const res = await fetch(`${getClientSideURL()}/api/form-submissions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ form: formId, submissionData }),
+      })
+
+      if (!res.ok) {
+        setStatus('error')
+        return
+      }
+
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    }
   }
 
   if (status === 'sent') {
@@ -35,6 +53,15 @@ export function ContactForm() {
       <div className="py-16 text-center space-y-3">
         <p className="font-display font-bold text-2xl text-foreground">{t('successHeading')}</p>
         <p className="text-muted-foreground text-sm">{t('successBody')}</p>
+      </div>
+    )
+  }
+
+  if (status === 'error') {
+    return (
+      <div className="py-16 text-center space-y-3">
+        <p className="font-display font-bold text-2xl text-foreground">{t('errorHeading')}</p>
+        <p className="text-muted-foreground text-sm">{t('errorBody')}</p>
       </div>
     )
   }

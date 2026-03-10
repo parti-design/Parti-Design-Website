@@ -1,13 +1,23 @@
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Tag } from '@/components/ui/Tag'
+import configPromise from '@payload-config'
 import { getTranslations } from 'next-intl/server'
+import { getPayload } from 'payload'
 import React from 'react'
 
 import { ContactForm } from './ContactForm'
 
 export async function ContactPage() {
   const t = await getTranslations('contact')
+
+  const payload = await getPayload({ config: configPromise })
+  const { docs } = await payload.find({
+    collection: 'forms',
+    where: { title: { equals: 'Contact Form' } },
+    limit: 1,
+  })
+  const formId = docs[0]?.id ?? null
 
   const contactDetails = [
     { label: t('emailLabel'), value: 'kasimir@parti.design', href: 'mailto:kasimir@parti.design' },
@@ -68,7 +78,7 @@ export async function ContactPage() {
 
           {/* Right column — form */}
           <AnimateOnScroll delay={100} className="lg:col-span-3">
-            <ContactForm />
+            <ContactForm formId={formId} />
           </AnimateOnScroll>
         </div>
       </section>
