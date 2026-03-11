@@ -4,13 +4,13 @@ import { routing } from './i18n/routing'
 
 const intlMiddleware = createMiddleware(routing)
 
-// Paths that Payload CMS owns — bypass next-intl entirely
-const PAYLOAD_PATHS = /^\/(api|admin|next)(\/.*)?$/
+// Paths that bypass next-intl locale routing entirely
+const BYPASS_PATHS = /^\/(api|keystatic)(\/.*)?$/
 
 export function middleware(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl
 
-  if (PAYLOAD_PATHS.test(pathname)) {
+  if (BYPASS_PATHS.test(pathname)) {
     return NextResponse.next()
   }
 
