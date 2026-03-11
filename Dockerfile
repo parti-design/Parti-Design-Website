@@ -46,7 +46,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
+# src/content/ is needed at runtime — Keystatic reads MDX/YAML files
+# directly from the filesystem to serve page data
 COPY --from=builder /app/src ./src
 
 EXPOSE 3000
@@ -54,5 +55,5 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
-# Run DB migrations then start the Next.js server
-CMD ["sh", "-c", "node_modules/.bin/payload migrate && node_modules/.bin/next start"]
+# No database migrations needed — content lives in src/content/ as files
+CMD ["node_modules/.bin/next", "start"]
