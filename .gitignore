@@ -6,11 +6,10 @@ node_modules
 .next
 .vercel
 
-# Payload default media upload directory
-public/media/
-
-# Local development images (not committed — use import script for production)
+# Source/original images — processed into public/media/ via scripts/optimize-media.mjs
 public/images/
+
+# public/media/ is intentionally committed to git (optimized images baked into Docker image)
 
 public/robots.txt
 public/sitemap*.xml
