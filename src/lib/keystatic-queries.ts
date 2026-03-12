@@ -305,12 +305,19 @@ export async function queryHomepageContent(locale: Locale | string = 'en'): Prom
     const sv = (svDoc ?? {}) as Partial<HomepageContent>
     // Merge: Swedish overrides English, but empty strings fall back to English
     const merged: Partial<HomepageContent> = { ...base }
-    for (const key of Object.keys(sv) as (keyof HomepageContent)[]) {
+
+    const applyLocalizedOverride = <K extends keyof HomepageContent>(key: K) => {
       const val = sv[key]
+
       if (typeof val === 'string' ? val.length > 0 : Array.isArray(val) && val.length > 0) {
         merged[key] = val
       }
     }
+
+    for (const key of Object.keys(sv) as (keyof HomepageContent)[]) {
+      applyLocalizedOverride(key)
+    }
+
     return merged as HomepageContent
   }
 
