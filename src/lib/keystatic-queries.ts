@@ -304,14 +304,14 @@ export async function queryHomepageContent(locale: Locale | string = 'en'): Prom
     const svDoc = await reader.singletons.homepageSv.read()
     const sv = (svDoc ?? {}) as Partial<HomepageContent>
     // Merge: Swedish overrides English, but empty strings fall back to English
-    const merged = { ...base } as HomepageContent
+    const merged: Partial<HomepageContent> = { ...base }
     for (const key of Object.keys(sv) as (keyof HomepageContent)[]) {
       const val = sv[key]
-      if (val && (typeof val === 'string' ? val.length > 0 : (val as readonly string[]).length > 0)) {
-        ;(merged as Record<string, unknown>)[key] = val
+      if (typeof val === 'string' ? val.length > 0 : Array.isArray(val) && val.length > 0) {
+        merged[key] = val
       }
     }
-    return merged
+    return merged as HomepageContent
   }
 
   return base as HomepageContent
