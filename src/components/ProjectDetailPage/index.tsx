@@ -5,7 +5,7 @@
  * Gallery is removed for now — will be re-added when Keystatic gallery field is set up.
  */
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
-import { KeystaticContent } from '@/components/KeystaticContent'
+import { compileMDX } from 'next-mdx-remote/rsc'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
 import { mediaUrl, serviceLabels } from '@/lib/keystatic-queries'
@@ -27,7 +27,7 @@ interface KeystaticProject {
   services?: readonly string[] | string[] | null
   description?: (() => Promise<unknown>) | null
   content?: (() => Promise<unknown>) | null
-  gallery?: unknown
+  gallery?: Array<{ image?: string | null; caption?: string | null }> | null
 }
 
 interface Props {
@@ -50,11 +50,20 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
   const title = resolveTitle(project)
   const coverUrl = mediaUrl(project.coverImage)
 
-  // Call the Keystatic async content readers — they return document objects for rendering
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const descriptionDoc: any = project.description ? await (project.description as () => Promise<unknown>)() : null
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const contentDoc: any = project.content ? await (project.content as () => Promise<unknown>)() : null
+  // fields.mdx with createReader returns the raw MDX string — compile it for rendering
+  const rawDescription = project.description
+    ? await (project.description as () => Promise<string>)()
+    : null
+  const rawContent = project.content
+    ? await (project.content as () => Promise<string>)()
+    : null
+
+  const { content: DescriptionComponent } = rawDescription?.trim()
+    ? await compileMDX({ source: rawDescription })
+    : { content: null }
+  const { content: ContentComponent } = rawContent?.trim()
+    ? await compileMDX({ source: rawContent })
+    : { content: null }
 
   return (
     <main>
@@ -127,30 +136,47 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
         </div>
       </div>
 
-      {(descriptionDoc || contentDoc) && (
+      {(DescriptionComponent || ContentComponent) && (
         <section className="py-24 bg-background">
           <div className="container max-w-3xl space-y-8">
-            {descriptionDoc && (
+            {DescriptionComponent && (
               <AnimateOnScroll>
-                <KeystaticContent
-                  document={descriptionDoc as any}
-                  className="prose prose-lg dark:prose-invert max-w-none"
-                />
+                <div className="prose prose-lg dark:prose-invert max-w-none">
+                  {DescriptionComponent}
+                </div>
               </AnimateOnScroll>
             )}
-            {contentDoc && (
+            {ContentComponent && (
               <AnimateOnScroll delay={80}>
-                <KeystaticContent
-                  document={contentDoc as any}
-                  className="prose prose-lg dark:prose-invert max-w-none"
-                />
+                <div className="prose prose-lg dark:prose-invert max-w-none">
+                  {ContentComponent}
+                </div>
               </AnimateOnScroll>
             )}
           </div>
         </section>
       )}
 
-      {/* TODO: Gallery support — add gallery array to Keystatic schema when needed */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="py-16 bg-background border-t border-border">
+          <div className="container">
+            <Gallery
+              images={project.gallery
+                .filter((g) => g.image)
+                .map((g) => ({ src: g.image!, caption: g.caption ?? undefined }))}
+              projectTitle={title}
+              labels={{
+                viewImage: t('gallery.viewImage'),
+                close: t('gallery.close'),
+                previousImage: t('gallery.previousImage'),
+                nextImage: t('gallery.nextImage'),
+                imageLabel: t('gallery.imageLabel'),
+                of: t('gallery.of'),
+              }}
+            />
+          </div>
+        </section>
+      )}
 
       <nav className="border-t border-border bg-background">
         <div className="container grid grid-cols-2">

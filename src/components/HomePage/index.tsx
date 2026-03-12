@@ -8,6 +8,7 @@ import React from 'react'
 
 import { AnimateOnScroll } from './AnimateOnScroll'
 import { HeroSection } from './HeroSection'
+import type { HomepageContent } from '@/lib/keystatic-queries'
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 
@@ -27,38 +28,43 @@ interface VentureCard {
 interface Props {
   projects: ProjectCardProps[]
   ventures: VentureCard[]
+  content: HomepageContent
 }
 
-export async function HomePage({ projects, ventures }: Props) {
+export async function HomePage({ projects, ventures, content }: Props) {
+  // `t` is only used for UI chrome strings not managed in the CMS
   const t = await getTranslations()
 
   const SERVICES = [
     {
-      label: t('services.items.digital.label'),
-      heading: t('services.items.digital.heading'),
-      body: t('services.items.digital.body'),
-      examples: t('services.items.digital.examples'),
+      label: content.digitalLabel,
+      heading: content.digitalHeading,
+      body: content.digitalBody,
+      examples: content.digitalExamples,
     },
     {
-      label: t('services.items.physical.label'),
-      heading: t('services.items.physical.heading'),
-      body: t('services.items.physical.body'),
-      examples: t('services.items.physical.examples'),
+      label: content.physicalLabel,
+      heading: content.physicalHeading,
+      body: content.physicalBody,
+      examples: content.physicalExamples,
     },
     {
-      label: t('services.items.social.label'),
-      heading: t('services.items.social.heading'),
-      body: t('services.items.social.body'),
-      examples: t('services.items.social.examples'),
+      label: content.socialLabel,
+      heading: content.socialHeading,
+      body: content.socialBody,
+      examples: content.socialExamples,
     },
   ]
-
-  const marqueeTerms = t.raw('marquee.terms') as string[]
 
   return (
     <main>
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
-      <HeroSection />
+      <HeroSection
+        headline={content.heroHeadline}
+        substatement={content.heroSubstatement}
+        ctaWork={content.heroCta}
+        ctaContact={content.heroCtaContact}
+      />
 
       {/* ── Marquee strip ────────────────────────────────────────────────── */}
       <div className="overflow-hidden bg-lime py-3" aria-hidden>
@@ -68,7 +74,7 @@ export async function HomePage({ projects, ventures }: Props) {
         >
           {[0, 1].map((copy) => (
             <span key={copy} className="flex items-center shrink-0">
-              {marqueeTerms.map((term) => (
+              {content.marqueeTerms.map((term) => (
                 <React.Fragment key={term}>
                   <span className="px-5 text-ink font-semibold text-sm tracking-wide">{term}</span>
                   <span className="text-ink/30 text-sm">·</span>
@@ -111,7 +117,7 @@ export async function HomePage({ projects, ventures }: Props) {
       <section id="work" className="py-24 bg-background">
         <div className="container">
           <AnimateOnScroll className="mb-12">
-            <SectionHeading>{t('work.sectionHeading')}</SectionHeading>
+            <SectionHeading>{content.workSectionHeading}</SectionHeading>
           </AnimateOnScroll>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:auto-rows-[280px] gap-3">
@@ -146,26 +152,26 @@ export async function HomePage({ projects, ventures }: Props) {
         <div className="container grid lg:grid-cols-5 gap-16 items-start">
           <div className="lg:col-span-3 space-y-6">
             <AnimateOnScroll>
-              <SectionHeading>{t('studio.heading')}</SectionHeading>
+              <SectionHeading>{content.studioHeading}</SectionHeading>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={100}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                {t('studio.body1')}
+                {content.studioBody1}
               </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={150}>
               <blockquote className="border-l-4 border-lime pl-6 py-2 my-2">
                 <p className="font-sans text-2xl md:text-3xl italic text-foreground leading-snug">
-                  &ldquo;{t('studio.quote')}&rdquo;
+                  &ldquo;{content.studioQuote}&rdquo;
                 </p>
               </blockquote>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={200}>
               <p className="text-base text-muted-foreground leading-relaxed">
-                {t('studio.body2')}
+                {content.studioBody2}
               </p>
             </AnimateOnScroll>
           </div>
@@ -173,8 +179,8 @@ export async function HomePage({ projects, ventures }: Props) {
           <AnimateOnScroll delay={150} className="lg:col-span-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
-              alt={t('studio.photoAlt')}
+              src="/media/team/karina-and-kasimir-parti-design-photo.jpg"
+              alt={content.studioPhotoAlt}
               className="w-full aspect-[3/4] object-cover object-top"
             />
           </AnimateOnScroll>
@@ -186,12 +192,12 @@ export async function HomePage({ projects, ventures }: Props) {
         <div className="container">
           <AnimateOnScroll className="mb-2">
             <p className="text-base text-foreground font-medium">
-              {t('ventures.teaser')}
+              {content.venturesTeaser}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={80} className="mb-12">
             <p className="text-sm text-muted-foreground max-w-lg">
-              {t('ventures.body')}
+              {content.venturesBody}
             </p>
           </AnimateOnScroll>
 
@@ -216,12 +222,12 @@ export async function HomePage({ projects, ventures }: Props) {
         <div className="container text-center max-w-3xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-ink mb-6">
-              {t('byggemenskap.heading')}
+              {content.byggemenskapHeading}
             </SectionHeading>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p className="text-lg text-ink/80 leading-relaxed mb-10">
-              {t('byggemenskap.body')}
+              {content.byggemenskapBody}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
@@ -229,7 +235,7 @@ export async function HomePage({ projects, ventures }: Props) {
               href="/contact"
               className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink text-ink font-semibold hover:bg-ink hover:text-lime transition-colors"
             >
-              {t('byggemenskap.cta')}
+              {content.byggemenskapCta}
             </Link>
           </AnimateOnScroll>
         </div>
@@ -240,20 +246,20 @@ export async function HomePage({ projects, ventures }: Props) {
         <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-off-white mb-6">
-              {t('closingCta.heading')}
+              {content.closingHeading}
             </SectionHeading>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p className="text-lg text-off-white/60 leading-relaxed mb-4">
-              {t('closingCta.body')}
+              {content.closingBody}
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={150}>
             <a
-              href={`mailto:${t('closingCta.email')}`}
+              href={`mailto:${content.contactEmail}`}
               className="block text-sm text-off-white/50 hover:text-lime transition-colors mb-10"
             >
-              {t('closingCta.email')}
+              {content.contactEmail}
             </a>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
@@ -261,7 +267,7 @@ export async function HomePage({ projects, ventures }: Props) {
               href="/contact"
               className="inline-flex items-center px-8 py-4 rounded-md bg-lime text-ink font-semibold hover:bg-lime/90 transition-colors"
             >
-              {t('closingCta.cta')}
+              {content.closingCta}
             </Link>
           </AnimateOnScroll>
         </div>

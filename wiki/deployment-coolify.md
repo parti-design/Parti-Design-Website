@@ -1,5 +1,10 @@
 # Coolify Deployment Notes
 
+This file is for the legacy Payload/PostgreSQL deployment only.
+
+If you are deploying the current site from the active `keystatic` branch, use
+[`deployment-keystatic-coolify.md`](./deployment-keystatic-coolify.md) instead.
+
 This project runs a Next.js + Payload app with:
 
 - PostgreSQL database (external service, configured via `DATABASE_URL`)

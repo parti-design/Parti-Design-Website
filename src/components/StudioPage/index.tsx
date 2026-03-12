@@ -71,7 +71,7 @@ export async function StudioPage({ locale }: Props) {
           <AnimateOnScroll delay={120} className="lg:col-span-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
+              src="/media/team/karina-and-kasimir-parti-design-photo.jpg"
               alt={t('about.photoAlt')}
               className="w-full aspect-[3/4] object-cover object-top rounded-md"
             />

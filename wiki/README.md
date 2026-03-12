@@ -10,9 +10,9 @@ This directory is an internal reference wiki for the Parti Design website and bu
 | [site-purpose.md](./site-purpose.md) | Goals and purpose of the website |
 | [target-audience.md](./target-audience.md) | Who the site is built for |
 | [projects.md](./projects.md) | Known projects, ventures, and strategic pipeline |
-| [deployment-coolify.md](./deployment-coolify.md) | Coolify deployment notes, env vars, and persistent storage setup |
+| [deployment-coolify.md](./deployment-coolify.md) | Legacy Payload/PostgreSQL Coolify deployment notes |
 | [keystatic-migration.md](./keystatic-migration.md) | Plan for migrating from Payload CMS + PostgreSQL to Keystatic |
-| [deployment-keystatic-coolify.md](./deployment-keystatic-coolify.md) | Step-by-step guide to deploying the Keystatic branch on Coolify |
+| [deployment-keystatic-coolify.md](./deployment-keystatic-coolify.md) | Step-by-step guide to deploying the current Keystatic branch on Coolify |
 
 ## How to use this wiki
 

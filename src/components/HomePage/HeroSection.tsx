@@ -4,11 +4,19 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef } from 'react'
 
-export function HeroSection() {
+interface HeroSectionProps {
+  headline: string
+  substatement: string
+  ctaWork: string
+  ctaContact: string
+}
+
+export function HeroSection({ headline, substatement, ctaWork, ctaContact }: HeroSectionProps) {
+  // `scroll` is a UI chrome string — kept in translations, not CMS content
   const t = useTranslations('hero')
   const imgRef = useRef<HTMLImageElement>(null)
 
-  const HEADLINE_WORDS = t('headline').split(' ')
+  const HEADLINE_WORDS = headline.split(' ')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +34,7 @@ export function HeroSection() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
-        src="/assets/hero/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
+        src="/media/site/dsc09791-by-sofia-morn.jpg"
         alt=""
         aria-hidden
         className="absolute left-0 right-0 w-full object-cover object-center"
@@ -60,7 +68,7 @@ export function HeroSection() {
               animationDelay: `${HEADLINE_WORDS.length * 0.07 + 0.1}s`,
             }}
           >
-            {t('subStatement')}
+            {substatement}
           </p>
 
           {/* CTAs */}
@@ -75,13 +83,13 @@ export function HeroSection() {
               href="#work"
               className="inline-flex items-center px-6 py-3 rounded-md bg-lime text-ink font-semibold text-sm hover:bg-lime/90 transition-colors"
             >
-              {t('cta_work')}
+              {ctaWork}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center px-6 py-3 rounded-md border border-off-white/60 text-off-white font-semibold text-sm hover:bg-off-white hover:text-ink transition-colors"
             >
-              {t('cta_contact')}
+              {ctaContact}
             </Link>
           </div>
         </div>

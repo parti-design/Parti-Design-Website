@@ -2,7 +2,7 @@
  * Home page — fetches featured projects and ventures from Keystatic content files.
  */
 import { HomePage } from '@/components/HomePage'
-import { mediaUrl, queryFeaturedProjects, queryFeaturedVentures, serviceLabels } from '@/lib/keystatic-queries'
+import { mediaUrl, queryFeaturedProjects, queryFeaturedVentures, queryHomepageContent, serviceLabels } from '@/lib/keystatic-queries'
 import { getTranslations } from 'next-intl/server'
 
 interface Props {
@@ -12,9 +12,10 @@ interface Props {
 export default async function Page({ params }: Props) {
   const { locale } = await params
 
-  const [rawProjects, ventures] = await Promise.all([
+  const [rawProjects, ventures, homepageContent] = await Promise.all([
     queryFeaturedProjects(5, locale),
     queryFeaturedVentures(3, locale),
+    queryHomepageContent(locale),
   ])
 
   const projects = rawProjects.map((p) => ({
@@ -39,7 +40,7 @@ export default async function Page({ params }: Props) {
     tagline: v!.tagline ?? '',
   }))
 
-  return <HomePage projects={projects} ventures={ventureCards} />
+  return <HomePage projects={projects} ventures={ventureCards} content={homepageContent} />
 }
 
 export async function generateMetadata({ params }: Props) {

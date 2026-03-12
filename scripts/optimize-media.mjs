@@ -151,17 +151,22 @@ const jobs = [
     src: 'public/images/projects/waste-to-wonder',
     dest: 'public/media/projects/waste-to-wonder',
   },
-
-  // Ventures
   {
-    label: 'dit-egnahem',
+    label: 'klondyke-farms',
+    src: 'public/images/projects/klondyke-farms',
+    dest: 'public/media/projects/klondyke-farms',
+  },
+
+  // Ventures (output under projects/ so MDX can reference /media/projects/...)
+  {
+    label: 'naturest-cabin',
     src: 'public/images/ventures/dit-egnahem',
-    dest: 'public/media/ventures/dit-egnahem',
+    dest: 'public/media/projects/naturest-cabin',
   },
   {
     label: 'umea-kallbad',
     src: 'public/images/ventures/umea-kallbad',
-    dest: 'public/media/ventures/umea-kallbad',
+    dest: 'public/media/projects/umea-kallbad',
   },
 
   // Site / team

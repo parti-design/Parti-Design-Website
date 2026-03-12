@@ -14,12 +14,38 @@
  */
 
 import { createReader } from '@keystatic/core/reader'
+import { readdir } from 'node:fs/promises'
+import path from 'node:path'
 import keystaticConfig from '../../keystatic.config'
 
 // Single reader instance — Keystatic caches file reads internally
 const reader = createReader(process.cwd(), keystaticConfig)
 
+/**
+ * Keystatic's reader.collections.X.list() only works when collection files are
+ * flat (e.g. connect-tviste.mdx) or use an index (connect-tviste/index.mdx).
+ * Our structure is connect-tviste/en.mdx — so we list directories manually
+ * and rely on reader.collections.X.read(slug) which correctly resolves the path.
+ */
+async function listContentSlugs(type: 'projects' | 'ventures' | 'posts'): Promise<string[]> {
+  try {
+    const dir = path.join(process.cwd(), 'src/content', type)
+    const entries = await readdir(dir, { withFileTypes: true })
+    return entries.filter(e => e.isDirectory()).map(e => e.name)
+  } catch {
+    return []
+  }
+}
+
 export type Locale = 'en' | 'sv'
+
+type PublishableProject = {
+  draft?: boolean | null
+}
+
+function isPublishedProject<T extends PublishableProject | null | undefined>(project: T): project is Exclude<T, null | undefined> {
+  return Boolean(project) && !project?.draft
+}
 
 // ── Service label helpers ─────────────────────────────────────────────────────
 
@@ -64,14 +90,14 @@ export async function queryAllProjects(locale: Locale | string = 'en') {
   const normalizedLocale = (locale === 'sv' ? 'sv' : 'en') as Locale
 
   try {
-    const slugs = await reader.collections.projects.list()
+    const slugs = await listContentSlugs('projects')
 
     const projects = await Promise.all(
       slugs.map((slug) => queryProjectBySlug(slug, normalizedLocale))
     )
 
     return projects
-      .filter(Boolean)
+      .filter(isPublishedProject)
       .sort((a, b) => (b?.publishedAt ?? '').localeCompare(a?.publishedAt ?? ''))
   } catch {
     return []
@@ -88,6 +114,7 @@ export async function queryProjectBySlug(slug: string, locale: Locale | string =
   try {
     const enDoc = await reader.collections.projects.read(slug)
     if (!enDoc) return null
+    if (enDoc.draft) return null
 
     if (normalizedLocale === 'sv') {
       const svDoc = await reader.collections.projectsSv.read(slug)
@@ -136,7 +163,7 @@ export async function queryAllVentures(locale: Locale | string = 'en') {
   const normalizedLocale = (locale === 'sv' ? 'sv' : 'en') as Locale
 
   try {
-    const slugs = await reader.collections.ventures.list()
+    const slugs = await listContentSlugs('ventures')
 
     const ventures = await Promise.all(
       slugs.map((slug) => queryVentureBySlug(slug, normalizedLocale))
@@ -189,7 +216,7 @@ export async function queryAllPosts(locale: Locale | string = 'en') {
   const normalizedLocale = (locale === 'sv' ? 'sv' : 'en') as Locale
 
   try {
-    const slugs = await reader.collections.posts.list()
+    const slugs = await listContentSlugs('posts')
 
     const posts = await Promise.all(
       slugs.map((slug) => queryPostBySlug(slug, normalizedLocale))
@@ -220,6 +247,74 @@ export async function queryPostBySlug(slug: string, locale: Locale | string = 'e
   } catch {
     return null
   }
+}
+
+// ── Homepage content ──────────────────────────────────────────────────────────
+
+/**
+ * All editable text on the homepage.
+ * English is the source of truth; Swedish overrides text fields.
+ */
+export interface HomepageContent {
+  heroHeadline: string
+  heroSubstatement: string
+  heroCta: string
+  heroCtaContact: string
+  marqueeTerms: readonly string[]
+  workSectionHeading: string
+  digitalLabel: string
+  digitalHeading: string
+  digitalBody: string
+  digitalExamples: string
+  physicalLabel: string
+  physicalHeading: string
+  physicalBody: string
+  physicalExamples: string
+  socialLabel: string
+  socialHeading: string
+  socialBody: string
+  socialExamples: string
+  studioHeading: string
+  studioBody1: string
+  studioQuote: string
+  studioBody2: string
+  studioPhotoAlt: string
+  venturesTeaser: string
+  venturesBody: string
+  byggemenskapHeading: string
+  byggemenskapBody: string
+  byggemenskapCta: string
+  closingHeading: string
+  closingBody: string
+  closingCta: string
+  contactEmail: string
+}
+
+/**
+ * Fetches homepage content for the given locale.
+ * Swedish content merges over English — any blank Swedish field falls back to English.
+ */
+export async function queryHomepageContent(locale: Locale | string = 'en'): Promise<HomepageContent> {
+  const normalizedLocale = (locale === 'sv' ? 'sv' : 'en') as Locale
+
+  const enDoc = await reader.singletons.homepageEn.read()
+  const base = (enDoc ?? {}) as Partial<HomepageContent>
+
+  if (normalizedLocale === 'sv') {
+    const svDoc = await reader.singletons.homepageSv.read()
+    const sv = (svDoc ?? {}) as Partial<HomepageContent>
+    // Merge: Swedish overrides English, but empty strings fall back to English
+    const merged = { ...base } as HomepageContent
+    for (const key of Object.keys(sv) as (keyof HomepageContent)[]) {
+      const val = sv[key]
+      if (val && (typeof val === 'string' ? val.length > 0 : (val as readonly string[]).length > 0)) {
+        ;(merged as Record<string, unknown>)[key] = val
+      }
+    }
+    return merged
+  }
+
+  return base as HomepageContent
 }
 
 // ── Globals ───────────────────────────────────────────────────────────────────

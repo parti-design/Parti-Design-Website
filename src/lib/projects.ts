@@ -15,7 +15,7 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: 'Umeå Kallbad',
+    title: 'Kotten Changing Rooms',
     slug: 'umea-kallbad',
     tags: ['Co-building', 'Workshop Facilitation', 'Architecture'],
     year: '2022–2024',
@@ -41,34 +41,34 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'DIT Egnahem',
-    slug: 'dit-egnahem',
+    title: 'Naturest Cabin',
+    slug: 'naturest-cabin',
     tags: ['Architecture', 'Self-build Housing', 'Open Source'],
-    year: '2023',
+    year: '2025',
     location: 'Umeå, Sweden',
     description:
-      'The first WikiHouse in Sweden — do-it-together self-build housing for communities.',
+      'An off-grid WikiHouse prototype — CNC-cut timber, community-assembled, and designed to perform like a passive house.',
     body: [
       'WikiHouse is an open-source, CNC-cut timber building system — designed so that anyone can download the plans, cut the parts, and assemble a structurally sound building without specialist construction knowledge. DIT Egnahem adapted this system for Swedish climate, planning conditions, and the byggemenskap (community self-build) model.',
       'The structure was cut from standard sheet materials at a local CNC workshop and assembled on site in a weekend. The timber frame slots together like a giant puzzle — no nails, no heavy machinery, no expert labour required.',
       'The completed building demonstrates that high-quality, architecturally considered housing can be built by communities themselves, at a fraction of the cost of conventional construction. It is a proof of concept for a new model of housing in Sweden.',
     ],
     pullQuote: 'What if the house came with instructions — and anyone could build it?',
-    imageSrc: '/images/ventures/dit-egnahem/DSC02856.JPG',
+    imageSrc: '/media/projects/naturest-cabin/dsc02856.jpg',
     gallery: [
-      '/images/ventures/dit-egnahem/DSC03501.JPG',
-      '/images/ventures/dit-egnahem/DSC02785.JPG',
-      '/images/ventures/dit-egnahem/DSC03496.JPG',
-      '/images/ventures/dit-egnahem/DSC03549.jpg',
-      '/images/ventures/dit-egnahem/DSC02844.JPG',
-      '/images/ventures/dit-egnahem/DSC02805.jpg',
+      '/media/projects/naturest-cabin/dsc03501.jpg',
+      '/media/projects/naturest-cabin/dsc02785.jpg',
+      '/media/projects/naturest-cabin/dsc03496.jpg',
+      '/media/projects/naturest-cabin/dsc03549.jpg',
+      '/media/projects/naturest-cabin/dsc02844.jpg',
+      '/media/projects/naturest-cabin/dsc02805.jpg',
     ],
   },
   {
     title: 'Umeå Together',
     slug: 'umea-together',
     tags: ['Web Development', 'Branding', 'Facilitation'],
-    year: '2023',
+    year: '2025',
     location: 'Umeå, Sweden',
     client: 'Massvis / Umeå Municipality',
     description:
@@ -89,7 +89,7 @@ export const PROJECTS: Project[] = [
     title: 'Rewilding Sweden — Dome',
     slug: 'rewilding-sweden-dome',
     tags: ['Architecture', 'Construction', 'Exhibition'],
-    year: '2023',
+    year: '2025',
     location: 'Sweden',
     client: 'Rewilding Sweden',
     description:
@@ -106,7 +106,7 @@ export const PROJECTS: Project[] = [
     title: 'Klondyke Farms',
     slug: 'klondyke-farms',
     tags: ['Branding', 'Web Development'],
-    year: '2023',
+    year: '2025',
     location: 'Sweden',
     client: 'Klondyke Farms',
     description:
@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Waste to Wonder',
-    slug: 'waste-to-wonder',
+    slug: 'waste-to-wonder-lab',
     tags: ['Architecture', 'Community Build', 'Circular'],
     year: '2022',
     location: 'Umeå, Sweden',

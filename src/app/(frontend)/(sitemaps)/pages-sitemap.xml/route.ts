@@ -5,6 +5,7 @@
  */
 import { getServerSideSitemap } from 'next-sitemap'
 import { createReader } from '@keystatic/core/reader'
+import { queryAllProjects } from '@/lib/keystatic-queries'
 import keystaticConfig from '../../../../../keystatic.config'
 
 export async function GET() {
@@ -25,14 +26,14 @@ export async function GET() {
     const reader = createReader(process.cwd(), keystaticConfig)
 
     // Add project and venture detail pages
-    const [projectSlugs, ventureSlugs] = await Promise.all([
-      reader.collections.projects.list(),
+    const [projects, ventureSlugs] = await Promise.all([
+      queryAllProjects('en'),
       reader.collections.ventures.list(),
     ])
 
-    const projectRoutes = projectSlugs.flatMap((slug) => [
-      { loc: `${SITE_URL}/en/work/${slug}`, lastmod: dateFallback },
-      { loc: `${SITE_URL}/sv/work/${slug}`, lastmod: dateFallback },
+    const projectRoutes = projects.flatMap((project) => [
+      { loc: `${SITE_URL}/en/work/${project.slug}`, lastmod: dateFallback },
+      { loc: `${SITE_URL}/sv/work/${project.slug}`, lastmod: dateFallback },
     ])
 
     const ventureRoutes = ventureSlugs.flatMap((slug) => [

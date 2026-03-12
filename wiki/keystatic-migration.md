@@ -306,7 +306,14 @@ redirects: async () => [
 | Keystatic i18n support maturity | Test early; fallback: two separate collection configs per locale |
 | Non-technical editors learning MDX | Keystatic's editor is visual — editors never see raw MDX |
 | Large media files in git | Keep `public/media/` in `.gitignore`; files stay on Hetzner volume |
-| Loss of draft/versioning | Low priority; use git branches for drafts if needed |
+| Loss of draft/versioning | Mitigated for projects with a `draft` checkbox that hides entries from the public site until ready to publish |
+
+## Media directory convention
+
+- Project images should be managed under `public/media/projects/<project-slug>/`
+- Venture images should be managed under `public/media/ventures/<venture-slug>/`
+- Keystatic image fields are configured to write to those collection-specific roots so uploads from the UI land in the expected folders
+- Project gallery rows must contain real `image` paths. Legacy placeholder rows like `{}` will not show up as linked images in the Keystatic UI.
 
 ---
 
