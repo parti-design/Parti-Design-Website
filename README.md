@@ -25,26 +25,29 @@ Core features:
 
 ## Quick Start
 
-To spin up this example locally, follow these steps:
+This repo uses one standard local workflow:
 
-### Clone
-
-If you have not done so already, you need to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
-
-Use the `create-payload-app` CLI to clone this template directly to your machine:
-
-```bash
-pnpx create-payload-app my-project -t website
-```
+- Next.js + Payload run natively on your machine
+- Postgres runs in Docker
+- local schema changes are applied through committed migrations
+- the local database gets basic project and venture layout data during `pnpm local:start`
 
 ### Development
 
-1. First [clone the repo](#clone) if you have not done so already
-1. `cd my-project && cp .env.example .env` to copy the example environment variables
-1. `pnpm install && pnpm dev` to install dependencies and start the dev server
-1. open `http://localhost:3000` to open the app in your browser
+1. Install Node `20.20.1`
+1. Run `corepack enable`
+1. Copy `.env.example` to `.env`
+1. Run `pnpm install`
+1. Run `pnpm local:start`
+1. Open `http://localhost:3000`
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+Optional:
+
+- `pnpm local:start` automatically ensures the basic projects and ventures exist for layout work
+- Run `pnpm local:seed:demo --yes` if you want demo content
+- Run `pnpm local:reset --yes` if you want to destroy and recreate the local Docker database
+
+The authoritative local bootstrap command is `pnpm local:start`. It checks the toolchain, starts Docker Postgres, waits for readiness, runs migrations, ensures the basic project and venture layout data exists, clears stale `.next` artifacts, prints the local URLs, and then starts Next.js/Payload.
 
 ## How it works
 
@@ -178,61 +181,85 @@ Although Next.js includes a robust set of caching strategies out of the box, Pay
 
 ## Development
 
-To spin up this example locally, follow the [Quick Start](#quick-start). Then [Seed](#seed) the database with a few pages, posts, and projects.
+Use the [Quick Start](#quick-start) flow above. For this repo, local development is intentionally opinionated:
+
+- run the app natively with `pnpm dev`
+- run Postgres in Docker
+- use `pnpm local:start` for normal startup
+- use migrations, not implicit schema push, as the default schema workflow
 
 ### Working with Postgres
 
-Postgres and other SQL-based databases follow a strict schema for managing your data. In comparison to our MongoDB adapter, this means that there's a few extra steps to working with Postgres.
-
-Note that often times when making big schema changes you can run the risk of losing data if you're not manually migrating it.
+Postgres is required for local development, but the supported routine setup is Docker-managed Postgres, not a machine-native Postgres service.
 
 #### Local development
 
-Ideally we recommend running a local copy of your database so that schema updates are as fast as possible. By default the Postgres adapter has `push: true` for development environments. This will let you add, modify and remove fields and collections without needing to run any data migrations.
+The standard local database URL is:
 
-If your database is pointed to production you will want to set `push: false` otherwise you will risk losing data or having your migrations out of sync.
+```env
+DATABASE_URL=postgresql://postgres:password@127.0.0.1:5432/parti_design_local
+```
+
+The bootstrap flow is:
+
+```bash
+pnpm local:start
+```
+
+This command:
+
+1. checks Node, pnpm, Docker, and `.env`
+2. starts the `postgres` Docker service
+3. waits for the database healthcheck to pass
+4. runs committed Payload migrations
+5. ensures the basic `projects` and `ventures` layout seed exists
+6. clears stale `.next` dev artifacts
+7. prints the local app and admin URLs
+8. starts the dev server
+
+The local bootstrap intentionally rejects non-local database hosts unless you explicitly override it with `LOCAL_DEV_ALLOW_REMOTE_DATABASE=true`.
 
 #### Migrations
 
-[Migrations](https://payloadcms.com/docs/database/migrations) are essentially SQL code versions that keeps track of your schema. When deploy with Postgres you will need to make sure you create and then run your migrations.
+[Migrations](https://payloadcms.com/docs/database/migrations) are the default schema workflow locally and in production.
 
-Locally create a migration
+Create a migration after schema changes:
 
 ```bash
 pnpm payload migrate:create
 ```
 
-This creates the migration files you will need to push alongside with your new configuration.
-
-On the server after building and before running `pnpm start` you will want to run your migrations
+Apply migrations locally:
 
 ```bash
-pnpm payload migrate
+pnpm db:migrate
 ```
 
-This command will check for any migrations that have not yet been run and try to run them and it will keep a record of migrations that have been run in the database.
-
-### Docker
-
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+The project disables implicit Payload dev schema push by default so startup stays predictable and non-interactive.
 
 ### Seed
 
-To seed the database with a few pages, posts, and projects you can click the 'seed database' link from the admin panel.
+The default local database keeps a lightweight layout seed for `projects` and `ventures`. That seed is idempotent, so `pnpm local:start` can run it on every startup without duplicating records.
+
+If you need the broader Payload demo content, that seed remains optional and destructive.
+
+Use:
+
+```bash
+pnpm local:seed:demo --yes
+```
+
+This clears existing local demo-compatible content and recreates the sample Payload data set from the seed scripts.
 
 The seed script will also create a demo user for demonstration purposes only:
 
 - Demo Author
-  - Email: `demo-author@payloadcms.com`
+  - Email: `demo-author@example.com`
   - Password: `password`
 
-> NOTICE: seeding the database is destructive because it drops your current database to populate a fresh one from the seed template. Only run this command if you are starting a new project or can afford to lose your current data.
+> NOTICE: the demo seed is destructive. Only run it against the local Docker database when you are happy to replace the current local content.
+
+The layout seed does not include media files. Upload images manually in `/admin` if you want richer cards and detail pages locally.
 
 ## Production
 

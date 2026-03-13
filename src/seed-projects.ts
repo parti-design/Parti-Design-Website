@@ -220,75 +220,99 @@ const VENTURES = [
 
 // ─── Seed ─────────────────────────────────────────────────────────────────────
 
+const databaseURL = process.env.DATABASE_URL
+const allowRemoteDatabase = process.env.LOCAL_DEV_ALLOW_REMOTE_DATABASE === 'true'
+const allowedHosts = new Set(['127.0.0.1', 'localhost', 'postgres'])
+
+if (!databaseURL) {
+  console.error('DATABASE_URL is required before seeding projects and ventures.')
+  process.exit(1)
+}
+
+const parsedDatabaseURL = new URL(databaseURL)
+
+if (!allowRemoteDatabase && !allowedHosts.has(parsedDatabaseURL.hostname)) {
+  console.error(
+    `Refusing to seed database host "${parsedDatabaseURL.hostname}". Set LOCAL_DEV_ALLOW_REMOTE_DATABASE=true only if this is intentional.`,
+  )
+  process.exit(1)
+}
+
 async function seed() {
   const payload = await getPayload({ config: configPromise })
 
-  console.log('Seeding projects...')
-  for (const p of PROJECTS) {
-    // Skip if already exists
-    const existing = await payload.find({
-      collection: 'projects',
-      where: { slug: { equals: p.slug } },
-      limit: 1,
-    })
-    if (existing.docs.length > 0) {
-      console.log(`  skip (exists): ${p.title}`)
-      continue
+  try {
+    console.log('Ensuring projects exist...')
+    for (const p of PROJECTS) {
+      const existing = await payload.find({
+        collection: 'projects',
+        where: { slug: { equals: p.slug } },
+        limit: 1,
+      })
+      if (existing.docs.length > 0) {
+        console.log(`  skip (exists): ${p.title}`)
+        continue
+      }
+
+      await payload.create({
+        collection: 'projects',
+        data: {
+          title: p.title,
+          slug: p.slug,
+          tagline: p.tagline,
+          content: richText(p.body),
+          client: 'client' in p ? p.client : undefined,
+          location: p.location,
+          year: p.year,
+          projectStatus: p.projectStatus,
+          services: mapServices(p.tags),
+          featured: p.featured,
+          _status: 'published',
+        },
+      })
+      console.log(`  created: ${p.title}`)
     }
 
-    await payload.create({
-      collection: 'projects',
-      data: {
-        title: p.title,
-        slug: p.slug,
-        tagline: p.tagline,
-        content: richText(p.body),
-        client: 'client' in p ? p.client : undefined,
-        location: p.location,
-        year: p.year,
-        projectStatus: p.projectStatus,
-        services: mapServices(p.tags),
-        featured: p.featured,
-        _status: 'published',
-      },
-    })
-    console.log(`  created: ${p.title}`)
-  }
+    console.log('\nEnsuring ventures exist...')
+    for (const v of VENTURES) {
+      const existing = await payload.find({
+        collection: 'ventures',
+        where: { slug: { equals: v.slug } },
+        limit: 1,
+      })
+      if (existing.docs.length > 0) {
+        console.log(`  skip (exists): ${v.title}`)
+        continue
+      }
 
-  console.log('\nSeeding ventures...')
-  for (const v of VENTURES) {
-    const existing = await payload.find({
-      collection: 'ventures',
-      where: { slug: { equals: v.slug } },
-      limit: 1,
-    })
-    if (existing.docs.length > 0) {
-      console.log(`  skip (exists): ${v.title}`)
-      continue
+      await payload.create({
+        collection: 'ventures',
+        data: {
+          title: v.title,
+          slug: v.slug,
+          tagline: v.tagline,
+          ventureStatus: v.ventureStatus,
+          location: v.location,
+          services: mapServices(v.tags),
+          featured: v.featured,
+          order: v.order,
+          _status: 'published',
+        },
+      })
+      console.log(`  created: ${v.title}`)
     }
 
-    await payload.create({
-      collection: 'ventures',
-      data: {
-        title: v.title,
-        slug: v.slug,
-        tagline: v.tagline,
-        ventureStatus: v.ventureStatus,
-        location: v.location,
-        services: mapServices(v.tags),
-        featured: v.featured,
-        order: v.order,
-        _status: 'published',
-      },
-    })
-    console.log(`  created: ${v.title}`)
+    console.log('\nDone! Layout seed data is present. Upload images in /admin if you want richer cards.')
+  } finally {
+    await payload.destroy()
   }
-
-  console.log('\nDone! Now go to /admin to upload images and attach them to each record.')
-  process.exit(0)
 }
 
-seed().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+seed()
+  .then(() => {
+    process.exit(0)
+  })
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })

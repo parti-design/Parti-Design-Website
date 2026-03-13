@@ -19,6 +19,7 @@ import { getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const enableDevSchemaPush = process.env.PAYLOAD_ENABLE_DEV_SCHEMA_PUSH === 'true'
 
 export default buildConfig({
   localization: {
@@ -34,9 +35,8 @@ export default buildConfig({
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below.
       beforeLogin: ['@/components/BeforeLogin'],
-      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below.
-      beforeDashboard: ['@/components/BeforeDashboard'],
+      // Global admin theming and light UI polish for the sidebar / dashboard shell.
+      beforeNavLinks: ['@/components/AdminTheme'],
     },
     importMap: {
       baseDir: path.resolve(dirname),
@@ -71,6 +71,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
+    // Local development follows the same migrations-first flow as production by default.
+    // Use PAYLOAD_ENABLE_DEV_SCHEMA_PUSH=true only for disposable scratch databases.
+    push: enableDevSchemaPush,
   }),
   collections: [Pages, Posts, Projects, Ventures, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
