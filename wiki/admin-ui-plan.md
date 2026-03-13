@@ -218,6 +218,33 @@ Avoid:
 
 - bounce
 - long spring animations
+
+## Current admin-content mismatch to fix
+
+The new venture detail pages currently mix two content sources:
+
+- Payload CMS fields from the `ventures` collection
+- repo-backed fallback narrative content in `src/lib/venture-drafts.ts`
+
+This creates a misleading editing experience in admin:
+
+- the `description` field is labeled `Main Page Text`
+- but the live venture page can still show substantial narrative copy even when that field is empty
+- specifically, the titled narrative sections such as "what it does" and "how Parti supports this venture" are currently rendered from repo fallback content rather than editable CMS fields
+
+Chosen fix:
+
+1. Use the existing localized `description` field (`Main Page Text`) as the only source of venture body copy
+2. Remove the split repo-driven narrative sections from the frontend
+3. Let editors create their own headings inside the rich text field when section structure is needed
+
+This keeps the venture model simple and makes the admin field match what appears on the page.
+
+Implementation note:
+
+- local venture records may still contain legacy preset values like `lime`, `lavender`, or `ink` from the earlier theme select field
+- the custom admin color picker should normalize those legacy values to hex so existing ventures remain editable without save errors
+- changing the `themeColor` field from an enum-backed select to freeform hex text also requires a database migration, otherwise Payload saves will fail when writing values like `#bbd644`
 - large transforms
 - anything that makes the admin feel playful at the expense of speed
 

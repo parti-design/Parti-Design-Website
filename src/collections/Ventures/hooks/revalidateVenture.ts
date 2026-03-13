@@ -4,6 +4,11 @@ import { revalidatePath, revalidateTag } from 'next/cache'
 
 import type { Venture } from '../../../payload-types'
 
+const venturePaths = (slug?: string | null) =>
+  slug
+    ? [`/en/ventures/${slug}`, `/sv/ventures/${slug}`, `/ventures/${slug}`, '/en/ventures', '/sv/ventures', '/ventures']
+    : ['/en/ventures', '/sv/ventures', '/ventures']
+
 export const revalidateVenture: CollectionAfterChangeHook<Venture> = ({
   doc,
   previousDoc,
@@ -12,20 +17,18 @@ export const revalidateVenture: CollectionAfterChangeHook<Venture> = ({
   if (!context.disableRevalidate) {
     try {
       if (doc._status === 'published') {
-        const path = `/ventures/${doc.slug}`
-
-        payload.logger.info(`Revalidating venture at path: ${path}`)
-
-        revalidatePath(path)
+        for (const path of venturePaths(doc.slug)) {
+          payload.logger.info(`Revalidating venture at path: ${path}`)
+          revalidatePath(path)
+        }
         revalidateTag('ventures-sitemap')
       }
 
       if (previousDoc._status === 'published' && doc._status !== 'published') {
-        const oldPath = `/ventures/${previousDoc.slug}`
-
-        payload.logger.info(`Revalidating old venture at path: ${oldPath}`)
-
-        revalidatePath(oldPath)
+        for (const oldPath of venturePaths(previousDoc.slug)) {
+          payload.logger.info(`Revalidating old venture at path: ${oldPath}`)
+          revalidatePath(oldPath)
+        }
         revalidateTag('ventures-sitemap')
       }
     } catch (_) {
@@ -41,8 +44,9 @@ export const revalidateDeleteVenture: CollectionAfterDeleteHook<Venture> = ({
 }) => {
   if (!context.disableRevalidate) {
     try {
-      const path = `/ventures/${doc?.slug}`
-      revalidatePath(path)
+      for (const path of venturePaths(doc?.slug)) {
+        revalidatePath(path)
+      }
       revalidateTag('ventures-sitemap')
     } catch (_) {
       // no-op outside Next.js request context

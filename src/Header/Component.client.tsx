@@ -2,6 +2,7 @@
 
 import { Logo } from '@/components/Logo/Logo'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
+import { ThemeToggle } from '@/providers/Theme/ThemeToggle'
 import { cn } from '@/utilities/ui'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
@@ -70,7 +71,10 @@ export const HeaderClient: React.FC = () => {
                 {label}
               </Link>
             ))}
-            <LocaleSwitcher className={textColor} />
+            <div className="flex items-center gap-1">
+              <LocaleSwitcher className={textColor} />
+              <ThemeToggle className={textColor} />
+            </div>
           </nav>
 
           {/* Mobile hamburger */}
@@ -117,8 +121,9 @@ export const HeaderClient: React.FC = () => {
               {label}
             </Link>
           ))}
-          <div className="mt-4">
+          <div className="mt-4 flex items-center gap-1">
             <LocaleSwitcher className="text-off-white" />
+            <ThemeToggle className="text-off-white" />
           </div>
         </nav>
       </div>

@@ -6,6 +6,7 @@ interface Props {
   as?: 'h1' | 'h2' | 'h3'
   size?: 'xl' | 'lg' | 'md'
   className?: string
+  style?: React.CSSProperties
 }
 
 /**
@@ -20,9 +21,10 @@ interface Props {
  *   <SectionHeading>Selected work</SectionHeading>
  *   <SectionHeading as="h1" size="xl">New ways to build.</SectionHeading>
  */
-export function SectionHeading({ children, as: Tag = 'h2', size = 'lg', className }: Props) {
+export function SectionHeading({ children, as: Tag = 'h2', size = 'lg', className, style }: Props) {
   return (
     <Tag
+      style={style}
       className={cn(
         'font-display font-bold text-foreground leading-tight',
         size === 'xl' && 'text-5xl md:text-6xl',

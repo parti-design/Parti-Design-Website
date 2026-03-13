@@ -76,6 +76,7 @@ In dark mode, the palette inverts:
 - Background becomes near-Ink
 - Lime becomes the primary interactive color (on dark it pops)
 - Lavender tints appear as dark desaturated versions
+- Theme switching in the site chrome uses a single icon-only toggle in the header beside the language switcher; avoid duplicate theme controls elsewhere in the layout
 
 ---
 

@@ -2,9 +2,11 @@ import { ProjectCard, type ProjectCardProps } from '@/components/ProjectCard'
 import { VentureCard, type VentureCardTheme } from '@/components/VentureCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
+import { getVentureDraft } from '@/lib/venture-drafts'
+import { normalizeVentureStatus } from '@/lib/venture-status'
 import type { Venture } from '@/payload-types'
 import Link from 'next/link'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { AnimateOnScroll } from './AnimateOnScroll'
@@ -23,6 +25,14 @@ interface Props {
 
 export async function HomePage({ projects, ventures }: Props) {
   const t = await getTranslations()
+  const locale = (await getLocale()) as 'en' | 'sv'
+  const statusLabels: Record<string, string> = {
+    seed: t('venturesPage.status.seed'),
+    root: t('venturesPage.status.root'),
+    sprout: t('venturesPage.status.sprout'),
+    grow: t('venturesPage.status.grow'),
+    flourish: t('venturesPage.status.flourish'),
+  }
 
   const SERVICES = [
     {
@@ -188,17 +198,27 @@ export async function HomePage({ projects, ventures }: Props) {
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-3 gap-4">
-            {ventures.map((venture, i) => (
-              <AnimateOnScroll key={venture.slug} delay={i * 100}>
-                <VentureCard
-                  title={venture.title}
-                  tagline={venture.tagline ?? ''}
-                  slug={venture.slug}
+            {ventures.map((venture, i) => {
+              const draft = getVentureDraft(venture.slug, locale)
+              const normalizedStatus = normalizeVentureStatus(venture.ventureStatus)
+              const statusLabel = normalizedStatus ? statusLabels[normalizedStatus] : null
+
+              return (
+                <AnimateOnScroll key={venture.slug} delay={i * 100}>
+                  <VentureCard
+                    title={venture.title}
+                    tagline={venture.tagline ?? ''}
+                    slug={venture.slug}
+                    location={venture.location}
+                  status={statusLabel}
                   ctaLabel={t('ventureCard.learnMore')}
-                  theme={VENTURE_THEMES[i % VENTURE_THEMES.length]}
+                  accentColor={venture.themeColor}
+                  theme={draft?.theme ?? VENTURE_THEMES[i % VENTURE_THEMES.length]}
+                  className="h-full"
                 />
-              </AnimateOnScroll>
-            ))}
+                </AnimateOnScroll>
+              )
+            })}
           </div>
         </div>
       </section>

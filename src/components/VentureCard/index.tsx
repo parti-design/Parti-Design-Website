@@ -1,6 +1,7 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { Link } from '@/i18n/navigation'
+import { fallbackVentureColors, isDarkHexColor, resolveVentureColor, rgbaFromHex } from '@/lib/venture-colors'
 import { cn } from '@/utilities/ui'
-import Link from 'next/link'
 import React from 'react'
 
 export type VentureCardTheme = 'lime' | 'lavender' | 'ink'
@@ -10,6 +11,8 @@ export interface VentureCardProps {
   tagline: string
   /** URL slug — links to /ventures/[slug] */
   slug: string
+  location?: string | null
+  status?: string | null
   /**
    * Card background theme. Determines background and text colours.
    *   lime     → bg-lime,     ink text
@@ -17,6 +20,7 @@ export interface VentureCardProps {
    *   ink      → bg-ink,      off-white text
    */
   theme?: VentureCardTheme
+  accentColor?: string | null
   className?: string
   ctaLabel?: string
 }
@@ -47,28 +51,68 @@ const themeClasses: Record<VentureCardTheme, { bg: string; text: string; muted: 
  * Usage:
  *   <VentureCard title="Massvis" tagline="..." slug="massvis" theme="lime" />
  */
-export function VentureCard({ title, tagline, slug, theme = 'lime', className, ctaLabel = 'Learn more' }: VentureCardProps) {
+export function VentureCard({
+  title,
+  tagline,
+  slug,
+  location,
+  status,
+  theme = 'lime',
+  accentColor,
+  className,
+  ctaLabel = 'Learn more',
+}: VentureCardProps) {
   const colors = themeClasses[theme]
+  const resolvedAccent = resolveVentureColor(accentColor, theme)
+  const isDark = isDarkHexColor(resolvedAccent)
+  const textColor = isDark ? '#f7f3ec' : fallbackVentureColors.ink
+  const mutedColor = rgbaFromHex(textColor, 0.72)
 
   return (
     <Link
       href={`/ventures/${slug}`}
+      style={{
+        backgroundColor: resolvedAccent,
+        color: textColor,
+      }}
       className={cn(
-        'group flex flex-col justify-between p-8 min-h-[260px] rounded-md',
+        'group flex flex-col p-8 min-h-[240px] rounded-md',
         'hover:-rotate-1 hover:shadow-xl transition-all duration-300',
-        colors.bg,
         className,
       )}
     >
-      <SectionHeading as="h3" size="md" className={cn('mb-4', colors.text)}>
-        {title}
-      </SectionHeading>
       <div>
-        <p className={cn('text-sm leading-relaxed mb-6', colors.muted)}>{tagline}</p>
-        <span className={cn('text-sm font-semibold group-hover:underline', colors.text)}>
+        <SectionHeading
+          as="h3"
+          size="md"
+          style={{ color: textColor }}
+          className={cn('mb-0', !accentColor && colors.text)}
+        >
+          {title}
+        </SectionHeading>
+        <div className="mt-8 space-y-3">
+          {(location || status) && (
+            <div
+              style={accentColor ? { color: mutedColor } : undefined}
+              className={cn('flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold uppercase tracking-[0.08em]', !accentColor && colors.muted)}
+            >
+              {location && <span>{location}</span>}
+              {status && <span>{status}</span>}
+            </div>
+          )}
+          <p
+            style={accentColor ? { color: mutedColor } : undefined}
+            className={cn('text-sm leading-relaxed', !accentColor && colors.muted)}
+          >
+            {tagline}
+          </p>
+        </div>
+      </div>
+      <span className="mt-8" style={accentColor ? { color: textColor } : undefined}>
+        <span className={cn('text-sm font-semibold group-hover:underline', !accentColor && colors.text)}>
           {ctaLabel} →
         </span>
-      </div>
+      </span>
     </Link>
   )
 }

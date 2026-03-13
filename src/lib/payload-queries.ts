@@ -158,3 +158,22 @@ export const queryFeaturedVentures = cache(async (limit = 3, locale = 'en'): Pro
     return []
   }
 })
+
+export const queryVentureBySlug = cache(async (slug: string, locale = 'en'): Promise<Venture | null> => {
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const result = await payload.find({
+      collection: 'ventures',
+      draft: false,
+      limit: 1,
+      overrideAccess: false,
+      pagination: false,
+      depth: 2,
+      locale: locale as 'en' | 'sv',
+      where: { slug: { equals: slug } },
+    })
+    return result.docs?.[0] ?? null
+  } catch {
+    return null
+  }
+})

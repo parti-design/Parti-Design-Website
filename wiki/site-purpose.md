@@ -51,6 +51,9 @@ A secondary but important function:
 4. Venture studio — Massvis, Umeå Kallbad, DIT Egnahem; the byggemenskap opportunity
 5. Contact / working with us
 
+Implementation note:
+- Venture detail pages can launch using repo-backed draft narratives and assets where the CMS venture entries are still sparse, but the long-term source of truth remains the `ventures` collection in Payload.
+
 ## Byggemenskap as a strategic focus
 
 This deserves special attention on the site. Byggemenskap (community self-build housing cooperatives) is an area where Parti Design can offer an end-to-end service:

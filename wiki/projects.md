@@ -62,6 +62,9 @@ Designed a geodesic dome pavilion for Rewilding Sweden. Now in the construction 
 
 These are projects incubated by Parti Design — not client commissions, but initiatives Parti Design has originated and is developing. They generate work for the studio as they mature.
 
+Implementation note:
+- Each venture can carry its own theme color in Payload (`lime`, `lavender`, or `ink`) and that accent is used on venture cards and venture detail pages.
+
 ### Massvis
 **Type:** Digital platform / community finance
 **Status:** Active, ongoing

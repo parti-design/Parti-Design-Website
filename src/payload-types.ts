@@ -923,7 +923,7 @@ export interface Venture {
    */
   tagline?: string | null;
   /**
-   * Full description of the venture — what it is and where it is heading
+   * Full body text shown on the venture page. Add your own headings here if you want sections like story, what it does, or how Parti supports it.
    */
   description?: {
     root: {
@@ -951,10 +951,17 @@ export interface Venture {
       }[]
     | null;
   /**
-   * Link to the venture's own website or project page, if it exists
+   * Link to the venture's public website, if it exists
    */
   externalUrl?: string | null;
-  ventureStatus?: ('active' | 'in-development' | 'completed') | null;
+  /**
+   * Accent color used for venture cards and detail pages
+   */
+  themeColor?: string | null;
+  /**
+   * Regenerative venture stage from earliest shaping through long-term stability
+   */
+  ventureStatus?: ('seed' | 'root' | 'sprout' | 'grow' | 'flourish') | null;
   /**
    * e.g. "Umeå, Sweden"
    */
@@ -1507,6 +1514,7 @@ export interface VenturesSelect<T extends boolean = true> {
         id?: T;
       };
   externalUrl?: T;
+  themeColor?: T;
   ventureStatus?: T;
   location?: T;
   services?: T;

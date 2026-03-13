@@ -212,16 +212,51 @@
       "body": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: initiativ vi tror på och bygger själva."
     },
     "status": {
-      "active": "Aktiv",
-      "inDevelopment": "Under utveckling",
-      "completed": "Avslutad"
+      "seed": "Frö",
+      "root": "Rotning",
+      "sprout": "Skott",
+      "grow": "Tillväxt",
+      "flourish": "Blomstring"
     },
     "learnMore": "Läs mer",
+    "cards": {
+      "whatItDoes": "Vad det gör",
+      "story": "Bakgrunden",
+      "support": "Hur vi stöttar det"
+    },
     "why": {
       "heading": "Varför en venturestudio?",
       "body1": "Kunduppdrag håller oss skärpta, men det vi tror mest på — samhällsfinansiering, open source-bostäder och urbana kallbad — kommer sällan som ett färdigt uppdrag. Så vi skapar dem själva.",
       "body2": "Varje initiativ är ett verkligt projekt där vi investerar vår egen tid, design och våra relationer. Vissa växer till självständiga organisationer; andra vävs tillbaka in i studions erbjudande. Alla skärper vårt tänkande.",
       "quote": "De bästa projekten vi deltagit i började med en fråga, inte en budget."
+    }
+  },
+  "ventureDetail": {
+    "eyebrow": "Initiativ",
+    "meta": {
+      "status": "Status",
+      "location": "Plats",
+      "services": "Partis bidrag"
+    },
+    "sections": {
+      "whatItDoes": "Vad det gör",
+      "story": "Bakgrunden",
+      "support": "Hur Parti stöttar det",
+      "gallery": "Galleri"
+    },
+    "cta": {
+      "projectPage": "Visa webbplatsen",
+      "visit": "Besök initiativets sida",
+      "contact": "Prata med oss om initiativet",
+      "allVentures": "Se alla initiativ"
+    },
+    "gallery": {
+      "viewImage": "Visa bild",
+      "close": "Stäng",
+      "previousImage": "Föregående bild",
+      "nextImage": "Nästa bild",
+      "imageLabel": "bild",
+      "of": "av"
     }
   },
   "projectDetail": {

@@ -4,6 +4,7 @@ import React from 'react'
 interface Props {
   children: React.ReactNode
   className?: string
+  style?: React.CSSProperties
 }
 
 /**
@@ -14,9 +15,10 @@ interface Props {
  *   <Tag className="text-lime">Digital</Tag>
  *   {tags.join(' · ')} — join multiple tags inline before passing to Tag
  */
-export function Tag({ children, className }: Props) {
+export function Tag({ children, className, style }: Props) {
   return (
     <p
+      style={style}
       className={cn(
         'text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground',
         className,

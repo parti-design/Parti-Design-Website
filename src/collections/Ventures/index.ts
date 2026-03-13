@@ -24,6 +24,8 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from 'payload'
+import { normalizeHexColor } from '@/lib/venture-colors'
+import { normalizeVentureStatus } from '@/lib/venture-status'
 
 const services = [
   { label: 'Architecture & Spatial Design', value: 'architecture-spatial' },
@@ -48,6 +50,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
     slug: true,
     tagline: true,
     coverImage: true,
+    themeColor: true,
     ventureStatus: true,
     location: true,
     services: true,
@@ -103,7 +106,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
             },
             {
               name: 'description',
-              label: 'Description',
+              label: 'Main Page Text',
               type: 'richText',
               localized: true,
               editor: lexicalEditor({
@@ -117,7 +120,7 @@ export const Ventures: CollectionConfig<'ventures'> = {
                 ],
               }),
               admin: {
-                description: 'Full description of the venture — what it is and where it is heading',
+                description: 'Full body text shown on the venture page. Add your own headings here if you want sections like story, what it does, or how Parti supports it.',
               },
             },
             {
@@ -142,10 +145,10 @@ export const Ventures: CollectionConfig<'ventures'> = {
             },
             {
               name: 'externalUrl',
-              label: 'External URL',
+              label: 'Website URL',
               type: 'text',
               admin: {
-                description: "Link to the venture's own website or project page, if it exists",
+                description: "Link to the venture's public website, if it exists",
               },
             },
           ],
@@ -154,17 +157,51 @@ export const Ventures: CollectionConfig<'ventures'> = {
           label: 'Details',
           fields: [
             {
+              name: 'themeColor',
+              label: 'Theme Color',
+              type: 'text',
+              defaultValue: '#ccc2de',
+              validate: (value: unknown) => {
+                if (value === null || value === undefined || value === '') {
+                  return true
+                }
+
+                if (typeof value !== 'string' || !normalizeHexColor(value)) {
+                  return 'Enter a valid hex color like #bbd644'
+                }
+                return true
+              },
+              admin: {
+                position: 'sidebar',
+                description: 'Accent color used for venture cards and detail pages',
+                components: {
+                  Field: '@/components/Admin/VentureThemeColorField#VentureThemeColorField',
+                },
+              },
+            },
+            {
               name: 'ventureStatus',
               label: 'Status',
               type: 'select',
               options: [
-                { label: 'Active', value: 'active' },
-                { label: 'In Development', value: 'in-development' },
-                { label: 'Completed', value: 'completed' },
+                { label: 'Seed', value: 'seed' },
+                { label: 'Root', value: 'root' },
+                { label: 'Sprout', value: 'sprout' },
+                { label: 'Grow', value: 'grow' },
+                { label: 'Flourish', value: 'flourish' },
               ],
-              defaultValue: 'active',
+              defaultValue: 'seed',
+              hooks: {
+                beforeValidate: [
+                  ({ value }) => normalizeVentureStatus(value),
+                ],
+                afterRead: [
+                  ({ value }) => normalizeVentureStatus(value),
+                ],
+              },
               admin: {
                 position: 'sidebar',
+                description: 'Regenerative venture stage from earliest shaping through long-term stability',
               },
             },
             {

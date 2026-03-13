@@ -33,7 +33,7 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
 
   return (
     <main>
-      <section className="relative min-h-[70vh] flex items-end bg-ink overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-end bg-background dark:bg-ink overflow-hidden">
         {coverUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -42,9 +42,9 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-secondary/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-off-white to-secondary/15 dark:from-secondary/30 dark:to-secondary/10" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent dark:from-ink dark:via-ink/50" />
 
         <div className="container relative z-10 pb-16 pt-40">
           <div className="flex flex-wrap gap-2 mb-4">
@@ -54,49 +54,49 @@ export async function ProjectDetailPage({ project, prev, next, locale }: Props) 
               </Tag>
             ))}
           </div>
-          <SectionHeading as="h1" size="xl" className="text-off-white max-w-3xl">
+          <SectionHeading as="h1" size="xl" className="text-foreground dark:text-off-white max-w-3xl">
             {project.title}
           </SectionHeading>
           {project.tagline && (
-            <p className="mt-4 text-lg text-off-white/70 max-w-xl leading-relaxed">
+            <p className="mt-4 text-lg text-foreground/75 dark:text-off-white/70 max-w-xl leading-relaxed">
               {project.tagline}
             </p>
           )}
         </div>
       </section>
 
-      <div className="bg-ink border-t border-off-white/10">
+      <div className="bg-background dark:bg-ink border-t border-border dark:border-off-white/10">
         <div className="container py-6 flex flex-wrap gap-x-10 gap-y-3">
           {project.year && (
             <div>
-              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
+              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground dark:text-off-white/40 block mb-0.5">
                 {t('meta.year')}
               </span>
-              <span className="text-sm text-off-white/80">{project.year}</span>
+              <span className="text-sm text-foreground dark:text-off-white/80">{project.year}</span>
             </div>
           )}
           {project.location && (
             <div>
-              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
+              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground dark:text-off-white/40 block mb-0.5">
                 {t('meta.location')}
               </span>
-              <span className="text-sm text-off-white/80">{project.location}</span>
+              <span className="text-sm text-foreground dark:text-off-white/80">{project.location}</span>
             </div>
           )}
           {project.client && (
             <div>
-              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
+              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground dark:text-off-white/40 block mb-0.5">
                 {t('meta.client')}
               </span>
-              <span className="text-sm text-off-white/80">{project.client}</span>
+              <span className="text-sm text-foreground dark:text-off-white/80">{project.client}</span>
             </div>
           )}
           {tags.length > 0 && (
             <div>
-              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-off-white/40 block mb-0.5">
+              <span className="text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground dark:text-off-white/40 block mb-0.5">
                 {t('meta.services')}
               </span>
-              <span className="text-sm text-off-white/80">{tags.join(' · ')}</span>
+              <span className="text-sm text-foreground dark:text-off-white/80">{tags.join(' · ')}</span>
             </div>
           )}
         </div>

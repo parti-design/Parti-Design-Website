@@ -10,6 +10,7 @@ This directory is an internal reference wiki for the Parti Design website and bu
 | [site-purpose.md](./site-purpose.md) | Goals and purpose of the website |
 | [target-audience.md](./target-audience.md) | Who the site is built for |
 | [projects.md](./projects.md) | Known projects, ventures, and strategic pipeline |
+| [venture-stages.md](./venture-stages.md) | Internal stage model for regenerative ventures in the CMS |
 | [localization-migration-plan.md](./localization-migration-plan.md) | Concrete plan for improving EN/SV localization in Payload |
 | [admin-ui-plan.md](./admin-ui-plan.md) | Plan for improving the Payload admin UI styling and usability |
 | [local-development.md](./local-development.md) | Standard local bootstrap workflow, commands, and safety rules |

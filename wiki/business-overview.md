@@ -67,6 +67,8 @@ They are **open** to working with oil companies, large polluters, or developers 
 
 Active practice since 2022 with a completed portfolio spanning architecture, facilitation, branding, digital services, and venture projects. All work to date has come through active networking, pitching, and personal referrals — no inbound leads yet. The website is being built in part to change that.
 
+For internally describing venture maturity in the regenerative venture studio, use the shared stage language in [venture-stages.md](./venture-stages.md): `Seed`, `Root`, `Sprout`, `Grow`, and `Flourish`.
+
 ## Tone & brand voice
 
 Approachable, creative, and playful — but also competent, trustworthy, and professional.

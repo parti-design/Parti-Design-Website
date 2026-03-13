@@ -212,16 +212,51 @@
       "body": "Alongside client work, Parti Design incubates its own projects: initiatives we believe in and build ourselves."
     },
     "status": {
-      "active": "Active",
-      "inDevelopment": "In Development",
-      "completed": "Completed"
+      "seed": "Seed",
+      "root": "Root",
+      "sprout": "Sprout",
+      "grow": "Grow",
+      "flourish": "Flourish"
     },
     "learnMore": "Learn more",
+    "cards": {
+      "whatItDoes": "What it does",
+      "story": "Its story",
+      "support": "How we support it"
+    },
     "why": {
       "heading": "Why a venture studio?",
       "body1": "Client work keeps us sharp, but the things we believe in most — community finance, open-source housing, urban cold bathing — rarely arrive as a brief. So we make them ourselves.",
       "body2": "Each venture is a real project that we invest our own time, design, and relationships into. Some grow into independent organisations; others fold back into the studio's service offer. All of them sharpen how we think.",
       "quote": "The best projects we've been part of started with a question, not a budget."
+    }
+  },
+  "ventureDetail": {
+    "eyebrow": "Venture",
+    "meta": {
+      "status": "Status",
+      "location": "Location",
+      "services": "Parti's contribution"
+    },
+    "sections": {
+      "whatItDoes": "What it does",
+      "story": "Its story",
+      "support": "How Parti supports it",
+      "gallery": "Gallery"
+    },
+    "cta": {
+      "projectPage": "View website",
+      "visit": "Visit venture site",
+      "contact": "Talk to us about this venture",
+      "allVentures": "See all ventures"
+    },
+    "gallery": {
+      "viewImage": "View image",
+      "close": "Close",
+      "previousImage": "Previous image",
+      "nextImage": "Next image",
+      "imageLabel": "image",
+      "of": "of"
     }
   },
   "projectDetail": {
