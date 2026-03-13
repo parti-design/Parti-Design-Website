@@ -25,6 +25,7 @@
     "local:seed:demo": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" node scripts/seed-demo.ts",
     "local:seed:layout": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" pnpm tsx src/seed-projects.ts",
     "local:start": "pnpm local:doctor && pnpm db:start && pnpm db:wait && pnpm db:migrate && pnpm local:seed:layout && node scripts/start-local-dev.mjs",
+    "local:stop": "node scripts/local-stop.mjs",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",

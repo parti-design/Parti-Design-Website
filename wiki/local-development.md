@@ -63,6 +63,7 @@ That override should be rare. The normal policy is local app -> local Docker Pos
 
 - `pnpm local:doctor` checks Node, pnpm, Docker, `.env`, and local DB safety
 - `pnpm local:start` starts the standard local environment
+- `pnpm local:stop` stops the local app server for this repo
 - `pnpm local:seed:layout` ensures the basic `projects` and `ventures` layout seed exists
 - `pnpm db:start` starts Docker Postgres
 - `pnpm db:stop` stops Docker Postgres

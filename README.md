@@ -44,6 +44,7 @@ This repo uses one standard local workflow:
 Optional:
 
 - `pnpm local:start` automatically ensures the basic projects and ventures exist for layout work
+- Run `pnpm local:stop` if you want to stop the local app server but keep Docker Postgres running
 - Run `pnpm local:seed:demo --yes` if you want demo content
 - Run `pnpm local:reset --yes` if you want to destroy and recreate the local Docker database
 
