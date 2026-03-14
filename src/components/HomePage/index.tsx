@@ -6,7 +6,7 @@ import { getVentureDraft } from '@/lib/venture-drafts'
 import { normalizeVentureStatus } from '@/lib/venture-status'
 import type { Venture } from '@/payload-types'
 import Link from 'next/link'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { AnimateOnScroll } from './AnimateOnScroll'
@@ -21,11 +21,11 @@ const VENTURE_THEMES: VentureCardTheme[] = ['lime', 'lavender', 'ink']
 interface Props {
   projects: ProjectCardProps[]
   ventures: Venture[]
+  locale: 'en' | 'sv'
 }
 
-export async function HomePage({ projects, ventures }: Props) {
-  const t = await getTranslations()
-  const locale = (await getLocale()) as 'en' | 'sv'
+export async function HomePage({ projects, ventures, locale }: Props) {
+  const t = await getTranslations({ locale })
   const statusLabels: Record<string, string> = {
     seed: t('venturesPage.status.seed'),
     root: t('venturesPage.status.root'),

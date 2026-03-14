@@ -22,7 +22,7 @@ export default async function Page({ params }: Props) {
     imageSrc: mediaUrl(p.coverImage),
   }))
 
-  return <HomePage projects={projects} ventures={ventures} />
+  return <HomePage projects={projects} ventures={ventures} locale={locale as 'en' | 'sv'} />
 }
 
 export async function generateMetadata({ params }: Props) {
