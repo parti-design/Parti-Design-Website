@@ -14,6 +14,7 @@ export default async function Page({ params }: Props) {
     title: p.title,
     slug: p.slug,
     tags: serviceLabels(p.services, locale as 'en' | 'sv'),
+    serviceKeys: p.services ?? [],
     description: p.tagline ?? '',
     imageSrc: mediaUrl(p.coverImage),
   }))

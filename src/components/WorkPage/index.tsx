@@ -1,25 +1,25 @@
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
-import { ProjectCard, type ProjectCardProps } from '@/components/ProjectCard'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Tag } from '@/components/ui/Tag'
+import { WorkPageClient, type FilterableProjectCard } from './Client'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 interface Props {
-  projects: ProjectCardProps[]
+  projects: FilterableProjectCard[]
   locale: 'en' | 'sv'
 }
 
 export async function WorkPage({ projects, locale }: Props) {
   const t = await getTranslations({ locale, namespace: 'workPage' })
-  const allTags = [
-    t('filters.all'),
-    t('filters.architecture'),
-    t('filters.coBuilding'),
-    t('filters.digital'),
-    t('filters.facilitation'),
-  ]
+  const filterLabels = {
+    all: t('filters.all'),
+    architecture: t('filters.architecture'),
+    coBuilding: t('filters.coBuilding'),
+    digital: t('filters.digital'),
+    facilitation: t('filters.facilitation'),
+  }
 
   return (
     <main>
@@ -31,24 +31,7 @@ export async function WorkPage({ projects, locale }: Props) {
 
       <section className="py-24 bg-background">
         <div className="container">
-          <AnimateOnScroll className="mb-10 flex flex-wrap gap-2">
-            {allTags.map((tag) => (
-              <span
-                key={tag}
-                className="px-4 py-1.5 rounded-full border border-border text-sm font-medium text-muted-foreground first:bg-ink first:text-off-white first:border-ink cursor-pointer hover:border-ink hover:text-foreground transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
-          </AnimateOnScroll>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects.map((project, i) => (
-              <AnimateOnScroll key={project.slug} delay={i * 60}>
-                <ProjectCard {...project} />
-              </AnimateOnScroll>
-            ))}
-          </div>
+          <WorkPageClient projects={projects} filterLabels={filterLabels} />
         </div>
       </section>
 
