@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { AdminBar } from '@/components/AdminBar'
+import { routing } from '@/i18n/routing'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -8,8 +9,6 @@ import { cn } from '@/utilities/ui'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { GeistMono } from 'geist/font/mono'
 import { Expletus_Sans, Mulish } from 'next/font/google'
-import { draftMode } from 'next/headers'
-import { getLocale } from 'next-intl/server'
 import React from 'react'
 
 import './globals.css'
@@ -29,11 +28,12 @@ const expletusSans = Expletus_Sans({
 })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { isEnabled } = await draftMode()
-  const locale = await getLocale()
-
   return (
-    <html className={cn(mulish.variable, expletusSans.variable, GeistMono.variable)} lang={locale} suppressHydrationWarning>
+    <html
+      className={cn(mulish.variable, expletusSans.variable, GeistMono.variable)}
+      lang={routing.defaultLocale}
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
@@ -41,11 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
+          <AdminBar />
 
           {children}
         </Providers>

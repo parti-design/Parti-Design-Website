@@ -64,6 +64,7 @@ Project and venture detail pages use on-demand static generation.
 Important i18n requirement:
 
 - `src/app/(frontend)/[locale]/layout.tsx` must call `setRequestLocale(locale)` and load translations with `getMessages({ locale })`
+- `src/app/(frontend)/layout.tsx` must stay free of dynamic server APIs like `draftMode()` and `getLocale()`
 
 Without that, on-demand detail routes can fail in production with `DYNAMIC_SERVER_USAGE`, even though preview mode still works.
 
