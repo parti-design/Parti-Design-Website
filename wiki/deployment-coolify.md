@@ -56,3 +56,13 @@ What to do:
 Tip:
 
 - A volume created before ownership fixes can stay broken even after redeploy, because volume data/permissions persist.
+
+## Project and venture detail routes
+
+Project and venture detail pages use on-demand static generation.
+
+Important i18n requirement:
+
+- `src/app/(frontend)/[locale]/layout.tsx` must call `setRequestLocale(locale)` and load translations with `getMessages({ locale })`
+
+Without that, on-demand detail routes can fail in production with `DYNAMIC_SERVER_USAGE`, even though preview mode still works.
