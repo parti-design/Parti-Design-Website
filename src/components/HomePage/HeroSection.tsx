@@ -1,19 +1,20 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef } from 'react'
 
 export function HeroSection() {
   const t = useTranslations('hero')
-  const imgRef = useRef<HTMLImageElement>(null)
+  const imageWrapperRef = useRef<HTMLDivElement>(null)
 
   const HEADLINE_WORDS = t('headline').split(' ')
 
   useEffect(() => {
     const handleScroll = () => {
-      if (imgRef.current) {
-        imgRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`
+      if (imageWrapperRef.current) {
+        imageWrapperRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`
       }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -23,15 +24,21 @@ export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center relative bg-ink overflow-hidden">
       {/* Hero background photo — oversized vertically so parallax never shows a gap */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        ref={imgRef}
-        src="/assets/hero/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
-        alt=""
+      <div
+        ref={imageWrapperRef}
         aria-hidden
-        className="absolute left-0 right-0 w-full object-cover object-center"
+        className="absolute left-0 right-0"
         style={{ top: '-10%', height: '120%' }}
-      />
+      >
+        <Image
+          src="/assets/hero/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/65 to-ink/40" />
 
       <div className="container relative z-10 py-32 lg:py-40 grid lg:grid-cols-5 gap-12 items-center">

@@ -66,3 +66,9 @@ Important i18n requirement:
 - `src/app/(frontend)/[locale]/layout.tsx` must call `setRequestLocale(locale)` and load translations with `getMessages({ locale })`
 
 Without that, on-demand detail routes can fail in production with `DYNAMIC_SERVER_USAGE`, even though preview mode still works.
+
+## Bundled homepage and studio images
+
+The homepage hero and the studio team photo are bundled local assets under `public/assets`.
+
+Keep these pages on `next/image` rather than raw `<img>` tags. Otherwise Next.js will serve the original files directly from `public/`, bypass responsive image optimization and causing large downloads in production.

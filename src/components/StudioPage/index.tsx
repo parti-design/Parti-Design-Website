@@ -2,6 +2,7 @@ import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
@@ -69,11 +70,13 @@ export async function StudioPage({ locale }: Props) {
           </div>
 
           <AnimateOnScroll delay={120} className="lg:col-span-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
               alt={t('about.photoAlt')}
-              className="w-full aspect-[3/4] object-cover object-top rounded-md"
+              width={2000}
+              height={1324}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="h-auto w-full aspect-[3/4] object-cover object-top rounded-md"
             />
           </AnimateOnScroll>
         </div>

@@ -5,6 +5,7 @@ import { Tag } from '@/components/ui/Tag'
 import { getVentureDraft } from '@/lib/venture-drafts'
 import { normalizeVentureStatus } from '@/lib/venture-status'
 import type { Venture } from '@/payload-types'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
@@ -173,11 +174,13 @@ export async function HomePage({ projects, ventures, locale }: Props) {
           </div>
 
           <AnimateOnScroll delay={150} className="lg:col-span-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
               alt={t('studio.photoAlt')}
-              className="w-full aspect-[3/4] object-cover object-top"
+              width={2000}
+              height={1324}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="h-auto w-full aspect-[3/4] object-cover object-top"
             />
           </AnimateOnScroll>
         </div>
