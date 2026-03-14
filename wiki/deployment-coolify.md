@@ -72,3 +72,12 @@ Without that, on-demand detail routes can fail in production with `DYNAMIC_SERVE
 The homepage hero and the studio team photo are bundled local assets under `public/assets`.
 
 Keep these pages on `next/image` rather than raw `<img>` tags. Otherwise Next.js will serve the original files directly from `public/`, bypass responsive image optimization and causing large downloads in production.
+
+## Runtime image files
+
+The production runner image must include the top-level `messages/` directory.
+
+Reason:
+
+- `src/i18n/request.ts` loads translations at runtime via `../../messages/${locale}.json`
+- statically generated pages can hide this during build, but on-demand routes like project and venture detail pages will fail in production if `messages/` is missing from the runtime container
