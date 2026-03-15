@@ -248,6 +248,12 @@ Implementation note:
 - large transforms
 - anything that makes the admin feel playful at the expense of speed
 
+Status update:
+
+- venture detail body copy is now expected to come from Payload `description` only
+- venture detail SEO should read from Payload `meta.title` and `meta.description`
+- any remaining repo-backed venture fallbacks on the public venture detail page should be treated as technical debt and removed so the live page matches admin exactly
+
 ### Radius
 
 Recommended:

@@ -6,10 +6,8 @@ import { Tag } from '@/components/ui/Tag'
 import { Link } from '@/i18n/navigation'
 import { fallbackVentureColors, isDarkHexColor, resolveVentureColor, rgbaFromHex } from '@/lib/venture-colors'
 import { mediaUrl, serviceLabels } from '@/lib/payload-queries'
-import { getVentureDraft } from '@/lib/venture-drafts'
 import { normalizeVentureStatus } from '@/lib/venture-status'
 import type { Venture } from '@/payload-types'
-import { cn } from '@/utilities/ui'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
@@ -24,16 +22,15 @@ export async function VentureDetailPage({ venture, locale }: Props) {
   const t = await getTranslations({ locale, namespace: 'ventureDetail' })
   const statusT = await getTranslations({ locale, namespace: 'venturesPage.status' })
 
-  const draft = getVentureDraft(venture.slug, locale)
   const tags = serviceLabels(venture.services, locale)
   const normalizedStatus = normalizeVentureStatus(venture.ventureStatus) as VentureStatusKey | null | undefined
   const statusLabel = normalizedStatus ? statusT(normalizedStatus) : null
-  const fallbackTheme = draft?.theme ?? 'lavender'
+  const fallbackTheme = 'lavender'
   const accentColor = resolveVentureColor(venture.themeColor, fallbackTheme)
   const accentTextColor = isDarkHexColor(accentColor) ? '#f7f3ec' : fallbackVentureColors.ink
   const accentSoft = rgbaFromHex(accentColor, 0.16)
   const accentSoftDark = rgbaFromHex(accentColor, 0.12)
-  const coverUrl = mediaUrl(venture.coverImage, 'xlarge') ?? mediaUrl(venture.coverImage, 'large') ?? draft?.coverImage
+  const coverUrl = mediaUrl(venture.coverImage, 'xlarge') ?? mediaUrl(venture.coverImage, 'large')
   const cmsGalleryImages =
     venture.gallery?.map((item) => {
       const src = mediaUrl(item.image, 'large') ?? mediaUrl(item.image)
@@ -41,15 +38,13 @@ export async function VentureDetailPage({ venture, locale }: Props) {
       return src ? { src, fullSrc, caption: item.caption ?? undefined } : null
     }) ?? []
   const galleryImages: Array<{ src: string; fullSrc?: string; caption?: string }> =
-    cmsGalleryImages.length > 0
-      ? cmsGalleryImages.filter(
-          (
-            item,
-          ): item is NonNullable<(typeof cmsGalleryImages)[number]> => item !== null,
-        )
-      : draft?.gallery.map((image) => ({ src: image.src, fullSrc: image.src, caption: image.caption })) ?? []
+    cmsGalleryImages.filter(
+      (
+        item,
+      ): item is NonNullable<(typeof cmsGalleryImages)[number]> => item !== null,
+    )
 
-  const externalUrl = venture.externalUrl || draft?.externalUrl
+  const externalUrl = venture.externalUrl
 
   return (
     <main className="bg-background">
@@ -171,16 +166,6 @@ export async function VentureDetailPage({ venture, locale }: Props) {
                 </div>
               </div>
             </AnimateOnScroll>
-
-            {draft?.quote && (
-              <AnimateOnScroll delay={140}>
-                <blockquote className="border-l-4 pl-5 py-2" style={{ borderColor: accentColor }}>
-                  <p className="text-lg italic leading-snug text-foreground dark:text-off-white">
-                    &ldquo;{draft.quote}&rdquo;
-                  </p>
-                </blockquote>
-              </AnimateOnScroll>
-            )}
 
             <AnimateOnScroll delay={180}>
               <div className="flex flex-col gap-3">
