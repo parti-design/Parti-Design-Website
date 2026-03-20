@@ -20,7 +20,7 @@ export function Tag({ children, className, style }: Props) {
     <p
       style={style}
       className={cn(
-        'text-xs font-semibold tracking-[0.08em] uppercase text-muted-foreground',
+        'text-sm font-semibold tracking-[0.08em] uppercase text-muted-foreground',
         className,
       )}
     >

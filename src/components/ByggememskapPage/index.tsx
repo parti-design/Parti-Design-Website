@@ -64,7 +64,7 @@ export async function ByggememskapPage({ locale }: Props) {
           <AnimateOnScroll className="mb-12">
             <SectionHeading>{t('valueHeading')}</SectionHeading>
           </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
+          <div className="grid sm:grid-cols-2 gap-6">
             {valueItems.map((item, i) => (
               <AnimateOnScroll key={item.label} delay={i * 80}>
                 <div className="space-y-2 p-6 border border-border rounded-md">
@@ -168,7 +168,7 @@ export async function ByggememskapPage({ locale }: Props) {
 
       {/* Open Collective */}
       <section className="py-16 md:py-24 lg:py-32 bg-background border-t border-border">
-        <div className="container grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-5xl">
+        <div className="container grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — text */}
           <div>
             <AnimateOnScroll>
@@ -231,7 +231,7 @@ export async function ByggememskapPage({ locale }: Props) {
             <p className="font-display font-bold text-off-white/40 text-2xl mb-12">400 000 SEK</p>
           </AnimateOnScroll>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start max-w-5xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left — explanation */}
             <div>
               <AnimateOnScroll delay={120}>

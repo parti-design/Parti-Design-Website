@@ -1,6 +1,6 @@
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
 import { PageHeader } from '@/components/ui/PageHeader'
-import { Tag } from '@/components/ui/Tag'
+import { SectionHeading } from '@/components/ui/SectionHeading'
 import { WorkPageClient, type FilterableProjectCard } from './Client'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
@@ -35,17 +35,20 @@ export async function WorkPage({ projects, locale }: Props) {
         </div>
       </section>
 
-      <section className="py-14 md:py-24 bg-muted/40 border-t border-border">
-        <div className="container text-center max-w-xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 bg-ink">
+        <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
-            <Tag className="mb-4 mx-auto">{t('cta.tag')}</Tag>
-            <p className="text-2xl font-display font-bold text-foreground mb-6 leading-snug">
+            <SectionHeading size="xl" className="text-off-white mb-6">
               {t('cta.heading')}
-            </p>
-            <p className="text-muted-foreground mb-8">{t('cta.body')}</p>
+            </SectionHeading>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={100}>
+            <p className="text-lg text-off-white/60 leading-relaxed mb-10">{t('cta.body')}</p>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={200}>
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-4 rounded-md bg-ink text-off-white font-semibold hover:bg-ink/90 transition-colors"
+              className="inline-flex items-center px-8 py-4 rounded-md bg-lime text-ink font-semibold hover:bg-lime/90 transition-colors"
             >
               {t('cta.button')}
             </Link>

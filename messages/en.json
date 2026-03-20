@@ -3,7 +3,7 @@
     "services": "Services",
     "servicesArchitecture": "Architecture",
     "servicesDigital": "Digital Design",
-    "servicesCodesign": "Regenerative Strategies",
+    "servicesCodesign": "Regenerative Placemaking",
     "work": "Work",
     "ventures": "Ventures",
     "about": "About",
@@ -19,7 +19,16 @@
     "scroll": "Scroll"
   },
   "marquee": {
-    "terms": ["Architecture", "Co-building", "Digital Design", "Placemaking", "Facilitation", "Regenerative Places", "WikiHouse", "Byggemenskap"]
+    "terms": [
+      "Architecture",
+      "Co-building",
+      "Digital Design",
+      "Placemaking",
+      "Facilitation",
+      "Regenerative Places",
+      "WikiHouse",
+      "Byggemenskap"
+    ]
   },
   "services": {
     "sectionLabel": "We work with",
@@ -41,7 +50,7 @@
         "label": "Regenerative Strategies",
         "heading": "Designing with living systems, not against them",
         "body": "We work with holistic and living systems principles — leveraging the story of place to restore vibrant cultures, ecologies, and communities.",
-        "slug": "co-design"
+        "slug": "regenerative-placemaking"
       }
     }
   },
@@ -54,15 +63,77 @@
     "body2": "We specialise in co-built housing (byggemenskap), WikiHouse construction, and participatory design processes. Many of our projects combine architecture with facilitation and digital tools — because a building alone rarely solves the underlying challenge.",
     "offerHeading": "What this includes",
     "offer": [
-      { "label": "Architectural design & planning", "body": "From concept to planning permission — grounded in the community's needs and aspirations." },
-      { "label": "WikiHouse & co-building", "body": "Open-source construction systems that let communities build their own spaces with minimal specialist labour." },
-      { "label": "Byggemenskap support", "body": "End-to-end support for housing cooperatives that want to commission and co-build their own homes." },
-      { "label": "Spatial strategy & consulting", "body": "Advice on how space can work harder — for municipalities, developers, and community organisations." }
+      {
+        "label": "Architectural design & planning",
+        "body": "From concept to planning permission — grounded in the community's needs and aspirations."
+      },
+      {
+        "label": "WikiHouse & co-building",
+        "body": "Open-source construction systems that let communities build their own spaces with minimal specialist labour."
+      },
+      {
+        "label": "Byggemenskap support",
+        "body": "End-to-end support for housing cooperatives that want to commission and co-build their own homes."
+      },
+      {
+        "label": "Spatial strategy & consulting",
+        "body": "Advice on how space can work harder — for municipalities, developers, and community organisations."
+      }
     ],
     "cta": {
       "heading": "Ready to build something together?",
       "body": "Tell us about your project and we'll get back to you within a few days.",
       "button": "Get in touch"
+    },
+    "quote": "The best buildings grow from genuine dialogue — not from a designer's vision imposed from above.",
+    "process": {
+      "heading": "How we work",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Listen",
+          "body": "We start with a discovery session to understand the community, the site, and the goals. No assumptions."
+        },
+        {
+          "number": "02",
+          "label": "Analyse",
+          "body": "Site visits, context research, and a clear project definition. We map what already exists and what's possible."
+        },
+        {
+          "number": "03",
+          "label": "Design together",
+          "body": "Iterative design rounds with co-design workshops where the people who will use the space shape the outcome."
+        },
+        {
+          "number": "04",
+          "label": "Build it",
+          "body": "From planning permission to construction supervision — we see it through to completion."
+        }
+      ]
+    },
+    "featuredWork": {
+      "heading": "From our portfolio"
+    },
+    "faq": {
+      "heading": "Common questions",
+      "items": [
+        {
+          "question": "Do you work outside Umeå?",
+          "answer": "We work throughout Sweden and take on international projects when the fit is right. Many of our architecture projects have roots in northern Sweden, but we follow the work."
+        },
+        {
+          "question": "How long does a project take?",
+          "answer": "A smaller structure like a pavilion or sauna might take 6–12 months. A full byggemenskap project is typically 2–4 years. We're honest about timelines from the start."
+        },
+        {
+          "question": "Can you help us set up a byggemenskap?",
+          "answer": "Yes — it's one of our core specialisms. We can support everything from forming the cooperative to designing and co-building the homes."
+        },
+        {
+          "question": "What makes your approach different?",
+          "answer": "We treat the people who will use a space as co-designers, not just clients or end-users. This produces buildings that communities actually use, maintain, and care about."
+        }
+      ]
     }
   },
   "digitalDesignPage": {
@@ -74,35 +145,164 @@
     "body2": "Our work covers the full stack: UX strategy, visual design, front-end development, and platform architecture. The common thread in everything we build: the people who use these tools should feel empowered by them.",
     "offerHeading": "What this includes",
     "offer": [
-      { "label": "Websites & digital presence", "body": "Clean, fast, accessible websites that tell your story and convert visitors into collaborators." },
-      { "label": "Community platforms & tools", "body": "Custom platforms that help communities organise, communicate, and grow." },
-      { "label": "UX & product design", "body": "Research-led design that puts real users at the centre — from first sketch to shipped product." },
-      { "label": "Digital strategy & consulting", "body": "Advice on which digital investments will actually move the needle for your organisation." }
+      {
+        "label": "Websites & digital presence",
+        "body": "Clean, fast, accessible websites that tell your story and convert visitors into collaborators."
+      },
+      {
+        "label": "Community platforms & tools",
+        "body": "Custom platforms that help communities organise, communicate, and grow."
+      },
+      {
+        "label": "UX & product design",
+        "body": "Research-led design that puts real users at the centre — from first sketch to shipped product."
+      },
+      {
+        "label": "Digital strategy & consulting",
+        "body": "Advice on which digital investments will actually move the needle for your organisation."
+      }
     ],
     "cta": {
       "heading": "Got a digital project in mind?",
       "body": "Tell us about your project and we'll get back to you within a few days.",
       "button": "Get in touch"
+    },
+    "quote": "A good digital product doesn't just work — it makes the organisation behind it more capable.",
+    "process": {
+      "heading": "How we work",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Discover",
+          "body": "We map your users, your goals, and the gap between them — through interviews, audits, and honest conversations."
+        },
+        {
+          "number": "02",
+          "label": "Define",
+          "body": "A clear product brief: what we're building, for whom, and why it will work. Agreed before we write a line of code."
+        },
+        {
+          "number": "03",
+          "label": "Design",
+          "body": "Wireframes, prototypes, and visual design — iterated with your team until it's right."
+        },
+        {
+          "number": "04",
+          "label": "Build & launch",
+          "body": "Development, testing, and a clean handover — with documentation so your team can own it."
+        }
+      ]
+    },
+    "featuredWork": {
+      "heading": "From our portfolio"
+    },
+    "faq": {
+      "heading": "Common questions",
+      "items": [
+        {
+          "question": "Do you build products yourselves?",
+          "answer": "Yes. We handle both design and front-end development in-house. For complex backends or integrations we work with trusted specialist partners."
+        },
+        {
+          "question": "We already have a website. Can you improve it?",
+          "answer": "Absolutely. We often take over existing sites and improve them — sometimes incrementally, sometimes with a full redesign. We'll tell you honestly which approach makes sense."
+        },
+        {
+          "question": "How do you price digital projects?",
+          "answer": "Most projects are scoped as a fixed-price engagement after a short paid discovery session. We don't do open-ended retainers without a defined scope."
+        },
+        {
+          "question": "Do you work with public institutions and non-profits?",
+          "answer": "Yes — they're our most common clients. We understand public procurement, tight budgets, and long decision cycles. We're patient partners."
+        }
+      ]
     }
   },
   "coDesignPage": {
-    "pageTitle": "Regenerative Strategies — Parti Design",
+    "pageTitle": "Regenerative Placemaking — Parti Design",
     "pageDescription": "We work with holistic and living systems principles — leveraging the story of place to restore vibrant cultures, ecologies and communities.",
-    "tag": "Regenerative Strategies",
+    "tag": "Regenerative Placemaking",
     "heading": "Designing with living systems, not against them",
     "intro": "We approach every project through the lens of regenerative design — working with the grain of place rather than imposing on it. By understanding a site's ecological, cultural, and social history, we surface the unique story of place and let it become the generative force behind every decision.",
     "body2": "Rooted in holistic and living systems thinking, our strategies go beyond participation as a technique. They treat communities, ecologies, and cultures as interconnected wholes. The goal is not just better buildings or services — it is the restoration of vibrant, self-sustaining places: communities that flourish, ecologies that regenerate, cultures that have the conditions to thrive.",
     "offerHeading": "What this includes",
     "offer": [
-      { "label": "Living systems facilitation", "body": "Co-design workshops and participatory processes grounded in ecological and social wholeness — surfacing what a place needs to regenerate, not just what clients want to build." },
-      { "label": "Story of place research", "body": "Deep contextual research into a site's ecological, cultural, and historic layers — the foundation for any regenerative strategy." },
-      { "label": "Placemaking & participatory planning", "body": "Long-form processes that embed community voice and ecological awareness into planning and development from the earliest stage." },
-      { "label": "Regenerative strategy & consulting", "body": "Advice on how to align your organisation's work with living systems principles — for municipalities, developers, and community groups." }
+      {
+        "label": "Living systems facilitation",
+        "body": "Co-design workshops and participatory processes grounded in ecological and social wholeness — surfacing what a place needs to regenerate, not just what clients want to build."
+      },
+      {
+        "label": "Story of place research",
+        "body": "Deep contextual research into a site's ecological, cultural, and historic layers — the foundation for any regenerative strategy."
+      },
+      {
+        "label": "Placemaking & participatory planning",
+        "body": "Long-form processes that embed community voice and ecological awareness into planning and development from the earliest stage."
+      },
+      {
+        "label": "Regenerative strategy & consulting",
+        "body": "Advice on how to align your organisation's work with living systems principles — for municipalities, developers, and community groups."
+      }
     ],
     "cta": {
       "heading": "Want to restore your place?",
       "body": "Tell us about your project and we'll get back to you within a few days.",
       "button": "Get in touch"
+    },
+    "quote": "Every place already knows what it needs. Our job is to help people hear it.",
+    "process": {
+      "heading": "How we work",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Root",
+          "body": "Deep research into the place: its ecology, history, culture, and the people who inhabit it. We call this the Story of Place."
+        },
+        {
+          "number": "02",
+          "label": "Gather",
+          "body": "Community gatherings and facilitated workshops that bring the right voices into the conversation — including those who are rarely heard."
+        },
+        {
+          "number": "03",
+          "label": "Weave",
+          "body": "Synthesising what we've heard into a strategy that is coherent, grounded, and actionable — not just a report."
+        },
+        {
+          "number": "04",
+          "label": "Grow",
+          "body": "Supporting implementation: connecting strategy to planning processes, grant applications, community governance, and ongoing stewardship."
+        }
+      ]
+    },
+    "featuredWork": {
+      "heading": "From our portfolio"
+    },
+    "faq": {
+      "heading": "Common questions",
+      "items": [
+        {
+          "question": "What kinds of organisations do you work with?",
+          "answer": "Municipalities, public developers, community organisations, and cultural institutions. Occasionally private landowners with a clear community-facing mission."
+        },
+        {
+          "question": "What does a regenerative strategy actually produce?",
+          "answer": "A document alone changes nothing. We produce strategies connected to real decisions — planning processes, grant applications, and community governance. The output is always something actionable."
+        },
+        {
+          "question": "How long does a co-design process take?",
+          "answer": "A focused workshop programme is typically 3–6 months. A full regenerative strategy for a larger site or initiative is typically 12–18 months."
+        },
+        {
+          "question": "Do you work in Swedish?",
+          "answer": "We work primarily in English. For processes that require Swedish-language facilitation, we bring in trusted local consultants. If language is a concern for your project, just ask — we'll find the right setup."
+        }
+      ]
+    },
+    "paradigm": {
+      "heading": "The regenerative paradigm",
+      "body": "Our work is grounded in living systems thinking. We draw on Carol Sanford's Seven First Principles of Regeneration — not as a rigid methodology to follow, but as a lens for understanding what a place needs in order to truly flourish.",
+      "attribution": "Framework: Carol Sanford — Seven First Principles of Regeneration"
     }
   },
   "work": {
@@ -128,7 +328,12 @@
   },
   "clients": {
     "label": "Trusted by",
-    "items": ["Umeå Kommun", "Kajeka", "Klondyke Farms", "Rewilding Sweden"]
+    "items": [
+      "Umeå Kommun",
+      "Kajeka",
+      "Klondyke Farms",
+      "Rewilding Sweden"
+    ]
   },
   "byggemenskap": {
     "tag": "Community-Led Housing",
@@ -144,10 +349,22 @@
     "intro": "Byggemenskap — community led housing — is one of the most powerful paths to affordable, community-rooted living. Instead of buying into a developer's project, a group of people commission, co-design, and build their own homes together.",
     "valueHeading": "Why build together?",
     "valueItems": [
-      { "label": "More affordable", "body": "By cutting out the developer margin and making collective decisions, groups consistently achieve lower costs than the open market." },
-      { "label": "Shaped by you", "body": "Every decision — layout, materials, common spaces — is made by the people who will live there." },
-      { "label": "Stronger community", "body": "Neighbours who build together tend to look out for each other. The process creates social bonds before you even move in." },
-      { "label": "More sustainable", "body": "Shared resources, thoughtful material choices, and long-term stewardship — because the residents own the outcome." }
+      {
+        "label": "More affordable",
+        "body": "By cutting out the developer margin and making collective decisions, groups consistently achieve lower costs than the open market."
+      },
+      {
+        "label": "Shaped by you",
+        "body": "Every decision — layout, materials, common spaces — is made by the people who will live there."
+      },
+      {
+        "label": "Stronger community",
+        "body": "Neighbours who build together tend to look out for each other. The process creates social bonds before you even move in."
+      },
+      {
+        "label": "More sustainable",
+        "body": "Shared resources, thoughtful material choices, and long-term stewardship — because the residents own the outcome."
+      }
     ],
     "processHeading": "How we support it",
     "codesignTag": "Early stage formation",

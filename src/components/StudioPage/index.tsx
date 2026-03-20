@@ -94,12 +94,6 @@ export async function StudioPage({ locale }: Props) {
                 <Tag>{t('team.role')}</Tag>
                 <p className="font-display font-bold text-xl text-foreground">Kasimir Suter Winter</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('team.kasimir')}</p>
-                <a
-                  href="mailto:hej@parti.design"
-                  className="text-sm font-semibold text-foreground hover:text-lime transition-colors"
-                >
-                  hej@parti.design
-                </a>
               </div>
             </AnimateOnScroll>
 

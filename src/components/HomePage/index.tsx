@@ -273,6 +273,7 @@ export async function HomePage({ projects, ventures, locale }: Props) {
                       ctaLabel={t('ventureCard.learnMore')}
                       accentColor={venture.themeColor}
                       theme={draft?.theme ?? VENTURE_THEMES[i % VENTURE_THEMES.length]}
+                      image={typeof venture.coverImage === 'object' && venture.coverImage?.url ? venture.coverImage.url : undefined}
                     />
                   </AnimateOnScroll>
                 )

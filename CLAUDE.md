@@ -19,6 +19,15 @@ See `wiki/i18n-bilingual-guide.md` for the full guide.
 - In English, use "Community Led Housing" — in Swedish, use "Byggemenskap"
 - Swedish uses informal "du"-form
 
+## Before Pushing to Main
+
+Always run one of these locally before pushing to catch build errors early:
+
+```bash
+npx tsc --noEmit   # fast type check only
+pnpm dev:prod      # full production build (closer to what Coolify runs)
+```
+
 ## Tech Stack
 
 - Next.js 15 App Router + Payload CMS v3

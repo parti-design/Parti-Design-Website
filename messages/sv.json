@@ -3,7 +3,7 @@
     "services": "Tjänster",
     "servicesArchitecture": "Arkitektur",
     "servicesDigital": "Digital Design",
-    "servicesCodesign": "Regenerativa strategier",
+    "servicesCodesign": "Regenerativt platsskapande",
     "work": "Projekt",
     "ventures": "Initiativ",
     "about": "Om oss",
@@ -19,7 +19,16 @@
     "scroll": "Scrolla"
   },
   "marquee": {
-    "terms": ["Arkitektur", "Sambygge", "Digital Design", "Platsskapande", "Facilitering", "Regenerativa Platser", "WikiHouse", "Byggemenskap"]
+    "terms": [
+      "Arkitektur",
+      "Sambygge",
+      "Digital Design",
+      "Platsskapande",
+      "Facilitering",
+      "Regenerativa Platser",
+      "WikiHouse",
+      "Byggemenskap"
+    ]
   },
   "services": {
     "sectionLabel": "Vi arbetar med",
@@ -41,7 +50,7 @@
         "label": "Regenerativa strategier",
         "heading": "Design med levande system, inte mot dem",
         "body": "Vi arbetar med holistiska och levande systemprinciper — och använder platsens berättelse för att återupprätta levande kulturer, ekologier och gemenskaper.",
-        "slug": "co-design"
+        "slug": "regenerative-placemaking"
       }
     }
   },
@@ -54,15 +63,77 @@
     "body2": "Vi specialiserar oss på sambyggt boende (byggemenskap), WikiHouse-konstruktion och deltagarbaserade designprocesser. Många av våra projekt kombinerar arkitektur med facilitering och digitala verktyg — för en byggnad löser sällan den underliggande utmaningen på egen hand.",
     "offerHeading": "Det här ingår",
     "offer": [
-      { "label": "Arkitektonisk design och planering", "body": "Från koncept till bygglov — förankrat i gemenskapens behov och önskemål." },
-      { "label": "WikiHouse och sambyggnad", "body": "Öppen källkods-konstruktionssystem som låter gemenskaper bygga sina egna rum med minimal specialistarbetskraft." },
-      { "label": "Byggemenskapsstöd", "body": "Helhetsstöd för bostadskooperativ som vill beställa och sambygga sina egna hem." },
-      { "label": "Rumslig strategi och rådgivning", "body": "Råd om hur rum kan arbeta hårdare — för kommuner, fastighetsägare och gemenskapsorganisationer." }
+      {
+        "label": "Arkitektonisk design och planering",
+        "body": "Från koncept till bygglov — förankrat i gemenskapens behov och önskemål."
+      },
+      {
+        "label": "WikiHouse och sambyggnad",
+        "body": "Öppen källkods-konstruktionssystem som låter gemenskaper bygga sina egna rum med minimal specialistarbetskraft."
+      },
+      {
+        "label": "Byggemenskapsstöd",
+        "body": "Helhetsstöd för bostadskooperativ som vill beställa och sambygga sina egna hem."
+      },
+      {
+        "label": "Rumslig strategi och rådgivning",
+        "body": "Råd om hur rum kan arbeta hårdare — för kommuner, fastighetsägare och gemenskapsorganisationer."
+      }
     ],
     "cta": {
       "heading": "Redo att bygga något tillsammans?",
       "body": "Berätta om ditt projekt så återkommer vi inom några dagar.",
       "button": "Kontakta oss"
+    },
+    "quote": "De bästa byggnaderna växer fram ur äkta dialog — inte ur en designers vision påtvingad utifrån.",
+    "process": {
+      "heading": "Så arbetar vi",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Lyssna",
+          "body": "Vi börjar med ett discovery-samtal för att förstå gemenskapen, platsen och målen. Inga antaganden på förhand."
+        },
+        {
+          "number": "02",
+          "label": "Analysera",
+          "body": "Platsbesök, kontextforskning och en tydlig projektdefinition. Vi kartlägger vad som redan finns och vad som är möjligt."
+        },
+        {
+          "number": "03",
+          "label": "Designa tillsammans",
+          "body": "Iterativa designrundor med co-design-workshops där de som ska använda platsen formar resultatet."
+        },
+        {
+          "number": "04",
+          "label": "Bygg det",
+          "body": "Från bygglov till byggledning — vi följer projektet hela vägen till färdigställande."
+        }
+      ]
+    },
+    "featuredWork": {
+      "heading": "Från vår portfolio"
+    },
+    "faq": {
+      "heading": "Vanliga frågor",
+      "items": [
+        {
+          "question": "Arbetar ni utanför Umeå?",
+          "answer": "Vi arbetar i hela Sverige och tar på oss internationella projekt när det passar. Många av våra arkitekturprojekt har rötter i norra Sverige, men vi följer arbetet dit det leder."
+        },
+        {
+          "question": "Hur lång tid tar ett projekt?",
+          "answer": "En mindre byggnad som en paviljong eller bastu kan ta 6–12 månader. Ett fullt byggemenskapsprojekt är typiskt 2–4 år. Vi är ärliga om tidsramar från start."
+        },
+        {
+          "question": "Kan ni hjälpa oss att starta en byggemenskap?",
+          "answer": "Ja — det är ett av våra kärnspecialiteter. Vi kan stötta allt från att bilda kooperativet till att rita och sambygga bostäderna."
+        },
+        {
+          "question": "Vad skiljer er från andra arkitekter?",
+          "answer": "Vi behandlar de som ska använda en plats som meddesigners, inte bara som klienter eller slutanvändare. Det ger byggnader som gemenskapen faktiskt använder, underhåller och sätter värde på."
+        }
+      ]
     }
   },
   "digitalDesignPage": {
@@ -74,35 +145,164 @@
     "body2": "Vårt arbete täcker hela stacken: UX-strategi, visuell design, frontendutveckling och plattformsarkitektur. Den gemensamma tråden i allt vi bygger: de människor som använder verktygen ska känna sig stärkta av dem.",
     "offerHeading": "Det här ingår",
     "offer": [
-      { "label": "Webbplatser och digital närvaro", "body": "Rena, snabba, tillgängliga webbplatser som berättar din historia och omvandlar besökare till samarbetspartners." },
-      { "label": "Communityplattformar och verktyg", "body": "Skräddarsydda plattformar som hjälper gemenskaper att organisera sig, kommunicera och växa." },
-      { "label": "UX och produktdesign", "body": "Forskningsdriven design som sätter verkliga användare i centrum — från första skiss till lanserad produkt." },
-      { "label": "Digital strategi och rådgivning", "body": "Råd om vilka digitala investeringar som faktiskt gör skillnad för din organisation." }
+      {
+        "label": "Webbplatser och digital närvaro",
+        "body": "Rena, snabba, tillgängliga webbplatser som berättar din historia och omvandlar besökare till samarbetspartners."
+      },
+      {
+        "label": "Communityplattformar och verktyg",
+        "body": "Skräddarsydda plattformar som hjälper gemenskaper att organisera sig, kommunicera och växa."
+      },
+      {
+        "label": "UX och produktdesign",
+        "body": "Forskningsdriven design som sätter verkliga användare i centrum — från första skiss till lanserad produkt."
+      },
+      {
+        "label": "Digital strategi och rådgivning",
+        "body": "Råd om vilka digitala investeringar som faktiskt gör skillnad för din organisation."
+      }
     ],
     "cta": {
       "heading": "Har du ett digitalt projekt i åtanke?",
       "body": "Berätta om ditt projekt så återkommer vi inom några dagar.",
       "button": "Kontakta oss"
+    },
+    "quote": "En bra digital produkt fungerar inte bara — den gör organisationen bakom den mer kapabel.",
+    "process": {
+      "heading": "Så arbetar vi",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Utforska",
+          "body": "Vi kartlägger dina användare, dina mål och gapet däremellan — genom intervjuer, granskningar och ärliga samtal."
+        },
+        {
+          "number": "02",
+          "label": "Definiera",
+          "body": "En tydlig produktbriefing: vad vi bygger, för vem och varför det kommer att fungera. Fastställd innan vi skriver en rad kod."
+        },
+        {
+          "number": "03",
+          "label": "Designa",
+          "body": "Wireframes, prototyper och visuell design — itererat med ditt team tills det är rätt."
+        },
+        {
+          "number": "04",
+          "label": "Bygg & lansera",
+          "body": "Utveckling, testning och en tydlig överlämning — med dokumentation så att ditt team kan äga produkten."
+        }
+      ]
+    },
+    "featuredWork": {
+      "heading": "Från vår portfolio"
+    },
+    "faq": {
+      "heading": "Vanliga frågor",
+      "items": [
+        {
+          "question": "Bygger ni produkterna själva?",
+          "answer": "Ja. Vi hanterar både design och frontendutveckling internt. För komplexa backends eller integrationer arbetar vi med betrodda specialistpartners."
+        },
+        {
+          "question": "Vi har redan en webbplats. Kan ni förbättra den?",
+          "answer": "Absolut. Vi tar ofta över befintliga sajter och förbättrar dem — ibland stegvis, ibland med en fullständig omdesign. Vi berättar ärligt vilket alternativ som är rätt."
+        },
+        {
+          "question": "Hur prissätter ni digitala projekt?",
+          "answer": "De flesta projekt prissätts som ett fastprisuppdrag efter en kort betald discovery-fas. Vi tar inte öppna löpande uppdrag utan ett definierat scope."
+        },
+        {
+          "question": "Arbetar ni med offentliga institutioner och ideella organisationer?",
+          "answer": "Ja — de är våra vanligaste klienter. Vi förstår offentlig upphandling, snäva budgetar och långa beslutsprocesser. Vi är tålmodiga partners."
+        }
+      ]
     }
   },
   "coDesignPage": {
-    "pageTitle": "Regenerativa strategier — Parti Design",
+    "pageTitle": "Regenerativt platsskapande — Parti Design",
     "pageDescription": "Vi arbetar med holistiska och levande systemprinciper — och använder platsens berättelse för att återupprätta levande kulturer, ekologier och gemenskaper.",
-    "tag": "Regenerativa strategier",
+    "tag": "Regenerativt platsskapande",
     "heading": "Design med levande system, inte mot dem",
     "intro": "Vi tar oss an varje projekt ur ett regenerativt designperspektiv — vi arbetar med platsens förutsättningar snarare än att tvinga på dem något utifrån. Genom att förstå en plats ekologiska, kulturella och sociala historia synliggör vi platsens unika berättelse och låter den bli den drivande kraften bakom varje beslut.",
     "body2": "Förankrade i holistiskt och levande systemstänkande sträcker sig våra strategier bortom delaktighet som teknik. De behandlar gemenskaper, ekologier och kulturer som sammankopplade helheter. Målet är inte bara bättre byggnader eller tjänster — det är återupprättandet av levande, självbärande platser: gemenskaper som blomstrar, ekologier som regenererar, kulturer som har förutsättningar att trivas.",
     "offerHeading": "Det här ingår",
     "offer": [
-      { "label": "Levande systemsfacilitering", "body": "Samdesignworkshops och deltagarprocesser förankrade i ekologisk och social helhet — som synliggör vad en plats behöver för att regenerera, inte bara vad kunden vill bygga." },
-      { "label": "Platsberättelseforskning", "body": "Fördjupad kontextuell forskning om en plats ekologiska, kulturella och historiska lager — grunden för all regenerativ strategi." },
-      { "label": "Platsskapande och deltagarbaserad planering", "body": "Långsiktiga processer som förankrar gemenskapens röst och ekologisk medvetenhet i planering och utveckling från allra första stadiet." },
-      { "label": "Regenerativ strategi och rådgivning", "body": "Råd om hur din organisations arbete kan anpassas till levande systemprinciper — för kommuner, fastighetsägare och gemenskapsgrupper." }
+      {
+        "label": "Levande systemsfacilitering",
+        "body": "Samdesignworkshops och deltagarprocesser förankrade i ekologisk och social helhet — som synliggör vad en plats behöver för att regenerera, inte bara vad kunden vill bygga."
+      },
+      {
+        "label": "Platsberättelseforskning",
+        "body": "Fördjupad kontextuell forskning om en plats ekologiska, kulturella och historiska lager — grunden för all regenerativ strategi."
+      },
+      {
+        "label": "Platsskapande och deltagarbaserad planering",
+        "body": "Långsiktiga processer som förankrar gemenskapens röst och ekologisk medvetenhet i planering och utveckling från allra första stadiet."
+      },
+      {
+        "label": "Regenerativ strategi och rådgivning",
+        "body": "Råd om hur din organisations arbete kan anpassas till levande systemprinciper — för kommuner, fastighetsägare och gemenskapsgrupper."
+      }
     ],
     "cta": {
       "heading": "Vill du återupprätta din plats?",
       "body": "Berätta om ditt projekt så återkommer vi inom några dagar.",
       "button": "Kontakta oss"
+    },
+    "quote": "Varje plats vet redan vad den behöver. Vårt jobb är att hjälpa människor att höra det.",
+    "process": {
+      "heading": "Så arbetar vi",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Rota",
+          "body": "Djup forskning om platsen: dess ekologi, historia, kultur och de människor som bebor den. Vi kallar det Platsens berättelse."
+        },
+        {
+          "number": "02",
+          "label": "Samla",
+          "body": "Gemenskapssamlingar och faciliterade workshops som för rätt röster in i samtalet — inklusive de som sällan hörs."
+        },
+        {
+          "number": "03",
+          "label": "Väva",
+          "body": "Att syntetisera det vi hört till en strategi som är sammanhängande, grundad och handlingskraftig — inte bara en rapport."
+        },
+        {
+          "number": "04",
+          "label": "Växa",
+          "body": "Stöd vid implementering: att koppla strategi till planeringsprocesser, bidragsansökningar, gemenskapsstyrning och långsiktig förvaltning."
+        }
+      ]
+    },
+    "featuredWork": {
+      "heading": "Från vår portfolio"
+    },
+    "faq": {
+      "heading": "Vanliga frågor",
+      "items": [
+        {
+          "question": "Vilka typer av organisationer arbetar ni med?",
+          "answer": "Kommuner, offentliga exploatörer, ideella organisationer och kulturinstitutioner. Ibland privata markägare med ett tydligt samhällsinriktat uppdrag."
+        },
+        {
+          "question": "Vad producerar en regenerativ strategi egentligen?",
+          "answer": "Ett dokument ensamt förändrar ingenting. Vi producerar strategier kopplade till verkliga beslut — planeringsprocesser, bidragsansökningar och gemenskapsstyrning. Resultatet är alltid något handlingskraftigt."
+        },
+        {
+          "question": "Hur lång tid tar en co-design-process?",
+          "answer": "Ett fokuserat workshopprogram är typiskt 3–6 månader. En fullständig regenerativ strategi för en större plats är typiskt 12–18 månader."
+        },
+        {
+          "question": "Arbetar ni på svenska?",
+          "answer": "Vi arbetar primärt på engelska. För processer som kräver facilitering på svenska samarbetar vi med betrodda lokala konsulter. Om språk är viktigt för ditt projekt — fråga oss, så hittar vi rätt upplägg."
+        }
+      ]
+    },
+    "paradigm": {
+      "heading": "Det regenerativa paradigmet",
+      "body": "Vårt arbete är förankrat i levande systemstänkande. Vi utgår från Carol Sanfords Sju grundläggande regenerationsprinciper — inte som en rigid metodik, utan som en lins för att förstå vad en plats behöver för att verkligen blomstra.",
+      "attribution": "Ramverk: Carol Sanford — Sju grundläggande regenerationsprinciper"
     }
   },
   "work": {
@@ -128,7 +328,12 @@
   },
   "clients": {
     "label": "Samarbetat med",
-    "items": ["Umeå Kommun", "Kajeka", "Klondyke Farms", "Rewilding Sweden"]
+    "items": [
+      "Umeå Kommun",
+      "Kajeka",
+      "Klondyke Farms",
+      "Rewilding Sweden"
+    ]
   },
   "byggemenskap": {
     "tag": "Byggemenskap",
@@ -144,10 +349,22 @@
     "intro": "Byggemenskap är ett av de mest kraftfulla sätten att skapa prisvärda och gemenskapsnära bostäder. Istället för att köpa in i ett färdigt projekt beställer, samdesignar och bygger en grupp människor sina egna hem tillsammans.",
     "valueHeading": "Varför bygga tillsammans?",
     "valueItems": [
-      { "label": "Mer prisvärt", "body": "Genom att ta bort vinstmarginalen och fatta gemensamma beslut uppnår grupper konsekvent lägre kostnader än på den öppna marknaden." },
-      { "label": "Format av dig", "body": "Varje beslut — planlösning, material, gemensamma ytor — fattas av de människor som ska bo där." },
-      { "label": "Starkare gemenskap", "body": "Grannar som bygger tillsammans tar hand om varandra. Processen skapar sociala band innan du ens har flyttat in." },
-      { "label": "Mer hållbart", "body": "Delade resurser, genomtänkta materialval och långsiktig förvaltning — eftersom de boende äger resultatet." }
+      {
+        "label": "Mer prisvärt",
+        "body": "Genom att ta bort vinstmarginalen och fatta gemensamma beslut uppnår grupper konsekvent lägre kostnader än på den öppna marknaden."
+      },
+      {
+        "label": "Format av dig",
+        "body": "Varje beslut — planlösning, material, gemensamma ytor — fattas av de människor som ska bo där."
+      },
+      {
+        "label": "Starkare gemenskap",
+        "body": "Grannar som bygger tillsammans tar hand om varandra. Processen skapar sociala band innan du ens har flyttat in."
+      },
+      {
+        "label": "Mer hållbart",
+        "body": "Delade resurser, genomtänkta materialval och långsiktig förvaltning — eftersom de boende äger resultatet."
+      }
     ],
     "processHeading": "Hur vi stöttar det",
     "codesignTag": "Tidig gruppbildning",

@@ -75,22 +75,13 @@ export function VentureCard({
       href={`/ventures/${slug}`}
       style={{ backgroundColor: resolvedAccent, color: textColor }}
       className={cn(
-        'group flex flex-col rounded-md overflow-hidden',
+        'group flex rounded-md overflow-hidden',
         'hover:-rotate-1 hover:shadow-xl transition-all duration-300',
         className,
       )}
     >
-      {image && (
-        <div className="relative aspect-video overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image}
-            alt={title}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-      )}
-      <div className={cn('flex flex-col flex-1 p-8', !image && 'min-h-[240px]')}>
+      {/* Text — always left */}
+      <div className={cn('flex flex-col flex-1 p-8 min-h-[240px]', image && 'basis-1/2')}>
         <div>
           <SectionHeading
             as="h3"
@@ -118,12 +109,24 @@ export function VentureCard({
             </p>
           </div>
         </div>
-        <span className="mt-8" style={accentColor ? { color: textColor } : undefined}>
+        <span className="mt-auto pt-8" style={accentColor ? { color: textColor } : undefined}>
           <span className={cn('text-sm font-semibold group-hover:underline', !accentColor && colors.text)}>
             {ctaLabel} →
           </span>
         </span>
       </div>
+
+      {/* Image — right half */}
+      {image && (
+        <div className="relative basis-1/2 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
     </Link>
   )
 }

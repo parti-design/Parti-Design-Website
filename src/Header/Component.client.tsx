@@ -21,7 +21,7 @@ export const HeaderClient: React.FC = () => {
   const SERVICES = [
     { label: t('servicesArchitecture'), href: '/services/architecture' },
     { label: t('servicesDigital'),      href: '/services/digital-design' },
-    { label: t('servicesCodesign'),     href: '/services/co-design' },
+    { label: t('servicesCodesign'),     href: '/services/regenerative-placemaking' },
   ]
 
   const NAV_LINKS = [
