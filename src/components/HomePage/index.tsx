@@ -17,6 +17,18 @@ import { HeroSection } from './HeroSection'
 
 const VENTURE_THEMES: VentureCardTheme[] = ['lime', 'lavender', 'ink']
 
+const CLIENT_LOGOS = [
+  { name: 'Umeå Kommun',     src: '/assets/clients/Umea-kommun-logo-black.svg' },
+  { name: 'Kajeka',          src: '/assets/clients/kajeka-logo-black.svg' },
+  { name: 'SLU',             src: '/assets/clients/SLU-logo-black.svg' },
+  { name: 'Umeå University', src: '/assets/clients/UMU-logo-black.svg' },
+  { name: 'Campus X',        src: '/assets/clients/campus-x-logo-black.svg' },
+  { name: 'Coompanion',      src: '/assets/clients/coompanion-logo-black.svg' },
+  { name: 'Klondyke',        src: '/assets/clients/Klondyke Logo Small.svg' },
+  { name: 'Mmcité',          src: '/assets/clients/mmcite-logo-black.svg' },
+  { name: 'Umeå Kallbad',    src: '/assets/clients/umea-kallbad-logo-black.svg' },
+]
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 interface Props {
@@ -37,22 +49,22 @@ export async function HomePage({ projects, ventures, locale }: Props) {
 
   const SERVICES = [
     {
-      label: t('services.items.digital.label'),
-      heading: t('services.items.digital.heading'),
-      body: t('services.items.digital.body'),
-      examples: t('services.items.digital.examples'),
-    },
-    {
       label: t('services.items.physical.label'),
       heading: t('services.items.physical.heading'),
       body: t('services.items.physical.body'),
-      examples: t('services.items.physical.examples'),
+      slug: t('services.items.physical.slug'),
+    },
+    {
+      label: t('services.items.digital.label'),
+      heading: t('services.items.digital.heading'),
+      body: t('services.items.digital.body'),
+      slug: t('services.items.digital.slug'),
     },
     {
       label: t('services.items.social.label'),
       heading: t('services.items.social.heading'),
       body: t('services.items.social.body'),
-      examples: t('services.items.social.examples'),
+      slug: t('services.items.social.slug'),
     },
   ]
 
@@ -66,7 +78,7 @@ export async function HomePage({ projects, ventures, locale }: Props) {
       {/* ── Marquee strip ────────────────────────────────────────────────── */}
       <div className="overflow-hidden bg-lime py-3" aria-hidden>
         <div
-          className="flex whitespace-nowrap"
+          className="flex w-max"
           style={{ animation: 'marquee 28s linear infinite' }}
         >
           {[0, 1].map((copy) => (
@@ -82,9 +94,12 @@ export async function HomePage({ projects, ventures, locale }: Props) {
         </div>
       </div>
 
-      {/* ── 2. What We Do ────────────────────────────────────────────────── */}
-      <section id="services" className="bg-secondary/20 border-t border-ink/10 py-24">
+      {/* ── 2. Services ──────────────────────────────────────────────────── */}
+      <section id="services" className="bg-secondary/20 border-t border-ink/10 py-16 md:py-24 lg:py-32">
         <div className="container">
+          <AnimateOnScroll className="mb-12">
+            <SectionHeading as="h2" size="lg">{t('services.sectionLabel')}</SectionHeading>
+          </AnimateOnScroll>
           <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-ink/10">
             {SERVICES.map((service, i) => (
               <AnimateOnScroll
@@ -99,10 +114,15 @@ export async function HomePage({ projects, ventures, locale }: Props) {
                   <SectionHeading as="h3" size="md" className="mb-3">
                     {service.heading}
                   </SectionHeading>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                     {service.body}
                   </p>
-                  <p className="text-xs text-muted-foreground italic">{service.examples}</p>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-foreground hover:text-lime transition-colors"
+                  >
+                    {t('services.learnMore')} <span aria-hidden>→</span>
+                  </Link>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -110,30 +130,55 @@ export async function HomePage({ projects, ventures, locale }: Props) {
         </div>
       </section>
 
-      {/* ── 3. Selected Work ─────────────────────────────────────────────── */}
-      <section id="work" className="py-24 bg-background">
-        <div className="container">
-          <AnimateOnScroll className="mb-12">
-            <SectionHeading>{t('work.sectionHeading')}</SectionHeading>
-          </AnimateOnScroll>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 lg:auto-rows-[280px] gap-3">
-            {/* Large card spans 2 columns × 2 rows */}
-            {projects[0] && (
-              <AnimateOnScroll className="col-span-2 row-span-2">
-                <ProjectCard {...projects[0]} large />
-              </AnimateOnScroll>
-            )}
-
-            {/* Remaining cards */}
-            {projects.slice(1).map((project, i) => (
-              <AnimateOnScroll key={project.slug} delay={i * 80} className="col-span-1">
-                <ProjectCard {...project} />
-              </AnimateOnScroll>
+      {/* ── 3. Clients carousel ───────────────────────────────────────────── */}
+      <section className="py-16 bg-background overflow-hidden" aria-label="Trusted by">
+        <div className="overflow-hidden" aria-hidden>
+          <div
+            className="flex items-center w-max"
+            style={{ animation: 'marquee 25s linear infinite', willChange: 'transform' }}
+          >
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex items-center shrink-0 gap-20 pr-20">
+                {CLIENT_LOGOS.map((client) => (
+                  <div key={client.name} className="w-40 h-14 flex items-center justify-center shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={client.src}
+                      alt={client.name}
+                      className="max-w-full max-h-full object-contain dark:invert"
+                    />
+                  </div>
+                ))}
+              </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <AnimateOnScroll className="mt-10">
+      {/* ── 4. Selected Work — full-bleed grid ───────────────────────────── */}
+      <section id="work" className="pt-16 md:pt-24 lg:pt-32 pb-16 bg-background">
+        <div className="container mb-12">
+          <AnimateOnScroll>
+            <SectionHeading>{t('work.sectionHeading')}</SectionHeading>
+          </AnimateOnScroll>
+        </div>
+
+        {/* Grid breaks out of container intentionally */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 lg:auto-rows-[320px] gap-2">
+          {projects[0] && (
+            <AnimateOnScroll className="col-span-2 row-span-2">
+              <ProjectCard {...projects[0]} large />
+            </AnimateOnScroll>
+          )}
+          {projects.slice(1).map((project, i) => (
+            <AnimateOnScroll key={project.slug} delay={i * 80} className="col-span-1">
+              <ProjectCard {...project} />
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        <div className="container mt-10">
+          <AnimateOnScroll>
             <Link
               href="/work"
               className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-lime transition-colors"
@@ -144,140 +189,129 @@ export async function HomePage({ projects, ventures, locale }: Props) {
         </div>
       </section>
 
-      {/* ── 4. The Studio ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border">
-        <div className="container grid lg:grid-cols-5 gap-16 items-start">
+      {/* ── 5. Byggemenskap — full-bleed image section ───────────────────── */}
+      <section className="relative min-h-[400px] md:min-h-[600px] flex items-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/byggemenskap/kotten-sauna-build-team.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+        {/* Gradient overlay — white in light mode, ink in dark mode */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/10 dark:from-ink/95 dark:via-ink/75 dark:to-ink/10" />
+
+        <div className="relative z-10 container py-16 md:py-24 lg:py-32">
+          <div className="max-w-lg">
+            <AnimateOnScroll>
+              <Tag className="mb-5 text-ink/50 dark:text-lime">{t('byggemenskap.tag')}</Tag>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={60}>
+              <SectionHeading size="xl" className="text-ink dark:text-off-white mb-6">
+                {t('byggemenskap.heading')}
+              </SectionHeading>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={120}>
+              <p className="text-lg text-ink/70 dark:text-off-white/70 leading-relaxed mb-10">
+                {t('byggemenskap.body')}
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={180}>
+              <Link
+                href="/byggemenskap"
+                className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink/50 text-ink font-semibold hover:bg-ink hover:text-off-white dark:border-off-white/50 dark:text-off-white dark:hover:bg-off-white dark:hover:text-ink transition-colors"
+              >
+                {t('byggemenskap.cta')}
+              </Link>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Ventures ──────────────────────────────────────────────────── */}
+      <section id="ventures" className="py-16 md:py-24 lg:py-32 bg-background border-t border-border">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: heading + teaser + link */}
+            <div className="space-y-6 lg:sticky lg:top-28">
+              <AnimateOnScroll>
+                <SectionHeading>{t('ventures.sectionHeading')}</SectionHeading>
+              </AnimateOnScroll>
+              <AnimateOnScroll delay={60}>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  {t('ventures.teaser')}
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll delay={120}>
+                <Link
+                  href="/ventures"
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-foreground hover:text-lime transition-colors"
+                >
+                  {t('ventures.seeAll')} <span aria-hidden>→</span>
+                </Link>
+              </AnimateOnScroll>
+            </div>
+
+            {/* Right: all cards stacked */}
+            <div className="space-y-4">
+              {ventures.map((venture, i) => {
+                const draft = getVentureDraft(venture.slug, locale)
+                const statusLabel = normalizeVentureStatus(venture.ventureStatus)
+                  ? statusLabels[normalizeVentureStatus(venture.ventureStatus)!]
+                  : null
+                return (
+                  <AnimateOnScroll key={venture.slug} delay={i * 80}>
+                    <VentureCard
+                      title={venture.title}
+                      tagline={venture.tagline ?? ''}
+                      slug={venture.slug}
+                      location={venture.location}
+                      status={statusLabel}
+                      ctaLabel={t('ventureCard.learnMore')}
+                      accentColor={venture.themeColor}
+                      theme={draft?.theme ?? VENTURE_THEMES[i % VENTURE_THEMES.length]}
+                    />
+                  </AnimateOnScroll>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Closing CTA — left-aligned ────────────────────────────────── */}
+      <section className="py-20 md:py-32 lg:py-40 bg-muted">
+        <div className="container grid lg:grid-cols-5 gap-16 items-center">
+          {/* Left: CTA */}
           <div className="lg:col-span-3 space-y-6">
             <AnimateOnScroll>
-              <SectionHeading>{t('studio.heading')}</SectionHeading>
+              <SectionHeading size="xl" className="text-foreground">
+                {t('closingCta.heading')}
+              </SectionHeading>
             </AnimateOnScroll>
-
-            <AnimateOnScroll delay={100}>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {t('studio.body1')}
+            <AnimateOnScroll delay={80}>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t('closingCta.body')}
               </p>
             </AnimateOnScroll>
-
-            <AnimateOnScroll delay={150}>
-              <blockquote className="border-l-4 border-lime pl-6 py-2 my-2">
-                <p className="font-sans text-2xl md:text-3xl italic text-foreground leading-snug">
-                  &ldquo;{t('studio.quote')}&rdquo;
-                </p>
-              </blockquote>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll delay={200}>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {t('studio.body2')}
-              </p>
+            <AnimateOnScroll delay={160}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-8 py-4 rounded-md bg-ink text-off-white font-semibold hover:bg-ink/85 dark:bg-off-white dark:text-ink dark:hover:bg-off-white/90 transition-colors"
+              >
+                {t('closingCta.cta')}
+              </Link>
             </AnimateOnScroll>
           </div>
 
-          <AnimateOnScroll delay={150} className="lg:col-span-2">
-            <Image
-              src="/assets/team/Karina%20and%20Kasimir%20Parti%20Design%20Photo.jpg"
-              alt={t('studio.photoAlt')}
-              width={2000}
-              height={1324}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="h-auto w-full aspect-[3/4] object-cover object-top"
-            />
-          </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ── 5. Ventures ──────────────────────────────────────────────────── */}
-      <section id="ventures" className="py-24 bg-muted/40 border-t border-border">
-        <div className="container">
-          <AnimateOnScroll className="mb-2">
-            <p className="text-base text-foreground font-medium">
-              {t('ventures.teaser')}
+          {/* Right: pull quote */}
+          <AnimateOnScroll delay={200} className="lg:col-span-2 hidden lg:block">
+            <p className="font-display text-4xl xl:text-5xl text-foreground/60 italic leading-tight">
+              &ldquo;{t('studio.quote')}&rdquo;
             </p>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={80} className="mb-12">
-            <p className="text-sm text-muted-foreground max-w-lg">
-              {t('ventures.body')}
-            </p>
-          </AnimateOnScroll>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            {ventures.map((venture, i) => {
-              const draft = getVentureDraft(venture.slug, locale)
-              const normalizedStatus = normalizeVentureStatus(venture.ventureStatus)
-              const statusLabel = normalizedStatus ? statusLabels[normalizedStatus] : null
-
-              return (
-                <AnimateOnScroll key={venture.slug} delay={i * 100}>
-                  <VentureCard
-                    title={venture.title}
-                    tagline={venture.tagline ?? ''}
-                    slug={venture.slug}
-                    location={venture.location}
-                  status={statusLabel}
-                  ctaLabel={t('ventureCard.learnMore')}
-                  accentColor={venture.themeColor}
-                  theme={draft?.theme ?? VENTURE_THEMES[i % VENTURE_THEMES.length]}
-                  className="h-full"
-                />
-                </AnimateOnScroll>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. Byggemenskap callout ───────────────────────────────────────── */}
-      <section className="py-24 bg-lime">
-        <div className="container text-center max-w-3xl mx-auto">
-          <AnimateOnScroll>
-            <SectionHeading size="xl" className="text-ink mb-6">
-              {t('byggemenskap.heading')}
-            </SectionHeading>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={100}>
-            <p className="text-lg text-ink/80 leading-relaxed mb-10">
-              {t('byggemenskap.body')}
-            </p>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={200}>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink text-ink font-semibold hover:bg-ink hover:text-lime transition-colors"
-            >
-              {t('byggemenskap.cta')}
-            </Link>
-          </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ── 7. Contact / Closing CTA ─────────────────────────────────────── */}
-      <section className="py-32 bg-ink">
-        <div className="container text-center max-w-2xl mx-auto">
-          <AnimateOnScroll>
-            <SectionHeading size="xl" className="text-off-white mb-6">
-              {t('closingCta.heading')}
-            </SectionHeading>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={100}>
-            <p className="text-lg text-off-white/60 leading-relaxed mb-4">
-              {t('closingCta.body')}
-            </p>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={150}>
-            <a
-              href={`mailto:${t('closingCta.email')}`}
-              className="block text-sm text-off-white/50 hover:text-lime transition-colors mb-10"
-            >
-              {t('closingCta.email')}
-            </a>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={200}>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 rounded-md bg-lime text-ink font-semibold hover:bg-lime/90 transition-colors"
-            >
-              {t('closingCta.cta')}
-            </Link>
           </AnimateOnScroll>
         </div>
       </section>

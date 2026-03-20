@@ -1,3 +1,9 @@
+[← Wiki Home](./README.md)
+
+**Business & Strategy:** [Business Overview](./business-overview.md) · [Site Purpose](./site-purpose.md) · [Target Audience](./target-audience.md) · [Byggemenskap Service](./byggemenskap-service.md)
+
+---
+
 # Parti Design — Brand Guide
 
 This document defines the visual and communication standards for Parti Design. It is the reference for all design decisions on the website, presentations, and other materials.
@@ -202,12 +208,30 @@ Use `0.5rem` (8px) corner radius across the UI — the shadcn default. Consisten
 - "Co-building" / "Co-design" — explain these too; don't assume familiarity
 - "Living process" / "living system" — good framing for the philosophy
 
+### Copywriting principles
+
+These principles apply to all service descriptions, section headings, and short-form copy across the site:
+
+**Lead with action verbs.** Open sentences with what Parti *does*, not what Parti *is*. "We design spaces..." not "Parti Design is a studio that..."
+
+**Outcomes over outputs.** Describe what changes for the client or community, not what gets delivered. "Give communities a real say in the places they live" beats "Co-design facilitation and workshop delivery."
+
+**One clean sentence per idea.** Avoid comma-separated lists of deliverables. A single confident statement is more compelling than four bullet points. If you need to list specifics, push them to a secondary line (e.g. the "examples" row in service blocks).
+
+**Every heading should be able to stand alone.** If you removed the body copy, the heading should still communicate the value. Headings that merely label ("Digital") or repeat the body are wasted.
+
+**Avoid internal category language.** "Physical / Digital / Social" are useful internal buckets, not client-facing copy. Labels visible to visitors should name the discipline or outcome: "Architecture", "Digital Design", "Co-design".
+
+---
+
 ### Things to avoid
 
 - Jargon without explanation ("regenerative," "participatory," "placemaking" should always be unpacked)
 - Self-congratulatory language ("we are passionate about...")
 - Over-long sentences in hero/heading positions
 - Swedish terms without English context (except where deliberate, e.g. "byggemenskap")
+- Headings that repeat the body copy verbatim
+- Opening service descriptions with a list of deliverables
 
 ---
 

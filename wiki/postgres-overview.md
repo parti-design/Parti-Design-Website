@@ -1,3 +1,9 @@
+[← Wiki Home](./README.md)
+
+**Dev & Deployment:** [Local Development](./local-development.md) · [Coolify Deployment](./deployment-coolify.md) · [Admin UI Plan](./admin-ui-plan.md)
+
+---
+
 # Postgres Overview
 
 ## What Postgres is doing in this project

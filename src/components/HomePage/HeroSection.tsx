@@ -31,7 +31,7 @@ export function HeroSection() {
         style={{ top: '-10%', height: '120%' }}
       >
         <Image
-          src="/assets/hero/DSC09791-by%20Sofia%20Mor%C3%A9n.jpg"
+          src="/assets/hero/DSC09791-by%20Sofia%20Mor%C3%A9n.jpeg"
           alt=""
           fill
           priority
@@ -39,12 +39,17 @@ export function HeroSection() {
           className="object-cover object-center"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/65 to-ink/40" />
+
+      {/* Top scrim — dark gradient so the transparent header is always legible over any photo */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10"
+      />
 
       <div className="container relative z-10 py-32 lg:py-40 grid lg:grid-cols-5 gap-12 items-center">
         <div className="lg:col-span-3 space-y-8">
           {/* Headline with word-by-word stagger */}
-          <h1 className="font-display text-6xl md:text-7xl xl:text-8xl font-bold text-off-white leading-[1.0]">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-off-white leading-[1.0]">
             {HEADLINE_WORDS.map((word, i) => (
               <span
                 key={i}

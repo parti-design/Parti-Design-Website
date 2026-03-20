@@ -16,7 +16,7 @@ See `wiki/i18n-bilingual-guide.md` for the full guide.
 
 - Slugs are always in English, lowercase, hyphenated (e.g. `dit-egnahem`)
 - Images, media, and select fields are shared across locales (not duplicated)
-- "Byggemenskap" stays as the Swedish term in both languages
+- In English, use "Community Led Housing" — in Swedish, use "Byggemenskap"
 - Swedish uses informal "du"-form
 
 ## Tech Stack

@@ -1,3 +1,9 @@
+[← Wiki Home](./README.md)
+
+**Dev & Deployment:** [Local Development](./local-development.md) · [Postgres Overview](./postgres-overview.md) · [Admin UI Plan](./admin-ui-plan.md)
+
+---
+
 # Coolify Deployment Notes
 
 This project runs a Next.js + Payload app with:

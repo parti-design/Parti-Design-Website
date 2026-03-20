@@ -1,3 +1,11 @@
+[← Wiki Home](./README.md)
+
+**Content & Projects:** [Venture Stages](./venture-stages.md) · [Content Management](./content-management.md)
+
+**See also:** [Business Overview](./business-overview.md) · [Byggemenskap Service](./byggemenskap-service.md)
+
+---
+
 # Projects
 
 Known completed and active projects. Update this file as new projects are added or more detail is gathered.

@@ -37,8 +37,11 @@ export function ProjectCard({
   return (
     <Link
       href={`/work/${slug}`}
-      className={cn('group relative flex bg-muted overflow-hidden h-full rounded-md', className)}
-      style={{ minHeight: large ? 560 : 280 }}
+      className={cn(
+        'group relative flex bg-muted overflow-hidden h-full rounded-md',
+        large ? 'min-h-[300px] md:min-h-[420px] lg:min-h-[560px]' : 'min-h-[180px] md:min-h-[240px] lg:min-h-[280px]',
+        className,
+      )}
     >
       {/* Background — real image or placeholder gradient */}
       {imageSrc ? (

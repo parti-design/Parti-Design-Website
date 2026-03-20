@@ -2,20 +2,39 @@
 
 This directory is an internal reference wiki for the Parti Design website and business. These files are **not loaded into the site** — they live here purely as shared documentation for the team.
 
-## Contents
+## Business & Strategy
 
-| File | Description |
+| | |
 |---|---|
-| [business-overview.md](./business-overview.md) | What Parti Design is, what it offers, and how it operates |
-| [site-purpose.md](./site-purpose.md) | Goals and purpose of the website |
-| [target-audience.md](./target-audience.md) | Who the site is built for |
-| [projects.md](./projects.md) | Known projects, ventures, and strategic pipeline |
-| [venture-stages.md](./venture-stages.md) | Internal stage model for regenerative ventures in the CMS |
-| [localization-migration-plan.md](./localization-migration-plan.md) | Concrete plan for improving EN/SV localization in Payload |
-| [admin-ui-plan.md](./admin-ui-plan.md) | Plan for improving the Payload admin UI styling and usability |
-| [local-development.md](./local-development.md) | Standard local bootstrap workflow, commands, and safety rules |
-| [postgres-overview.md](./postgres-overview.md) | How Postgres is connected to this app locally and in production |
-| [deployment-coolify.md](./deployment-coolify.md) | Coolify deployment notes, env vars, and persistent storage setup |
+| [Business Overview](./business-overview.md) | What Parti Design is, what it offers, and how it operates |
+| [Site Purpose](./site-purpose.md) | Goals and purpose of the website |
+| [Target Audience](./target-audience.md) | Who the site is built for |
+| [Brand Guide](./brand-guide.md) | Visual and communication standards |
+| [Byggemenskap Service](./byggemenskap-service.md) | The community-led housing service offering |
+
+## Content & Projects
+
+| | |
+|---|---|
+| [Projects](./projects.md) | Known projects, ventures, and strategic pipeline |
+| [Venture Stages](./venture-stages.md) | Internal stage model for regenerative ventures in the CMS |
+| [Content Management](./content-management.md) | How to manage projects, posts, and media via the CMS |
+
+## Internationalisation
+
+| | |
+|---|---|
+| [Bilingual Guide](./i18n-bilingual-guide.md) | Rules and workflow for maintaining English and Swedish content |
+| [Localisation Migration Plan](./localization-migration-plan.md) | Concrete plan for improving EN/SV localisation |
+
+## Development & Deployment
+
+| | |
+|---|---|
+| [Local Development](./local-development.md) | Standard local bootstrap workflow, commands, and safety rules |
+| [Postgres Overview](./postgres-overview.md) | How Postgres is connected locally and in production |
+| [Coolify Deployment](./deployment-coolify.md) | Deployment notes, env vars, and persistent storage setup |
+| [Admin UI Plan](./admin-ui-plan.md) | Plan for improving the Payload admin UI styling and usability |
 
 ## How to use this wiki
 
