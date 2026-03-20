@@ -8,7 +8,7 @@ interface Props {
   tag?: string
   heading: string
   body?: string
-  /** true = ink background (default), false = off-white background */
+  /** true = ink background, false = off-white background (default) */
   dark?: boolean
   className?: string
 }
@@ -18,11 +18,11 @@ interface Props {
  *
  * Usage:
  *   <PageHeader tag="Portfolio" heading="Work that builds places." body="..." />
- *   <PageHeader dark={false} heading="Get in touch" />
+ *   <PageHeader dark heading="Ventures" />   ← pass dark for ink background
  */
-export function PageHeader({ tag, heading, body, dark = true, className }: Props) {
+export function PageHeader({ tag, heading, body, dark = false, className }: Props) {
   return (
-    <section className={cn('pt-40 pb-24', dark ? 'bg-ink' : 'bg-background', className)}>
+    <section className={cn('pt-28 md:pt-32 lg:pt-40 pb-14 md:pb-18 lg:pb-24', dark ? 'bg-ink' : 'bg-background', className)}>
       <div className="container">
         {tag && (
           <AnimateOnScroll>

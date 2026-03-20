@@ -1,3 +1,11 @@
+[← Wiki Home](./README.md)
+
+**Dev & Deployment:** [Local Development](./local-development.md) · [Postgres Overview](./postgres-overview.md) · [Coolify Deployment](./deployment-coolify.md)
+
+**See also:** [Content Management](./content-management.md)
+
+---
+
 # Payload Admin UI Plan
 
 ## Goal

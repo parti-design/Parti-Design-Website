@@ -29,13 +29,13 @@ export async function WorkPage({ projects, locale }: Props) {
         body={t('header.body')}
       />
 
-      <section className="py-24 bg-background">
+      <section className="py-14 md:py-24 bg-background">
         <div className="container">
           <WorkPageClient projects={projects} filterLabels={filterLabels} />
         </div>
       </section>
 
-      <section className="py-24 bg-muted/40 border-t border-border">
+      <section className="py-14 md:py-24 bg-muted/40 border-t border-border">
         <div className="container text-center max-w-xl mx-auto">
           <AnimateOnScroll>
             <Tag className="mb-4 mx-auto">{t('cta.tag')}</Tag>

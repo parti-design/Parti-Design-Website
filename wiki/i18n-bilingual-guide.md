@@ -1,3 +1,11 @@
+[← Wiki Home](./README.md)
+
+**i18n:** [Localization Migration Plan](./localization-migration-plan.md)
+
+**See also:** [Content Management](./content-management.md)
+
+---
+
 # Bilingual Content Guide (English + Swedish)
 
 This site is fully bilingual: **English (`/en/...`)** and **Swedish (`/sv/...`)**.

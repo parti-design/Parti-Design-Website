@@ -1,3 +1,9 @@
+[← Wiki Home](./README.md)
+
+**Content & Projects:** [Projects](./projects.md) · [Content Management](./content-management.md)
+
+---
+
 # Regenerative Venture Stages
 
 This document defines the internal stage language for Parti Design's regenerative venture studio. These stages are used in the CMS for venture status and should describe how a venture is developing, what kind of support it needs, and what kind of traction it has reached.

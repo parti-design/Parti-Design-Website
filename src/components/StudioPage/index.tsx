@@ -35,7 +35,7 @@ export async function StudioPage({ locale }: Props) {
         body={t('header.body')}
       />
 
-      <section className="py-24 bg-background">
+      <section className="py-14 md:py-24 bg-background">
         <div className="container grid lg:grid-cols-5 gap-16 items-start">
           <div className="lg:col-span-3 space-y-6">
             <AnimateOnScroll>
@@ -82,7 +82,7 @@ export async function StudioPage({ locale }: Props) {
         </div>
       </section>
 
-      <section className="py-24 bg-muted/40 border-t border-border">
+      <section className="py-14 md:py-24 bg-muted/40 border-t border-border">
         <div className="container">
           <AnimateOnScroll className="mb-12">
             <SectionHeading>{t('team.heading')}</SectionHeading>
@@ -95,10 +95,10 @@ export async function StudioPage({ locale }: Props) {
                 <p className="font-display font-bold text-xl text-foreground">Kasimir Suter Winter</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('team.kasimir')}</p>
                 <a
-                  href="mailto:kasimir@parti.design"
+                  href="mailto:hej@parti.design"
                   className="text-sm font-semibold text-foreground hover:text-lime transition-colors"
                 >
-                  kasimir@parti.design
+                  hej@parti.design
                 </a>
               </div>
             </AnimateOnScroll>
@@ -114,7 +114,7 @@ export async function StudioPage({ locale }: Props) {
         </div>
       </section>
 
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-14 md:py-24 bg-background border-t border-border">
         <div className="container">
           <AnimateOnScroll className="mb-12">
             <SectionHeading>{t('valuesHeading')}</SectionHeading>
@@ -133,7 +133,7 @@ export async function StudioPage({ locale }: Props) {
         </div>
       </section>
 
-      <section className="py-24 bg-secondary/20 border-t border-ink/10">
+      <section className="py-14 md:py-24 bg-secondary/20 border-t border-ink/10">
         <div className="container">
           <AnimateOnScroll className="mb-12">
             <SectionHeading>{t('servicesHeading')}</SectionHeading>
@@ -150,7 +150,7 @@ export async function StudioPage({ locale }: Props) {
         </div>
       </section>
 
-      <section className="py-24 bg-ink">
+      <section className="py-14 md:py-24 bg-ink">
         <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-off-white mb-6">

@@ -1,3 +1,9 @@
+[← Wiki Home](./README.md)
+
+**i18n:** [Bilingual Content Guide](./i18n-bilingual-guide.md)
+
+---
+
 # Localization Migration Plan
 
 ## Scope

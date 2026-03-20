@@ -1,14 +1,18 @@
 {
   "nav": {
+    "services": "Tjänster",
+    "servicesArchitecture": "Arkitektur",
+    "servicesDigital": "Digital Design",
+    "servicesCodesign": "Regenerativa strategier",
     "work": "Projekt",
     "ventures": "Initiativ",
-    "studio": "Studio",
+    "about": "Om oss",
     "contact": "Kontakt",
     "openMenu": "Öppna meny",
     "closeMenu": "Stäng meny"
   },
   "hero": {
-    "headline": "Nya sätt att organisera och bygga tillsammans.",
+    "headline": "Regenerativa platser för människor och planet.",
     "subStatement": "Parti Design är ett multidisciplinärt arkitektur- och designstudio. Vi utvecklar regenerativa platser genom digitala, fysiska och sociala system.",
     "cta_work": "Se våra projekt",
     "cta_contact": "Kontakta oss",
@@ -18,30 +22,91 @@
     "terms": ["Arkitektur", "Sambygge", "Digital Design", "Platsskapande", "Facilitering", "Regenerativa Platser", "WikiHouse", "Byggemenskap"]
   },
   "services": {
-    "sectionLabel": "Vad vi gör",
+    "sectionLabel": "Vi arbetar med",
+    "learnMore": "Läs mer",
     "items": {
       "digital": {
-        "label": "Digitalt",
-        "heading": "Verktyg för att gemenskaper ska växa",
-        "body": "Webbplatser, plattformar, digitala tjänster, UX/UI-design. Vi bygger de verktyg som gemenskaper och organisationer behöver för att organisera sig och växa.",
-        "examples": "t.ex. Massvis-plattformen, Klondyke Farms webbplats"
+        "label": "Digital design",
+        "heading": "Plattformar och verktyg som för människor samman",
+        "body": "Vi bygger den digitala infrastruktur som gemenskaper behöver — webbplatser, plattformar och verktyg som möjliggör delaktighet och gör organisationer mer effektiva.",
+        "slug": "digital-design"
       },
       "physical": {
-        "label": "Fysiskt",
-        "heading": "Rum som människor vill vistas i",
-        "body": "Arkitektur, rumsdesign, sambyggnadsworkshops. Vi designar och konstruerar rum som människor vill vistas i.",
-        "examples": "t.ex. DIT Egnahem, Rewilding Sweden-paviljongen"
+        "label": "Arkitektur",
+        "heading": "Byggnader som gemenskaper kan äga och forma",
+        "body": "Vi designar och bygger platser rotade i delaktighet — från arkitektoniska koncept till WikiHouse-konstruktion och byggemenskapsstöd. Varje projekt börjar med de människor som ska använda det.",
+        "slug": "architecture"
       },
       "social": {
-        "label": "Socialt",
-        "heading": "Att samla gemenskaper",
-        "body": "Samdesignfacilitering, workshops, platsmakarrådgivning. Vi samlar människor för att forma de platser de lever i.",
-        "examples": "t.ex. Umeå Tillsammans, Kajeka studentbostäder"
+        "label": "Regenerativa strategier",
+        "heading": "Design med levande system, inte mot dem",
+        "body": "Vi arbetar med holistiska och levande systemprinciper — och använder platsens berättelse för att återupprätta levande kulturer, ekologier och gemenskaper.",
+        "slug": "co-design"
       }
     }
   },
+  "architecturePage": {
+    "pageTitle": "Arkitektur — Parti Design",
+    "pageDescription": "Vi designar och bygger platser rotade i delaktighet — från arkitektoniska koncept till WikiHouse-konstruktion och byggemenskapsstöd.",
+    "tag": "Arkitektur",
+    "heading": "Byggnader som gemenskaper kan äga och forma",
+    "intro": "Vår arkitekturpraktik är rotad i delaktighet. Vi arbetar med gemenskaper, kommuner och organisationer för att designa byggnader och rum där de människor som ska använda dem har ett verkligt inflytande från start.",
+    "body2": "Vi specialiserar oss på sambyggt boende (byggemenskap), WikiHouse-konstruktion och deltagarbaserade designprocesser. Många av våra projekt kombinerar arkitektur med facilitering och digitala verktyg — för en byggnad löser sällan den underliggande utmaningen på egen hand.",
+    "offerHeading": "Det här ingår",
+    "offer": [
+      { "label": "Arkitektonisk design och planering", "body": "Från koncept till bygglov — förankrat i gemenskapens behov och önskemål." },
+      { "label": "WikiHouse och sambyggnad", "body": "Öppen källkods-konstruktionssystem som låter gemenskaper bygga sina egna rum med minimal specialistarbetskraft." },
+      { "label": "Byggemenskapsstöd", "body": "Helhetsstöd för bostadskooperativ som vill beställa och sambygga sina egna hem." },
+      { "label": "Rumslig strategi och rådgivning", "body": "Råd om hur rum kan arbeta hårdare — för kommuner, fastighetsägare och gemenskapsorganisationer." }
+    ],
+    "cta": {
+      "heading": "Redo att bygga något tillsammans?",
+      "body": "Berätta om ditt projekt så återkommer vi inom några dagar.",
+      "button": "Kontakta oss"
+    }
+  },
+  "digitalDesignPage": {
+    "pageTitle": "Digital design — Parti Design",
+    "pageDescription": "Vi designar och bygger digitala produkter för gemenskaper, offentliga institutioner och sociala företag — från webbplatser till komplexa communityplattformar.",
+    "tag": "Digital design",
+    "heading": "Plattformar och verktyg som för människor samman",
+    "intro": "Vi designar och bygger digitala produkter för gemenskaper, offentliga institutioner och sociala företag — från enkla, eleganta webbplatser till komplexa communityplattformar.",
+    "body2": "Vårt arbete täcker hela stacken: UX-strategi, visuell design, frontendutveckling och plattformsarkitektur. Den gemensamma tråden i allt vi bygger: de människor som använder verktygen ska känna sig stärkta av dem.",
+    "offerHeading": "Det här ingår",
+    "offer": [
+      { "label": "Webbplatser och digital närvaro", "body": "Rena, snabba, tillgängliga webbplatser som berättar din historia och omvandlar besökare till samarbetspartners." },
+      { "label": "Communityplattformar och verktyg", "body": "Skräddarsydda plattformar som hjälper gemenskaper att organisera sig, kommunicera och växa." },
+      { "label": "UX och produktdesign", "body": "Forskningsdriven design som sätter verkliga användare i centrum — från första skiss till lanserad produkt." },
+      { "label": "Digital strategi och rådgivning", "body": "Råd om vilka digitala investeringar som faktiskt gör skillnad för din organisation." }
+    ],
+    "cta": {
+      "heading": "Har du ett digitalt projekt i åtanke?",
+      "body": "Berätta om ditt projekt så återkommer vi inom några dagar.",
+      "button": "Kontakta oss"
+    }
+  },
+  "coDesignPage": {
+    "pageTitle": "Regenerativa strategier — Parti Design",
+    "pageDescription": "Vi arbetar med holistiska och levande systemprinciper — och använder platsens berättelse för att återupprätta levande kulturer, ekologier och gemenskaper.",
+    "tag": "Regenerativa strategier",
+    "heading": "Design med levande system, inte mot dem",
+    "intro": "Vi tar oss an varje projekt ur ett regenerativt designperspektiv — vi arbetar med platsens förutsättningar snarare än att tvinga på dem något utifrån. Genom att förstå en plats ekologiska, kulturella och sociala historia synliggör vi platsens unika berättelse och låter den bli den drivande kraften bakom varje beslut.",
+    "body2": "Förankrade i holistiskt och levande systemstänkande sträcker sig våra strategier bortom delaktighet som teknik. De behandlar gemenskaper, ekologier och kulturer som sammankopplade helheter. Målet är inte bara bättre byggnader eller tjänster — det är återupprättandet av levande, självbärande platser: gemenskaper som blomstrar, ekologier som regenererar, kulturer som har förutsättningar att trivas.",
+    "offerHeading": "Det här ingår",
+    "offer": [
+      { "label": "Levande systemsfacilitering", "body": "Samdesignworkshops och deltagarprocesser förankrade i ekologisk och social helhet — som synliggör vad en plats behöver för att regenerera, inte bara vad kunden vill bygga." },
+      { "label": "Platsberättelseforskning", "body": "Fördjupad kontextuell forskning om en plats ekologiska, kulturella och historiska lager — grunden för all regenerativ strategi." },
+      { "label": "Platsskapande och deltagarbaserad planering", "body": "Långsiktiga processer som förankrar gemenskapens röst och ekologisk medvetenhet i planering och utveckling från allra första stadiet." },
+      { "label": "Regenerativ strategi och rådgivning", "body": "Råd om hur din organisations arbete kan anpassas till levande systemprinciper — för kommuner, fastighetsägare och gemenskapsgrupper." }
+    ],
+    "cta": {
+      "heading": "Vill du återupprätta din plats?",
+      "body": "Berätta om ditt projekt så återkommer vi inom några dagar.",
+      "button": "Kontakta oss"
+    }
+  },
   "work": {
-    "sectionHeading": "Utvalda projekt",
+    "sectionHeading": "Platser vi har format",
     "seeAll": "Se alla projekt",
     "pageTitle": "Projekt — Parti Design",
     "pageDescription": "Projekt inom arkitektur, digital design, sambygge och gemenskapsfacilitering."
@@ -54,20 +119,87 @@
     "photoAlt": "Karina och Kasimir — grundarna av Parti Design"
   },
   "ventures": {
-    "teaser": "Vi svarar inte bara på uppdrag — vi initierar.",
+    "sectionHeading": "Venture Studio",
+    "teaser": "Idéer vi tror tillräckligt på för att bygga själva — och på vägen utvecklar vi de verktyg och förstahandserfarenheter vi tar med oss till varje uppdrag.",
     "body": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: initiativ vi tror på och bygger själva.",
+    "seeAll": "Se alla initiativ",
     "pageTitle": "Initiativ — Parti Design",
     "pageDescription": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: Massvis, Umeå Kallbad och DIT Egnahem."
   },
+  "clients": {
+    "label": "Samarbetat med",
+    "items": ["Umeå Kommun", "Kajeka", "Klondyke Farms", "Rewilding Sweden"]
+  },
   "byggemenskap": {
-    "heading": "Att bygga hem tillsammans.",
-    "body": "Byggemenskap — gemensamt självbyggnadsboende — är ett av de kraftfullaste verktygen för prisvärda, gemenskapsförankrade bostäder. Parti Design erbjuder helhetsstöd: från att bilda organisationen till att designa och sambygga hemmet.",
-    "cta": "Prata med oss om byggemenskap"
+    "tag": "Byggemenskap",
+    "heading": "Förverkliga ditt drömboende.",
+    "body": "Bo på ditt sätt: mer gemenskap, mer grönska, mer prisvärt. Parti Design hjälper dig på vägen. Utforska hur det går till att bygga och bo tillsammans, gå med i en grupp eller starta ett eget initiativ.",
+    "cta": "Läs mer om byggemenskap"
+  },
+  "byggemenskapPage": {
+    "pageTitle": "Byggemenskap — Parti Design",
+    "pageDescription": "Parti Design hjälper grupper att bilda, samdesigna och sambygga sina egna hem i Umeå. Lär dig om byggemenskap och anmäl ditt intresse för att gå med i en grupp.",
+    "tag": "Byggemenskap",
+    "heading": "Äg ett hem i en gemenskap du var med och byggde.",
+    "intro": "Byggemenskap är ett av de mest kraftfulla sätten att skapa prisvärda och gemenskapsnära bostäder. Istället för att köpa in i ett färdigt projekt beställer, samdesignar och bygger en grupp människor sina egna hem tillsammans.",
+    "valueHeading": "Varför bygga tillsammans?",
+    "valueItems": [
+      { "label": "Mer prisvärt", "body": "Genom att ta bort vinstmarginalen och fatta gemensamma beslut uppnår grupper konsekvent lägre kostnader än på den öppna marknaden." },
+      { "label": "Format av dig", "body": "Varje beslut — planlösning, material, gemensamma ytor — fattas av de människor som ska bo där." },
+      { "label": "Starkare gemenskap", "body": "Grannar som bygger tillsammans tar hand om varandra. Processen skapar sociala band innan du ens har flyttat in." },
+      { "label": "Mer hållbart", "body": "Delade resurser, genomtänkta materialval och långsiktig förvaltning — eftersom de boende äger resultatet." }
+    ],
+    "processHeading": "Hur vi stöttar det",
+    "codesignTag": "Tidig gruppbildning",
+    "codesignHeading": "Samdesign: en gemensam vision tar form",
+    "codesignBody": "Innan en grupp kan åta sig att bygga tillsammans behöver de förstå vad de bygger — och varför. Vi använder design thinking-metodologi för att facilitera samdesignworkshops som hjälper en blivande grupp att hitta en gemensam riktning: om värderingar, önskemål och vilken typ av plats de vill skapa tillsammans. Resultatet är en sammanhållen vision som hela gruppen tror på.",
+    "cobuildTag": "Bygga samhörighet",
+    "cobuildHeading": "Sambyggnad: tillit som tar fysisk form",
+    "cobuildBody": "Ingenting bygger tillit snabbare än att göra något svårt tillsammans med händerna. Gemensamma byggprojekt — att skapa något verkligt som grupp — genererar ett unikt socialt kapital: det du känner när du stiger tillbaka och inser att du inte hade klarat det ensam. Vi designar och faciliterar sambyggnadserfarenheter som hjälper blivande grupper att utveckla de band som krävs för att ta steget in i det fulla åtagandet att bygga ett hem tillsammans.",
+    "opencollectiveTag": "Börja organisera nu",
+    "opencollectiveHeading": "Bilda er grupp på Open Collective med Massvis",
+    "opencollectiveBody": "Sätt upp ett projekt, få tillgång till verktyg för insamling och budgetering, och börja organisera från dag ett — utan att bilda en juridisk person. Föreningen Massvis sköter administrationen så att er grupp kan fokusera på det som är viktigt: att bygga något tillsammans.",
+    "opencollectiveCta": "Registrera er grupp på Open Collective",
+    "grantTag": "Bidrag från Boverket",
+    "grantTitle": "Startkapital för ert projekt",
+    "grantHeading": "400 000 kr för att komma igång",
+    "grantBody": "Boverket erbjuder ett särskilt bidrag för nya byggemenskapsgrupper i Sverige. Det är utformat för att finansiera planerings- och designarbetet innan bygget börjar — precis när grupper behöver stöd som mest.",
+    "grantRequirements": "För att kvalificera sig behöver er grupp:",
+    "grantItems": [
+      "Minst 6 medlemmar (enbart fysiska personer)",
+      "En ekonomisk förening eller lokalt utvecklingsbolag, med minst 10 000 kr insatt per medlem",
+      "Äganderätt eller ett bindande avtal (t.ex. optionsavtal) på mark där kommunen medger bostadsbebyggelse"
+    ],
+    "grantCta": "Vi hjälper grupper att ansöka om detta bidrag som en del av vårt tidiga stöd.",
+    "grantCtaLink": "Hör av dig för stöd",
+    "interestTag": "Gå med i rörelsen",
+    "interestHeading": "Vi bildar en grupp i Umeå",
+    "interestBody": "Parti Design bildar aktivt en ny byggemenskapsgrupp i Umeå. Är du nyfiken — oavsett om du har en vag idé eller är redo att satsa — anmäl ditt intresse nedan. Vi hör av oss.",
+    "interestFormName": "Ditt namn",
+    "interestFormNamePlaceholder": "Fullständigt namn",
+    "interestFormNameRequired": "*",
+    "interestFormEmail": "E-postadress",
+    "interestFormEmailPlaceholder": "din@mejl.se",
+    "interestFormEmailRequired": "*",
+    "interestFormMessage": "Berätta lite om dig själv",
+    "interestFormMessagePlaceholder": "Varför intresserar dig byggemenskap? Har du redan en grupp? Har du koppling till mark?",
+    "interestFormMessageOptional": "(valfritt)",
+    "interestCta": "Anmäl dig och gå med oss",
+    "interestFormSubmit": "Anmäl intresse",
+    "interestFormSubmitting": "Skickar…",
+    "interestFormSuccess": "Tack! Vi hör av oss snart.",
+    "interestFormSuccessBody": "Vi kontaktar dig när gruppen börjar ta form.",
+    "interestFormError": "Något gick fel.",
+    "interestFormErrorBody": "Försök igen eller mejla hej@parti.design direkt.",
+    "institutionalTag": "För kommuner och finansiärer",
+    "institutionalHeading": "Skala upp byggemenskap i Sverige",
+    "institutionalBody": "Sveriges byggemenskapssektor befinner sig i ett tidigt skede. Kommuner, stiftelser och utvecklingspartners som investerar nu kan vara med och forma modellen. Vi samarbetar med institutionella partners för att designa processer, utveckla markstrategier och stärka caset för byggemenskap i stor skala.",
+    "institutionalCta": "Hör av dig"
   },
   "closingCta": {
     "heading": "Låt oss bygga något tillsammans.",
     "body": "Oavsett om du har ett uppdrag, en idé eller bara en fråga — hör av dig.",
-    "email": "kasimir@parti.design",
+    "email": "hej@parti.design",
     "cta": "Starta ett samtal"
   },
   "contact": {
@@ -111,7 +243,7 @@
     "successHeading": "Tack — vi hör av oss.",
     "successBody": "Vi svarar vanligtvis inom ett par dagar.",
     "errorHeading": "Något gick fel.",
-    "errorBody": "Försök igen eller maila oss direkt på kasimir@parti.design."
+    "errorBody": "Försök igen eller maila oss direkt på hej@parti.design."
   },
   "home": {
     "title": "Parti Design — Arkitektur, Design & Sambygge",
@@ -208,8 +340,8 @@
   "venturesPage": {
     "header": {
       "tag": "Initiativ",
-      "heading": "Vi svarar inte bara på uppdrag — vi initierar.",
-      "body": "Vid sidan av kundarbete inkuberar Parti Design egna projekt: initiativ vi tror på och bygger själva."
+      "heading": "Idéer vi tror tillräckligt på för att bygga själva.",
+      "body": "Våra ventures är hur vi håller oss i framkant — testar idéer, bygger verktyg och bevisar modeller som gör vårt kundarbete skarpare och mer trovärdigt."
     },
     "status": {
       "seed": "Frö",
@@ -229,6 +361,43 @@
       "body1": "Kunduppdrag håller oss skärpta, men det vi tror mest på — samhällsfinansiering, open source-bostäder och urbana kallbad — kommer sällan som ett färdigt uppdrag. Så vi skapar dem själva.",
       "body2": "Varje initiativ är ett verkligt projekt där vi investerar vår egen tid, design och våra relationer. Vissa växer till självständiga organisationer; andra vävs tillbaka in i studions erbjudande. Alla skärper vårt tänkande.",
       "quote": "De bästa projekten vi deltagit i började med en fråga, inte en budget."
+    },
+    "manifesto": {
+      "tag": "Venture Studio",
+      "heading": "Ventures skärper allt vi gör.",
+      "body1": "Våra ventures är där vi går djupast in på de problem vi bryr oss mest om — och på så sätt utvecklar vi verktyg, modeller och förstahandserfarenheter som vi tar med oss till våra tjänster. När vi säger att en gemenskapsledd bostadsprocess kan fungera, beror det på att vi har genomfört en själva.",
+      "body2": "Varje venture är ett riktigt åtagande av vår egen tid, design och relationer. Några växer till självständiga organisationer. Alla gör oss bättre på det vi gör."
+    },
+    "stageModel": {
+      "heading": "Hur vi växer ventures",
+      "intro": "Varje venture rör sig genom fem stadier. Varje stadie har olika behov, risker och typer av stöd.",
+      "stages": {
+        "seed": {
+          "name": "Frö",
+          "description": "Fortfarande under formning. Vi testar antaganden, sätter ihop teamet och formulerar problemet."
+        },
+        "root": {
+          "name": "Rotning",
+          "description": "Kärnbjudandet tar form — prototypning, pilotdesign och tidiga partnerskap."
+        },
+        "sprout": {
+          "name": "Skott",
+          "description": "Levande i verklig form — första användare, första webbplats, första leverans."
+        },
+        "grow": {
+          "name": "Tillväxt",
+          "description": "Modellen fungerar och blir upprepningsbar — dragkraft, rytm och mätbara resultat."
+        },
+        "flourish": {
+          "name": "Blomstring",
+          "description": "Stabilt nog att skalas, replikeras eller knoppas av — redo för bredare påverkan."
+        }
+      }
+    },
+    "invest": {
+      "heading": "Investera i platsen.",
+      "body": "Intresserad av att backa ett av våra ventures? Vi pratar gärna med dig som vill göra något bra med dina pengar.",
+      "cta": "Hör av dig"
     }
   },
   "ventureDetail": {
@@ -277,5 +446,11 @@
       "imageLabel": "bild",
       "of": "av"
     }
+  },
+  "footer": {
+    "tagline": "Vi utvecklar regenerativa platser för människor och planet.",
+    "location": "Umeå, Sverige",
+    "email": "hello@parti.design",
+    "copyright": "© 2025 Parti Design"
   }
 }

@@ -21,6 +21,7 @@ export interface VentureCardProps {
    */
   theme?: VentureCardTheme
   accentColor?: string | null
+  image?: string | null
   className?: string
   ctaLabel?: string
 }
@@ -59,6 +60,7 @@ export function VentureCard({
   status,
   theme = 'lime',
   accentColor,
+  image,
   className,
   ctaLabel = 'Learn more',
 }: VentureCardProps) {
@@ -71,48 +73,57 @@ export function VentureCard({
   return (
     <Link
       href={`/ventures/${slug}`}
-      style={{
-        backgroundColor: resolvedAccent,
-        color: textColor,
-      }}
+      style={{ backgroundColor: resolvedAccent, color: textColor }}
       className={cn(
-        'group flex flex-col p-8 min-h-[240px] rounded-md',
+        'group flex flex-col rounded-md overflow-hidden',
         'hover:-rotate-1 hover:shadow-xl transition-all duration-300',
         className,
       )}
     >
-      <div>
-        <SectionHeading
-          as="h3"
-          size="md"
-          style={{ color: textColor }}
-          className={cn('mb-0', !accentColor && colors.text)}
-        >
-          {title}
-        </SectionHeading>
-        <div className="mt-8 space-y-3">
-          {(location || status) && (
-            <div
-              style={accentColor ? { color: mutedColor } : undefined}
-              className={cn('flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold uppercase tracking-[0.08em]', !accentColor && colors.muted)}
-            >
-              {location && <span>{location}</span>}
-              {status && <span>{status}</span>}
-            </div>
-          )}
-          <p
-            style={accentColor ? { color: mutedColor } : undefined}
-            className={cn('text-sm leading-relaxed', !accentColor && colors.muted)}
-          >
-            {tagline}
-          </p>
+      {image && (
+        <div className="relative aspect-video overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
         </div>
-      </div>
-      <span className="mt-8" style={accentColor ? { color: textColor } : undefined}>
-        <span className={cn('text-sm font-semibold group-hover:underline', !accentColor && colors.text)}>
-          {ctaLabel} →
+      )}
+      <div className={cn('flex flex-col flex-1 p-8', !image && 'min-h-[240px]')}>
+        <div>
+          <SectionHeading
+            as="h3"
+            size="md"
+            style={{ color: textColor }}
+            className={cn('mb-0', !accentColor && colors.text)}
+          >
+            {title}
+          </SectionHeading>
+          <div className="mt-8 space-y-3">
+            {(location || status) && (
+              <div
+                style={accentColor ? { color: mutedColor } : undefined}
+                className={cn('flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold uppercase tracking-[0.08em]', !accentColor && colors.muted)}
+              >
+                {location && <span>{location}</span>}
+                {status && <span>{status}</span>}
+              </div>
+            )}
+            <p
+              style={accentColor ? { color: mutedColor } : undefined}
+              className={cn('text-sm leading-relaxed', !accentColor && colors.muted)}
+            >
+              {tagline}
+            </p>
+          </div>
+        </div>
+        <span className="mt-8" style={accentColor ? { color: textColor } : undefined}>
+          <span className={cn('text-sm font-semibold group-hover:underline', !accentColor && colors.text)}>
+            {ctaLabel} →
+          </span>
         </span>
-      </span>
+      </div>
     </Link>
   )
 }

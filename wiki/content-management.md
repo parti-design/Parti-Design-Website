@@ -1,3 +1,11 @@
+[← Wiki Home](./README.md)
+
+**Content & Projects:** [Projects](./projects.md) · [Venture Stages](./venture-stages.md)
+
+**See also:** [Bilingual Guide](./i18n-bilingual-guide.md) · [Admin UI Plan](./admin-ui-plan.md) · [Local Development](./local-development.md)
+
+---
+
 # Content Management
 
 Projects, posts, and media can be managed via the Payload admin panel or programmatically via the API.

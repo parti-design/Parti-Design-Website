@@ -20,7 +20,7 @@ export async function ContactPage() {
   const formId = docs[0]?.id ?? null
 
   const contactDetails = [
-    { label: t('emailLabel'), value: 'kasimir@parti.design', href: 'mailto:kasimir@parti.design' },
+    { label: t('emailLabel'), value: 'hej@parti.design', href: 'mailto:hej@parti.design' },
     { label: t('basedLabel'), value: t('basedValue'), href: null },
     { label: t('workingLabel'), value: t('workingValue'), href: null },
   ]

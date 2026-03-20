@@ -1,3 +1,11 @@
+[← Wiki Home](./README.md)
+
+**Dev & Deployment:** [Postgres Overview](./postgres-overview.md) · [Coolify Deployment](./deployment-coolify.md) · [Admin UI Plan](./admin-ui-plan.md)
+
+**See also:** [Content Management](./content-management.md)
+
+---
+
 # Local Development
 
 ## Standard workflow
