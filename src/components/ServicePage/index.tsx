@@ -5,13 +5,16 @@ import { Tag } from '@/components/ui/Tag'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 
+type ServiceNamespace = 'architecturePage' | 'digitalDesignPage' | 'coDesignPage'
+
 interface Props {
   locale: string
-  namespace: string
+  namespace: ServiceNamespace
 }
 
 export async function ServicePage({ locale, namespace }: Props) {
-  const t = await getTranslations({ locale, namespace })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const t = (await getTranslations({ locale, namespace: namespace as any })) as any
   const offerItems = t.raw('offer') as Array<{ label: string; body: string }>
 
   return (
