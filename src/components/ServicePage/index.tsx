@@ -107,10 +107,10 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
               filter: 'blur(0px)',
             }}
           />
-          <div className="container grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div className="container grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
             <div>
               <AnimateOnScroll>
-                <SectionHeading className="mb-6">{t('paradigm.heading')}</SectionHeading>
+                <SectionHeading className="mb-6 text-ink">{t('paradigm.heading')}</SectionHeading>
               </AnimateOnScroll>
               <AnimateOnScroll delay={80}>
                 <p className="text-lg leading-relaxed mb-8 text-ink/80">
