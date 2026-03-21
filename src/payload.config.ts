@@ -25,7 +25,8 @@ const enableDevSchemaPush = process.env.PAYLOAD_ENABLE_DEV_SCHEMA_PUSH === 'true
 
 export default buildConfig({
   // Only configure email at runtime — build containers can't reach smtp.zoho.eu
-  ...(process.env.SMTP_USER
+  // NEXT_PHASE === 'phase-production-build' during next build, undefined at runtime
+  ...(process.env.SMTP_USER && process.env.NEXT_PHASE !== 'phase-production-build'
     ? {
         email: nodemailerAdapter({
           defaultFromAddress: process.env.SMTP_FROM_ADDRESS || '',
