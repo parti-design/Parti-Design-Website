@@ -156,7 +156,7 @@ export async function HomePage({ projects, ventures, locale }: Props) {
       </section>
 
       {/* ── 4. Selected Work — full-bleed grid ───────────────────────────── */}
-      <section id="work" className="pt-16 md:pt-24 lg:pt-32 pb-16 bg-background">
+      <section id="work" className="pt-16 md:pt-24 lg:pt-32 pb-28 md:pb-40 bg-background">
         <div className="container mb-12">
           <AnimateOnScroll>
             <SectionHeading>{t('work.sectionHeading')}</SectionHeading>
