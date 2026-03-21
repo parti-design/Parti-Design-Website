@@ -13,6 +13,7 @@ interface Props {
 
 export async function StudioPage({ locale }: Props) {
   const t = await getTranslations({ locale, namespace: 'studioPageContent' })
+  const ts = await getTranslations({ locale, namespace: 'services' })
 
   const values = [
     { label: t('values.participatory.label'), body: t('values.participatory.body') },
@@ -22,9 +23,9 @@ export async function StudioPage({ locale }: Props) {
   ]
 
   const services = [
-    { label: t('services.architecture.label'), body: t('services.architecture.body') },
-    { label: t('services.digital.label'), body: t('services.digital.body') },
-    { label: t('services.social.label'), body: t('services.social.body') },
+    { label: ts('items.physical.label'), heading: ts('items.physical.heading'), body: ts('items.physical.body'), slug: ts('items.physical.slug') },
+    { label: ts('items.digital.label'),  heading: ts('items.digital.heading'),  body: ts('items.digital.body'),  slug: ts('items.digital.slug') },
+    { label: ts('items.social.label'),   heading: ts('items.social.heading'),   body: ts('items.social.body'),   slug: ts('items.social.slug') },
   ]
 
   return (
@@ -135,9 +136,18 @@ export async function StudioPage({ locale }: Props) {
 
           <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-ink/10">
             {services.map((service, i) => (
-              <AnimateOnScroll key={service.label} delay={i * 100} className="px-0 md:px-10 first:pl-0 last:pr-0 py-10 md:py-0">
-                <Tag className="mb-4">{service.label}</Tag>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.body}</p>
+              <AnimateOnScroll key={service.label} delay={i * 100} className="px-0 md:px-10 first:pl-0 last:pr-0 py-12 md:py-0">
+                <div className="hover:-translate-y-1 transition-transform duration-300 group">
+                  <Tag className="mb-4 group-hover:text-lime transition-colors">{service.label}</Tag>
+                  <SectionHeading as="h3" size="md" className="mb-3">{service.heading}</SectionHeading>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{service.body}</p>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-foreground hover:text-lime transition-colors"
+                  >
+                    {ts('learnMore')} <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </AnimateOnScroll>
             ))}
           </div>
