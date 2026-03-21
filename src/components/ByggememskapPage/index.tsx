@@ -193,13 +193,17 @@ export async function ByggememskapPage({ locale }: Props) {
           </div>
 
           {/* Right — Open Collective dashboard illustration */}
-          <AnimateOnScroll delay={100} className="relative aspect-square">
-            <Image
-              src="/assets/ventures/massvis-hero-illustration.webp"
-              alt="Open Collective fundraising and budgeting dashboard"
-              fill
-              className="object-contain"
-            />
+          <AnimateOnScroll delay={100}>
+            <div className="bg-off-white rounded-xl p-8">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/assets/ventures/massvis-hero-illustration.webp"
+                  alt="Open Collective fundraising and budgeting dashboard"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
           </AnimateOnScroll>
         </div>
       </section>
@@ -281,7 +285,7 @@ export async function ByggememskapPage({ locale }: Props) {
       <section className="relative py-32 md:py-48 lg:py-64 border-t border-border overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/assets/Ume%C3%A5_River_View.jpg"
+            src="/assets/byggemenskap/Ume%C3%A5_River_View.jpg"
             alt="Umeå river view"
             fill
             sizes="100vw"
