@@ -1,7 +1,6 @@
 import { AnimateOnScroll } from '@/components/HomePage/AnimateOnScroll'
 import { VentureCard, type VentureCardTheme } from '@/components/VentureCard'
 import { VentureStageStrip } from '@/components/VentureStageStrip'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Tag } from '@/components/ui/Tag'
 import { Link } from '@/i18n/navigation'
@@ -39,11 +38,26 @@ export async function VenturesPage({ ventures, locale }: Props) {
 
   return (
     <main>
-      <PageHeader
-        tag={t('header.tag')}
-        heading={t('header.heading')}
-        body={t('header.body')}
-      />
+      {/* ── Intro ──────────────────────────────────────────────────────── */}
+      <section className="pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-24 bg-background">
+        <div className="container">
+          <AnimateOnScroll className="mb-5">
+            <Tag>{t('header.tag')}</Tag>
+          </AnimateOnScroll>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
+            <AnimateOnScroll delay={60}>
+              <SectionHeading as="h1" size="xl">
+                {t('header.heading')}
+              </SectionHeading>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll delay={100}>
+              <p className="text-lg text-muted-foreground leading-relaxed">{t('header.body')}</p>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
 
       {/* Manifesto */}
       <section className="py-28 md:py-40 bg-background border-b border-border">
