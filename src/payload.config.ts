@@ -24,19 +24,24 @@ const dirname = path.dirname(filename)
 const enableDevSchemaPush = process.env.PAYLOAD_ENABLE_DEV_SCHEMA_PUSH === 'true'
 
 export default buildConfig({
-  email: nodemailerAdapter({
-    defaultFromAddress: process.env.SMTP_FROM_ADDRESS || '',
-    defaultFromName: process.env.SMTP_FROM_NAME || 'Parti Design',
-    transport: nodemailer.createTransport({
-      host: 'smtp.zoho.eu',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER || '',
-        pass: process.env.SMTP_PASS || '',
-      },
-    }),
-  }),
+  // Only configure email at runtime — build containers can't reach smtp.zoho.eu
+  ...(process.env.SMTP_USER
+    ? {
+        email: nodemailerAdapter({
+          defaultFromAddress: process.env.SMTP_FROM_ADDRESS || '',
+          defaultFromName: process.env.SMTP_FROM_NAME || 'Parti Design',
+          transport: nodemailer.createTransport({
+            host: 'smtp.zoho.eu',
+            port: 465,
+            secure: true,
+            auth: {
+              user: process.env.SMTP_USER,
+              pass: process.env.SMTP_PASS || '',
+            },
+          }),
+        }),
+      }
+    : {}),
   localization: {
     locales: [
       { label: 'English', code: 'en' },
