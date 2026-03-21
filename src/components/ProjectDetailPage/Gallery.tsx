@@ -58,12 +58,12 @@ export function Gallery({ images, projectTitle, labels }: Props) {
 
   return (
     <>
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {images.map(({ src, caption }, i) => (
           <button
             key={src}
             onClick={() => setActive(i)}
-            className="break-inside-avoid w-full group cursor-zoom-in relative overflow-hidden rounded-md"
+            className="w-full group cursor-zoom-in relative overflow-hidden rounded-md"
             aria-label={`${labels.viewImage} ${i + 1} ${labels.of} ${images.length}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
