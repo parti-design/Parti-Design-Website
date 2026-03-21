@@ -27,7 +27,7 @@ export const HeaderClient: React.FC = () => {
   const NAV_LINKS = [
     { label: t('work'),     href: '/work' },
     { label: t('ventures'), href: '/ventures' },
-    { label: t('about'),    href: '/studio' },
+    { label: t('about'),    href: '/about' },
     { label: t('contact'),  href: '/contact' },
   ]
 

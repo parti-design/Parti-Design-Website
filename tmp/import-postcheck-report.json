@@ -1,0 +1,88 @@
+{
+  "sourceCount": 8,
+  "summary": {
+    "match": 8,
+    "create": 0,
+    "update": 0,
+    "conflict": 0,
+    "review": 0,
+    "keepLive": 0,
+    "error": 0
+  },
+  "projects": [
+    {
+      "slug": "connect-tviste",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "klondyke-farms",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "kotten-changing-rooms",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "kotten-sauna",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "naturest-cabin",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "rewilding-sweden-pavilion",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "umea-together",
+      "status": "match",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    },
+    {
+      "slug": "waste-to-wonder-lab",
+      "status": "match",
+      "warnings": [
+        "Filled missing gallery image paths from sorted files in the project media folder."
+      ],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Live project already matches the keystatic source.",
+      "decision": null
+    }
+  ]
+}

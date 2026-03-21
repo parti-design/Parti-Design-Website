@@ -1,0 +1,14 @@
+{
+  "connect-tviste": "source",
+  "klondyke-farms": "source",
+  "kotten-sauna": "source",
+  "umea-together": "source",
+  "rewilding-sweden-pavilion": {
+    "action": "source",
+    "liveSlug": "rewilding-sweden-dome"
+  },
+  "waste-to-wonder-lab": {
+    "action": "source",
+    "liveSlug": "waste-to-wonder"
+  }
+}

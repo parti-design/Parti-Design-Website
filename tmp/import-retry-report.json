@@ -1,0 +1,192 @@
+{
+  "sourceCount": 4,
+  "summary": {
+    "match": 0,
+    "create": 2,
+    "update": 2,
+    "conflict": 0,
+    "review": 0,
+    "keepLive": 0,
+    "error": 0
+  },
+  "projects": [
+    {
+      "slug": "kotten-changing-rooms",
+      "status": "create",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Created live project id 11.",
+      "decision": null
+    },
+    {
+      "slug": "kotten-sauna",
+      "status": "update",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-kotten-sauna-dsc09791-by-sofia-moren.jpg",
+          "live": "DSC_3852.jpg"
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2025-01-01",
+          "live": "2026-03-10"
+        },
+        {
+          "field": "shared.gallery",
+          "source": [
+            {
+              "filename": "projects-kotten-sauna-dsc09766-by-sofia-moren.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc09959-by-kasimir-suter-winter.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc_3813.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc_3840.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc_3852.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc01880.jpg",
+              "captionEn": ""
+            }
+          ],
+          "live": [
+            {
+              "filename": "DSC01880.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC09766-by Sofia Morén.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC09791-by Sofia Morén.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC09959-by Kasimir Suter Winter.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC_3813.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC_3840.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC_3852-1.jpg",
+              "captionEn": null
+            }
+          ]
+        },
+        {
+          "field": "en.tagline",
+          "source": "Umeå's first community-built sauna — shaped by pinecones, reclaimed pallets, and fifty volunteers.",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten is the first sauna of Umeå Kallbad — built over one year through community-powered Sunday build days. Its name and form are drawn from the Swedish word for pinecone, and its facade is clad entirely in hand-cut shingles made from reclaimed pallet wood, each one shaped by the hands of over fifty volunteers.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"It is a small building with a big story: proof that the way you build something can be just as meaningful as what you build.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"From Fika Wagon to Sauna\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The journey began with an unlikely starting point — an old fika wagon used by construction workers on a building site. Umeå Kallbad had a vision and a growing community behind them, but no permanent location and no guarantee of a permit. What they did have was momentum: a grassroots crowdfunding campaign that raised 65,000 SEK from over 100 backers through nothing more than word of mouth and social media. That early surge of support made one thing unmistakably clear — there was real appetite for this.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Co-Building as Community Strategy\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The decision to build with volunteers wasn't simply a matter of budget — it was a deliberate strategy. Every Sunday for a year, a group of enthusiasts gathered at the site to work on the sauna, share a meal, and get to know each other. These weren't just build days; they were the founding moments of a community. The shared labour forged bonds and a collective sense of ownership that no marketing campaign could replicate.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design facilitated the design process in close collaboration with the core team — Sebastian Ulonska, Jon Krebs, and Garei Gattaulin — and with the volunteers themselves. The design emerged from dialogue, shaped over time by the same people who would build and use it.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"A Design Born from Nature\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten takes its name — and its silhouette — from the pinecone. The overlapping shingle cladding was drawn directly from this reference, each layer echoing the scales of the cone in miniature. The shingles were made entirely from reclaimed pallet wood: pallets were broken apart by hand, cut to size, and fixed one by one across the facade. It is the kind of labour-intensive detail that would be uneconomical in conventional construction, but is perfectly suited to volunteer effort — repetitive, accessible, and deeply satisfying to contribute to.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Natural wood fibre insulation completes the material palette, keeping the building warm, breathable, and rooted in its forest-adjacent setting at Bölesholmerna.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"One Winter to Prove It\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"With a single-season trial permit granted at Bölesholmerna, Kotten opened its doors for its first winter. Each Sunday, hundreds of people joined free community cold-bathing sessions — a ritual that quickly became a fixture of Umeå life. The season was an unqualified success. On the strength of it, the Kommun granted a permanent building permit, and Kotten became a lasting feature of the city's public landscape.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The Story Is the Project\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Umeå Kallbad understood early that the story of how a community space is made is just as powerful as the space itself. Kotten is evidence of that. The shingles carry the fingerprints of fifty volunteers. The timber holds the memory of a hundred Sunday mornings. And the warmth inside is not just from the stove — it is the accumulated energy of a community that built something together, and keeps coming back because of it.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"That story now lives in the DNA of Umeå Kallbad. Kotten is its first, most tangible expression.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "en.metaTitle",
+          "source": "Kotten Sauna — Umeå Kallbad",
+          "live": null
+        },
+        {
+          "field": "en.metaDescription",
+          "source": "A community-built pinecone sauna made from reclaimed pallets by fifty volunteers. The first structure of Umeå Kallbad, and the story of how co-building creates community.",
+          "live": null
+        },
+        {
+          "field": "sv.tagline",
+          "source": "Umeås första gemenskapsbyggda bastu — formad av tallkottar, återvunna lastpallar och femtio volontärer.",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten är Umeå Kallbads första bastu — byggd under ett år genom gemenskapsdrivna söndagsbyggdagar. Namn och form är hämtade från ordet tallkotte, och fasaden är klädd helt i handhuggna spån av återvunnet lastpallsvirke, formade av händerna på över femtio volontärer.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Det är en liten byggnad med en stor historia: ett bevis på att sättet man bygger något på kan vara lika meningsfullt som det man bygger.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Från fikaväxling till bastu\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Resan började med en osannolik utgångspunkt — en gammal fikaväxling som användes av byggarbetare på en byggplats. Umeå Kallbad hade en vision och ett växande community bakom sig, men ingen permanent plats och ingen garanti för bygglov. Vad de hade var fart: en gräsrotscrowdfunding-kampanj som samlade in 65 000 kr från över 100 backers genom ingenting mer än mun-till-mun och sociala medier. Det tidiga stödet gjorde en sak glasklart — det fanns ett verkligt intresse för detta.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Sambyggnad som gemenskapsstrategi\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Beslutet att bygga med volontärer handlade inte bara om budget — det var en medveten strategi. Varje söndag under ett år samlades en grupp entusiaster på platsen för att arbeta på bastun, dela en måltid och lära känna varandra. Det var inte bara byggdagar; de var de grundläggande stunderna i ett community. Det delade arbetet smidde band och en kollektiv känsla av ägarskap som ingen marknadsföringskampanj kan replikera.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design faciliterade designprocessen i nära samarbete med kärnteamet — Sebastian Ulonska, Jon Krebs och Garei Gattaulin — och med volontärerna själva. Designen växte fram ur dialog, formad över tid av samma människor som skulle bygga och använda den.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"En design född ur naturen\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten tar sitt namn — och sin silhuett — från tallkotten. Den överlappande spånbeklädnaden är direkt hämtad från detta, varje lager ekar skalorna på kotten i miniatyr. Spånen gjordes helt av återvunnet lastpallsvirke: pallarna bröts isär för hand, kapades till rätt storlek och fästes en efter en över fasaden. Det är den typ av arbetsintensiv detalj som vore oekonomikal i konventionellt byggande, men är perfekt lämpad för volontärarbete — repetitivt, tillgängligt och djupt tillfredsställande att bidra med.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Naturlig träfiberisolering kompletterar materialpaletten och håller byggnaden varm, andningsbar och förankrad i sin skogsnära miljö vid Bölesholmerna.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"En vinter för att bevisa det\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Med ett enkelsäsongs testlov beviljat vid Bölesholmerna öppnade Kotten sina dörrar för sin första vinter. Varje söndag anslöt sig hundratals människor till gratis gemenskapskallbadning — ett ritual som snabbt blev en del av Umeålivet. Säsongen var en ovillkorlig framgång. På styrkan av det beviljade Kommunen ett permanent bygglov, och Kotten blev ett bestående inslag i stadens offentliga landskap.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Historien är projektet\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Umeå Kallbad förstod tidigt att berättelsen om hur ett gemenskapsutrymme skapas är lika kraftfull som utrymmet i sig. Kotten är ett bevis på det. Spånen bär fingeravtrycken av femtio volontärer. Träet håller minnet av hundra söndagsmorgnar. Och värmen inuti kommer inte bara från ugnen — det är den ackumulerade energin från ett community som byggde något tillsammans och fortsätter att komma tillbaka på grund av det.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Den historien lever nu i DNA:t hos Umeå Kallbad. Kotten är dess första, mest påtagliga uttryck.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "Updated live project id 10.",
+      "decision": {
+        "action": "source",
+        "liveSlug": null
+      }
+    },
+    {
+      "slug": "naturest-cabin",
+      "status": "create",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "Created live project id 12.",
+      "decision": null
+    },
+    {
+      "slug": "rewilding-sweden-pavilion",
+      "status": "update",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-rewilding-sweden-pavilion-rewilding-pavilion-illustration.png",
+          "live": "Rewilding Pavilion Illustration.png"
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2023-06-01",
+          "live": "2026-03-09"
+        },
+        {
+          "field": "en.tagline",
+          "source": "A geodesic dome pavilion designed and built for Rewilding Sweden — structural geometry meets ecological storytelling.",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Rewilding Sweden needed a temporary pavilion for their annual gathering — a space that could host talks, workshops, and exhibitions while communicating their ecological mission. Parti Design proposed a geodesic dome: structurally efficient, visually striking, and entirely demountable.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The dome was designed to be assembled and disassembled by a small team without specialist tools. It was used as a central gathering and exhibition space, housing displays about rewilding ecology and hosting the event's programme.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The project demonstrates how temporary architecture can be both high-quality and low-impact — built from standard components, leaving no trace when the event is over.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "sv.title",
+          "source": "Rewilding Sweden — Paviljong",
+          "live": "Rewilding Sweden — Pavilion"
+        },
+        {
+          "field": "sv.tagline",
+          "source": "En geodetisk kupongpaviljong designad och byggd för Rewilding Sweden — strukturell geometri möter ekologiskt berättande.",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Rewilding Sweden behövde en tillfällig paviljong för deras årliga sammankomst — ett utrymme som kunde vara värd för föreläsningar, workshops och utställningar och samtidigt kommunicera deras ekologiska uppdrag. Parti Design föreslog en geodetisk kupong: strukturellt effektiv, visuellt slående och helt demonterbar.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kuppongen designades för att monteras och demonteras av ett litet team utan specialverktyg. Den användes som ett centralt samlings- och utställningsutrymme med visningar om rewilding-ekologi och som värd för evenemangets program.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Projektet visar hur tillfällig arkitektur kan vara både högkvalitativ och låg påverkan — byggd av standardkomponenter och lämnar inga spår när evenemanget är över.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "Updated live project id 5.",
+      "decision": {
+        "action": "source",
+        "liveSlug": "rewilding-sweden-dome"
+      }
+    }
+  ]
+}

@@ -9,7 +9,7 @@ export async function Footer() {
   const NAV_LINKS = [
     { label: t('nav.work'), href: '/work' },
     { label: t('nav.ventures'), href: '/ventures' },
-    { label: t('nav.about'), href: '/studio' },
+    { label: t('nav.about'), href: '/about' },
     { label: t('nav.contact'), href: '/contact' },
   ]
 

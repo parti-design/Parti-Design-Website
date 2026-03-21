@@ -1,0 +1,807 @@
+{
+  "sourceCount": 8,
+  "summary": {
+    "match": 0,
+    "create": 2,
+    "update": 6,
+    "conflict": 0,
+    "review": 0,
+    "keepLive": 0,
+    "error": 4
+  },
+  "projects": [
+    {
+      "slug": "connect-tviste",
+      "status": "update",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-connect-tviste-coverimage.jpg",
+          "live": "250130_Presentation Connect Tviste_page-0016.jpg"
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2024-03-01",
+          "live": "2026-03-09"
+        },
+        {
+          "field": "shared.gallery",
+          "source": [
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0001.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0002.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0003.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0004.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0005.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0006.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0007.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0008.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0009.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0010.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0011.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-connect-tviste-250130_presentation-connect-tviste_page-0012.jpg",
+              "captionEn": ""
+            }
+          ],
+          "live": [
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0001.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0002.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0003.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0004.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0005.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0006.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0007.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0008.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0009.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0010.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0011.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0012.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0013.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0014.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0015.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0017.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0018.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0019.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0020.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0021.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0022.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0023.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0024.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0025.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0026.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0027.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0028.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0029.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0030.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0031.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0032.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0033.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0034.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0035.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0036.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0037.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0038.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0039.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0040.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0041.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0042.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0043.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0044.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0045.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0046.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0047.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0048.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0049.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0050.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0051.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0052.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0053.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0054.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "250130_Presentation Connect Tviste_page-0055.jpg",
+              "captionEn": null
+            }
+          ]
+        },
+        {
+          "field": "en.tagline",
+          "source": "Belonging through a connected neighbourhood",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Connect Tviste was a prototype week project exploring how to create a greater sense of belonging at Tviste — a student housing area in Umeå run by Kajeka's Campus X. Through resident interviews and user journey mapping, we identified that students moved in to an area without community infrastructure: no welcoming contact, no indoor gathering spaces, and no shared ownership of the neighbourhood.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Working across service design, spatial thinking, and digital product, the team designed a connected system of three interventions — a repurposed community building (Tvistehuset), a paid resident advisor role (Husvärd), and a redesigned digital platform — all tied together through a resident-led student organisation called Tviste Club with its own mini-grant fund.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The Problem\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Students arriving at Tviste found themselves in a neighbourhood without community. No one welcomed them. There were no indoor places to gather. Resources like bikes and tools sat wasted. Spontaneous socialising only happened in summer, when the sun brought people outside. The result: low ownership, low safety, and a high churn of disconnected residents.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Key insights from our research pointed to three missing ingredients: ownership, agency, and a sense of home.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Tvistehuset — A community club house\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"We proposed repurposing an existing building at the heart of Tviste into a community hub. The programme includes a social space, an info desk, toilets, and a tools and repair studio. Two adjacent bike sheds are converted into Tvistebanken — a shared resource storage managed by residents — with summer storage and smart object detection for security.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Husvärd — Resident Advisors\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kajeka hires existing residents as paid community activators working part time. Husvärdar welcome new students, manage Tvistebanken, organise events, and coordinate student initiatives. They work in rotating groups across three responsibilities: Tvistebanken, Mini Grants, and Tvistehuset.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Campus X Platform — A redesigned digital home\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"We redesigned the Campus X website to serve as the connective tissue between students and the neighbourhood. A new Services section partners with Umeå Energi, LF Västerbotten, Umeå Kommun, and Umeå Universitet to help students navigate moving in, home safety, internet setup, and student health. A dedicated Tviste Club section surfaces community events and the mini-grant programme.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Tviste Club — Community with a budget\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Tviste Club is a student organisation hosted on Open Collective through Massvis, giving residents a transparent, manageable budget for Tvistehusets. A mini-grants flow lets any resident apply for funding — applications reviewed and approved by the Husvärd, receipts paid out by Massvis. This gives students real financial agency to activate their own neighbourhood.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Graphic Profile\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"As part of the prototype we also developed a graphic identity for the Tviste Area — earthy reds and forest greens, with Be Vietnam Pro for headings and Roboto for body text.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "en.metaTitle",
+          "source": "Connect Tviste — Kajeka",
+          "live": null
+        },
+        {
+          "field": "en.metaDescription",
+          "source": "A service design prototype creating belonging in a Umeå student neighbourhood through community infrastructure, resident advisors, and a new digital platform.",
+          "live": null
+        },
+        {
+          "field": "sv.tagline",
+          "source": "Tillhörighet genom ett sammankopplat grannskap",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Connect Tviste var ett prototypveckoprojekt som utforskade hur man skapar en starkare känsla av tillhörighet vid Tviste — ett studentbostadsområde i Umeå som drivs av Kajekas Campus X. Genom invånarintervjuer och kartläggning av brukarresor identifierade vi att studenter flyttade in till ett område utan gemenskapsinfrastruktur: ingen välkomnande kontakt, inga inomhusmötesplatser och inget delat ägarskap av grannskapet.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Teamet arbetade tvärvetenskapligt med service design, rumsligt tänkande och digital produkt och designade ett sammankopplat system av tre interventioner — ett ombyggt gemenskapshus (Tvistehuset), en betald invånarrådgivare (Husvärd) och en omdesignad digital plattform — allt sammanfogat genom en invånardriven studentorganisation kallad Tviste Club med en egen minibidragsfond.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Problemet\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Studenter som anlände till Tviste befann sig i ett grannskap utan community. Ingen välkomnade dem. Det fanns inga inomhusmötesplatser. Resurser som cyklar och verktyg låg oanvända. Spontan socialisering skedde bara på sommaren, när solen fick folk att gå ut. Resultatet: lågt ägarskap, låg trygghet och hög genomströmning av frånkopplade invånare.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Nyckelinsikter från vår forskning pekade på tre saknade ingredienser: ägarskap, handlingsutrymme och en känsla av hem.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Tvistehuset — ett gemenskapens klubbhus\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Vi föreslog att ett befintligt hus i hjärtat av Tviste skulle omvandlas till ett gemenskapsnav. Programmet inkluderar ett socialt utrymme, en infodisk, toaletter och en verktygs- och reparationsstudio. Två angränsande cykelskjul omvandlas till Tvistebanken — ett delat resursförråd som hanteras av invånare — med sommarförvaring och smart objektdetektering för säkerhet.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Husvärd — invånarrådgivare\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kajeka anställer befintliga invånare som betalda gemenskapsaktivister på deltid. Husvärdar välkomnar nya studenter, hanterar Tvistebanken, organiserar evenemang och koordinerar studentinitiativ. De arbetar i roterande grupper med tre ansvarsområden: Tvistebanken, minibidrag och Tvistehuset.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Campus X-plattformen — ett omdesignat digitalt hem\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Vi omdesignade Campus X-webbplatsen för att fungera som bindväv mellan studenter och grannskapet. En ny servicedel samarbetar med Umeå Energi, LF Västerbotten, Umeå Kommun och Umeå Universitet för att hjälpa studenter navigera inflyttning, bostadssäkerhet, internetuppkoppling och studenthälsa. En dedikerad Tviste Club-sektion visar communityevenemang och minibidragsprogrammet.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Tviste Club — gemenskap med budget\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Tviste Club är en studentorganisation som är värd på Open Collective via Massvis, vilket ger invånare en transparent och hanterbar budget för Tvistehuset. Ett minibidragsflöde låter vilken invånare som helst ansöka om finansiering — ansökningar granskas och godkänns av Husvärden, kvitton betalas ut av Massvis. Detta ger studenter verkligt ekonomiskt handlingsutrymme att aktivera sitt eget grannskap.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Grafisk profil\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Som en del av prototypen utvecklade vi också en grafisk identitet för Tvisteområdet — jordiga röda och skogsgröna toner, med Be Vietnam Pro för rubriker och Roboto för brödtext.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "Updated live project id 7.",
+      "decision": {
+        "action": "source",
+        "liveSlug": null
+      }
+    },
+    {
+      "slug": "klondyke-farms",
+      "status": "update",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.publishedAt",
+          "source": "2023-01-01",
+          "live": "2026-03-09"
+        },
+        {
+          "field": "en.tagline",
+          "source": "Brand identity and website for a local organic farm — clean, grounded, and commercially sharp.",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Klondyke Farms is a small local farm with a growing direct-sales business. They needed a brand and digital presence that felt authentic to the farm's character — grounded and honest, without being rustic or nostalgic.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design developed a visual identity rooted in the landscape and the physicality of the farm, and built a clean, fast website that supports their e-commerce and CSA (community-supported agriculture) offer.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The project is an example of how the studio's digital work supports the same kind of local, community-rooted initiatives as its architecture and facilitation projects.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "sv.tagline",
+          "source": "Varumärkesidentitet och webbplats för ett lokalt ekologiskt lantbruk — ren, jordnära och kommersiellt skarp.",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Klondyke Farms är ett litet lokalt lantbruk med en växande direktförsäljningsverksamhet. De behövde en varumärkes- och digital närvaro som kändes autentisk för lantbrukets karaktär — jordnära och ärlig, utan att vara lantlig eller nostalgisk.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design utvecklade en visuell identitet rotad i landskapet och lantbrukets fysikalitet och byggde en ren, snabb webbplats som stöder deras e-handel och CSA-erbjudande (community-supported agriculture — gemenskapsstöttad jordbruk).\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Projektet är ett exempel på hur studions digitala arbete stöder samma typ av lokala, gemenskapsförankrade initiativ som dess arkitektur- och faciliteringsprojekt.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "Updated live project id 6.",
+      "decision": {
+        "action": "source",
+        "liveSlug": null
+      }
+    },
+    {
+      "slug": "kotten-changing-rooms",
+      "status": "error",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "spawnSync git ENOBUFS",
+      "decision": null
+    },
+    {
+      "slug": "kotten-sauna",
+      "status": "error",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-kotten-sauna-dsc09791-by-sofia-moren.jpg",
+          "live": "DSC_3852.jpg"
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2025-01-01",
+          "live": "2026-03-10"
+        },
+        {
+          "field": "shared.gallery",
+          "source": [
+            {
+              "filename": "projects-kotten-sauna-dsc09766-by-sofia-moren.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc09959-by-kasimir-suter-winter.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc_3813.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc_3840.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc_3852.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-kotten-sauna-dsc01880.jpg",
+              "captionEn": ""
+            }
+          ],
+          "live": [
+            {
+              "filename": "DSC01880.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC09766-by Sofia Morén.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC09791-by Sofia Morén.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC09959-by Kasimir Suter Winter.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC_3813.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC_3840.jpg",
+              "captionEn": null
+            },
+            {
+              "filename": "DSC_3852-1.jpg",
+              "captionEn": null
+            }
+          ]
+        },
+        {
+          "field": "en.tagline",
+          "source": "Umeå's first community-built sauna — shaped by pinecones, reclaimed pallets, and fifty volunteers.",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten is the first sauna of Umeå Kallbad — built over one year through community-powered Sunday build days. Its name and form are drawn from the Swedish word for pinecone, and its facade is clad entirely in hand-cut shingles made from reclaimed pallet wood, each one shaped by the hands of over fifty volunteers.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"It is a small building with a big story: proof that the way you build something can be just as meaningful as what you build.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"From Fika Wagon to Sauna\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The journey began with an unlikely starting point — an old fika wagon used by construction workers on a building site. Umeå Kallbad had a vision and a growing community behind them, but no permanent location and no guarantee of a permit. What they did have was momentum: a grassroots crowdfunding campaign that raised 65,000 SEK from over 100 backers through nothing more than word of mouth and social media. That early surge of support made one thing unmistakably clear — there was real appetite for this.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Co-Building as Community Strategy\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The decision to build with volunteers wasn't simply a matter of budget — it was a deliberate strategy. Every Sunday for a year, a group of enthusiasts gathered at the site to work on the sauna, share a meal, and get to know each other. These weren't just build days; they were the founding moments of a community. The shared labour forged bonds and a collective sense of ownership that no marketing campaign could replicate.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design facilitated the design process in close collaboration with the core team — Sebastian Ulonska, Jon Krebs, and Garei Gattaulin — and with the volunteers themselves. The design emerged from dialogue, shaped over time by the same people who would build and use it.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"A Design Born from Nature\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten takes its name — and its silhouette — from the pinecone. The overlapping shingle cladding was drawn directly from this reference, each layer echoing the scales of the cone in miniature. The shingles were made entirely from reclaimed pallet wood: pallets were broken apart by hand, cut to size, and fixed one by one across the facade. It is the kind of labour-intensive detail that would be uneconomical in conventional construction, but is perfectly suited to volunteer effort — repetitive, accessible, and deeply satisfying to contribute to.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Natural wood fibre insulation completes the material palette, keeping the building warm, breathable, and rooted in its forest-adjacent setting at Bölesholmerna.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"One Winter to Prove It\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"With a single-season trial permit granted at Bölesholmerna, Kotten opened its doors for its first winter. Each Sunday, hundreds of people joined free community cold-bathing sessions — a ritual that quickly became a fixture of Umeå life. The season was an unqualified success. On the strength of it, the Kommun granted a permanent building permit, and Kotten became a lasting feature of the city's public landscape.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The Story Is the Project\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Umeå Kallbad understood early that the story of how a community space is made is just as powerful as the space itself. Kotten is evidence of that. The shingles carry the fingerprints of fifty volunteers. The timber holds the memory of a hundred Sunday mornings. And the warmth inside is not just from the stove — it is the accumulated energy of a community that built something together, and keeps coming back because of it.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"That story now lives in the DNA of Umeå Kallbad. Kotten is its first, most tangible expression.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "en.metaTitle",
+          "source": "Kotten Sauna — Umeå Kallbad",
+          "live": null
+        },
+        {
+          "field": "en.metaDescription",
+          "source": "A community-built pinecone sauna made from reclaimed pallets by fifty volunteers. The first structure of Umeå Kallbad, and the story of how co-building creates community.",
+          "live": null
+        },
+        {
+          "field": "sv.tagline",
+          "source": "Umeås första gemenskapsbyggda bastu — formad av tallkottar, återvunna lastpallar och femtio volontärer.",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten är Umeå Kallbads första bastu — byggd under ett år genom gemenskapsdrivna söndagsbyggdagar. Namn och form är hämtade från ordet tallkotte, och fasaden är klädd helt i handhuggna spån av återvunnet lastpallsvirke, formade av händerna på över femtio volontärer.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Det är en liten byggnad med en stor historia: ett bevis på att sättet man bygger något på kan vara lika meningsfullt som det man bygger.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Från fikaväxling till bastu\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Resan började med en osannolik utgångspunkt — en gammal fikaväxling som användes av byggarbetare på en byggplats. Umeå Kallbad hade en vision och ett växande community bakom sig, men ingen permanent plats och ingen garanti för bygglov. Vad de hade var fart: en gräsrotscrowdfunding-kampanj som samlade in 65 000 kr från över 100 backers genom ingenting mer än mun-till-mun och sociala medier. Det tidiga stödet gjorde en sak glasklart — det fanns ett verkligt intresse för detta.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Sambyggnad som gemenskapsstrategi\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Beslutet att bygga med volontärer handlade inte bara om budget — det var en medveten strategi. Varje söndag under ett år samlades en grupp entusiaster på platsen för att arbeta på bastun, dela en måltid och lära känna varandra. Det var inte bara byggdagar; de var de grundläggande stunderna i ett community. Det delade arbetet smidde band och en kollektiv känsla av ägarskap som ingen marknadsföringskampanj kan replikera.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design faciliterade designprocessen i nära samarbete med kärnteamet — Sebastian Ulonska, Jon Krebs och Garei Gattaulin — och med volontärerna själva. Designen växte fram ur dialog, formad över tid av samma människor som skulle bygga och använda den.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"En design född ur naturen\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kotten tar sitt namn — och sin silhuett — från tallkotten. Den överlappande spånbeklädnaden är direkt hämtad från detta, varje lager ekar skalorna på kotten i miniatyr. Spånen gjordes helt av återvunnet lastpallsvirke: pallarna bröts isär för hand, kapades till rätt storlek och fästes en efter en över fasaden. Det är den typ av arbetsintensiv detalj som vore oekonomikal i konventionellt byggande, men är perfekt lämpad för volontärarbete — repetitivt, tillgängligt och djupt tillfredsställande att bidra med.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Naturlig träfiberisolering kompletterar materialpaletten och håller byggnaden varm, andningsbar och förankrad i sin skogsnära miljö vid Bölesholmerna.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"En vinter för att bevisa det\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Med ett enkelsäsongs testlov beviljat vid Bölesholmerna öppnade Kotten sina dörrar för sin första vinter. Varje söndag anslöt sig hundratals människor till gratis gemenskapskallbadning — ett ritual som snabbt blev en del av Umeålivet. Säsongen var en ovillkorlig framgång. På styrkan av det beviljade Kommunen ett permanent bygglov, och Kotten blev ett bestående inslag i stadens offentliga landskap.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Historien är projektet\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Umeå Kallbad förstod tidigt att berättelsen om hur ett gemenskapsutrymme skapas är lika kraftfull som utrymmet i sig. Kotten är ett bevis på det. Spånen bär fingeravtrycken av femtio volontärer. Träet håller minnet av hundra söndagsmorgnar. Och värmen inuti kommer inte bara från ugnen — det är den ackumulerade energin från ett community som byggde något tillsammans och fortsätter att komma tillbaka på grund av det.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Den historien lever nu i DNA:t hos Umeå Kallbad. Kotten är dess första, mest påtagliga uttryck.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "spawnSync git ENOBUFS",
+      "decision": {
+        "action": "source",
+        "liveSlug": null
+      }
+    },
+    {
+      "slug": "naturest-cabin",
+      "status": "error",
+      "warnings": [],
+      "differences": [],
+      "potentialDuplicates": [],
+      "message": "spawnSync git ENOBUFS",
+      "decision": null
+    },
+    {
+      "slug": "rewilding-sweden-pavilion",
+      "status": "error",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-rewilding-sweden-pavilion-rewilding-pavilion-illustration.png",
+          "live": "Rewilding Pavilion Illustration.png"
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2023-06-01",
+          "live": "2026-03-09"
+        },
+        {
+          "field": "en.tagline",
+          "source": "A geodesic dome pavilion designed and built for Rewilding Sweden — structural geometry meets ecological storytelling.",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Rewilding Sweden needed a temporary pavilion for their annual gathering — a space that could host talks, workshops, and exhibitions while communicating their ecological mission. Parti Design proposed a geodesic dome: structurally efficient, visually striking, and entirely demountable.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The dome was designed to be assembled and disassembled by a small team without specialist tools. It was used as a central gathering and exhibition space, housing displays about rewilding ecology and hosting the event's programme.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The project demonstrates how temporary architecture can be both high-quality and low-impact — built from standard components, leaving no trace when the event is over.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "sv.title",
+          "source": "Rewilding Sweden — Paviljong",
+          "live": "Rewilding Sweden — Pavilion"
+        },
+        {
+          "field": "sv.tagline",
+          "source": "En geodetisk kupongpaviljong designad och byggd för Rewilding Sweden — strukturell geometri möter ekologiskt berättande.",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Rewilding Sweden behövde en tillfällig paviljong för deras årliga sammankomst — ett utrymme som kunde vara värd för föreläsningar, workshops och utställningar och samtidigt kommunicera deras ekologiska uppdrag. Parti Design föreslog en geodetisk kupong: strukturellt effektiv, visuellt slående och helt demonterbar.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Kuppongen designades för att monteras och demonteras av ett litet team utan specialverktyg. Den användes som ett centralt samlings- och utställningsutrymme med visningar om rewilding-ekologi och som värd för evenemangets program.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Projektet visar hur tillfällig arkitektur kan vara både högkvalitativ och låg påverkan — byggd av standardkomponenter och lämnar inga spår när evenemanget är över.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "spawnSync git ENOBUFS",
+      "decision": {
+        "action": "source",
+        "liveSlug": "rewilding-sweden-dome"
+      }
+    },
+    {
+      "slug": "umea-together",
+      "status": "update",
+      "warnings": [],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-umea-together-dsc09594.jpg",
+          "live": null
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2023-01-01",
+          "live": "2026-03-09"
+        },
+        {
+          "field": "shared.gallery",
+          "source": [
+            {
+              "filename": "projects-umea-together-dsc09673.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-dsc09678.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-h15a1291.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-presentation-20250926_massvis-learning-community-umea-together-1-1.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-presentation-20250926_massvis-learning-community-umea-together-2-2.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-presentation-20250926_massvis-learning-community-umea-together-3-3.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-presentation-20250926_massvis-learning-community-umea-together-4-4.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-presentation-20250926_massvis-learning-community-umea-together-5-5.jpg",
+              "captionEn": ""
+            },
+            {
+              "filename": "projects-umea-together-presentation-20250926_massvis-learning-community-umea-together-6-6.jpg",
+              "captionEn": ""
+            }
+          ],
+          "live": []
+        },
+        {
+          "field": "en.tagline",
+          "source": "A social incubator — workshops, branding, web development, and crowdfunding consulting for community-led initiatives.",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Umeå Together was a learning community and incubator for local initiatives — bringing together grassroots groups, social enterprises, and community organisations to share knowledge, build skills, and raise funds.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design contributed across the whole project: facilitating workshops, developing the brand identity, building the digital platform, and consulting on crowdfunding strategy. The cross-disciplinary nature of the commission is typical of how the studio works.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The programme ran over six months and supported a dozen local initiatives — from community gardens to youth culture projects — each completing the programme with a clearer strategy, stronger identity, and a fundraising campaign.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "sv.tagline",
+          "source": "En social inkubator — workshops, varumärkesarbete, webbutveckling och crowdfunding-rådgivning för gemenskapsdrivna initiativ.",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Umeå Together var ett lärande community och en inkubator för lokala initiativ — som samlade gräsrotsgrupper, sociala företag och gemenskapsorganisationer för att dela kunskap, bygga kompetens och samla in medel.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Parti Design bidrog i hela projektet: faciliterade workshops, utvecklade varumärkesidentiteten, byggde den digitala plattformen och konsulterade kring crowdfunding-strategi. Uppdragets tvärvetenskapliga karaktär är typisk för hur studion arbetar.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Programmet pågick under sex månader och stöttade ett dussin lokala initiativ — från gemenskapsträdgårdar till ungdomskulturprojekt — där alla avslutade programmet med en tydligare strategi, starkare identitet och en insamlingskampanj.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "Updated live project id 4.",
+      "decision": {
+        "action": "source",
+        "liveSlug": null
+      }
+    },
+    {
+      "slug": "waste-to-wonder-lab",
+      "status": "update",
+      "warnings": [
+        "Filled missing gallery image paths from sorted files in the project media folder."
+      ],
+      "differences": [
+        {
+          "field": "shared.coverImageFilename",
+          "source": "projects-waste-to-wonder-lab-coverimage.jpg",
+          "live": null
+        },
+        {
+          "field": "shared.collaborators",
+          "source": [
+            {
+              "name": "Karina Suter Winter",
+              "role": null
+            },
+            {
+              "name": "Garei Gataullin",
+              "role": null
+            },
+            {
+              "name": "Elin Holmberg",
+              "role": null
+            },
+            {
+              "name": "Adele Valtersson",
+              "role": null
+            },
+            {
+              "name": "Roger Filipsson",
+              "role": null
+            },
+            {
+              "name": "Innovation X",
+              "role": null
+            },
+            {
+              "name": "Mötesplats Stöcke",
+              "role": null
+            }
+          ],
+          "live": []
+        },
+        {
+          "field": "shared.featured",
+          "source": true,
+          "live": false
+        },
+        {
+          "field": "shared.publishedAt",
+          "source": "2022-01-01",
+          "live": "2026-03-09"
+        },
+        {
+          "field": "shared.gallery",
+          "source": [
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-01.jpg",
+              "captionEn": "Material exploration during the Waste to Wonder Lab process."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-02.jpg",
+              "captionEn": "Co-design work with young participants in Umea."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-03.jpg",
+              "captionEn": "Developing public furniture from reclaimed local materials."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-04.jpg",
+              "captionEn": "Workshop process at Mötesplats Stöcke."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-05.jpg",
+              "captionEn": "Building the installation through hands-on collaboration."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-06.jpg",
+              "captionEn": "The octopus-inspired concept taking physical form."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-07.jpg",
+              "captionEn": "Reused materials transformed into play, rest, and interaction."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-08.jpg",
+              "captionEn": "Assembly in progress ahead of installation in Broparken."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-09.jpg",
+              "captionEn": "One of the public furniture elements developed for Umecom Fest."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-10.jpg",
+              "captionEn": "The installation inviting people to sit, play, and gather."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-11.jpg",
+              "captionEn": "Waste to Wonder Lab in use during the festival."
+            },
+            {
+              "filename": "projects-waste-to-wonder-lab-waste-to-wonder-12.jpg",
+              "captionEn": "A finished installation built entirely from waste materials."
+            }
+          ],
+          "live": []
+        },
+        {
+          "field": "en.tagline",
+          "source": "Turning Umea's waste streams into playful public furniture for the city's 400th birthday",
+          "live": null
+        },
+        {
+          "field": "en.description",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Waste to Wonder Lab turned Umea's waste streams into a playful public installation for Umecom Fest. Through a fast-paced co-design process with local youth, discarded materials became octopus-inspired public furniture in Broparken that invited people to sit, play, and rethink what waste can become.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "en.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Waste to Wonder Lab began with a simple but provocative question: what if the things a city throws away could become the things people gather around? Commissioned by Umeå Kommun for Umecom Fest, the project explored local waste flows and transformed them into a public installation for Broparken as part of the city's 400th birthday celebrations.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Following the design sprint methodology, Parti Design worked with local youth to research, collect, test, and build with discarded materials. The result was an octopus-inspired family of public furniture elements that invited people to sit, play, and see waste differently.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The Brief\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"As part of Umecom Fest and Umeå's 400th birthday, Parti Design was asked to investigate the city's waste streams and turn them into something generous, playful, and public. The brief was not only about making objects. It was about changing the story around waste itself, from something hidden and discarded into something visible, useful, and full of possibility.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"From Waste Stream to Workshop\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The project followed a compressed, hands-on co-design process that moved quickly from research into making. Local youth were central throughout. They mapped where waste comes from, learned how materials move through the city, and helped shape what the final installation could become.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Working out of Mötesplats Stöcke, the team sourced materials from local waste streams and developed a modular furniture system inspired by Umecom's octopus mascot. The process was educational and practical at the same time, linking circular thinking to direct physical experience.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"An Octopus in Broparken\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The final installation took the form of an interactive octopus. At its centre was a tensegrity sphere, with tentacle-like elements stretching outward into different uses and scales. One became a beanbag. Another became a table. Another became a crawl-through tube for children. Each piece had its own character, but together they read as one playful landscape built entirely from waste.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Placed in Broparken during Umecom Fest, the installation immediately drew people in. Children climbed and played. Adults stopped, sat down, and looked more closely. The project worked as public furniture, but it also worked as a conversation starter: what counts as waste, and what new value can be created when we look at local material flows differently?\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"More Than an Installation\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Waste to Wonder Lab was one of the highlights of the festival, but its deeper value was in the process behind it. It demonstrated how co-design, circular material thinking, and public space experimentation can come together in a format that is accessible, educational, and joyful.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"The project remains a strong example of Parti Design's approach: research turned into making, participation turned into ownership, and overlooked local resources turned into shared public value.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "en.metaTitle",
+          "source": "Waste to Wonder Lab - Umea Kommun",
+          "live": null
+        },
+        {
+          "field": "en.metaDescription",
+          "source": "Waste to Wonder Lab turned Umea's waste streams into a playful public installation for Umecom Fest through co-design, youth participation, and reclaimed materials.",
+          "live": null
+        },
+        {
+          "field": "sv.tagline",
+          "source": "Att förvandla Umeås avfallsflöden till lekfull offentlig möblering för stadens 400-årsjubileum",
+          "live": null
+        },
+        {
+          "field": "sv.description",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Waste to Wonder Lab förvandlade Umeås avfallsflöden till en lekfull offentlig installation för Umecom Fest. Genom en intensiv co-designprocess med lokala ungdomar blev kasserade material till bläckfiskinspirerad offentlig möblering i Broparken som fick människor att sitta, leka och tänka om kring vad avfall kan bli.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "sv.content",
+          "source": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Waste to Wonder Lab började med en enkel men skarp fråga: tänk om det som en stad kastar bort också skulle kunna bli det som människor samlas kring? På uppdrag av Umeå Kommun för Umecom Fest undersökte projektet lokala avfallsflöden och omvandlade dem till en offentlig installation i Broparken som en del av stadens 400-årsfirande.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Med design sprint-metodiken som ram arbetade Parti Design tillsammans med lokala ungdomar för att undersöka, samla in, testa och bygga med kasserade material. Resultatet blev en bläckfiskinspirerad familj av offentliga möbler som bjöd in människor att sitta, leka och se avfall på ett nytt sätt.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Uppdraget\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Som en del av Umecom Fest och Umeås 400-årsfirande fick Parti Design i uppdrag att utforska stadens avfallsflöden och förvandla dem till något generöst, lekfullt och offentligt. Uppdraget handlade inte bara om att skapa objekt. Det handlade också om att förändra berättelsen om avfall, från något dolt och bortkastat till något synligt, användbart och fullt av potential.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Process\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Projektet följde en komprimerad och praktisk co-designprocess som snabbt rörde sig från research till byggande. Lokala ungdomar var centrala genom hela arbetet. De kartlade var avfall kommer ifrån, lärde sig hur material rör sig genom staden och bidrog till att forma vad installationen kunde bli.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Med bas på Mötesplats Stöcke hämtade teamet material från lokala avfallsflöden och utvecklade ett modulärt möbelsystem inspirerat av Umecoms bläckfiskmaskot. Processen var samtidigt pedagogisk och praktisk, och knöt ihop cirkulärt tänkande med direkt fysisk erfarenhet.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Installationen\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Den färdiga installationen tog formen av en interaktiv bläckfisk. I centrum fanns en tensegritetsboll, och därifrån sträckte sig tentakelliknande delar ut i olika funktioner och skalor. En blev en sittpuff. En annan blev ett bord. En tredje blev ett rör som barn kunde krypa igenom. Varje del hade sin egen karaktär, men tillsammans bildade de ett lekfullt landskap byggt helt av avfall.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"När installationen placerades i Broparken under Umecom Fest drog den direkt till sig människor. Barn klättrade och lekte. Vuxna stannade, slog sig ner och tittade närmare. Projektet fungerade som offentlig möblering, men också som en samtalsstartare: vad räknas som avfall, och vilket nytt värde kan skapas när vi ser på lokala materialflöden på ett annat sätt?\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Mer än en installation\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"tag\":\"h2\",\"type\":\"heading\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Waste to Wonder Lab blev ett av höjdpunkterna under festivalen, men det djupare värdet låg i processen bakom resultatet. Projektet visade hur co-design, cirkulärt materialtänkande och experiment i offentliga rum kan mötas i ett format som är tillgängligt, lärorikt och lustfyllt.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1},{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Projektet är fortfarande ett starkt exempel på Parti Designs arbetssätt: research som blir till byggande, deltagande som blir till ägarskap och förbisedda lokala resurser som blir till gemensamt offentligt värde.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}",
+          "live": null
+        },
+        {
+          "field": "sv.metaTitle",
+          "source": "Waste to Wonder Lab - Umea Kommun",
+          "live": null
+        },
+        {
+          "field": "sv.metaDescription",
+          "source": "Waste to Wonder Lab förvandlade Umeås avfallsflöden till en lekfull offentlig installation för Umecom Fest genom co-design, ungdomsmedverkan och återbrukade material.",
+          "live": null
+        }
+      ],
+      "potentialDuplicates": [],
+      "message": "Updated live project id 8.",
+      "decision": {
+        "action": "source",
+        "liveSlug": "waste-to-wonder"
+      }
+    }
+  ]
+}
