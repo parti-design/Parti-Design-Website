@@ -75,13 +75,25 @@ export function VentureCard({
       href={`/ventures/${slug}`}
       style={{ backgroundColor: resolvedAccent, color: textColor }}
       className={cn(
-        'group flex rounded-md overflow-hidden',
+        'group flex flex-col rounded-md overflow-hidden',
         'hover:-rotate-1 hover:shadow-xl transition-all duration-300',
         className,
       )}
     >
-      {/* Text — always left */}
-      <div className={cn('flex flex-col flex-1 p-8 min-h-[240px]', image && 'basis-1/2')}>
+      {/* Image — top */}
+      {image && (
+        <div className="relative w-full aspect-[16/10] overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
+
+      {/* Text — below */}
+      <div className="flex flex-col flex-1 p-8 min-h-[240px]">
         <div>
           <SectionHeading
             as="h3"
@@ -116,17 +128,6 @@ export function VentureCard({
         </span>
       </div>
 
-      {/* Image — right half */}
-      {image && (
-        <div className="relative basis-1/2 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image}
-            alt={title}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-      )}
     </Link>
   )
 }
