@@ -47,7 +47,7 @@ export async function ByggememskapPage({ locale }: Props) {
               </p>
             </AnimateOnScroll>
           </div>
-          <AnimateOnScroll delay={100} className="relative aspect-[4/3] rounded-md overflow-hidden hidden lg:block">
+          <AnimateOnScroll delay={100} className="relative aspect-[4/3] rounded-md overflow-hidden">
             <Image
               src="/assets/byggemenskap/bram-van-oost-6p0GlIS4L7Y-unsplash.jpg"
               alt="Community dinner at a co-built space — photo by Bram Van Oost"
@@ -292,7 +292,7 @@ export async function ByggememskapPage({ locale }: Props) {
             className="object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20 dark:from-black/90 dark:via-black/70 dark:to-black/10" />
 
         <div className="relative z-10 container">
           <div className="max-w-lg">
@@ -305,12 +305,12 @@ export async function ByggememskapPage({ locale }: Props) {
               </SectionHeading>
             </AnimateOnScroll>
             <AnimateOnScroll delay={120}>
-              <p className="text-lg text-ink/70 leading-relaxed mb-10">{t('interestBody')}</p>
+              <p className="text-lg text-ink/70 dark:text-off-white/70 leading-relaxed mb-10">{t('interestBody')}</p>
             </AnimateOnScroll>
             <AnimateOnScroll delay={180}>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink/50 text-ink font-semibold hover:bg-ink hover:text-off-white transition-colors"
+                className="inline-flex items-center px-8 py-4 rounded-md border-2 border-ink/50 text-ink font-semibold hover:bg-ink hover:text-off-white dark:border-off-white/50 dark:text-off-white dark:hover:bg-off-white dark:hover:text-ink transition-colors"
               >
                 {t('interestCta')}
               </Link>
