@@ -46,7 +46,7 @@ export async function VenturesPage({ ventures, locale }: Props) {
       />
 
       {/* Manifesto */}
-      <section className="py-20 md:py-32 bg-background border-b border-border">
+      <section className="py-28 md:py-40 bg-background border-b border-border">
         <div className="container">
           <div className="max-w-3xl">
             <AnimateOnScroll>
@@ -68,7 +68,7 @@ export async function VenturesPage({ ventures, locale }: Props) {
       </section>
 
       {/* Stage model */}
-      <section className="py-20 md:py-32 bg-ink">
+      <section className="py-28 md:py-40 bg-ink">
         <div className="container">
           <AnimateOnScroll>
             <SectionHeading as="h2" size="lg" className="text-off-white max-w-xl mb-4">
@@ -86,7 +86,7 @@ export async function VenturesPage({ ventures, locale }: Props) {
       </section>
 
       {/* Ventures grid */}
-      <section className="py-20 md:py-32 bg-background">
+      <section className="py-28 md:py-40 bg-background">
         <div className="container grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {ventures.map((venture, i) => {
             const draft = getVentureDraft(venture.slug, locale)
@@ -114,7 +114,7 @@ export async function VenturesPage({ ventures, locale }: Props) {
       </section>
 
       {/* Invest */}
-      <section className="py-20 md:py-32 bg-lavender">
+      <section className="py-28 md:py-40 bg-lavender">
         <div className="container">
           <div className="max-w-2xl">
             <AnimateOnScroll>

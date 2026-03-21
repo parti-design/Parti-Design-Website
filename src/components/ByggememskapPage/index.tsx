@@ -59,7 +59,7 @@ export async function ByggememskapPage({ locale }: Props) {
       </section>
 
       {/* Value of byggemenskap */}
-      <section className="py-20 md:py-32 lg:py-40 bg-muted/40 border-t border-border">
+      <section className="py-28 md:py-40 lg:py-52 bg-muted/40 border-t border-border">
         <div className="container">
           <AnimateOnScroll className="mb-12">
             <SectionHeading>{t('valueHeading')}</SectionHeading>
@@ -78,7 +78,7 @@ export async function ByggememskapPage({ locale }: Props) {
       </section>
 
       {/* Co-design — text left, images right */}
-      <section className="py-20 md:py-32 lg:py-40 bg-background border-t border-border">
+      <section className="py-28 md:py-40 lg:py-52 bg-background border-t border-border">
         <div className="container grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left — text */}
           <div>
@@ -125,7 +125,7 @@ export async function ByggememskapPage({ locale }: Props) {
       </section>
 
       {/* Co-building — images left, text right */}
-      <section className="py-20 md:py-32 lg:py-40 bg-muted/40 border-t border-border">
+      <section className="py-28 md:py-40 lg:py-52 bg-muted/40 border-t border-border">
         <div className="container grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Images — shown first on mobile, moved left on desktop */}
           <div className="grid gap-4 order-last lg:order-first">
@@ -167,7 +167,7 @@ export async function ByggememskapPage({ locale }: Props) {
       </section>
 
       {/* Open Collective */}
-      <section className="py-20 md:py-32 lg:py-40 bg-background border-t border-border">
+      <section className="py-28 md:py-40 lg:py-52 bg-background border-t border-border">
         <div className="container grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — text */}
           <div>
@@ -316,7 +316,7 @@ export async function ByggememskapPage({ locale }: Props) {
       </section>
 
       {/* For municipalities & funders */}
-      <section className="py-20 md:py-32 lg:py-40 bg-muted/40 border-t border-border">
+      <section className="py-28 md:py-40 lg:py-52 bg-muted/40 border-t border-border">
         <div className="container max-w-3xl">
           <AnimateOnScroll>
             <Tag className="mb-4">{t('institutionalTag')}</Tag>
