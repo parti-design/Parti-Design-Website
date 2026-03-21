@@ -42,41 +42,24 @@ export async function VenturesPage({ ventures, locale }: Props) {
       <section className="pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-24 bg-background">
         <div className="container">
           <AnimateOnScroll className="mb-5">
-            <Tag>{t('header.tag')}</Tag>
+            <Tag>{t('manifesto.tag')}</Tag>
           </AnimateOnScroll>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
             <AnimateOnScroll delay={60}>
               <SectionHeading as="h1" size="xl">
-                {t('header.heading')}
-              </SectionHeading>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll delay={100}>
-              <p className="text-lg text-muted-foreground leading-relaxed">{t('header.body')}</p>
-            </AnimateOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* Manifesto */}
-      <section className="py-28 md:py-40 bg-background border-b border-border">
-        <div className="container">
-          <div className="max-w-3xl">
-            <AnimateOnScroll>
-              <Tag className="mb-5">{t('manifesto.tag')}</Tag>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={60}>
-              <SectionHeading as="h2" size="lg" className="mb-8">
                 {t('manifesto.heading')}
               </SectionHeading>
             </AnimateOnScroll>
-            <AnimateOnScroll delay={120}>
-              <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-                <p>{t('manifesto.body1')}</p>
-                <p>{t('manifesto.body2')}</p>
-              </div>
-            </AnimateOnScroll>
+
+            <div className="space-y-5">
+              <AnimateOnScroll delay={100}>
+                <p className="text-lg text-muted-foreground leading-relaxed">{t('manifesto.body1')}</p>
+              </AnimateOnScroll>
+              <AnimateOnScroll delay={160}>
+                <p className="text-base text-muted-foreground leading-relaxed">{t('manifesto.body2')}</p>
+              </AnimateOnScroll>
+            </div>
           </div>
         </div>
       </section>
