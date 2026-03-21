@@ -84,7 +84,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
           </div>
         </section>
       ) : (
-        <section className="bg-lavender py-20 md:py-28">
+        <section className="bg-lavender py-24 md:py-36">
           <div className="container max-w-2xl">
             <AnimateOnScroll>
               <p className="font-display text-3xl md:text-4xl xl:text-5xl text-ink italic leading-tight">
@@ -97,7 +97,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
 
       {/* ── 3. Regenerative paradigm diagram (coDesignPage only) ───────── */}
       {namespace === 'coDesignPage' && (
-        <section className="py-16 md:py-24 lg:py-32 border-t border-border relative overflow-hidden">
+        <section className="py-20 md:py-32 lg:py-40 border-t border-border relative overflow-hidden">
           <div
             className="absolute inset-0 scale-105"
             style={{
@@ -129,7 +129,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
       )}
 
       {/* ── 4. What this includes ───────────────────────────────────────── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-muted/40 border-t border-border">
+      <section className="py-20 md:py-32 lg:py-40 bg-muted/40 border-t border-border">
         <div className="container">
           <AnimateOnScroll className="mb-12">
             <SectionHeading>{t('offerHeading')}</SectionHeading>
@@ -149,7 +149,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
       </section>
 
       {/* ── 4. How we work — process steps ──────────────────────────────── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-background border-t border-border">
+      <section className="py-20 md:py-32 lg:py-40 bg-background border-t border-border">
         <div className="container">
           <AnimateOnScroll className="mb-14">
             <SectionHeading>{t('process.heading')}</SectionHeading>
@@ -173,7 +173,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
 
       {/* ── 5. Featured projects ────────────────────────────────────────── */}
       {projects.length > 0 && (
-        <section className="py-16 md:py-24 lg:py-32 bg-muted/40 border-t border-border">
+        <section className="py-20 md:py-32 lg:py-40 bg-muted/40 border-t border-border">
           <div className="container">
             <AnimateOnScroll className="mb-12">
               <SectionHeading>{t('featuredWork.heading')}</SectionHeading>
@@ -201,7 +201,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
       )}
 
       {/* ── 6. FAQ ──────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-background border-t border-border">
+      <section className="py-20 md:py-32 lg:py-40 bg-background border-t border-border">
         <div className="container grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           <AnimateOnScroll>
             <SectionHeading size="lg">{t('faq.heading')}</SectionHeading>
@@ -213,7 +213,7 @@ export async function ServicePage({ locale, namespace, heroImage, projects = [] 
       </section>
 
       {/* ── 7. CTA ──────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-ink">
+      <section className="py-20 md:py-32 lg:py-40 bg-ink">
         <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-off-white mb-6">

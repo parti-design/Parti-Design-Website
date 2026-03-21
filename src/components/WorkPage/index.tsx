@@ -29,13 +29,13 @@ export async function WorkPage({ projects, locale }: Props) {
         body={t('header.body')}
       />
 
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-20 md:py-32 bg-background">
         <div className="container">
           <WorkPageClient projects={projects} filterLabels={filterLabels} />
         </div>
       </section>
 
-      <section className="py-16 md:py-24 lg:py-32 bg-ink">
+      <section className="py-20 md:py-32 lg:py-40 bg-ink">
         <div className="container text-center max-w-2xl mx-auto">
           <AnimateOnScroll>
             <SectionHeading size="xl" className="text-off-white mb-6">

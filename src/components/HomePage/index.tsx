@@ -95,7 +95,7 @@ export async function HomePage({ projects, ventures, locale }: Props) {
       </div>
 
       {/* ── 2. Services ──────────────────────────────────────────────────── */}
-      <section id="services" className="bg-secondary/20 border-t border-ink/10 py-16 md:py-24 lg:py-32">
+      <section id="services" className="bg-secondary/20 border-t border-ink/10 py-20 md:py-32 lg:py-40">
         <div className="container">
           <AnimateOnScroll className="mb-12">
             <SectionHeading as="h2" size="lg">{t('services.sectionLabel')}</SectionHeading>
@@ -204,7 +204,7 @@ export async function HomePage({ projects, ventures, locale }: Props) {
         {/* Gradient overlay — white in light mode, ink in dark mode */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/10 dark:from-ink/95 dark:via-ink/75 dark:to-ink/10" />
 
-        <div className="relative z-10 container py-16 md:py-24 lg:py-32">
+        <div className="relative z-10 container py-20 md:py-32 lg:py-40">
           <div className="max-w-lg">
             <AnimateOnScroll>
               <Tag className="mb-5 text-ink/50 dark:text-lime">{t('byggemenskap.tag')}</Tag>
@@ -232,7 +232,7 @@ export async function HomePage({ projects, ventures, locale }: Props) {
       </section>
 
       {/* ── 6. Ventures ──────────────────────────────────────────────────── */}
-      <section id="ventures" className="py-16 md:py-24 lg:py-32 bg-background border-t border-border">
+      <section id="ventures" className="py-20 md:py-32 lg:py-40 bg-background border-t border-border">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left: heading + teaser + link */}
