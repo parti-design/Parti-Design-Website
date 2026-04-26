@@ -36,6 +36,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <head>
         <InitTheme />
+        {process.env.NODE_ENV === 'production' && (
+          <script
+            defer
+            src="https://stats.parti.design/script.js"
+            data-website-id="541913e8-1664-4ffa-93f6-13a7203a3808"
+          />
+        )}
       </head>
       <body>
         <Providers>
