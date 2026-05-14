@@ -1,20 +1,20 @@
 'use client'
 
-import { getClientSideURL } from '@/utilities/getURL'
 import { useTranslations } from 'next-intl'
 import React, { useState } from 'react'
 
 type Status = 'idle' | 'submitting' | 'sent' | 'error'
 
-export function ContactForm({ formId }: { formId: number | null }) {
+export function ContactForm() {
   const t = useTranslations('contactForm')
   const [status, setStatus] = useState<Status>('idle')
   const [form, setForm] = useState({
     name: '',
     email: '',
-    organisation: '',
+    organization: '',
     type: '',
     message: '',
+    website: '', // honeypot
   })
 
   function handleChange(
@@ -25,16 +25,13 @@ export function ContactForm({ formId }: { formId: number | null }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!formId) return
     setStatus('submitting')
 
-    const submissionData = Object.entries(form).map(([field, value]) => ({ field, value }))
-
     try {
-      const res = await fetch(`${getClientSideURL()}/api/form-submissions`, {
+      const res = await fetch('/next/contact-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ form: formId, submissionData }),
+        body: JSON.stringify(form),
       })
 
       if (!res.ok) {
@@ -104,14 +101,14 @@ export function ContactForm({ formId }: { formId: number | null }) {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-1.5">
-          <label htmlFor="organisation" className="text-sm font-semibold text-foreground">
+          <label htmlFor="organization" className="text-sm font-semibold text-foreground">
             {t('orgLabel')} <span className="text-muted-foreground font-normal">{t('orgOptional')}</span>
           </label>
           <input
-            id="organisation"
-            name="organisation"
+            id="organization"
+            name="organization"
             type="text"
-            value={form.organisation}
+            value={form.organization}
             onChange={handleChange}
             placeholder={t('orgPlaceholder')}
             className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-lime transition"
@@ -152,6 +149,19 @@ export function ContactForm({ formId }: { formId: number | null }) {
           onChange={handleChange}
           placeholder={t('messagePlaceholder')}
           className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-lime transition resize-none"
+        />
+      </div>
+
+      <div aria-hidden="true" className="absolute -left-[9999px]">
+        <label htmlFor="website">Website (leave blank)</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.website}
+          onChange={handleChange}
         />
       </div>
 
