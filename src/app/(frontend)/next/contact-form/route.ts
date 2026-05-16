@@ -13,9 +13,9 @@ type SubmissionBody = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export async function POST(req: NextRequest) {
-  const baseUrl = process.env.NOCODB_URL
-  const tableId = process.env.NOCODB_TABLE_ID
-  const token = process.env.NOCODB_TOKEN
+  const baseUrl = process.env.NOCODB_BASE_URL
+  const tableId = process.env.NOCODB_CONTACT_TABLE_ID
+  const token = process.env.NOCODB_API_TOKEN
 
   if (!baseUrl || !tableId || !token) {
     return Response.json(
